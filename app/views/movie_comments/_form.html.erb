@@ -1,0 +1,27 @@
+<%= form_for(@movie_comment) do |f| %>
+  <% if @movie_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movie_comment.errors.count, "error") %> prohibited this movie_comment from being saved:</h2>
+
+      <ul>
+      <% @movie_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_area :message %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="field">
+    <%=# f.hidden_field :movie_id, :value => params[:movie_id] %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

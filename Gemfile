@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -38,3 +38,12 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# new gems
+gem 'devise'
+gem 'foundation-rails'
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'rails4-autocomplete'
+gem 'instagram'
+gem 'will_paginate', '~> 3.0.6'
+gem 'youtube_it'
