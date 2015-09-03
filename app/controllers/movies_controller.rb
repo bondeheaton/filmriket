@@ -5,11 +5,14 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    @rating = Rating.new
+    @ratings = Rating.where("movie_id = ?", params[:id])
     respond_with(@movies)
   end
 
   def show
-    respond_with(@movie)
+    @rating = Rating.new
+    @ratings = Rating.where("movie_id = ?", params[:id])
   end
 
   def new
