@@ -1,4 +1,5 @@
 class ClubsController < ApplicationController
+  autocomplete :club, :name
   before_action :set_club, only: [:show, :edit, :update, :destroy]
 
   respond_to :html

@@ -6,4 +6,13 @@ module ApplicationHelper
   def users
     @users = User.all
   end
+
+  def clubs
+    @clubs = Club.all
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+
 end

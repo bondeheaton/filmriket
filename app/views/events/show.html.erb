@@ -10,5 +10,20 @@
   <%= @event.description %>
 </p>
 
+<p>
+  <strong>Deltagande klubbar:</strong>
+  <% @event.clubs.each do |club| %>
+    <%= club.name %>
+  <% end %>
+</p>
+<%= render partial: 'delete_user' %>
+
+<br><br>
+
+<div id="club_members">
+  <%= render partial: 'users' %>
+</div>
+</div>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150903140613) do
+ActiveRecord::Schema.define(version: 20150904113240) do
 
   create_table "club_movies", force: true do |t|
     t.string   "title"
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 20150903140613) do
   end
 
   create_table "participants", force: true do |t|
-    t.integer  "event_id"
     t.integer  "club_id"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @not_approved_users = User.where(access: nil)
+    @approved_users = User.where(access: 1)
+    @admin_users = User.where(access: 2)
   end
 
   # GET /users/1
@@ -61,7 +64,83 @@ class UsersController < ApplicationController
     end
   end
 
+  def approve
+    @not_approved_users = User.where(access: nil)
+    @approved_users = User.where(access: 1)
+    @admin_users = User.where(access: 2)
+    @user = User.find(params[:id])
+    @user.update_attributes(:access => 1)
+    respond_to do |format|
+      if @user.update(:access => 1)
+        format.js
+      else
+        format.js
+      end
+    end
+  end
+
+  def admin_approve
+    @not_approved_users = User.where(access: nil)
+    @approved_users = User.where(access: 1)
+    @admin_users = User.where(access: 2)
+    @user = User.find(params[:id])
+    @user.update_attributes(:access => 2)
+    respond_to do |format|
+      if @user.update(:access => 2)
+        format.js
+      else
+        format.js
+      end
+    end
+  end
+
+  def disapprove
+    @not_approved_users = User.where(access: nil)
+    @approved_users = User.where(access: 1)
+    @admin_users = User.where(access: 2)
+    @user = User.find(params[:id])
+    @user.update_attributes(:access => nil)
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def ajax_on_users
+    if params[:term] != ""
+      @not_approved_users = User.where("access = ? AND firstname LIKE ? OR lastname LIKE ? AND access IS ?",nil, "%#{params[:term]}%", "% #{params[:term]}%",nil)
+      @approved_users = User.where("access = ? AND firstname LIKE ? OR lastname LIKE ? AND access = ?",1, "%#{params[:term]}%", "% #{params[:term]}%",1)
+      @admin_users = User.where("access = ? AND firstname LIKE ? OR lastname LIKE ? AND access = ?",2, "%#{params[:term]}%", "% #{params[:term]}%",2)
+    else
+      @not_approved_users = User.where(access: nil)
+      @approved_users = User.where(access: 1)
+      @admin_users = User.where(access: 2)
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def disapprove_all
+    @not_approved_users = User.where(access: nil)
+    @approved_users = User.where(access: 1)
+    @admin_users = User.where(access: 2)
+    @users = User.where(access: 1)
+    @users.each do |user|
+      user.update_attributes(:access => nil)
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
+
+    def get_data
+      @not_approved_users = User.where(access: nil)
+      @approved_users = User.where(access: 1)
+      @admin_users = User.where(access: 2)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])

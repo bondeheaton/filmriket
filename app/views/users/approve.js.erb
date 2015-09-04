@@ -1,0 +1,13 @@
+$("#not_approved").html("<%= escape_javascript(render(:partial => "not_approved")) %>");
+$("#approved").html("<%= escape_javascript(render(:partial => "approve")) %>");
+$("#admin_approved").html("<%= escape_javascript(render(:partial => "admin_approve")) %>");
+$(".users_box .access").click(function(e) {
+    e.preventDefault();
+    $.ajax({
+        url: $(this).attr("href"),
+        method: "PUT",
+        success: function(){
+
+        }
+    })
+});
