@@ -1,9 +1,37 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
+  resources :events
+
+  resources :news
+
+  resources :ratings
+
+  resources :reviews do
+    get 'upload'
+    patch 'attach'
+    get 'attach'
+    get 'approve_review', to: 'reviews'
+  end
+
+  resources :club_movies
+
+  resources :movie_comments
+
+  resources :movies
+
+  resources :clubs
+
+  devise_for :users
+  resources :users
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

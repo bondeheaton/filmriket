@@ -1,0 +1,29 @@
+<h1>Listing movie_comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Message</th>
+      <th>User</th>
+      <th>Movie</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movie_comments.each do |movie_comment| %>
+      <tr>
+        <td><%= movie_comment.message %></td>
+        <td><%= movie_comment.user %></td>
+        <td><%= movie_comment.movie %></td>
+        <td><%= link_to 'Show', movie_comment %></td>
+        <td><%= link_to 'Edit', edit_movie_comment_path(movie_comment) %></td>
+        <td><%= link_to 'Destroy', movie_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Movie comment', new_movie_comment_path %>

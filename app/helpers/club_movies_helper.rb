@@ -1,0 +1,2 @@
+module ClubMoviesHelper
+end
