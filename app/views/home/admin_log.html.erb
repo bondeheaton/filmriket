@@ -1,0 +1,25 @@
+<br><br>
+RECENSIONER
+<p>
+  <% @reviews.each do |review| %>
+    <%= review.title %>
+  <% end %>
+</p>
+
+<br>
+
+KLUBBFILMER
+<p>
+  <% @club_movies.each do |club| %>
+    <%= club.title %>
+  <% end %>
+</p>
+
+<br>
+
+KOMMENTARER
+<p>
+  <% @movie_comments.each do |comment| %>
+    <%= comment.message %><br>
+  <% end %>
+</p>

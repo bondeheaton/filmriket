@@ -1,7 +1,8 @@
 class Movie < ActiveRecord::Base
-  has_many :comments
+  has_many :movie_comments
   has_many :ratings
   has_many :reviews
+  has_many :bookings
 
   def average_rating
     @rating = "-"

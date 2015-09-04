@@ -48,7 +48,14 @@
       <%= f.label :access %><br>
       <%= f.number_field :access %>
     </div>
-
+    <div class="field">
+      <%= f.label :status %><br>
+      <%= f.select(:status, options_for_select(status_values)) %>
+    </div>
+    <div class="field">
+      <%= f.label :statusmessage %><br>
+      <%= f.text_field :statusmessage %>
+    </div>
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
@@ -61,6 +68,8 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
+    <%= f.check_box :agreement %>
+    <%= link_to "Användaravtal", '/filmclub.pdf', target: "_blank"%>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  resources :bookings
+
   get 'home/index'
+
+  get 'home/admin_log'
 
   resources :events do
     get :autocomplete_club_name, :on => :collection
@@ -41,6 +45,8 @@ Rails.application.routes.draw do
       put 'disapprove_all'
     end
   end
+
+
 
 
 
