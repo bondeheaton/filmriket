@@ -20,5 +20,6 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_up) << :status
       devise_parameter_sanitizer.for(:sign_up) << :statusmessage
       devise_parameter_sanitizer.for(:sign_up) << :agreement
+      devise_parameter_sanitizer.for(:sign_up) << :points
     end
 end
