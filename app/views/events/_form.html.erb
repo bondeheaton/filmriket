@@ -19,6 +19,10 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+  <div class="field">
+    Deltagande klubbar
+    <%= f.collection_select :club_ids, clubs, :id, :name, {}, { multiple: true, 'style' => 'height:200px' }%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
