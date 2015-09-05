@@ -1,0 +1,34 @@
+<h2>Om oss</h2>
+
+<div id="map" style='width: 800px; height: 400px;'>
+  <script type="text/javascript">
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers(<%=raw @hash.to_json %>)
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          handler.getMap().setZoom(7);
+      });
+      function InfoBox(opts) {
+          google.maps.OverlayView.call(this);
+          this.latlng_ = opts.latlng;
+          this.map_ = opts.map;
+          this.offsetVertical_ = -195;
+          this.offsetHorizontal_ = 0;
+          this.height_ = 165;
+          this.width_ = 266;
+
+          var me = this;
+          this.boundsChangedListener_ =
+                  google.maps.event.addListener(this.map_, "bounds_changed", function() {
+                      return me.panMap.apply(me);
+                  });
+
+          // Once the properties of this OverlayView are initialized, set its map so
+          // that we can display it.  This will trigger calls to panes_changed and
+          // draw.
+          this.setMap(this.map_);
+      }
+      InfoBox.prototype = new google.maps.OverlayView();
+  </script>
+</div>

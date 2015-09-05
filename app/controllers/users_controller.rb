@@ -5,9 +5,17 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+
     @not_approved_users = User.where(access: nil)
     @approved_users = User.where(access: 1)
     @admin_users = User.where(access: 2)
+
+    @users_join_club = User.where(status: 1)
+    @users_start_club = User.where(status: 2)
+    @users_looking_for_club = User.where(status: 3)
+    @users_left_club = User.where(status: 4)
+    @users_with_club = User.where(status: 5)
+
   end
 
   # GET /users/1
@@ -45,8 +53,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.html { redirect_to root_path, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: root_path }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -148,6 +156,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:firstname, :lastname, :personalnumber, :phonenumber, :avatar, :adress, :city, :zipcode, :parentmail, :access, :agreement, :points)
+      params.require(:user).permit(:firstname, :lastname, :personalnumber, :phonenumber, :avatar, :adress, :city, :zipcode, :parentmail, :access, :agreement, :points, :status, :club_id)
     end
 end

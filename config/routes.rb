@@ -6,9 +6,10 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'home/index'
+  #get 'home/index'
 
-  get 'home/admin_log'
+  get '/admin_log', :controller => 'home', :action => 'admin_log'
+  get '/about', :controller => 'home', :action => 'about'
 
   resources :events do
     get :autocomplete_club_name, :on => :collection

@@ -2,7 +2,7 @@ class ClubsController < ApplicationController
   autocomplete :club, :name
   before_action :set_club, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :js
 
   def index
     @clubs = Club.all
@@ -11,6 +11,9 @@ class ClubsController < ApplicationController
 
   def show
     @clubs = Club.all
+    #@club = Club.find(params[:id])
+    #@users = @club.users
+    @user = current_user
 
     @verifiedclubs = []
 
@@ -42,16 +45,32 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     @club.save
+    @users = @club.users
+    @users.each do |user|
+      user.update_attributes(:status => 5)
+    end
     respond_with(@club)
   end
 
   def update
+    @current_users = @club.users
+    @current_users.each do |user|
+      user.update_attributes(:status => 4)
+    end
     @club.update(club_params)
+    @users = @club.users
+    @users.each do |user|
+      user.update_attributes(:status => 5)
+    end
     respond_with(@club)
   end
 
   def destroy
     @club.destroy
+    @users = @club.users
+    @users.each do |user|
+      user.update_attributes(:status => 4)
+    end
     respond_with(@club)
   end
 

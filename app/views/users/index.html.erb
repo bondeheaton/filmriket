@@ -68,4 +68,42 @@
 
   <%= link_to "Neka all", disapprove_all_user_path(current_user.id), :class => "access"  %>
 
+
+  <br><br>
+
+  <h1>Status</h1>
+
+  <h2>Vill gå med i klubb</h2>
+  <% @users_join_club.each do |user| %>
+      <%= user.email %> -
+      <%= user.statusmessage %>
+      <br>
+  <% end %>
+
+  <h2>Vill starta klubb</h2>
+  <% @users_start_club.each do |user| %>
+      <%= user.email %> -
+      <%= user.statusmessage %>
+      <br>
+  <% end %>
+
+  <h2>Letar klubb</h2>
+  <% @users_looking_for_club.each do |user| %>
+      <%= user.email %> -
+      <%= user.statusmessage %>
+      <br>
+  <% end %>
+
+  <h2>Gått ur klubb</h2>
+  <% @users_left_club.each do |user| %>
+      <%= user.email %>
+      <br>
+  <% end %>
+
+  <h2>Är med i klubb</h2>
+  <% @users_with_club.each do |user| %>
+      <%= user.email %>
+      <br>
+  <% end %>
+
 </div>
