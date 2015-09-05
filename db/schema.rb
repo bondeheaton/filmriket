@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904113240) do
+ActiveRecord::Schema.define(version: 20150904190314) do
+
+  create_table "bookings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "movie_id"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bookings", ["movie_id"], name: "index_bookings_on_movie_id"
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
   create_table "club_movies", force: true do |t|
     t.string   "title"
@@ -34,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150904113240) do
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "banner"
   end
 
   create_table "events", force: true do |t|
@@ -133,6 +145,10 @@ ActiveRecord::Schema.define(version: 20150904113240) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "club_id"
+    t.integer  "status"
+    t.string   "statusmessage"
+    t.integer  "points"
+    t.boolean  "agreement"
   end
 
   add_index "users", ["club_id"], name: "index_users_on_club_id"
