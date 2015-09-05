@@ -42,16 +42,32 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     @club.save
+    @users = @club.users
+    @users.each do |user|
+      user.update_attributes(:status => 5)
+    end
     respond_with(@club)
   end
 
   def update
+    @current_users = @club.users
+    @current_users.each do |user|
+      user.update_attributes(:status => 4)
+    end
     @club.update(club_params)
+    @users = @club.users
+    @users.each do |user|
+      user.update_attributes(:status => 5)
+    end
     respond_with(@club)
   end
 
   def destroy
     @club.destroy
+    @users = @club.users
+    @users.each do |user|
+      user.update_attributes(:status => 4)
+    end
     respond_with(@club)
   end
 
