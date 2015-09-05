@@ -8,4 +8,27 @@ class HomeController < ApplicationController
     @club_movies = ClubMovie.all
     @movie_comments = MovieComment.all
   end
+
+  def about
+    @clubs = Club.all
+
+    @verifiedclubs = []
+
+    @clubs.each do |club|
+      if club.longitude
+        @verifiedclubs.push(club)
+
+      end
+    end
+
+    @hash = Gmaps4rails.build_markers(@verifiedclubs) do |club, marker|
+      marker.lat club.latitude
+      marker.lng club.longitude
+
+      marker.infowindow "#{view_context.link_to club.name, club_path(club)}"
+
+    end
+
+  end
+
 end
