@@ -1,7 +1,13 @@
 
 <p id="notice"><%= notice %></p>
 
+<div id="banner" style="background: <%= @club.banner %>;"></div>
 
+<%= render partial: 'banner' %>
+
+<br>
+<%= @club.banner %>
+<br>
 <p>
   <strong>Name:</strong>
   <%= @club.name %>
@@ -22,9 +28,17 @@
   <%= @club.zipcode %>
 </p>
 
+<strong>Medlemmar</strong><br>
 <% @club.users.each do |user| %>
     <%= user.email %><br>
 <% end %>
+<br>
+<strong>Events</strong><br>
+<%@club.events.each do |event| %>
+    Namn: <%= event.title %><br>
+    Beskrivning: <%= event.description %>
+<% end %>
+
 <br><br>
 Lat: <%= @club.latitude %><br>
 Long: <%= @club.longitude %><br>

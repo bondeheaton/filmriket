@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  resources :bookings
+
   get 'home/index'
 
-  resources :events
+  get 'home/admin_log'
+
+  resources :events do
+    get :autocomplete_club_name, :on => :collection
+    member do
+      put 'add_club'
+      put 'delete_club'
+    end
+  end
 
   resources :news
 
@@ -20,10 +30,23 @@ Rails.application.routes.draw do
 
   resources :movies
 
-  resources :clubs
+  resources :clubs do
+    get :autocomplete_club_name, :on => :collection
+  end
 
   devise_for :users
-  resources :users
+
+  resources :users do
+    get :ajax_on_users, :on => :collection
+    member do
+      put 'approve'
+      put 'admin_approve'
+      put 'disapprove'
+      put 'disapprove_all'
+    end
+  end
+
+
 
 
 

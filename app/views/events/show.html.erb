@@ -10,5 +10,12 @@
   <%= @event.description %>
 </p>
 
+<p>
+  <strong>Deltagande klubbar:</strong>
+  <% @event.clubs.each do |club| %>
+    <%= club.name %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

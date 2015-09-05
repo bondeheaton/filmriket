@@ -1,44 +1,71 @@
-<h1>Listing users</h1>
+<head xmlns="http://www.w3.org/1999/html">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</head>
 
-<table>
-  <thead>
+<p id="notice"><%= notice %></p>
+<div class="users_box">
+  <h1>Väntar på godkännade:</h1>
+
+  <table>
+
+    <thead>
     <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Personalnumber</th>
-      <th>Phonenumber</th>
-      <th>Avatar</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Zipcode</th>
-      <th>Parentmail</th>
-      <th>Access</th>
+      <th>Förnamn</th>
+      <th>Efternamn</th>
+      <th>Email</th>
+      <th>Behörighet</th>
+      <th>Postnummer</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.firstname %></td>
-        <td><%= user.lastname %></td>
-        <td><%= user.personalnumber %></td>
-        <td><%= user.phonenumber %></td>
-        <td><%= user.avatar %></td>
-        <td><%= user.address %></td>
-        <td><%= user.city %></td>
-        <td><%= user.zipcode %></td>
-        <td><%= user.parentmail %></td>
-        <td><%= user.access %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody id="not_approved">
+    <%= render 'users/not_approved' %>
+    </tbody>
+  </table>
+  <h1 class="users_h1">Godkända Användare:</h1>
 
-<br>
+  <table>
+    <thead>
+    <tr>
+      <th>Förnamn</th>
+      <th>Efternamn</th>
+      <th>Email</th>
+      <th>Behörighet</th>
+      <th>Postnummer</th>
+      <th>Poäng</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
 
-<%= link_to 'New User', new_user_path %>
+
+    <tbody id="approved">
+    <%= render 'users/approve' %>
+    </tbody>
+  </table>
+  <h1 class="users_h1">Admin-Användare:</h1>
+
+
+  <table>
+
+    <thead>
+    <tr>
+      <th>Förnamn</th>
+      <th>Efternamn</th>
+      <th>Email</th>
+      <th>Behörighet</th>
+      <th>Postnummer</th>
+      <th>Poäng</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody id="admin_approved">
+    <%= render 'users/admin_approve'%>
+    </tbody>
+  </table>
+  <br>
+
+  <%= link_to "Neka all", disapprove_all_user_path(current_user.id), :class => "access"  %>
+
+</div>

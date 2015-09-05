@@ -1,3 +1,212 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//registrera
+
+$button-color: #373737;
+$border-rgba: rgba(113, 113, 113, 0.9);
+
+div.field{
+
+  input{
+    width: 190px;
+    height: 20px;
+    margin-top: 20px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 0;
+    border: 1px solid rgba(0,0,0,0.3);
+  }
+
+  input:focus{
+    border: 1px solid lime;
+  }
+}
+
+tr{
+  td{
+
+    a.login-button {
+      background: $button-color;
+      display: block;
+      width: 50px;
+      height: 30px;
+      line-height: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1em;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      color: white;
+      font-family: sans-serif;
+      text-decoration: none;
+      vertical-align: middle;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0);
+    }
+
+    a.login-button:hover{
+      background: #ffffff;
+      color: $button-color;
+      border: 1px solid $border-rgba;
+      box-shadow: 0px 0px 10px 0px gray inset;
+    }
+
+    a.login-button:active {
+      color: black;
+    }
+  }
+}
+
+div.field{
+
+  input.user-edit{
+    width: 190px;
+    height: 20px;
+    margin-top: 5px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 0;
+    border: 1px solid rgba(0,0,0,0.3);
+  }
+
+  input.user-edit:focus{
+    border: 1px solid lime;
+  }
+}
+
+form#search_user_form{
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 40px;
+
+  input#search_user{
+    width: 789px;
+    height: 30px;
+    font-size: 18px;
+    padding: 5px;
+    border: 1px solid rgba(80,80,80,0.5);
+    border-radius: 3px;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+  }
+
+  input#search_user:focus{
+    border: 1px solid lime;
+  }
+}
+
+div.regristrerawrap{
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+
+  div.field3{
+    width: 100%;
+
+    input{
+      width: 190px;
+      height: 20px;
+      margin-top: 20px;
+      font-size: 15px;
+      padding: 5px;
+      border-radius: 3px;
+      border: 0;
+      border: 1px solid rgba(0,0,0,0.3);
+    }
+    input:focus{
+      border: 1px solid lime;
+    }
+  }
+
+  a{
+    text-decoration: none;
+    color: green;
+  }
+
+  a:hover{
+    text-decoration: underline;
+    color: blue;
+  }
+
+  a:visited{
+    color: none;
+  }
+}
+
+div.actions{
+  input.login-button {
+    background: $button-color;
+    padding: 6px 30px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: white;
+    font-size: 17px;
+    font-family: sans-serif;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0);
+    width: 202px;
+  }
+
+  input.login-button:hover {
+    background: #ffffff;
+    color: $button-color;
+    border: 1px solid $border-rgba;
+    box-shadow: 0px 0px 10px 0px gray inset;
+  }
+
+  input.login-button:active {
+    color: black;
+  }
+  input.login-button:focus {
+    outline: none;
+    color: black;
+  }
+}
+
+.users_box{
+  h1{
+    text-align: center;
+  }
+  .users_h1{
+    padding-top: 50px;
+  }
+  thead, tbody{
+    tr{
+      th, td{
+        padding: 5px;
+        text-align: left;
+      }
+
+    }
+  }
+}
+
+.users-widt{
+  float:left;
+  height: 250px;
+  width: 50px;
+}
+
+.users_edit{
+  text-align: center;
+}
+
+@media only screen and (max-width: 1060px){
+  form#search_user_form{
+
+    input#search_user{
+      width: 90%;
+    }
+  }
+}

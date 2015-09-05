@@ -13,6 +13,9 @@ class MoviesController < ApplicationController
   def show
     @rating = Rating.new
     @ratings = Rating.where("movie_id = ?", params[:id])
+    @movie = Movie.find(params[:id])
+    @booking = Booking.new
+    @bookings = @movie.bookings
   end
 
   def new

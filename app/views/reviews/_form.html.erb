@@ -25,8 +25,7 @@
     <%= f.collection_select :movie_id, movies_to_pick, :id, :title, {multiple: true, 'style' => 'height:100px, width:100px'} %></p>
   </div>
   <div class="field">
-    <%= f.label :videolink %><br>
-    <%= f.text_field :videolink %>
+    <%= f.hidden_field :videolink %>
   </div>
   <div class="field">
     <%= f.hidden_field :active, :value => 1 %>
