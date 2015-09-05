@@ -34,4 +34,20 @@ module ApplicationHelper
     return @count.inject(:+)
   end
   
+  def check_already_booked(movieid)
+    @already_booked = false
+    @user = current_user
+    @club = @user.club
+    @members = @club.users
+    @members.each do |member|
+      @bookings = member.bookings
+      @bookings.each do |book|
+        if book.movie_id == movieid
+          @already_booked = true
+        end
+      end
+    end
+    return @already_booked
+  end
+  
 end

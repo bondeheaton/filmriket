@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :bookings
+  
+  resources :bookings do
+    member do
+      put 'book'
+    end
+  end
 
   get 'home/index'
 

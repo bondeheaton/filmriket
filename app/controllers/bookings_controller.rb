@@ -25,12 +25,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     if club_bookings(@userclub) < 3
       @booking.save
-      respond_with(@booking)
     else
-      respond_with(@booking)
     end
+    respond_with(@booking)
   end
-
+  
+  
   def update
     @booking.update(booking_params)
     respond_with(@booking)
