@@ -11,6 +11,9 @@ class ClubsController < ApplicationController
 
   def show
     @clubs = Club.all
+    #@club = Club.find(params[:id])
+    #@users = @club.users
+    @user = current_user
 
     @verifiedclubs = []
 

@@ -47,7 +47,7 @@ Long: <%= @club.longitude %><br>
 <%= link_to 'Back', clubs_path %>
 
 <br>
-LÄMNA KLUBB
+<%= render partial: 'users/leave_club' %>
 <br><br>
 
   <div id="map" style='width: 800px; height: 400px;'>
