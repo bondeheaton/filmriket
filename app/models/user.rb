@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
   has_many :movie_comments
   has_many :reviews
   has_many :ratings
-  has_one :bookings
+  has_many :bookings
 end

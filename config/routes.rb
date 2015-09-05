@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :bookings
+  
+  resources :bookings do
+    member do
+      put 'book'
+    end
+  end
 
   #get 'home/index'
 
@@ -25,7 +30,12 @@ Rails.application.routes.draw do
     get 'approve_review', to: 'reviews'
   end
 
-  resources :club_movies
+  resources :club_movies do
+    get 'upload'
+    patch 'attach'
+    get 'attach'
+    get 'approve_club_movie', to: 'club_movies'
+  end
 
   resources :movie_comments
 

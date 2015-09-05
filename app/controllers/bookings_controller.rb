@@ -21,11 +21,16 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @userclub = Club.find(User.find(current_user.id).club_id)
     @booking = Booking.new(booking_params)
-    @booking.save
+    if club_bookings(@userclub) < 3
+      @booking.save
+    else
+    end
     respond_with(@booking)
   end
-
+  
+  
   def update
     @booking.update(booking_params)
     respond_with(@booking)
