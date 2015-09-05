@@ -27,7 +27,22 @@
     </div>
     <div class="field">
       <%= f.label :avatar %><br>
-      <%= f.text_field :avatar %>
+      <img src="http://filmriket.nu/img/avatar1.png" id="thumb" alt="avatar" width="100" height="100">
+      <%= f.radio_button(:avatar, 'avatar1') %>
+      <br>
+      <img src="http://filmriket.nu/img/avatar2.png" id="thumb" alt="avatar" width="100" height="100">
+      <%= f.radio_button :avatar, 'avatar2' %>
+      <br>
+      <img src="http://filmriket.nu/img/avatar3.png" id="thumb" alt="avatar" width="100" height="100">
+      <%= f.radio_button :avatar, 'avatar3' %>
+      <br>
+      <img src="http://filmriket.nu/img/avatar4.png" id="thumb" alt="avatar" width="100" height="100">
+      <%= f.radio_button :avatar, 'avatar4' %>
+      <br>
+      <img src="http://filmriket.nu/img/avatar5.png" id="thumb" alt="avatar" width="100" height="100">
+      <%= f.radio_button :avatar, 'avatar5' %>
+      <br>
+
     </div>
     <div class="field">
       <%= f.label :address %><br>

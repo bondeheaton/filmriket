@@ -11,6 +11,7 @@
 <p>
   <strong>Name:</strong>
   <%= @club.name %>
+  <%= club_bookings(@club)%>
 </p>
 
 <p>
@@ -46,6 +47,8 @@ Long: <%= @club.longitude %><br>
 <%= link_to 'Edit', edit_club_path(@club) %> |
 <%= link_to 'Back', clubs_path %>
 
+<br>
+<%= render partial: 'users/leave_club' %>
 <br><br>
 
   <div id="map" style='width: 800px; height: 400px;'>

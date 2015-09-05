@@ -13,6 +13,7 @@
 <p>
   <strong>Personalnumber:</strong>
   <%= @user.personalnumber %>
+  <%= @user.bookings.count %>
 </p>
 
 <p>
@@ -21,8 +22,7 @@
 </p>
 
 <p>
-  <strong>Avatar:</strong>
-  <%= @user.avatar %>
+  <img src="http://filmriket.nu/img/<%= @user.avatar %>.png" id="thumb" alt="avatar" width="150" height="150">
 </p>
 
 <p>
