@@ -24,4 +24,14 @@ module ApplicationHelper
     @banner_colors = [["red", "red"], ["blue", "blue"], ["black", "black"], ["grey", "grey"], ["green", "green"]]
     return @banner_colors
   end
+  
+  def club_bookings(club)
+    @count = []
+    @members = club.users
+    @members.each do |member|
+      @count.push(member.bookings.count)
+    end
+    return @count.inject(:+)
+  end
+  
 end
