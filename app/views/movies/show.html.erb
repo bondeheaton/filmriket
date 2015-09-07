@@ -355,6 +355,9 @@
       <!-- Stars 0 -->
     </div>
   </div>
+  <!-- If-sats för att kolla om användaren har klubb, om inte kan han ej boka (annars kan ej användare se filmen)-->
+
+  <% if current_user.club %>
   <%= render partial: 'bookings/form' %>
   <button id="booked_button">bokad</button>
   <% if check_already_booked(@movie.id) %>
@@ -377,6 +380,8 @@
 				
 		<% end %>
 	<% end %>
+    <% else %>
+    <% end %>
 		
 
 <br>

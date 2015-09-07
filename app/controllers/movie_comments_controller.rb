@@ -32,8 +32,6 @@ class MovieCommentsController < ApplicationController
     @movie_comments = MovieComment.where('movie_id = ?', params[:movie_comment][:movie_id]).reverse
     respond_to do |format|
       format.js
-      format.html
-      format.json
     end
   end
 
