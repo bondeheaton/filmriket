@@ -355,32 +355,33 @@
       <!-- Stars 0 -->
     </div>
   </div>
-  <!-- If-sats för att kolla om användaren har klubb, om inte kan han ej boka (annars kan ej användare se filmen)-->
+  <!-- If-sats för att kolla om användaren har klubb, om inte kan han ej boka (annars kan ej användare se filmen)
+  , behövs det inte? Ta bort if current_user.club_id-->
 
-  <% if current_user.club %>
-  <%= render partial: 'bookings/form' %>
-  <button id="booked_button">bokad</button>
-  <% if check_already_booked(@movie.id) %>
-	<script>
-	    $(document).ready(function() {
-			$("#book_button").hide();
-			$("#booked_button").show();
-		});
-	</script>
-	<% else%>
-		<% if (club_bookings(Club.find(current_user.club_id)) > 2) %>
-			<script>
-			$(document).ready(function() {
-				$("#book_button").hide();
-				$("#booked_button").show();
-				$("#booked_button").html("3bok");
-			});
-			</script>
-			<% else %>
-				
-		<% end %>
-	<% end %>
-    <% else %>
+  <% if current_user.club_id %>
+      <%= render partial: 'bookings/form' %>
+      <button id="booked_button">bokad</button>
+      <% if check_already_booked(@movie.id) %>
+        <script>
+            $(document).ready(function() {
+                $("#book_button").hide();
+                $("#booked_button").show();
+            });
+        </script>
+        <% else%>
+            <% if (club_bookings(Club.find(current_user.club_id)) > 2) %>
+                <script>
+                $(document).ready(function() {
+                    $("#book_button").hide();
+                    $("#booked_button").show();
+                    $("#booked_button").html("3bok");
+                });
+                </script>
+                <% else %>
+
+            <% end %>
+        <% end %>
+        <% else %>
     <% end %>
 		
 
