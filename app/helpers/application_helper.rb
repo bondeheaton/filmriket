@@ -49,5 +49,13 @@ module ApplicationHelper
     end
     return @already_booked
   end
+
+  def comment_user_name(id)
+    return User.find(id).firstname
+  end
+
+  def comment_user_avatar(id)
+    return User.find(id).avatar
+  end
   
 end

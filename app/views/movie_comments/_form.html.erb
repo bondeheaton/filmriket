@@ -1,4 +1,4 @@
-<%= form_for(@movie_comment) do |f| %>
+<%= form_for(@movie_comment, :url => create_comment_movie_comment_path) do |f| %>
   <% if @movie_comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@movie_comment.errors.count, "error") %> prohibited this movie_comment from being saved:</h2>

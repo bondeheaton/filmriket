@@ -380,5 +380,16 @@
 		
 
 <br>
+  <div class="comments_wraper_m">
+    <% if user_signed_in? %>
+        <%= render 'movie_comments/form' %>
+        <div id="comment_list">
+          <%= render 'movie_comments/list' %>
+        </div>
+    <% end %>
+  </div>
+
+
+<br>
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

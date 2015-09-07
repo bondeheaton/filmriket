@@ -16,6 +16,8 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @booking = Booking.new
     @bookings = @movie.bookings
+    @movie_comment = MovieComment.new
+    @movie_comments = MovieComment.where("movie_id = ?", params[:id]).reverse
   end
 
   def new
