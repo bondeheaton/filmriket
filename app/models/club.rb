@@ -4,4 +4,10 @@ class Club < ActiveRecord::Base
   has_many :users
   has_many :participants
   has_many :events, :through => :participants
+  
+  
+  def self.score(club)
+    @users = club.users
+    return @users.first
+  end
 end

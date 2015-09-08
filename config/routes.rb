@@ -37,7 +37,11 @@ Rails.application.routes.draw do
     get 'approve_club_movie', to: 'club_movies'
   end
 
-  resources :movie_comments
+  resources :movie_comments do
+    member do
+      post 'create_comment'
+    end
+  end
 
   resources :movies
 

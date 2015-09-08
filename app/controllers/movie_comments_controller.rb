@@ -1,7 +1,7 @@
 class MovieCommentsController < ApplicationController
   before_action :set_movie_comment, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :js, :html, :json
 
   def index
     @movie_comments = MovieComment.all
@@ -24,6 +24,15 @@ class MovieCommentsController < ApplicationController
     @movie_comment = MovieComment.new(movie_comment_params)
     @movie_comment.save
     respond_with(@movie_comment)
+  end
+
+  def create_comment
+    @movie_comment = MovieComment.new(movie_comment_params)
+    @movie_comment.save
+    @movie_comments = MovieComment.where('movie_id = ?', params[:movie_comment][:movie_id]).reverse
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
