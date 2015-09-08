@@ -20,8 +20,7 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :videolink %><br>
-    <%= f.text_field :videolink %>
+    <%= f.hidden_field :videolink, :value => "inactive" %>
   </div>
   <div class="field">
     <%= f.label :active %><br>

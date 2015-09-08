@@ -69,13 +69,17 @@ module ApplicationHelper
     end
     @users.each do |user|
       if user.reviews
-        @achievement_score.push(user.reviews.count)
+        @achievement_score.push(user.reviews.where.not(videolink: "inactive").count)
       end
       if user.club_movies
-        @achievement_score.push(user.club_movies.count)
+        @achievement_score.push(user.club_movies.where.not(videolink: "inactive").count)
       end
     end
     return @achievement_score.inject(:+)
+  end
+  
+  def current_user_helper
+    return current_user
   end
   
 end
