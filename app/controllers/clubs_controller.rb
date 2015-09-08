@@ -11,8 +11,18 @@ class ClubsController < ApplicationController
 
   def show
     @clubs = Club.all
-    #@club = Club.find(params[:id])
-    #@users = @club.users
+    @club = Club.find(params[:id])
+    @users = @club.users
+    @seen_movies = []
+
+    @users.each do |users|
+      users.ratings.each do |ratings|
+        @seen_movies.push(ratings.movie)
+      end
+    end
+
+    @seen_movies = @seen_movies.uniq
+
     @user = current_user
 
     @verifiedclubs = []

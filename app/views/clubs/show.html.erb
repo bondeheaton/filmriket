@@ -49,6 +49,13 @@
 <% end %>
 
 <br><br>
+
+<% @seen_movies.each do |movie| %>
+    <%= movie.title %>
+    <%= club_seen_movies(movie.id) %><br>
+<% end %>
+
+<br><br>
 Lat: <%= @club.latitude %><br>
 Long: <%= @club.longitude %><br>
 

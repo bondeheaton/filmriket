@@ -81,5 +81,19 @@ module ApplicationHelper
   def current_user_helper
     return current_user
   end
+
+  def club_seen_movies(movie)
+    @club = Club.find(params[:id])
+    @users = @club.users
+    @ratings = [0]
+    @users.each do |user|
+      user.ratings.each do |ratings|
+        if movie == ratings.movie_id
+          @ratings.push(ratings.value)
+        end
+      end
+    end
+    return @ratings.inject(:+)
+  end
   
 end
