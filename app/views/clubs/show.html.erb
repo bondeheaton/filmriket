@@ -6,6 +6,9 @@
 <%= render partial: 'banner' %>
 
 <br>
+
+	
+<%= club_achievement_score(@club)%>
 <%= @club.banner %>
 <br>
 <p>
@@ -32,6 +35,7 @@
 <strong>Medlemmar</strong><br>
 <% @club.users.each do |user| %>
     <%= user.email %><br>
+	<%= user.reviews.count %>
 <% end %>
 <br>
 <strong>Events</strong><br>
