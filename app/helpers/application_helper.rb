@@ -69,13 +69,31 @@ module ApplicationHelper
     end
     @users.each do |user|
       if user.reviews
-        @achievement_score.push(user.reviews.count)
+        @achievement_score.push(user.reviews.where.not(videolink: "inactive").count)
       end
       if user.club_movies
-        @achievement_score.push(user.club_movies.count)
+        @achievement_score.push(user.club_movies.where.not(videolink: "inactive").count)
       end
     end
     return @achievement_score.inject(:+)
+  end
+  
+  def current_user_helper
+    return current_user
+  end
+
+  def club_seen_movies(movie)
+    @club = Club.find(params[:id])
+    @users = @club.users
+    @ratings = [0]
+    @users.each do |user|
+      user.ratings.each do |ratings|
+        if movie == ratings.movie_id
+          @ratings.push(ratings.value)
+        end
+      end
+    end
+    return @ratings.inject(:+)
   end
   
 end

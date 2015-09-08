@@ -30,6 +30,10 @@
 <p>
   <strong>Zipcode:</strong>
   <%= @club.zipcode %>
+  
+  <% @club.uploads.each do |upload|%>
+  <img src="<%= upload.image %>"></img>
+  <% end %>
 </p>
 
 <strong>Medlemmar</strong><br>
@@ -42,6 +46,13 @@
 <%@club.events.each do |event| %>
     Namn: <%= event.title %><br>
     Beskrivning: <%= event.description %>
+<% end %>
+
+<br><br>
+
+<% @seen_movies.each do |movie| %>
+    <%= movie.title %>
+    <%= club_seen_movies(movie.id) %><br>
 <% end %>
 
 <br><br>

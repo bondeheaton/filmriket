@@ -4,6 +4,7 @@ class Club < ActiveRecord::Base
   has_many :users
   has_many :participants
   has_many :events, :through => :participants
+  has_many :uploads
   
   
   def self.score(club)
