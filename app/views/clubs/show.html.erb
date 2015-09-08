@@ -30,6 +30,10 @@
 <p>
   <strong>Zipcode:</strong>
   <%= @club.zipcode %>
+  
+  <% @club.uploads.each do |upload|%>
+  <img src="<%= upload.image %>"></img>
+  <% end %>
 </p>
 
 <strong>Medlemmar</strong><br>

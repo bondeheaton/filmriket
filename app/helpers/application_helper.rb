@@ -78,4 +78,8 @@ module ApplicationHelper
     return @achievement_score.inject(:+)
   end
   
+  def current_user_helper
+    return current_user
+  end
+  
 end

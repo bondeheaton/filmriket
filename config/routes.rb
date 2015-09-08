@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :uploads
+
   resources :bookings do
     member do
       put 'book'
