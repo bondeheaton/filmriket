@@ -42,7 +42,11 @@ class MovieCommentsController < ApplicationController
 
   def destroy
     @movie_comment.destroy
-    respond_with(@movie_comment)
+    if request.referer == admin_log_url
+      redirect_to :back
+    else
+      respond_with(@movie_comment.movie)
+    end
   end
 
   private
