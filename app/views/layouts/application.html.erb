@@ -19,16 +19,23 @@
 <%= link_to "Skapa klubb", new_club_path %><br>
 <%= link_to "Skapa recension", new_review_path %><br>
 <%= link_to "Skapa klubbfilm", new_club_movie_path %><br>
+<%= link_to "Events", events_path %><br>
+<%= link_to "Ladda upp", new_upload_path %><br>
+
 
 
 <%= link_to "Registrera", new_user_registration_path %><br>
 
 <% if current_user %>
-    <%= link_to "Logga ut", destroy_user_session_path, :method => :delete %>
+    <%= link_to "Logga ut", destroy_user_session_path, :method => :delete %><br>
 <% else %>
     <%= link_to "Logga in", new_user_session_path %><br>
 <% end %>
-
+Access:
+<% if current_user %>
+	<%= current_user.access %><br>
+	Club_id:<%= current_user.club_id %>
+<% end %>
 <%= yield %>
 
 </body>

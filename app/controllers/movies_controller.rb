@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_admin!, only: [:edit, :update, :destroy]
   respond_to :html
 
   def index

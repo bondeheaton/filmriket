@@ -18,5 +18,11 @@
 //= require underscore
 //= require gmaps/google
 //= require ckeditor/init
+//= require gallery/touch_touch
 //= require_tree .
+
+
+
+
+
 

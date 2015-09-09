@@ -1,29 +1,54 @@
-<h1>Listing bookings</h1>
+<br>
+
+<div class="bookings_box">
+
+<h1>Bokningsförfrågningar</h1>
 
 <table>
+
   <thead>
-    <tr>
-      <th>User</th>
-      <th>Movie</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr class="b_head">
+    <th class="b_head2">Klubb</th>
+    <th class="b_head2">Film</th>
+  </tr>
   </thead>
 
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.user.club.name %></td>
-        <td><%= booking.movie.title %></td>
-        <td><%= booking.status %></td>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <tbody id="pending_bookings">
+  <%= render partial: 'pending_bookings' %>
   </tbody>
 </table>
 
-<br>
+<h1 class="bookings_h1">Godkända Bokningar</h1>
+  <table>
+
+    <thead>
+    <tr class="b_head">
+      <th class="b_head2">Klubb</th>
+      <th class="b_head2">Film</th>
+    </tr>
+    </thead>
+
+    <tbody id="approved_bookings">
+    <%= render partial: 'approved_bookings' %>
+    </tbody>
+  </table>
+
+  <h1 class="bookings_h1">Arkiverade/klara Bokningar</h1>
+  <table>
+
+    <thead>
+    <tr class="b_head">
+      <th class="b_head2">Klubb</th>
+      <th class="b_head2">Film</th>
+    </tr>
+    </thead>
+
+    <tbody id="bookings_done">
+    <%= render partial: 'bookings_done' %>
+    </tbody>
+  </table>
+
+</div>
+
 
 <%= link_to 'New Booking', new_booking_path %>

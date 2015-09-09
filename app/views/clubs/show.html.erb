@@ -1,15 +1,12 @@
 
 <p id="notice"><%= notice %></p>
 
-<div id="banner" style="background: <%= @club.banner %>;"></div>
-
-<%= render partial: 'banner' %>
 
 <br>
 
 	
-<%= club_achievement_score(@club)%>
-<%= @club.banner %>
+Achievementscore:<%= club_achievement_score(@club)%>
+
 <br>
 <p>
   <strong>Name:</strong>
@@ -23,17 +20,23 @@
 </p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @club.address %>
-</p>
 
 <p>
   <strong>Zipcode:</strong>
-  <%= @club.zipcode %>
+  <%= @club.zipcode %><br>
+
+
+  <strong>Uploads</strong>
+<div id="thumbs">
+
   
   <% @club.uploads.each do |upload|%>
-  <img src="<%= upload.image %>"></img>
+      <% if user_in_club(@club) %>
+        <%= link_to 'Destroy', upload, method: :delete, data: { confirm: "Är du säker?"}%>
+      <% end %>
+      <a href="<%= upload.image %>" style="background-image:url(<%= upload.image %>)" width="100px" height="100px"></a>
   <% end %>
+    </div>
 </p>
 
 <strong>Medlemmar</strong><br>
@@ -56,14 +59,11 @@
 <% end %>
 
 <br><br>
-Lat: <%= @club.latitude %><br>
-Long: <%= @club.longitude %><br>
-
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
 
 <br>
-<%= render partial: 'users/leave_club' %>
+<% if user_in_club(@club) %>
+	<%= render partial: 'users/leave_club' %>
+<% end %>
 <br><br>
 
   <div id="map" style='width: 800px; height: 400px;'>
@@ -72,7 +72,7 @@ Long: <%= @club.longitude %><br>
         handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
             markers = handler.addMarkers(<%=raw @hash.to_json %>)
             handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
+			handler.map.centerOn(markers[0])
             handler.getMap().setZoom(7);
         });
         function InfoBox(opts) {

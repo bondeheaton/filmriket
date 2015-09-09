@@ -8,3 +8,14 @@ $(document).on 'ready page:load', ->
 	  $("#booked_button").show();
   ).on "ajax:error", (e, xhr, status, error) ->
     $("#new_booking").append "error"
+
+
+$(document).on 'ready page:load', -> #document ready innan, byt?
+  $('.bookings_box .access').click (e) ->
+    e.preventDefault()
+    $.ajax
+      url: $(this).attr('href')
+      method: 'PUT'
+      success: ->
+    return
+  return

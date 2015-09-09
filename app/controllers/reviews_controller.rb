@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   respond_to :html
 
@@ -44,7 +45,7 @@ class ReviewsController < ApplicationController
     @lastvideo = @client.my_videos.videos.first
     @review.videolink = params[:id]
     @review.save
-    redirect_to reviews_path
+    redirect_to club_path(current_user.club_id)
 
   end
 
