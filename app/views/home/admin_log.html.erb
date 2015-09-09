@@ -1,33 +1,48 @@
-<br><br>
-RECENSIONER
-<p>
-  <% @reviews.each do |review| %>
-    <%= review.title %>
-  <% end %>
-</p>
+<div class="row">
+   <div class="small-3 columns">
+    <h1 class="admin_header">RECENSIONER</h1>
+    <p>
+      <% @reviews.each do |review| %>
+        <div class="reviews">
+            <b><%= review.user.club.name %></b> har gjort en recension:  <%= link_to review.title, review_path(review.id) %>
+        </div>
+      <% end %>
+    </p>
+   </div>
 
-<br>
+  <div class="small-3 columns">
+    <h1 class="admin_header">KLUBBFILMER</h1>
+    <p>
+      <% @club_movies.each do |club| %>
+        <div class="club_movies">
+            <%= club.title %>
+        </div>
+      <% end %>
+    </p>
+   </div>
 
-KLUBBFILMER
-<p>
-  <% @club_movies.each do |club| %>
-    <%= club.title %>
-  <% end %>
-</p>
+   <div class="small-3 columns">
+    <h1 class="admin_header">KOMMENTARER</h1>
+    <p>
+      <% @movie_comments.each do |comment| %>
+        <div class="comments">
+          <% if comment.user %>
+           <b><%= comment.user.email %></b><% end %> har kommenterat "<%= comment.message %>" på filmen <% if comment.movie %> <%= link_to comment.movie.title, movie_path(comment.movie_id) %><% end %><br>
 
-<br>
+        </div>
+      <% end %>
+    </p>
+    </div>
 
-KOMMENTARER
-<p>
-  <% @movie_comments.each do |comment| %>
-    <%= comment.message %><br>
-  <% end %>
-</p>
+  <div class="small-3 columns end">
+    <h1 class="admin_header">UPPLADNINGAR</h1>
 
-UPPLADNINGAR
-
-<% @uploads.each do |upload| %>
-	<img src="<%= upload.image %>" width="150" height="100" alt="<%= upload.club.name %>"></img>
-	<%= upload.club.name %>
-	<%= link_to 'Destroy', upload, method: :delete, data: { confirm: "Är du säker?"}%>
-<% end %>
+    <% @uploads.each do |upload| %>
+        <div class="uploads">
+          <b><%= upload.club.name %></b> har laddat upp en bild:<br>
+            <img src="<%= upload.image %>" width="150" height="100" alt="<%= upload.club.name %>"></img><br>
+            <%= link_to 'Ta bort', upload, method: :delete, data: { confirm: "Är du säker?"}%>
+        </div>
+    <% end %>
+    </div>
+</div>

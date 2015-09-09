@@ -12,8 +12,8 @@
   <tbody>
     <% @news.each do |news| %>
       <tr>
-        <td><%= news.title %></td>
-        <td><%= news.content %></td>
+        <td><%= news.title.html_safe %></td>
+        <td><%= news.content.html_safe %></td>
         <td><%= link_to 'Show', news %></td>
         <td><%= link_to 'Edit', edit_news_path(news) %></td>
         <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>

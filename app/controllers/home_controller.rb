@@ -25,7 +25,11 @@ class HomeController < ApplicationController
     @hash = Gmaps4rails.build_markers(@verifiedclubs) do |club, marker|
       marker.lat club.latitude
       marker.lng club.longitude
-
+      marker.picture({
+              :url     => "../assets/#{Club.achievement_icon(club)}",
+              :width   => 32,
+              :height  => 32
+              })
       marker.infowindow "#{view_context.link_to club.name, club_path(club)}"
 
     end
