@@ -34,4 +34,11 @@ class ApplicationController < ActionController::Base
       return @count.inject(:+)
     end
     
+    def check_admin!
+      if current_user.access != 2
+        redirect_to new_user_session_path, notice: 'Log-in'
+      end
+    end
+    
+    
 end

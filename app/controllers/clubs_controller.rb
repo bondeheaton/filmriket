@@ -1,6 +1,7 @@
 class ClubsController < ApplicationController
   autocomplete :club, :name
   before_action :set_club, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   respond_to :html, :js
 
@@ -26,11 +27,14 @@ class ClubsController < ApplicationController
     @user = current_user
 
     @verifiedclubs = []
-
+    if @club.longitude
+      @verifiedclubs.push(@club)
+    end
     @clubs.each do |club|
-      if club.longitude
-        @verifiedclubs.push(club)
-
+      unless club == @club
+        if club.longitude
+          @verifiedclubs.push(club)
+        end
       end
     end
 

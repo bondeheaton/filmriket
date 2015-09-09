@@ -1,5 +1,6 @@
 class ClubMoviesController < ApplicationController
   before_action :set_club_movie, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   respond_to :html
 
@@ -42,8 +43,7 @@ class ClubMoviesController < ApplicationController
     @lastvideo = @client.my_videos.videos.first
     @club_movie.videolink = params[:id]
     @club_movie.save
-    redirect_to club_movies_path
-
+    redirect_to club_path(current_user.club_id)
   end
   
 

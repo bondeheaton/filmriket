@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     @reviews = Review.all
     @club_movies = ClubMovie.all
     @movie_comments = MovieComment.all
+    @uploads = Upload.all
   end
 
   def about
