@@ -5,7 +5,39 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
-    respond_with(@bookings)
+    @pending_bookings = Booking.where(status: 0)
+    @approved_bookings = Booking.where(status: 1)
+    @bookings_done = Booking.where(status: 2)
+  end
+
+  def approved_bookings
+    @pending_bookings = Booking.where(status: 0)
+    @approved_bookings = Booking.where(status: 1)
+    @bookings_done = Booking.where(status: 2)
+    @booking = Booking.find(params[:id])
+    @booking.update_attributes(:status => 1)
+    respond_to do |format|
+      if @booking.update(:status => 1)
+        format.js
+      else
+        format.js
+      end
+    end
+  end
+
+  def bookings_done
+    @pending_bookings = Booking.where(status: 0)
+    @approved_bookings = Booking.where(status: 1)
+    @bookings_done = Booking.where(status: 2)
+    @booking = Booking.find(params[:id])
+    @booking.update_attributes(:status => 2)
+    respond_to do |format|
+      if @booking.update(:status => 2)
+        format.js
+      else
+        format.js
+      end
+    end
   end
 
   def show

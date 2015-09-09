@@ -1,0 +1,13 @@
+$("#pending_bookings").html("<%= escape_javascript(render(:partial => "pending_bookings")) %>");
+$("#approved_bookings").html("<%= escape_javascript(render(:partial => "approved_bookings")) %>");
+$("#bookings_done").html("<%= escape_javascript(render(:partial => "bookings_done")) %>");
+$(".bookings_box .access").click(function(e) {
+    e.preventDefault();
+    $.ajax({
+        url: $(this).attr("href"),
+        method: "PUT",
+        success: function(){
+
+        }
+    })
+});

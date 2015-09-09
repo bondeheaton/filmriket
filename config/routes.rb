@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :bookings do
     member do
       put 'book'
+      put 'approved_bookings'
+      put 'bookings_done'
     end
   end
 
