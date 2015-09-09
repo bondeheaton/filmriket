@@ -36,12 +36,11 @@
     <%= f.number_field :published %>
   </div>
   <div class="field">
-    <%= f.label :imglink %><br>
-    <%= f.text_field :imglink %>
+	  <%= f.label :trailerlink %><br>
+      <%= f.text_field :trailerlink %>
   </div>
   <div class="field">
-    <%= f.label :trailerlink %><br>
-    <%= f.text_field :trailerlink %>
+	<%= f.file_field :videocover %>
   </div>
   <div class="actions">
     <%= f.submit %>
