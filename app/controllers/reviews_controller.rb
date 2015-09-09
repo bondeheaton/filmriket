@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
 
   respond_to :html
 
@@ -62,7 +61,9 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    respond_with(@review)
+    respond_to do |format|
+      format.js { render nothing: true }
+    end
   end
 
   private

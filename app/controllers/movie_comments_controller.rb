@@ -42,7 +42,9 @@ class MovieCommentsController < ApplicationController
 
   def destroy
     @movie_comment.destroy
-    respond_with(@movie_comment)
+    respond_to do |format|
+      format.js { render nothing: true }
+    end
   end
 
   private

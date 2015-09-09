@@ -31,3 +31,18 @@ h1.admin_header {
   width: 100%;
   border-bottom: 1px solid #ccc;
 }
+
+p.created {
+  font-size: 9px;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+  margin-top: -35px;
+}
+
+.button-fix {
+  margin-top: 10px;
+  margin-bottom: -5px;
+  width: auto;
+  height: 40px;
+}

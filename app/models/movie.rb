@@ -3,6 +3,7 @@ class Movie < ActiveRecord::Base
   has_many :ratings
   has_many :reviews
   has_many :bookings
+  mount_uploader :videocover, VideocoverUploader
 
   def average_rating
     @rating = "-"

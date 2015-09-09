@@ -60,7 +60,9 @@ class ClubMoviesController < ApplicationController
 
   def destroy
     @club_movie.destroy
-    respond_with(@club_movie)
+    respond_to do |format|
+      format.js { render nothing: true }
+    end
   end
 
   private
