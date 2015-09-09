@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908191833) do
+ActiveRecord::Schema.define(version: 20150909124330) do
 
   create_table "bookings", force: true do |t|
     t.integer  "user_id"
@@ -36,25 +36,17 @@ ActiveRecord::Schema.define(version: 20150908191833) do
 
   add_index "club_movies", ["user_id"], name: "index_club_movies_on_user_id"
 
-# Could not dump table "clubs" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-  create_table "comments", force: true do |t|
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.string   "title"
-    t.text     "body"
-    t.string   "subject"
-    t.integer  "user_id",          null: false
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
+  create_table "clubs", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "address"
+    t.integer  "zipcode"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "banner"
   end
-
-  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -81,10 +73,10 @@ ActiveRecord::Schema.define(version: 20150908191833) do
     t.string   "genre"
     t.integer  "playtime"
     t.integer  "published"
-    t.string   "imglink"
     t.string   "trailerlink"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "videocover"
   end
 
   create_table "news", force: true do |t|
@@ -138,7 +130,38 @@ ActiveRecord::Schema.define(version: 20150908191833) do
 
   add_index "uploads", ["club_id"], name: "index_uploads_on_club_id"
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", force: true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.integer  "personalnumber"
+    t.integer  "phonenumber"
+    t.string   "avatar"
+    t.string   "address"
+    t.string   "city"
+    t.integer  "zipcode"
+    t.string   "parentmail"
+    t.integer  "access"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.integer  "club_id"
+    t.integer  "status"
+    t.string   "statusmessage"
+    t.integer  "points"
+    t.boolean  "agreement"
+  end
+
+  add_index "users", ["club_id"], name: "index_users_on_club_id"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
