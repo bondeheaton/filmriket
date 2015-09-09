@@ -96,4 +96,15 @@ module ApplicationHelper
     return @ratings.inject(:+)
   end
   
+  def user_in_club(club)
+    if current_user.access == 2
+      return true
+    end
+    if current_user.club == club
+      return true
+    else
+      return false
+    end
+  end
+  
 end

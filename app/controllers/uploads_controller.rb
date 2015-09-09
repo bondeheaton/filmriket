@@ -1,5 +1,6 @@
 class UploadsController < ApplicationController
   before_action :set_upload, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   respond_to :html
 
@@ -23,17 +24,21 @@ class UploadsController < ApplicationController
   def create
     @upload = Upload.new(upload_params)
     @upload.save
-    respond_with(@upload)
+    respond_with(current_user.club)
   end
 
   def update
     @upload.update(upload_params)
-    respond_with(@upload)
+    respond_with(current_user.club)
   end
 
   def destroy
     @upload.destroy
-    respond_with(@upload)
+    if request.referer == admin_log_url
+      redirect_to :back
+    else
+      respond_with(current_user.club)
+    end
   end
 
   private
@@ -45,3 +50,5 @@ class UploadsController < ApplicationController
       params.require(:upload).permit(:club_id, :image)
     end
 end
+
+
