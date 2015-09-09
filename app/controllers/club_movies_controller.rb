@@ -60,7 +60,11 @@ class ClubMoviesController < ApplicationController
 
   def destroy
     @club_movie.destroy
-    respond_with(@club_movie)
+    if request.referer == admin_log_url
+      redirect_to :back
+    else
+      respond_with(current_user.club)
+    end
   end
 
   private

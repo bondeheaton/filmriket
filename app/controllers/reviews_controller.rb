@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
 
   respond_to :html
 
@@ -62,7 +61,11 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    respond_with(@review)
+    if request.referer == admin_log_url
+      redirect_to :back
+    else
+      respond_with(current_user.club)
+    end
   end
 
   private
