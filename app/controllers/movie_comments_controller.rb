@@ -42,10 +42,8 @@ class MovieCommentsController < ApplicationController
 
   def destroy
     @movie_comment.destroy
-    if request.referer == admin_log_url
-      redirect_to :back
-    else
-      respond_with(@movie_comment.movie)
+    respond_to do |format|
+      format.js { render nothing: true }
     end
   end
 

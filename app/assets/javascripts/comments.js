@@ -15,3 +15,10 @@ $(document).on('ready page:load', function(){
         })
     })
 })
+
+
+$(document).on('ready page:load', function(){
+    return $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
+        $(this).parent().parent().hide();
+    });
+});

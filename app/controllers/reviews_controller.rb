@@ -61,10 +61,8 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    if request.referer == admin_log_url
-      redirect_to :back
-    else
-      respond_with(current_user.club)
+    respond_to do |format|
+      format.js { render nothing: true }
     end
   end
 
