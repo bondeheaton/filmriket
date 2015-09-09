@@ -6,7 +6,7 @@ gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 
 # new gems
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.5.0'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'jquery-rails', '~> 2.3.0'

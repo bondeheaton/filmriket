@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ //= require foundation_and_overrides
+
  *= require gallery/touch_touch
  */
+@import "foundation_and_overrides";
 

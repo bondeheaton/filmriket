@@ -1,5 +1,5 @@
 <div class="row">
-   <div class="medium-3 columns">
+   <div class="small-3 columns">
     <h1 class="admin_header">RECENSIONER</h1>
     <p>
       <% @reviews.each do |review| %>
@@ -10,7 +10,7 @@
     </p>
    </div>
 
-  <div class="medium-3 columns">
+  <div class="small-3 columns">
     <h1 class="admin_header">KLUBBFILMER</h1>
     <p>
       <% @club_movies.each do |club| %>
@@ -21,7 +21,7 @@
     </p>
    </div>
 
-   <div class="medium-3 columns">
+   <div class="small-3 columns">
     <h1 class="admin_header">KOMMENTARER</h1>
     <p>
       <% @movie_comments.each do |comment| %>
@@ -34,14 +34,14 @@
     </p>
     </div>
 
-  <div class="medium-3 columns end">
+  <div class="small-3 columns end">
     <h1 class="admin_header">UPPLADNINGAR</h1>
 
     <% @uploads.each do |upload| %>
         <div class="uploads">
-          <b><%= upload.club.name %></b> har laddat upp
-            <img src="<%= upload.image %>" width="150" height="100" alt="<%= upload.club.name %>"></img>
-            <%= link_to 'Destroy', upload, method: :delete, data: { confirm: "Är du säker?"}%>
+          <b><%= upload.club.name %></b> har laddat upp en bild:<br>
+            <img src="<%= upload.image %>" width="150" height="100" alt="<%= upload.club.name %>"></img><br>
+            <%= link_to 'Ta bort', upload, method: :delete, data: { confirm: "Är du säker?"}%>
         </div>
     <% end %>
     </div>
