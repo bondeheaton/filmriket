@@ -2,8 +2,8 @@
     <tr class="b_head">
       <td class="b_content"><%= booking.user.club.name %></td>
       <td class="b_content"><%= booking.movie.title %></td>
-      <td class="buttons"><%= link_to 'Visa', booking, :class => "login-button" %></td>
-      <td class="buttons"><%= link_to 'Ändra', edit_booking_path(booking), :class => "login-button" %></td>
-      <td class="buttons"><%= link_to 'Förstör', booking, method: :delete, data: { confirm: 'Are you sure?' }, :class => "login-button" %></td>
+      <td class="buttons"><%= link_to 'Visa', booking, :class => "button tiny radius" %></td>
+      <td class="buttons"><%= link_to 'Ändra', edit_booking_path(booking), :class => "button tiny radius" %></td>
+      <td class="buttons"><%= link_to 'Förstör', booking, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button tiny radius alert" %></td>
     </tr>
 <% end %>
