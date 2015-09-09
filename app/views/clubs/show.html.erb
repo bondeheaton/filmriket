@@ -29,11 +29,15 @@
 
 <p>
   <strong>Zipcode:</strong>
-  <%= @club.zipcode %>
-  
+  <%= @club.zipcode %><br>
+
+
+  <strong>Uploads</strong>
+<div id="thumbs">
   <% @club.uploads.each do |upload|%>
-  <img src="<%= upload.image %>"></img>
+      <a href="<%= upload.image %>" style="background-image:url(<%= upload.image %>)"></a>
   <% end %>
+    </div>
 </p>
 
 <strong>Medlemmar</strong><br>
