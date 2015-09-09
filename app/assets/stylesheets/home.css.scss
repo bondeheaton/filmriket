@@ -1,3 +1,28 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1.admin_header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.comments {
+  padding: 10px;
+  width: auto;
+}
+
+.reviews {
+  padding: 10px;
+  width: auto;
+}
+
+.club_movies {
+  padding: 10px;
+  width: auto;
+}
+
+.uploads {
+  padding: 10px;
+  width: auto;
+}
