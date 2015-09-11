@@ -1,5 +1,12 @@
-<div class="row">
-   <div class="medium-3 columns">
+<div class="menu">
+  <img src="reviews.png" width="60px" class="admin_log_icons" id="to_reviews">
+  <img src="movies.png" width="60px" class="admin_log_icons" id="to_clubmovies">
+  <img src="comments.png" width="60px" class="admin_log_icons" id="to_comments">
+  <img src="uploads.png" width="60px" class="admin_log_icons" id="to_uploads">
+  <img src="to_top.png" width="60px" class="admin_log_icons" id="to_top">
+</div>
+<div class="row adminlog">
+   <div class="medium-3 columns" id="reviews">
     <h1 class="admin_header">RECENSIONER</h1>
     <p>
       <% @reviews.each do |review| %>
@@ -11,7 +18,7 @@
     </p>
    </div>
 
-  <div class="medium-3 columns">
+  <div class="medium-3 columns" id="clubmovies">
     <h1 class="admin_header">KLUBBFILMER</h1>
     <p>
       <% @club_movies.each do |club_movie| %>
@@ -23,7 +30,7 @@
     </p>
    </div>
 
-   <div class="medium-3 columns">
+   <div class="medium-3 columns" id="comments">
     <h1 class="admin_header">KOMMENTARER</h1>
     <p>
       <% @movie_comments.each do |comment| %>
@@ -36,7 +43,7 @@
     </p>
     </div>
 
-  <div class="medium-3 columns end">
+  <div class="medium-3 columns end" id="uploads">
     <h1 class="admin_header">UPPLADNINGAR</h1>
 
     <% @uploads.each do |upload| %>
