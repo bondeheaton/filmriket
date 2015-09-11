@@ -179,7 +179,7 @@ div.actions{
     text-align: center;
   }
   .users_h1{
-    padding-top: 50px;
+    padding-top: 25px;
   }
   thead, tbody{
     tr{
@@ -203,6 +203,18 @@ div.actions{
   text-align: center;
 }
 
+
+h2.status_header {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 45px;
+}
+
+.button {
+  margin-top: 5px!important;
+  margin-bottom: 5px!important;
+}
+
 @media only screen and (max-width: 1060px){
   form#search_user_form{
 
@@ -212,12 +224,25 @@ div.actions{
   }
 }
 
-h2.status_header {
-  text-align: center;
-  margin-top: 50px;
-  font-size: 45px;
-}
+
+/* Snyggare lr fulare */
 
 table {
-  margin: 0 auto; /* or margin: 0 auto 0 auto */
+  width: 100%;
+  border-collapse: collapse;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+th {
+  background: #555;
+  color: #ffffff!important;
+  font-weight: bold;
+  height: 40px;
+}
+td, th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
 }

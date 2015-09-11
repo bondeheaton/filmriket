@@ -21,6 +21,7 @@
   <%= link_to "Användare", users_path %><br>
   <%= link_to "Klubbar", clubs_path %><br>
   <%= link_to "Bokningar",     bookings_path %><br>
+  <%= link_to "Skapa nyhet",     new_news_path %><br>
   <%= link_to "Skapa klubb", new_club_path %><br>
   <%= link_to "Skapa recension", new_review_path %><br>
   <%= link_to "Skapa klubbfilm", new_club_movie_path %><br>
@@ -42,6 +43,8 @@
       <%= current_user.access %><br>
       Club_id:<%= current_user.club_id %>
   <% end %>
+
+
   <%= yield %>
 
   </body>

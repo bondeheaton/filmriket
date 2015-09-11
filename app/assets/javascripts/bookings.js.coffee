@@ -19,3 +19,7 @@ $(document).on 'ready page:load', -> #document ready innan, byt?
       success: ->
     return
   return
+
+$(document).on 'ready page:load', ->
+  $('.footable').footable()
+  return

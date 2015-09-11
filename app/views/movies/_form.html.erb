@@ -12,37 +12,45 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <h3>Filmtitel</h3>
     <%= f.text_field :title %>
   </div>
+  <br>
   <div class="field">
-    <%= f.label :description %><br>
+    <h3>Beskrivning</h3>
     <%= f.text_area :description %>
   </div>
+  <br>
   <div class="field">
-    <%= f.label :director %><br>
+    <h3>Regissör</h3>
     <%= f.text_field :director %>
   </div>
+  <br>
   <div class="field">
-    <%= f.label :genre %><br>
+    <h3>Genre</h3>
     <%= f.text_field :genre %>
   </div>
+  <br>
   <div class="field">
-    <%= f.label :playtime %><br>
+    <h3>Speltid</h3>
     <%= f.number_field :playtime %>
   </div>
+  <br>
   <div class="field">
-    <%= f.label :published %><br>
+    <h3>Publicerad</h3>
     <%= f.number_field :published %>
   </div>
+  <br>
   <div class="field">
-	  <%= f.label :trailerlink %><br>
-      <%= f.text_field :trailerlink %>
+    <h3>Trailer-länk</h3>
+    <%= f.text_field :trailerlink %>
   </div>
+  <br>
   <div class="field">
+    <h3>Bild</h3>
 	<%= f.file_field :videocover %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Lägg till film", :class => 'button success' %>
   </div>
 <% end %>
