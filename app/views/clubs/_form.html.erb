@@ -33,8 +33,9 @@
   </div>
     <br>
   <div class="field">
-    <h3>Medlemmar</h3>
-    <%= f.collection_select :user_ids, users, :id, :email, {}, { multiple: true, 'style' => 'height:200px' } %>
+	  <h3>Medlemmar</h3>
+    <%= f.label :Medlemmar %>
+    <%= f.collection_select :user_ids, users_without_club, :id, :email, {}, { multiple: true, 'style' => 'height:200px' } %>
   </div>
 
   <div class="actions">
