@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :Medlemmar %>
-    <%= f.collection_select :user_ids, users, :id, :email, {}, { multiple: true, 'style' => 'height:200px' } %>
+    <%= f.collection_select :user_ids, users_without_club, :id, :email, {}, { multiple: true, 'style' => 'height:200px' } %>
   </div>
 
   <div class="actions">

@@ -140,4 +140,8 @@ module ApplicationHelper
     end
   end
   
+  def users_without_club
+    return User.where(club: nil)
+  end
+  
 end
