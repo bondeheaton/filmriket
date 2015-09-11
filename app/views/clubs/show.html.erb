@@ -1,7 +1,3 @@
-
-<p id="notice"><%= notice %></p>
-
-
 <br>
 
 	
@@ -52,12 +48,34 @@ Achievementscore:<%= club_achievement_score(@club)%>
 
 <br><br>
 
+<strong>Seen movies</strong><br>
+
 <% @seen_movies.each do |movie| %>
     <%= movie.title %>
     <%= club_seen_movies(movie.id) %><br>
 <% end %>
 
 <br><br>
+
+<strong>Reviews</strong><br>
+
+<% @reviews.each do |review| %>
+    <%= review %>
+
+<% end %>
+
+<br><br>
+
+<strong>Club movies</strong><br>
+
+<% @club_movies.each do |club_movie| %>
+    <%= club_movie.title %>
+<% end %>
+
+
+<br><br>
+
+<%=  %>
 
 <br>
 <% if user_in_club(@club) %>
