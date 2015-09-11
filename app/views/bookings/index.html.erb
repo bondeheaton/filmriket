@@ -1,15 +1,18 @@
 <br>
 
+<div class="small-9 small-centered columns">
+
 <div class="bookings_box">
 
 <h1>Bokningsförfrågningar</h1>
 
-<table>
+<table class="footable table">
 
   <thead>
   <tr class="b_head">
-    <th class="b_head2">Klubb</th>
-    <th class="b_head2">Film</th>
+    <th class="b_head2" data-toggle="true">Klubb</th>
+    <th data-hide="phone" class="b_head2">Film</th>
+    <th data-hide="phone" colspan="4"></th>
   </tr>
   </thead>
 
@@ -19,12 +22,13 @@
 </table>
 
 <h1 class="bookings_h1">Godkända Bokningar</h1>
-  <table>
+  <table class="footable table">
 
     <thead>
     <tr class="b_head">
-      <th class="b_head2">Klubb</th>
-      <th class="b_head2">Film</th>
+      <th class="b_head2" data-toggle="true">Klubb</th>
+      <th data-hide="phone" class="b_head2">Film</th>
+      <th data-hide="phone" colspan="4"></th>
     </tr>
     </thead>
 
@@ -34,12 +38,13 @@
   </table>
 
   <h1 class="bookings_h1">Arkiverade/klara Bokningar</h1>
-  <table>
+  <table class="footable table">
 
     <thead>
     <tr class="b_head">
-      <th class="b_head2">Klubb</th>
-      <th class="b_head2">Film</th>
+      <th class="b_head2" data-toggle="true">Klubb</th>
+      <th data-hide="phone" class="b_head2">Film</th>
+      <th data-hide="phone" colspan="4"></th>
     </tr>
     </thead>
 
@@ -52,3 +57,4 @@
 
 
 <%= link_to 'New Booking', new_booking_path %>
+</div>

@@ -5,12 +5,17 @@
 	display:none;
 }
 
+.bookings_box {
+  text-align: center;
+}
+
 .boookings_box{
   h1{
     text-align: center;
   }
   .bookings_h1{
     padding-top: 50px;
+    text-align: center
   }
 }
 
@@ -35,4 +40,11 @@ td.buttons{
 td.content{
   padding: 5px !important;
   padding-right: 90px !important;
+}
+
+
+@media only screen and (max-width: 760px){
+  h1 {
+    font-size: 20px!important;
+  }
 }

@@ -20,6 +20,7 @@
 //= require gmaps/google
 //= require ckeditor/init
 //= require gallery/touch_touch
+//= require footable-on-rails
 //= require_tree .
 
 

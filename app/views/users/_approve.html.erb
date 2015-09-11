@@ -4,12 +4,12 @@
       <td><%= user.lastname %></td>
       <td><%= user.email %></td>
       <td><%= user.access %></td>
-      <td><%= user.phonenumber %></td>
+      <td>0<%= user.phonenumber %></td>
       <td><%= user.points %></td>
-      <td><%= link_to 'Visa', user, :class => "login-button" %></td>
-      <td><%= link_to 'Ändra', edit_user_path(user), :class => "login-button" %></td>
-      <td><%= link_to 'Förstör', user, method: :delete, data: { confirm: 'Är du säker?' }, :class => "login-button" %></td>
-      <td><%= link_to "Neka", disapprove_user_path(user.id), :class => "login-button access" %></td>
-      <td><%= link_to "+Admin", admin_approve_user_path(user.id), :class => "login-button access" %></td>
+      <td><%= link_to 'Visa', user, :class => "button tiny radius" %></td>
+      <td><%= link_to 'Ändra', edit_user_path(user), :class => "button tiny radius" %></td>
+      <td><%= link_to 'Förstör', user, method: :delete, data: { confirm: 'Är du säker?' }, :class => "button tiny radius alert" %></td>
+      <td><%= link_to "Neka", disapprove_user_path(user.id), :class => "button tiny radius alert access" %></td>
+      <td><%= link_to "+Admin", admin_approve_user_path(user.id), :class => "button tiny radius success access" %></td>
     </tr>
 <% end %>
