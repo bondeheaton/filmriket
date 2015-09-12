@@ -23,3 +23,12 @@ $(document).on 'click', '#to_uploads', ->
   $('html, body').animate({ scrollTop: $('#uploads').offset().top }, 'fast');
   return
 
+
+header = $('#admin_log')
+$(window).scroll ->
+  scroll = $(window).scrollTop()
+  if scroll >= window.innerHeight - 100
+    $('#menu').addClass 'fixed'
+  else
+    $('#menu').removeClass 'fixed'
+  return
