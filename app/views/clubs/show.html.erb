@@ -1,5 +1,6 @@
 <br>
-
+<div class="row">
+<div class="small-9 small-centered columns">
 	
 Achievementscore:<%= club_achievement_score(@club)%>
 
@@ -59,10 +60,11 @@ Achievementscore:<%= club_achievement_score(@club)%>
 
 <strong>Reviews</strong><br>
 
-<% @reviews.each do |review| %>
-    <%= review %>
-
+<% @reviews.zip(@review_video_link) do |review_title, review_video| %>
+    <%= review_title %><br>
+    <%= raw(youtube_embed(review_video)) %><br><br>
 <% end %>
+
 
 <br><br>
 
@@ -116,4 +118,5 @@ Achievementscore:<%= club_achievement_score(@club)%>
         InfoBox.prototype = new google.maps.OverlayView();
     </script>
   </div>
-
+</div>
+</div>

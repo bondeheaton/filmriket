@@ -16,6 +16,7 @@ class ClubsController < ApplicationController
     @users = @club.users
     @seen_movies = []
     @reviews = []
+    @review_video_link = []
     @club_movies = []
 
     @users.each do |users|
@@ -27,6 +28,7 @@ class ClubsController < ApplicationController
     @users.each do |users|
       users.reviews.each do |reviews|
         @reviews.push(reviews.title)
+        @review_video_link.push(reviews.videolink)
       end
     end
 
