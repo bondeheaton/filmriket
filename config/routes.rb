@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       put 'book'
       put 'approved_bookings'
       put 'bookings_done'
+      get 'approved_bookings', :controller => 'bookings', :action => 'mobile_approved_bookings'
+      get 'bookings_done', :controller => 'bookings', :action => 'mobile_bookings_done'
     end
   end
 
@@ -62,6 +64,9 @@ Rails.application.routes.draw do
       put 'admin_approve'
       put 'disapprove'
       put 'disapprove_all'
+      get 'approve', :controller => 'users', :action => 'mobile_approve'
+      get 'admin_approve', :controller => 'users', :action => 'mobile_admin_approve'
+      get 'disapprove', :controller => 'users', :action => 'mobile_disapprove'
     end
   end
 

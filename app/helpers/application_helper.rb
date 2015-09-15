@@ -118,15 +118,15 @@ module ApplicationHelper
   def club_seen_movies(movie)
     @club = Club.find(params[:id])
     @users = @club.users
-    @ratings = [0]
+    @ratings = []
     @users.each do |user|
       user.ratings.each do |ratings|
         if movie == ratings.movie_id
-          @ratings.push(ratings.value)
+          @ratings.push(ratings.value.to_f)
         end
       end
     end
-    return @ratings.inject(:+)
+    return (@ratings.inject(:+) / @ratings.length).round(1)
   end
   
   def user_in_club(club)

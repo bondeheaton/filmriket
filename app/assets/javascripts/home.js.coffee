@@ -11,12 +11,12 @@ $(document).on 'click', '#to_reviews', ->
   $('html, body').animate({ scrollTop: $('#reviews').offset().top }, 'fast');
   return
 
-$(document).on 'click', '#to_comments', ->
-  $('html, body').animate({ scrollTop: $('#comments').offset().top }, 'fast');
-  return
-
 $(document).on 'click', '#to_clubmovies', ->
   $('html, body').animate({ scrollTop: $('#clubmovies').offset().top }, 'fast');
+  return
+
+$(document).on 'click', '#to_comments', ->
+  $('html, body').animate({ scrollTop: $('#comments').offset().top }, 'fast');
   return
 
 $(document).on 'click', '#to_uploads', ->

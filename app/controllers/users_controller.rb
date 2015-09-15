@@ -87,6 +87,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def mobile_approve
+    @user = User.find(params[:id])
+    @user.update_attributes(:access => 1)
+    redirect_to :back
+  end
+
   def admin_approve
     @not_approved_users = User.where(access: nil)
     @approved_users = User.where(access: 1)
@@ -102,6 +108,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def mobile_admin_approve
+    @user = User.find(params[:id])
+    @user.update_attributes(:access => 2)
+    redirect_to :back
+  end
+
+
   def disapprove
     @not_approved_users = User.where(access: nil)
     @approved_users = User.where(access: 1)
@@ -111,6 +124,12 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def mobile_disapprove
+    @user = User.find(params[:id])
+    @user.update_attributes(:access => nil)
+    redirect_to :back
   end
 
   def ajax_on_users
