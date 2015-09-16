@@ -21,12 +21,15 @@
 //= require ckeditor/init
 //= require gallery/touch_touch
 //= require footable-on-rails
+//= require websocket_rails/main
 //= require_tree .
 
 
 
-
-
-
-
 $(function(){ $(document).foundation(); });
+
+
+
+
+
+
