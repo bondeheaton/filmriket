@@ -215,6 +215,7 @@ h2.status_header {
   margin-bottom: 5px!important;
 }
 
+
 @media only screen and (max-width: 1060px){
   form#search_user_form{
 
@@ -223,6 +224,39 @@ h2.status_header {
     }
   }
 }
+
+@media only screen and (max-width: 480px){
+  .right_button_edit {
+    margin-top: -180px!important;
+    float: right!important;
+  }
+  .right_button_destroy {
+    margin-top: -140px!important;
+    float: right!important;
+  }
+  .right_button_deny {
+    margin-top: -100px!important;
+    float: right!important;
+  }
+  .right_button_approve {
+    margin-top: -60px!important;
+    float: right!important;
+  }
+
+  .right_button_edit2 {
+    margin-top: -160px!important;
+    float: right!important;
+  }
+  .right_button_destroy2 {
+    margin-top: -120px!important;
+    float: right!important;
+  }
+  .right_button_approve2 {
+    margin-top: -80px!important;
+    float: right!important;
+  }
+}
+
 
 
 /* Snyggare lr fulare */
