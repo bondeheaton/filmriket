@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :filmschool_comments do
+    member do
+      post 'create_comment'
+    end
+  end
+
+  resources :filmschools
+
   resources :uploads
 
   resources :bookings do

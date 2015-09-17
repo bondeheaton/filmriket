@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @filmschool.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @filmschool.description %>
+</p>
+
+<p>
+  <strong>Videolink:</strong>
+  <%= raw(youtube_embed(@filmschool.videolink )) %><br><br>
+</p>
+
+<div class="comments_wraper_m">
+  <% if user_signed_in? %>
+      <%= render 'filmschool_comments/form' %>
+      <div id="filmchool_comment_list">
+        <%= render 'filmschool_comments/list' %>
+      </div>
+  <% end %>
+</div>
+<br>
+
+<%= link_to 'Edit', edit_filmschool_path(@filmschool) %> |
+<%= link_to 'Back', filmschools_path %>

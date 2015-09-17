@@ -1,0 +1,29 @@
+<h1>Listing filmschool_comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Message</th>
+      <th>User</th>
+      <th>Filmschool</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @filmschool_comments.each do |filmschool_comment| %>
+      <tr>
+        <td><%= filmschool_comment.message %></td>
+        <td><%= filmschool_comment.user %></td>
+        <td><%= filmschool_comment.filmschool %></td>
+        <td><%= link_to 'Show', filmschool_comment %></td>
+        <td><%= link_to 'Edit', edit_filmschool_comment_path(filmschool_comment) %></td>
+        <td><%= link_to 'Destroy', filmschool_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Filmschool comment', new_filmschool_comment_path %>

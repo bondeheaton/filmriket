@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', ->
-  $('#new_movie_comment').submit (e) ->
+  $('#new_filmschool_comment').submit (e) ->
     e.preventDefault()
     $.ajax
       url: $(this).attr('action')
