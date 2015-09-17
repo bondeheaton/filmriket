@@ -8,4 +8,3 @@ $(document).on 'ready page:load', ->
     tiny: 100
     medium: 555
     big: 2048
-  return
