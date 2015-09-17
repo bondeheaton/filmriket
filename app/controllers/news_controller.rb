@@ -5,7 +5,7 @@ class NewsController < ApplicationController
   respond_to :html
 
   def index
-    @news = News.all
+    @news = News.paginate(:page => params[:page], :per_page => 1)
     respond_with(@news)
   end
 

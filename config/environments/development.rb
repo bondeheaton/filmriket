@@ -27,8 +27,8 @@ Rails.application.configure do
       :tls => true,
       :authentication => :plain,
       :domain => 'gmail.com',
-      :user_name => 'mikael.lisselgard@gmail.com',
-      :password => '6662257bonde'
+      :user_name => 'mikaellisselgard@gmail.com',
+      :password => 'password_here'
   }
 
   # Print deprecation notices to the Rails logger.

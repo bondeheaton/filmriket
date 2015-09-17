@@ -10,6 +10,7 @@
   </thead>
 
   <tbody>
+	  <%= will_paginate @news %>
     <% @news.each do |news| %>
       <tr>
         <td><%= news.title.html_safe %></td>

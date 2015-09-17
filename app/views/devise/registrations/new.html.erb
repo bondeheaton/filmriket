@@ -5,7 +5,8 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :parentmail, autofocus: true %>
+	<%= f.hidden_field :ownemail, :value => ""%>
   </div>
 
     <div class="field">
@@ -58,7 +59,7 @@
     </div>
     <div class="field">
       <%= f.label :parentmail %><br>
-      <%= f.text_field :parentmail %>
+      <%= f.text_field :email %>
     </div>
     <div class="field">
       <%= f.label :access %><br>
