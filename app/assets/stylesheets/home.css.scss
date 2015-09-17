@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.topbar {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.sidebar {
+  border: 1px solid black;
+}
+
+h1.topbar_header {
+  font-size: 40px;
+}
+
 h1.admin_header {
   padding-top: 20px;
   padding-bottom: 10px;
