@@ -1,16 +1,14 @@
-
-<p id="notice"><%= notice %></p>
-
-
 <br>
-
+<div class="row">
+<div class="small-9 small-centered columns">
 	
 Achievementscore:<%= club_achievement_score(@club)%>
 
 <br>
 <p>
   <strong>Name:</strong>
-  <%= @club.name %>
+  <%= @club.name %><br>
+  <%= @club.created_at.strftime("%d/%m-%Y")%><br>
   <%= club_bookings(@club)%>
 </p>
 
@@ -52,12 +50,42 @@ Achievementscore:<%= club_achievement_score(@club)%>
 
 <br><br>
 
+<strong>Seen movies</strong><br>
+
 <% @seen_movies.each do |movie| %>
     <%= movie.title %>
     <%= club_seen_movies(movie.id) %><br>
 <% end %>
 
 <br><br>
+
+<strong>Reviews</strong><br>
+
+<% @reviews.zip(@review_video_link) do |review_title, review_video| %>
+    <%= review_title %><br>
+    <%= raw(youtube_embed(review_video)) %><br><br>
+<% end %>
+
+
+<br><br>
+
+<strong>Club movies</strong><br>
+
+<% @club_movies.each do |club_movie| %>
+    <%= club_movie.title %>
+<% end %><br>
+
+<strong>Club Bookings</strong><br>
+<% @club.users.each do |user| %>
+	<% user.bookings.where("status = 0").each do |booking| %>
+
+			<%= booking.movie.title %><br>
+
+	<% end %>
+<% end %>
+<br><br>
+
+<%=  %>
 
 <br>
 <% if user_in_club(@club) %>
@@ -98,4 +126,5 @@ Achievementscore:<%= club_achievement_score(@club)%>
         InfoBox.prototype = new google.maps.OverlayView();
     </script>
   </div>
-
+</div>
+</div>

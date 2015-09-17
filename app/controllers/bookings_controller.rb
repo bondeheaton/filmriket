@@ -26,6 +26,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def mobile_approved_bookings
+    @booking = Booking.find(params[:id])
+    @booking.update_attributes(:status => 1)
+    redirect_to :back
+  end
+
   def bookings_done
     @pending_bookings = Booking.where(status: 0)
     @approved_bookings = Booking.where(status: 1)
@@ -39,6 +45,12 @@ class BookingsController < ApplicationController
         format.js
       end
     end
+  end
+
+  def mobile_bookings_done
+    @booking = Booking.find(params[:id])
+    @booking.update_attributes(:status => 2)
+    redirect_to :back
   end
 
   def show

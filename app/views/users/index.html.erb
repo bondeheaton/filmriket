@@ -8,7 +8,7 @@
 <div class="users_box">
 
   <div class="small-12 small-centered columns">
-  <h1>Väntar på godkännade</h1>
+  <h1 class="users_h1">Väntar på godkännade</h1>
 
     <table class="footable table">
       <thead>
@@ -19,7 +19,7 @@
         <th data-hide="phone">Behörighet</th>
         <th data-hide="phone">Telefonnummer</th>
         <th data-hide="phone">Poäng</th>
-        <th data-hide="phone" colspan="5"></th>
+        <th data-hide="phone" colspan="4"></th>
       </tr>
     </thead>
 
@@ -42,7 +42,7 @@
       <th data-hide="phone">Behörighet</th>
       <th data-hide="phone">Telefonnummer</th>
       <th data-hide="phone">Poäng</th>
-      <th data-hide="phone" colspan="5"></th>
+      <th data-hide="phone" colspan="4"></th>
     </tr>
     </thead>
 
@@ -66,7 +66,7 @@
         <th data-hide="phone">Behörighet</th>
         <th data-hide="phone">Telefonnummer</th>
         <th data-hide="phone">Poäng</th>
-        <th data-hide="phone" colspan="5"></th>
+        <th data-hide="phone" colspan="4"></th>
       </tr>
     </thead>
 
@@ -74,7 +74,6 @@
     <%= render 'users/admin_approve'%>
     </tbody>
   </table>
-    <%= link_to "Neka alla användare", disapprove_all_user_path(current_user.id), :class => "access"  %>
   </div>
   <br>
 

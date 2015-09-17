@@ -1,38 +1,34 @@
-<div class="menu">
-  <img src="reviews.png" width="60px" class="admin_log_icons" id="to_reviews">
-  <img src="movies.png" width="60px" class="admin_log_icons" id="to_clubmovies">
-  <img src="comments.png" width="60px" class="admin_log_icons" id="to_comments">
-  <img src="uploads.png" width="60px" class="admin_log_icons" id="to_uploads">
-  <img src="to_top.png" width="60px" class="admin_log_icons" id="to_top">
-</div>
-<div class="row adminlog">
+<div class="row adminlog" id="admin_log">
+  <div class="menu" id="menu">
+    <img src="reviews.png" width="60px" class="admin_log_icons" id="to_reviews">
+    <img src="movies.png" width="60px" class="admin_log_icons" id="to_clubmovies">
+    <img src="comments.png" width="60px" class="admin_log_icons" id="to_comments">
+    <img src="uploads.png" width="60px" class="admin_log_icons" id="to_uploads">
+    <img src="to_top.png" width="60px" class="admin_log_icons" id="to_top">
+  </div>
+
    <div class="medium-3 columns" id="reviews">
     <h1 class="admin_header">RECENSIONER</h1>
-    <p>
       <% @reviews.each do |review| %>
         <div class="reviews">
-            <b><%= review.user.club.name %></b> har gjort en recension:  <%= link_to review.title, review_path(review.id) %><br>
+             har gjort en recension:  <%= link_to review.title, review_path(review.id) %><br>
           <div class="button-fix"><%= link_to 'Ta bort', review, remote: true, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%><p class="created"><%= review.created_at %></p></div>
         </div>
       <% end %>
-    </p>
    </div>
 
   <div class="medium-3 columns" id="clubmovies">
     <h1 class="admin_header">KLUBBFILMER</h1>
-    <p>
       <% @club_movies.each do |club_movie| %>
         <div class="club_movies">
             <b><%= club_movie.user.club.name %></b> har skapat en film: <%= link_to club_movie.title, club_movie_path(club_movie.id) %><br>
           <div class="button-fix"><%= link_to 'Ta bort', club_movie, remote: true, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%><p class="created"><%= club_movie.created_at %></p></div>
         </div>
       <% end %>
-    </p>
    </div>
 
    <div class="medium-3 columns" id="comments">
     <h1 class="admin_header">KOMMENTARER</h1>
-    <p>
       <% @movie_comments.each do |comment| %>
         <div class="comments">
           <% if comment.user %>
@@ -40,12 +36,10 @@
           <div class="button-fix"><%= link_to 'Ta bort', comment, remote: true, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%><p class="created"><%= comment.created_at %></p></div>
         </div>
       <% end %>
-    </p>
     </div>
 
   <div class="medium-3 columns end" id="uploads">
     <h1 class="admin_header">UPPLADNINGAR</h1>
-
     <% @uploads.each do |upload| %>
         <div class="uploads">
           <b><%= upload.club.name %></b> har laddat upp en bild:<br>

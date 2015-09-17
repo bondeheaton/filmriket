@@ -33,6 +33,7 @@
 
   <%= link_to "Registrera", new_user_registration_path %><br>
 
+
   <% if current_user %>
       <%= link_to "Logga ut", destroy_user_session_path, :method => :delete %><br>
   <% else %>

@@ -118,15 +118,15 @@ module ApplicationHelper
   def club_seen_movies(movie)
     @club = Club.find(params[:id])
     @users = @club.users
-    @ratings = [0]
+    @ratings = []
     @users.each do |user|
       user.ratings.each do |ratings|
         if movie == ratings.movie_id
-          @ratings.push(ratings.value)
+          @ratings.push(ratings.value.to_f)
         end
       end
     end
-    return @ratings.inject(:+)
+    return (@ratings.inject(:+) / @ratings.length).round(1)
   end
   
   def user_in_club(club)
@@ -142,6 +142,16 @@ module ApplicationHelper
   
   def users_without_club
     return User.where(club: nil)
+  end
+
+  def youtube_embed(youtube_url)
+    if youtube_url[/youtu\.be\/([^\?]*)/]
+      youtube_id = $1
+    else
+      youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+      youtube_id = $5
+    end
+    %Q{<div class="flex-video"><iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/#{ youtube_id }?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>}
   end
   
 end

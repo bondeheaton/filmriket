@@ -27,8 +27,8 @@ Rails.application.configure do
       :tls => true,
       :authentication => :plain,
       :domain => 'gmail.com',
-      :user_name => 'mikael.lisselgard@gmail.com',
-      :password => 'secret'
+      :user_name => 'mikaellisselgard@gmail.com',
+      :password => 'password_here'
   }
 
   # Print deprecation notices to the Rails logger.
@@ -40,8 +40,7 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
-
+  config.assets.debug = false #fixa detta till true sen
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
