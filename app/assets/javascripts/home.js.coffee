@@ -11,15 +11,24 @@ $(document).on 'click', '#to_reviews', ->
   $('html, body').animate({ scrollTop: $('#reviews').offset().top }, 'fast');
   return
 
-$(document).on 'click', '#to_comments', ->
-  $('html, body').animate({ scrollTop: $('#comments').offset().top }, 'fast');
-  return
-
 $(document).on 'click', '#to_clubmovies', ->
   $('html, body').animate({ scrollTop: $('#clubmovies').offset().top }, 'fast');
+  return
+
+$(document).on 'click', '#to_comments', ->
+  $('html, body').animate({ scrollTop: $('#comments').offset().top }, 'fast');
   return
 
 $(document).on 'click', '#to_uploads', ->
   $('html, body').animate({ scrollTop: $('#uploads').offset().top }, 'fast');
   return
 
+
+header = $('#admin_log')
+$(window).scroll ->
+  scroll = $(window).scrollTop()
+  if scroll >= window.innerHeight - 100
+    $('#menu').addClass 'fixed'
+  else
+    $('#menu').removeClass 'fixed'
+  return

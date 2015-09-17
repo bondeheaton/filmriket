@@ -52,3 +52,6 @@ gem 'ckeditor'
 gem 'carrierwave'
 gem 'rails-gallery'
 gem 'footable-on-rails'
+gem 'will_paginate', '~> 3.0.6'
+gem 'magnific-popup-rails'
+

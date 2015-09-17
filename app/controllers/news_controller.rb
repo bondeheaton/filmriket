@@ -5,7 +5,7 @@ class NewsController < ApplicationController
   respond_to :html
 
   def index
-    @news = News.all
+    @news = News.paginate(:page => params[:page], :per_page => 1)
     respond_with(@news)
   end
 
@@ -43,6 +43,6 @@ class NewsController < ApplicationController
     end
 
     def news_params
-      params.require(:news).permit(:title, :content)
+      params.require(:news).permit(:title, :content, :category)
     end
 end

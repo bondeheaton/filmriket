@@ -15,10 +15,26 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     @users = @club.users
     @seen_movies = []
+    @reviews = []
+    @review_video_link = []
+    @club_movies = []
 
     @users.each do |users|
       users.ratings.each do |ratings|
         @seen_movies.push(ratings.movie)
+      end
+    end
+
+    @users.each do |users|
+      users.reviews.each do |reviews|
+        @reviews.push(reviews.title)
+        @review_video_link.push(reviews.videolink)
+      end
+    end
+
+    @users.each do |users|
+      users.club_movies.each do |club_movie|
+        @club_movies.push(club_movie)
       end
     end
 

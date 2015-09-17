@@ -4,5 +4,7 @@
 
 
 $(document).on 'ready page:load', ->
-  $('.footable').footable()
-  return
+  $('.footable').footable breakpoints:
+    tiny: 100
+    medium: 555
+    big: 2048
