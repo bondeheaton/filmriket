@@ -1,27 +1,9 @@
 <h1>Listing news</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="news">
+  <%= render "news" %>
+</div>
 
-  <tbody>
-	  <%= will_paginate @news %>
-    <% @news.each do |news| %>
-      <tr>
-        <td><%= news.title.html_safe %></td>
-        <td><%= news.content.html_safe %></td>
-        <td><%= link_to 'Show', news %></td>
-        <td><%= link_to 'Edit', edit_news_path(news) %></td>
-        <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 

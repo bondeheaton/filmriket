@@ -1,0 +1,9 @@
+<div class="listing">
+  <% @news.each do |news| %>
+      <div>
+        <span> <%= news.title.html_safe %> </span>
+        <span> <%= news.content.html_safe %>  </span>
+      </div>
+  <% end %>
+</div>
+<%= will_paginate @pnews %>
