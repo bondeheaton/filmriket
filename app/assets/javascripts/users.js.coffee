@@ -9,5 +9,3 @@ $(document).on 'ready page:load', ->
     medium: 555
     big: 2048
   return
-
-
