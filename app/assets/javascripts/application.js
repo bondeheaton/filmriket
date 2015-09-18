@@ -21,6 +21,7 @@
 //= require ckeditor/init
 //= require gallery/touch_touch
 //= require footable-on-rails
+//= require magnific-popup
 //= require_tree .
 	
 
