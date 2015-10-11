@@ -1,29 +1,33 @@
-<div class="small-2 columns sidebar">
-    <%= link_to "Hem", root_path %><br>
-    <%= link_to "Nyheter", news_index_path %><br>
-    <%= link_to "Filmer", movies_path %><br>
-    <%= link_to "Användare", users_path %><br>
-    <%= link_to "Klubbar", clubs_path %><br>
-    <%= link_to "Bokningar",     bookings_path %><br>
-    <%= link_to "Skapa nyhet",     new_news_path %><br>
-    <%= link_to "Skapa klubb", new_club_path %><br>
-    <%= link_to "Skapa recension", new_review_path %><br>
-    <%= link_to "Skapa klubbfilm", new_club_movie_path %><br>
-    <%= link_to "Events", events_path %><br>
-    <%= link_to "Ladda upp", new_upload_path %><br>
-    <%= link_to "Admin-logg", admin_log_path %><br>
-
-    <%= link_to "Registrera", new_user_registration_path %><br>
-
+<div class="large-2 medium-2 small-2 columns sidebar">
+  <div class="row">
     <% if current_user %>
-        <%= link_to "Logga ut", destroy_user_session_path, :method => :delete %><br>
+        <%= link_to "Logga ut", destroy_user_session_path, :method => :delete, class: 'menu-text' %><br>
     <% else %>
-        <%= link_to "Logga in", new_user_session_path %><br>
+        <%= link_to "<div class='menu-login'></div>".html_safe, new_user_session_path, class: 'menu-text' %><br>
     <% end %>
+
+    <%= link_to "<div class='menu-button'>Hem</div>".html_safe, root_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button'>Nyheter</div>".html_safe, news_index_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button'>Filmer</div>".html_safe, movies_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button'>Användare</div>".html_safe, users_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button'>Klubbar</div>".html_safe, clubs_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button'>Bokningar</div>".html_safe, bookings_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button'>Skapa Nyhet</div>".html_safe, new_news_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button'>Skapa Klubb</div>".html_safe, new_club_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button'>Skapa Recension</div>".html_safe, new_review_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button'>Skapa Klubbfilm</div>".html_safe, new_club_movie_path, class: 'menu-text' %>
+    <%= link_to "Events", events_path, class: 'menu-text' %>
+    <%= link_to "Ladda upp", new_upload_path, class: 'menu-text' %>
+    <%= link_to "Admin-logg", admin_log_path, class: 'menu-text' %>
+
+    <%= link_to "Registrera", new_user_registration_path, class: 'menu-text' %><br>
+
     Access:
     <% if current_user %>
         <%= current_user.access %><br>
         Club_id:<%= current_user.club_id %>
     <% end %>
+
+  </div>
 
 </div>

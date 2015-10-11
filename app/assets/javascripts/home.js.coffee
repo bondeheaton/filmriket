@@ -32,3 +32,35 @@ $(window).scroll ->
   else
     $('#menu').removeClass 'fixed'
   return
+
+btn = false
+
+$(document).on "click", ".menu-btn", ->
+  if btn
+    $('.sidebar').hide()
+    $('.topbar').show()
+    btn = false
+  else
+    $('.sidebar').show()
+    $('.topbar').hide()
+    $(document).on 'touchmove', (e) ->
+      if !$('.sidebar').has($(e.target)).length
+        e.preventDefault()
+      return
+    btn = true
+    return
+  return
+
+
+$(window).on 'orientationchange', ->
+  if $('.menu-btn').is(":visible")
+    $('#js-fix').removeClass('medium-10')
+    $('#js-fix').addClass('medium-12')
+  else
+    $('#js-fix').removeClass('medium-12')
+    $('#js-fix').addClass('medium-10')
+
+$(document).on 'ready page:load', ->
+  if $('.menu-btn').is(":visible")
+    $('#js-fix').removeClass('medium-10')
+    $('#js-fix').addClass('medium-12')

@@ -20,3 +20,21 @@
  */
 @import "foundation_and_overrides";
 
+body {
+  background-color: #c2dad1;
+  font-family: Calibri!important;
+  font-weight: bold;
+}
+
+.full-width {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: initial;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none!important;
+  background: none;
+}
+
