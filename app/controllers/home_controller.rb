@@ -10,6 +10,10 @@ class HomeController < ApplicationController
     @uploads = Upload.all
   end
 
+  def filmriket
+
+  end
+
   def about
     @clubs = Club.all
 
@@ -33,6 +37,10 @@ class HomeController < ApplicationController
       marker.infowindow "#{view_context.link_to club.name, club_path(club)}"
 
     end
+
+  end
+
+  def contact
 
   end
 

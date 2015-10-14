@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   #get 'home/index'
 
   get '/admin_log', :controller => 'home', :action => 'admin_log'
+  get '/filmriket', :controller => 'home', :action => 'filmriket'
   get '/about', :controller => 'home', :action => 'about'
+  get '/contact', :controller => 'home', :action => 'contact'
 
   resources :events do
     get :autocomplete_club_name, :on => :collection

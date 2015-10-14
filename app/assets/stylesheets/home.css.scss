@@ -53,7 +53,7 @@ h4.index-heading {
   padding-top: 12px;
   width: 444px!important;
   height: 300px;
-  background: url(movie-box.png);
+  background: url(content-box.png);
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
@@ -103,18 +103,70 @@ h4.index-heading {
   background-position:center;
 }
 
-.menu-button {
+.menu-button, .menu-button2, .menu-button3, .menu-button4, .menu-button5, .menu-button6, .menu-button7, .menu-button8, .menu-button9 {
   width: 100%;
   height: 40px;
   padding-top: 7px;
   margin-bottom: 10px;
+}
+
+.menu-button {
   background: url(menu-button.png);
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
 }
 
-.menu-button:hover {
+.menu-button2 {
+  background: url(menu-button3.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button3 {
+  background: url(menu-button4.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button4 {
+  background: url(menu-button5.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button5 {
+  background: url(menu-button6.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button6 {
+  background: url(menu-button7.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button7 {
+  background: url(menu-button8.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button8 {
+  background: url(menu-button9.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button:hover, .menu-button2:hover, .menu-button3:hover, .menu-button4:hover, .menu-button5:hover, .menu-button6:hover, .menu-button7:hover, .menu-button8:hover {
   opacity: 0.7;
   text-decoration: none;
   color: #c2dad1;
