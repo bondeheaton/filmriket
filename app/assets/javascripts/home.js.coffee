@@ -64,3 +64,4 @@ $(document).on 'ready page:load', ->
   if $('.menu-btn').is(":visible")
     $('#js-fix').removeClass('medium-10')
     $('#js-fix').addClass('medium-12')
+

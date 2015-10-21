@@ -1,7 +1,7 @@
 class ClubsController < ApplicationController
   autocomplete :club, :name
   before_action :set_club, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   respond_to :html, :js
 
