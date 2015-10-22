@@ -2,4 +2,5 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
+$(document).on 'click', '.close-movie-modal', ->
+  $('#movie-modal').foundation('reveal', 'close')

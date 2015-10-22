@@ -26,17 +26,9 @@
             <h4 class="index-heading">Om Filmriket</h4>
             <div class="content-wrapper">
               <div class="large-8 large-centered columns content">
-                <script type="text/javascript">
-                    $(document).on('ready page:load', function() {
-                        $('.simple-ajax-popup-align-top').magnificPopup({
-                            type: 'ajax',
-                            alignTop: true,
-                            overflowY: 'scroll',
-                            closeOnContentClick: false
-                        });
-                    });
-                </script>
-                <%= link_to image_tag('contentbild-test.jpg'), about_path, :class => "simple-ajax-popup-align-top no-underline" %>
+
+                <%= link_to image_tag('contentbild-test.jpg'), about_path %>
+
               </div>
             </div>
           </div>

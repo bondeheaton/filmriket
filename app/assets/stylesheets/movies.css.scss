@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.reveal-modal {
+  border-radius: 100px!important;
+  -webkit-border-radius: 100px!important;
+  -moz-border-radius: 100px!important;
+  -o-border-radius: 100px!important;
+}
+
 .movie {
   background: #ffffff;
 }

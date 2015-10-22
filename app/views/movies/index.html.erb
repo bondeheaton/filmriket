@@ -1,13 +1,3 @@
-<script type="text/javascript">
-    $(document).on('ready page:load', function() {
-        $('.simple-ajax-popup-align-top').magnificPopup({
-            type: 'ajax',
-            alignTop: true,
-            overflowY: 'scroll',
-            closeOnContentClick: false
-        });
-    });
-</script>
 <h1>Listing movies</h1>
 
 <script type="text/javascript">
@@ -130,9 +120,9 @@
         });
     </script>
 
-    <!-- Mobil -->
+
     <div class="mobile-movies">
-      <%= link_to movie, :class => "simple-ajax-popup-align-top no-underline" do %>
+      <%= link_to movie, remote: true, data: {:"reveal-id" => "movie-modal"} do %>
           <div class="movie-link2">
             <%= image_tag(movie.videocover, size: "102x139") %>
           </div>
@@ -222,7 +212,9 @@
       <% end %>
 <% end %>
 
-
 <br>
 
 <%= link_to 'New Movie', new_movie_path %>
+
+<!-- Render partial for movie modal popup -->
+<%= render partial: 'movie_modal' %>

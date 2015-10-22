@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+
+
   def index
 
   end
@@ -22,7 +24,6 @@ class HomeController < ApplicationController
     @clubs.each do |club|
       if club.longitude
         @verifiedclubs.push(club)
-
       end
     end
 
@@ -35,9 +36,7 @@ class HomeController < ApplicationController
               :height  => 32
               })
       marker.infowindow "#{view_context.link_to club.name, club_path(club)}"
-
     end
-
   end
 
   def contact
