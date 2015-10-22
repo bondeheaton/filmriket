@@ -83,10 +83,30 @@ h4.index-heading {
 
 */
 
-.social-media-links:hover {
-  text-decoration: none;
-  opacity: 0.7!important;
+
+
+.social-media-links img {
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1);
+  transition: all 200ms ease-in;
+  transform: scale(1);
 }
+.social-media-links img:hover {
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1.2);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1.2);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1.2);
+  transition: all 200ms ease-in;
+  transform: scale(1.2);
+}
+
+
 
 .sidebar {
   float: left;
@@ -279,7 +299,8 @@ p.created {
     overflow: scroll!important;
     height: 100%;
     margin-top: 50px;
-    background: #222;
+    background: #60778f;
+    opacity: 0.95;
   }
 
   .sidebar a:link, a:visited, a:hover, a:active {
@@ -293,7 +314,7 @@ p.created {
     position: fixed!important;
     display: inline-block;
     width: 100%;
-    background: #222;
+    background: #60778f;
     color: #fff;
     height: 50px;
     margin-top: 0px;
@@ -344,7 +365,8 @@ p.created {
     overflow: scroll!important;
     height: 100%;
     margin-top: 50px;
-    background: #222;
+    background: #60778f;
+    opacity: 0.96;
   }
 
   .sidebar a:link, a:visited, a:hover, a:active {
@@ -359,7 +381,7 @@ p.created {
     position: fixed!important;
     display: inline-block;
     width: 100%;
-    background: #222;
+    background: #60778f;
     color: #fff;
     height: 51px;
     margin-top: 0px;
