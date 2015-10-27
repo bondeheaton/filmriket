@@ -12,3 +12,21 @@ input#news_title {
   margin-left: auto;
   margin-right: auto;
 }
+
+.bordered {
+  border: 1px solid black;
+}
+
+.news-content {
+  text-align: left!important;
+}
+
+p.news {
+  color: #ffffff!important;
+}
+
+.content-img {
+  border: 3px solid #ffffff;
+  padding: 0!important;
+  height: 219px;
+}

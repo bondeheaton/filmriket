@@ -1,1 +1,89 @@
-<h1>Vad är Filmriket</h1>
+<div class="row">
+  <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+    <div class="row">
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Se prata och gör film!</h4>
+        <div class="large-8 large-centered columns content-img">
+
+
+          <a href="#" data-reveal-id="myModal"><%= image_tag("mockup.jpg") %></a>
+
+          <div id="myModal" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+            <h2 class="popup-text">Se prata och gör film!</h2>
+            <p class="popup-text">
+              I Filmrikets kan du tillsammans med dina vänner se starka, roliga, otroliga filmer som ifrågasätter, väcker debatt och berör. Låt dig  inspireras av storslagen film och lär dig diskutera och göra dina egna filmer. Följ med på oförglömliga filmträffar, se exklusiva förhandsvisningar och träffa riktiga filmstjärnor!
+            </p>
+            <p class="popup-text">
+              Filmriket är för dig mellan 12-19 år som bor i Sverige. Gå med i en filmklubb i närheten av där du bor eller starta en ny filmklubb. I Filmklubbarna gör vi främst tre saker – ser, prata och gör egen film!
+            </p>
+            <p class="popup-text">
+              Filmklubbarna väljer själv vilka filmer de skall se ur vårt filmutbud där vi samlat några av Filmhistoriens bästa filmer. Efter filmen finns det frågor som gör att man lätt kommer igång och diskuterar filmen man just sett.
+            </p>
+            <p class="popup-text">
+              Innan ni ser nästa film är det dax att göra en egen film. Temat är fritt och man får gärna inspireras av filmen man precis sett. Om filmklubben är intresserad får ni en kostnadsfri workshop i hur man filmar och redigerar och så kan man också spana in Filmrikets egna Filmskola där det finns massvis med tips på hur man gör film med sin mobil eller surfplatta. När filmen är klar lägger ni upp filmen på Filmrikets Youtubesida och er egne klubbsida.
+            </p>
+            <p class="popup-text">
+              Filmklubbarna blir också inbjudna till filmträffar med andra Filmklubbar lokalt och nationellt. Ni får vara med och arrangera filmfestivaler som BUFF och delta i filmtävlingar som Noo Maraton
+              Ett medlemsskap kostar 100 kr.
+            </p>
+            <%= link_to "Bli medlem", new_user_registration_path %>
+          </div>
+
+        </div>
+      </div>
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Hur funkar Filmriket</h4>
+        <div class="content-wrapper">
+          <div class="large-8 large-centered columns content-video">
+            <div class="video-container">
+              <iframe title="YouTube video player" src="http://www.youtube.com/embed/9W3JtRwJe3o?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Se film</h4>
+        <div class="content-wrapper">
+          <div class="large-8 large-centered columns content-img">
+
+            <%= link_to image_tag("mockup.jpg"), movies_path %>
+          </div>
+        </div>
+      </div>
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <%= link_to "<h4 class='index-heading'>Filmskolan</h4>".html_safe, filmschools_path %>
+        <div class="large-8 large-centered columns content-video">
+          <div class="video-container">
+            <iframe title="YouTube video player" src="http://www.youtube.com/embed/i5YY-XZO6-E?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <%= link_to "<h4 class='index-heading'>Klubbfilmer</h4>".html_safe, club_movies_path %>
+        <div class="content-wrapper">
+          <div class="large-8 large-centered columns content-video">
+            <div class="video-container">
+              <iframe title="YouTube video player" src="http://www.youtube.com/embed/i5YY-XZO6-E?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Nyheter</h4>
+        <div class="large-8 large-centered columns content">
+          <%= link_to image_tag("mockup.jpg"), news_index_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

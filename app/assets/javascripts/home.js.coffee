@@ -65,3 +65,13 @@ $(document).on 'ready page:load', ->
     $('#js-fix').removeClass('medium-10')
     $('#js-fix').addClass('medium-12')
 
+
+$(document).on 'click', '.link-fix', ->
+  center = handlerr.getMap().getCenter()
+  setTimeout (->
+    google.maps.event.trigger handler.getMap(), 'resize'
+    handler.map.centerOn(center)
+    return
+  ), 200
+
+

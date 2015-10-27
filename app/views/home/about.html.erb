@@ -1,35 +1,177 @@
-<h2>Om oss</h2>
+<div class="row">
+  <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+    <div class="row">
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Om Filmriket</h4>
+        <div class="large-8 large-centered columns content-img">
 
-<div id="map" style='width: 800px; height: 400px;'>
-  <script type="text/javascript">
-      handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers(<%=raw hash.to_json %>)
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          handler.getMap().setZoom(7);
-      });
-      function InfoBox(opts) {
-          google.maps.OverlayView.call(this);
-          this.latlng_ = opts.latlng;
-          this.map_ = opts.map;
-          this.offsetVertical_ = -195;
-          this.offsetHorizontal_ = 0;
-          this.height_ = 165;
-          this.width_ = 266;
+          <a href="#" data-reveal-id="omfilmriket"><%= image_tag("mockup.jpg") %></a>
 
-          var me = this;
-          this.boundsChangedListener_ =
-                  google.maps.event.addListener(this.map_, "bounds_changed", function() {
-                      return me.panMap.apply(me);
-                  });
+          <div id="omfilmriket" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 
-          // Once the properties of this OverlayView are initialized, set its map so
-          // that we can display it.  This will trigger calls to panes_changed and
-          // draw.
-          this.setMap(this.map_);
-      }
-      InfoBox.prototype = new google.maps.OverlayView();
-  </script>
+            <h2 class="popup-text">Om Filmriket</h2>
+            <p class="popup-text">
+              Filmriket är ett nationellt arvsfondsprojekt för dig mellan 12-19 år. I Filmriket gör vi framförallt tre saker i våra filmklubbar– vi ser, pratar och gör film. Projektet är ett samarbete mellan Reaktor Sydost, Film i Jönköping, Filmpool Nord samt studieförbundet Bilda Sydöst.
+            </p>
+          </div>
+
+        </div>
+      </div>
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Partners</h4>
+        <div class="content-wrapper">
+          <div class="large-8 large-centered columns content-img">
+
+            <a href="#" data-reveal-id="partners"><%= image_tag("mockup.jpg") %></a>
+
+            <div id="partners" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+              <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+              <h2 class="popup-text">Partners</h2>
+              <p class="popup-text">
+                Om Filmriket partners
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Media</h4>
+        <div class="content-wrapper">
+          <div class="large-8 large-centered columns content-img">
+
+            <a href="#" data-reveal-id="media"><%= image_tag("mockup.jpg") %></a>
+
+            <div id="media" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+              <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+              <h2 class="popup-text">Media</h2>
+              <p class="popup-text">
+                Medialänkar artiklar annan media om Filmriket
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Sociala Medier</h4>
+        <div class="large-8 large-centered columns content-img">
+
+          <a href="#" data-reveal-id="socialamedier"><%= image_tag("mockup.jpg") %></a>
+
+          <div id="socialamedier" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+            <h2 class="popup-text">Sociala Medier</h2>
+            <p class="popup-text">
+              Medialänkar artiklar annan media om Filmriket
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Filmklubbar</h4>
+        <div class="content-wrapper">
+          <div class="large-8 large-centered columns content-img fix-stuff">
+            <a href="#" data-reveal-id="map_id" class="link-fix">
+                <div class="show-map">
+
+                </div>
+                <div id="map_before">
+                  <script type="text/javascript">
+                      var handlerr;
+                      handlerr = Gmaps.build('Google');
+                      handlerr.buildMap({ provider: {}, internal: {id: 'map_before'}}, function(){
+                          markers = handlerr.addMarkers(<%=raw @hash.to_json %>)
+                          handlerr.bounds.extendWith(markers);
+                          handlerr.fitMapToBounds();
+
+                      });
+                      function InfoBox(opts) {
+                          google.maps.OverlayView.call(this);
+                          this.latlng_ = opts.latlng;
+                          this.map_ = opts.map;
+                          this.offsetVertical_ = -195;
+                          this.offsetHorizontal_ = 0;
+                          this.height_ = 165;
+                          this.width_ = 266;
+
+                          var me = this;
+                          this.boundsChangedListener_ =
+                                  google.maps.event.addListener(this.map_, "bounds_changed", function() {
+                                      return me.panMap.apply(me);
+                                  });
+
+                          // Once the properties of this OverlayView are initialized, set its map so
+                          // that we can display it.  This will trigger calls to panes_changed and
+                          // draw.
+                          this.setMap(this.map_);
+
+                      }
+                      InfoBox.prototype = new google.maps.OverlayView();
+
+                  </script>
+                </div>
+            </a>
+
+            <div id="map_id" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+              <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+                <div class="tjena">KLICKA MIG</div>
+
+                <script type="text/javascript">
+                    var handler;
+                    handler = Gmaps.build('Google');
+                    handler.buildMap({ provider: {}, internal: {id: 'map_id'}}, function(){
+                        markers = handler.addMarkers(<%=raw @hash.to_json %>)
+                        handler.bounds.extendWith(markers);
+                        handler.fitMapToBounds();
+                        handler.getMap().setZoom(handlerr.getMap().getZoom());
+                    });
+                    function InfoBox(opts) {
+                        google.maps.OverlayView.call(this);
+                        this.latlng_ = opts.latlng;
+                        this.map_ = opts.map;
+                        this.offsetVertical_ = -195;
+                        this.offsetHorizontal_ = 0;
+                        this.height_ = 165;
+                        this.width_ = 266;
+
+                        var me = this;
+                        this.boundsChangedListener_ =
+                                google.maps.event.addListener(this.map_, "bounds_changed", function() {
+                                    return me.panMap.apply(me);
+                                });
+
+                        // Once the properties of this OverlayView are initialized, set its map so
+                        // that we can display it.  This will trigger calls to panes_changed and
+                        // draw.
+                        this.setMap(this.map_);
+
+                    }
+                    InfoBox.prototype = new google.maps.OverlayView();
+
+                </script>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Nyheter</h4>
+        <div class="large-8 large-centered columns content">
+          <%= link_to image_tag("mockup.jpg"), news_index_path %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
 

@@ -18,8 +18,9 @@
       <%= render partial: 'home/topbar' %>
       <div class="row full-width">
           <%= render partial: 'home/sidebar'  %>
-
-          <%= yield %>
+          <div class="large-10 medium-10 columns" id="js-fix">
+            <%= yield %>
+          </div>
       </div>
 
   </body>

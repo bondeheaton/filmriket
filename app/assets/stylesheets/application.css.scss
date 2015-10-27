@@ -16,7 +16,6 @@
 
  *= require gallery/touch_touch
  *= require footable-on-rails
- *= require magnific-popup
  */
 @import "foundation_and_overrides";
 
@@ -24,7 +23,22 @@ body {
   background-color: #c2dad1;
   font-family: Calibri!important;
   font-weight: bold;
+
 }
+
+h2 {
+  font-family: Calibri!important;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff!important;
+}
+
+p {
+  font-family: Calibri!important;
+  color: #ffffff!important;
+}
+
+
 
 .full-width {
   width: 95%;
@@ -38,4 +52,20 @@ a:link, a:visited, a:hover, a:active {
   background: none;
   color: #c2dad1!important;
 }
+
+.white-text {
+  color: #ffffff!important;
+  font-weight: bold;
+  padding-left: 5px;
+  a:link, a:visited, a:hover, a:active
+  {
+    color: #008cba!important;
+  }
+}
+
+
+.white-text a:hover {
+  text-decoration: underline!important;
+}
+
 
