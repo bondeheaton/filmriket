@@ -1,6 +1,50 @@
 // Place all the styles related to the Movies controller here.
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.movie-container {
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radiys: 25px;
+  -o-border-radius: 25px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.width-fix {
+  width: 250px!important;
+}
+
+
+.image {
+  z-index: -99!important;
+  position: relative;
+}
+
+.bordered-grey {
+  border: 1px solid #666;
+}
+
+
+.rounded {
+  background: #ffffff;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radiys: 25px;
+  -o-border-radius: 25px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  min-height: 90px;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 9999!important;
+  margin-top: -20px;
+}
+
 
 .reveal-modal {
   border-radius: 125px!important;

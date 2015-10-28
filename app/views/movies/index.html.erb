@@ -1,29 +1,34 @@
 <!-- Loopar igenom och skriver ut alla filmer -->
-<% if user_signed_in? %>
-    <% if current_user.access == 2 %>
-        <%= link_to 'Ny Film', new_movie_path, :class => 'button success expand' %>
-    <% end %>
-<% end %>
+<div class="row">
+  <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+    <div class="row">
+        <% @movies.each do |movie| %>
+            <div class="large-4 medium-6 columns">
+              <div class="movie-container bordered-grey width-fix">
+              <%= link_to movie, remote: true, data: {:"reveal-id" => "movie-modal"} do %>
+                  <div class="movie-link2 image">
 
-<% num = 0 %>
-<% @movies.each do |movie| %>
-    <div class="mobile-movies">
-      <%= link_to movie, remote: true, data: {:"reveal-id" => "movie-modal"} do %>
-          <div class="movie-link2">
-            <%= image_tag(movie.videocover, size: "102x139") %>
-          </div>
+                    <%= image_tag(movie.videocover, size: "250x341") %>
 
-          <div class="movie-link">
-            <h3><%= movie.title %></h3>
+                  </div>
 
-          </div>
-          <% num = num + 1%>
-      <% end %>
-<% end %>
+                  <div class="movie-description rounded">
+                    <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
+                    <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %>
+                  </div>
+              <% end %>
+              </div>
+            </div>
+        <% end %>
+    </div>
+        <br>
+        <% if user_signed_in? %>
+            <% if current_user.access == 2 %>
+                <%= link_to 'Ny Film', new_movie_path, :class => 'button success expand' %>
+            <% end %>
+        <% end %>
 
-<br>
-
-<%= link_to 'New Movie', new_movie_path %>
-
-<!-- Render partial for movie modal popup -->
-<%= render partial: 'movie_modal' %>
+        <!-- Render partial for movie modal popup -->
+        <%= render partial: 'movie_modal' %>
+</div>
+</div>
