@@ -9,18 +9,24 @@
   width: 95%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
   overflow: hidden;
+  margin-bottom: -10px;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .width-fix {
-  width: 250px!important;
+  width: 280px!important;
 }
 
 
 .image {
   z-index: -99!important;
   position: relative;
+  text-align: center;
 }
 
 .bordered-grey {

@@ -4,3 +4,10 @@
 
 $(document).on 'click', '.close-movie-modal', ->
   $('#movie-modal').foundation('reveal', 'close')
+
+
+$(window).load ->
+  $('#masonry-container').masonry ->
+    itemSelector: '.item',
+    isFitWidth: true
+  return
