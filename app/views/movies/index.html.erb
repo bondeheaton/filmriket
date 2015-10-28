@@ -1,8 +1,4 @@
-<h1>Listing movies</h1>
-
 <script type="text/javascript">
-
-
     $(document).ready(function() {
         var newUserRating = false;
         var mouseoutstars = 0;
@@ -96,7 +92,7 @@
 <!-- Loopar igenom och skriver ut alla filmer -->
 <% if user_signed_in? %>
     <% if current_user.access == 2 %>
-        <div class="admin-new-button"> <%= link_to 'Ny Film', new_movie_path, :class => 'login-button' %></div>
+        <%= link_to 'Ny Film', new_movie_path, :class => 'button success expand' %>
     <% end %>
 <% end %>
 

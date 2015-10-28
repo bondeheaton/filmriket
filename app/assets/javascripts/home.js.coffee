@@ -27,7 +27,7 @@ $(document).on 'click', '#to_uploads', ->
 header = $('#admin_log')
 $(window).scroll ->
   scroll = $(window).scrollTop()
-  if scroll >= window.innerHeight - 100
+  if scroll >= window.innerHeight - 200
     $('#menu').addClass 'fixed'
   else
     $('#menu').removeClass 'fixed'
