@@ -54,8 +54,6 @@ class ClubsController < ApplicationController
       end
     end
 
-
-    
     @hash = Gmaps4rails.build_markers(@verifiedclubs) do |club, marker|
       marker.lat club.latitude
       marker.lng club.longitude

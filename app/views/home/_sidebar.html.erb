@@ -1,7 +1,7 @@
 <div class="large-2 medium-2 small-2 columns sidebar">
   <div class="row">
     <% if current_user %>
-        <%= link_to "Logga ut", destroy_user_session_path, :method => :delete, class: 'menu-text' %><br>
+        <%= link_to "<p>Logga ut</p>".html_safe, destroy_user_session_path, :method => :delete, class: 'menu-text' %><br>
     <% else %>
         <%= link_to "<div class='menu-login'></div>".html_safe, new_user_session_path, class: 'menu-text' %><br>
     <% end %>

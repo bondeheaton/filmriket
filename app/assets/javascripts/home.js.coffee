@@ -43,12 +43,7 @@ $(document).on "click", ".menu-btn", ->
   else
     $('.sidebar').show()
     $('.topbar').hide()
-    $(document).on 'touchmove', (e) ->
-      if !$('.sidebar').has($(e.target)).length
-        e.preventDefault()
-      return
     btn = true
-    return
   return
 
 
