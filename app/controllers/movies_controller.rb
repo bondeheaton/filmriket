@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :check_admin!, only: [:edit, :update, :destroy]
-  respond_to :html
+  respond_to :html, :js
 
   def index
     @movies = Movie.all
@@ -17,7 +17,11 @@ class MoviesController < ApplicationController
     @booking = Booking.new
     @bookings = @movie.bookings
     @movie_comment = MovieComment.new
-    @movie_comments = MovieComment.where("movie_id = ?", params[:id]).reverse
+    #@movie_comments = MovieComment.where("movie_id = ?", params[:id]).reverse
+    @movie_comments = @movie.movie_comments.order('id ASC')
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new

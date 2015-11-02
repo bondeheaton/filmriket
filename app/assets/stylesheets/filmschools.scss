@@ -1,0 +1,15 @@
+// Place all the styles related to the Filmschools controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.filmschool-movie {
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 1000px) {
+  .filmschool-movie {
+    margin-top: 20px!important;
+  }
+}

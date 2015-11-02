@@ -1,0 +1,45 @@
+<div class="large-2 medium-2 small-2 columns sidebar">
+  <div class="row">
+    <% if current_user %>
+        <%= link_to "<p>Logga ut</p>".html_safe, destroy_user_session_path, :method => :delete, class: 'menu-text' %><br>
+    <% else %>
+        <%= link_to "<div class='menu-login'></div>".html_safe, new_user_session_path, class: 'menu-text' %><br>
+    <% end %>
+
+    <%= link_to "<div class='menu-button'>Vad är Filmriket</div>".html_safe, filmriket_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button2'>Nyheter</div>".html_safe, news_index_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button3'>Bli medlem</div>".html_safe, new_user_registration_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button4'>Filmer</div>".html_safe, movies_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button5'>Filmskolan</div>".html_safe, filmschools_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button6'>Om Filmriket</div>".html_safe, about_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button7'>Kontakt</div>".html_safe, contact_path, class: 'menu-text' %>
+
+    <% if current_user %>
+        <% if current_user.club %>
+            <%= link_to "<div class='menu-button8'>Skapa Recension</div>".html_safe, new_review_path, class: 'menu-text' %>
+            <%= link_to "<div class='menu-button'>Skapa Klubbfilm</div>".html_safe, new_club_movie_path, class: 'menu-text' %>
+        <% end %>
+    <% end  %>
+
+    <%= link_to "Events", events_path, class: 'menu-text' %>
+    <%= link_to "Ladda upp", new_upload_path, class: 'menu-text' %>
+
+    <% if current_user %>
+        <% if current_user.access == 2 %>
+            <%= link_to "<div class='menu-button'>Admin-logg</div>".html_safe, admin_log_path, class: 'menu-text' %>
+            <%= link_to "<div class='menu-button'>Användare</div>".html_safe, users_path, class: 'menu-text' %>
+            <%= link_to "<div class='menu-button'>Klubbar</div>".html_safe, clubs_path, class: 'menu-text' %>
+            <%= link_to "<div class='menu-button'>Bokningar</div>".html_safe, bookings_path, class: 'menu-text' %>
+            <%= link_to "<div class='menu-button'>Skapa Nyhet</div>".html_safe, new_news_path, class: 'menu-text' %>
+            <%= link_to "<div class='menu-button'>Skapa Klubb</div>".html_safe, new_club_path, class: 'menu-text' %>
+        <% end  %>
+    <% end %>
+
+    <% if current_user %>
+        <%= current_user.access %><br>
+        Club_id:<%= current_user.club_id %>
+    <% end %>
+
+  </div>
+
+</div>

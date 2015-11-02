@@ -1,0 +1,31 @@
+<div class="row">
+<div class="large-11 large-centered columns movie">
+  <a class="close-movie-modal close-movie-fix" aria-label="Close">&#215;</a>
+  <div class="large-6 columns">
+    <div class="filmschool-movie">
+        <%= raw(youtube_embed(@filmschool.videolink )) %>
+    </div>
+  </div>
+  <div class="large-6-columns">
+    <h4 class="movie-text">
+      <%= @filmschool.title %>
+    </h4>
+
+    <p class="movie-text">
+      <%= @filmschool.description %>
+    </p>
+  </div>
+</div>
+
+<br>
+<div class="large-10 large-center columns">
+    <div class="comments_wraper_m">
+      <% if user_signed_in? %>
+          <%= render 'filmschool_comments/form' %>
+          <div id="filmchool_comment_list">
+            <%= render 'filmschool_comments/list' %>
+          </div>
+      <% end %>
+    </div>
+</div>
+</div>

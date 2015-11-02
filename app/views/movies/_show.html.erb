@@ -1,44 +1,59 @@
-<div class="large-8 large-centered columns movie">
-<p>
-  <strong>Title:</strong>
-  <%= @movie.title %>
-</p>
+<div class="large-10 large-centered columns movie">
+<a class="close-movie-modal close-movie-fix" aria-label="Close">&#215;</a>
+<div class="large-6 columns">
 
-<p>
-  <strong>Description:</strong>
-  <%= @movie.description %>
-</p>
+  <div class="movie-picture">
+    <%= image_tag(@movie.videocover, size: "350x477") %>
+  </div>
 
-<p>
-  <strong>Director:</strong>
-  <%= @movie.director %>
-</p>
+  <div class="large-6 columns center-text">
+      <% if current_user %>
+          <% if current_user.club_id %>
+              <%= render partial: 'bookings/form' %>
+              <button id="booked_button">Bokad</button>
+              <% if check_already_booked(@movie.id) %>
+                  <script>
+                      $(document).ready(function() {
+                          $("#book_button").hide();
+                          $("#booked_button").show();
+                      });
+                  </script>
+              <% else%>
+                  <% if (club_bookings(Club.find(current_user.club_id)) > 2) %>
+                      <script>
+                          $(document).ready(function() {
+                              $("#book_button").hide();
+                              $("#booked_button").show();
+                              $("#booked_button").html("3bok");
+                          });
+                      </script>
+                  <% else %>
+                  <% end %>
+              <% end %>
+          <% else %>
+          <% end %>
+      <% end %>
+  </div>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @movie.genre %>
-</p>
+  <div class="large-6 columns height-fix center-text">
+    <%= link_to image_tag('trailer.png', size: '128x25'), @movie.trailerlink, target: '_blank' %>
+  </div>
 
-<p>
-  <strong>Playtime:</strong>
-  <%= @movie.playtime %>
-</p>
+</div>
 
-<p>
-  <strong>Published:</strong>
-  <%= @movie.published %>
-</p>
+<div class="large-6 columns">
+  <h2 class="movie-text"><%= @movie.title %></h2>
 
-<p>
-  <strong>Imglink:</strong>
-  <%= @movie.videocover %>
-</p>
+  <h6 class="movie-text bold">GENRE: <%= @movie.genre %></h6>
 
-<p>
-  <strong>Trailerlink:</strong>
-  <%= @movie.trailerlink %>
-</p>
-<br>
+  <p class="movie-text"><%= @movie.description %></p>
+
+  <p class="movie-text">Regissör: <%= @movie.director %></p>
+
+  <p class="movie-text">Speltid: <%= @movie.playtime %> min</p>
+
+  <p class="movie-text"Publicerad: <%= @movie.published %></p>
+</div>
 
 <script>
     $(document).ready(function() {
@@ -143,130 +158,6 @@
         }
     });
 </script>
-<style>
-    .empty-star{
-        width: 20%;
-        height: 100%;
-        background-image: url("../assets/starempty.png");
-        background-repeat: no-repeat;
-        float: left;
-    }
-    .user-rating {
-        width: 100px;
-        height: 20px;
-        margin: 13px;
-        float: left;
-    }
-    .stars-wrap {
-        width: 100%;
-        height: 100%;
-        float: left;
-    }
-    .stars-first {
-        width: 100%;
-        height: 100%;
-        display: none;
-    }
-    .empty-star{
-        width: 20%;
-        height: 100%;
-        background-image: url("../assets/starempty.png");
-        background-repeat: no-repeat;
-        float: left;
-    }
-
-    .full-star{
-        width: 20%;
-        height: 100%;
-        background-image: url("../assets/starfull.png");
-        background-repeat: no-repeat;
-        float: left;
-        -webkit-transition-duration: 100ms;
-        -moz-transition-duration: 100ms;
-        -o-transition-duration: 100ms;
-        transition-duration: 100ms;
-        -webkit-transform:scale(1); /* Safari and Chrome */
-        -moz-transform:scale(1); /* Firefox */
-        -ms-transform:scale(1); /* IE 9 */
-        -o-transform:scale(1); /* Opera */
-        transform:scale(1);
-    }
-
-    div.stars-0-user, div.stars-1-user, div.stars-2-user, div.stars-3-user, div.stars-4-user, div.stars-5-user {
-        width: 100%;
-        height: 100%;
-        display: none;
-    }
-
-    div.empty-star{
-        width: 20%;
-        height: 100%;
-        background-image: url("../assets/starempty.png");
-        background-repeat: no-repeat;
-        float: left;
-        cursor: pointer;
-        -webkit-transform:scale(0.9); /* Safari and Chrome */
-        -moz-transform:scale(0.9); /* Firefox */
-        -ms-transform:scale(0.9); /* IE 9 */
-        -o-transform:scale(0.9); /* Opera */
-        transform:scale(0.9);
-    }
-
-    div.full-star{
-        width: 20%;
-        height: 100%;
-        background-image: url("../assets/starfull.png");
-        background-repeat: no-repeat;
-        float: left;
-        cursor: pointer;
-        -webkit-transform:scale(0.9); /* Safari and Chrome */
-        -moz-transform:scale(0.9); /* Firefox */
-        -ms-transform:scale(0.9); /* IE 9 */
-        -o-transform:scale(0.9); /* Opera */
-        transform:scale(0.9);
-    }
-    div.rating-star{
-        width: -webkit-calc(100% - 380px);
-        width: -moz-calc(100% - 380px);
-        width: -o-calc(100% - 380px);
-        width: calc(100% - 380px);
-        float: left;
-
-
-    }
-    div.big-star{
-        background-image: url("../assets/bigstar.png");
-        background-repeat: no-repeat;
-        background-size: 56px 55px;
-        width: 56px;
-        height: 55px;
-        margin: auto;
-        float: left;
-        cursor:pointer;
-        -webkit-transition-duration: 200ms;
-        -moz-transition-duration: 200ms;
-        -o-transition-duration: 200ms;
-        transition-duration: 200ms;
-    }
-    div.big-star:hover{
-        -webkit-transform:scale(1.1); /* Safari and Chrome */
-        -moz-transform:scale(1.1); /* Firefox */
-        -ms-transform:scale(1.1); /* IE 9 */
-        -o-transform:scale(1.1); /* Opera */
-        transform:scale(1.1);
-
-    }
-    .rating{
-        padding-left: 17px;
-        line-height: 28px;
-    }
-</style>
-<div class="movieFrame">
-
-
-  <div class="moviePictureSize">
-    <%= image_tag(@movie.videocover, size: "286x400") %>
-  </div>
 
 
   <div class="movieTitlePosition">
@@ -275,9 +166,9 @@
     </p>
   </div>
   <div class="rating-star">
-    <div class="big-star">
-      <p class="rating"><b><%= @movie.average_rating %></b></p>
-    </div>
+
+      <p class="movie-text"><b>&nbsp;&nbsp;&nbsp;&nbsp;Poäng: <%= @movie.average_rating %></b></p>
+
     <div class="user-rating">
 
       <% if user_signed_in? %>
@@ -354,49 +245,25 @@
       <!-- Stars 0 -->
     </div>
   </div>
-  <!-- If-sats för att kolla om användaren har klubb, om inte kan han ej boka (annars kan ej användare se filmen)
-  , behövs det inte? Ta bort if current_user.club_id-->
 
-  <% if current_user.club_id %>
-      <%= render partial: 'bookings/form' %>
-      <button id="booked_button">bokad</button>
-      <% if check_already_booked(@movie.id) %>
-        <script>
-            $(document).ready(function() {
-                $("#book_button").hide();
-                $("#booked_button").show();
-            });
-        </script>
-        <% else%>
-            <% if (club_bookings(Club.find(current_user.club_id)) > 2) %>
-                <script>
-                $(document).ready(function() {
-                    $("#book_button").hide();
-                    $("#booked_button").show();
-                    $("#booked_button").html("3bok");
-                });
-                </script>
-                <% else %>
-
-            <% end %>
+  <div class="large-7 columns right right-fix">
+      <div class="comments_wraper_m scrollable">
+        <% if user_signed_in? %>
+            <%= render 'movie_comments/form' %>
+            <div id="comment_list">
+              <%= render 'movie_comments/list' %>
+            </div>
         <% end %>
-        <% else %>
-    <% end %>
-		
-
-<br>
-  <div class="comments_wraper_m">
-    <% if user_signed_in? %>
-        <%= render 'movie_comments/form' %>
-        <div id="comment_list">
-          <%= render 'movie_comments/list' %>
-        </div>
-    <% end %>
+      </div>
   </div>
 
-
 <br>
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
-</div>
+<% if current_user %>
+    <% if current_user.access == 2 %>
+        <%= link_to 'Redigera', edit_movie_path(@movie) %>
+    <% else %>
+    <% end %>
+<% else %>
+<% end %>
+
 </div>

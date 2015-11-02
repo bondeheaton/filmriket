@@ -1,228 +1,35 @@
-<script type="text/javascript">
-    $(document).on('ready page:load', function() {
-        $('.simple-ajax-popup-align-top').magnificPopup({
-            type: 'ajax',
-            alignTop: true,
-            overflowY: 'scroll',
-            closeOnContentClick: false
-        });
-    });
-</script>
-<h1>Listing movies</h1>
-
-<script type="text/javascript">
-
-
-    $(document).ready(function() {
-        var newUserRating = false;
-        var mouseoutstars = 0;
-
-        $('.stars-wrap1 .stars-first1').click(function(e){
-            e.preventDefault();
-            var stars = $('.stars-first1 > .full-star1').length;
-            var data = $(this).parent().parent().children('.user_rating_info');
-            newUserRating = '.stars-'+stars+'-user1';
-
-            $(this).children('.full-star1').prevAll().css({
-                '-webkit-transform':'scale(0.9)',
-                '-moz-transform':'scale(0.9)',
-                '-ms-transform':'scale(0.9)',
-                '-o-transform':'scale(0.9)',
-                'transform':'scale(0.9)'
-            });
-            $(this).children('.full-star1').css({
-                '-webkit-transform':'scale(0.9)',
-                '-moz-transform':'scale(0.9)',
-                '-ms-transform':'scale(0.9)',
-                '-o-transform':'scale(0.9)',
-                'transform':'scale(0.9)'
-            });
-
-            <% if user_signed_in? %>
-            $.ajax({
-                url: '/ratings',
-                method: 'POST',
-                data: {"rating[value]":stars, "rating[user_id]":data.data('user_id'), "rating[movie_id]":data.data('movie_id')},
-                success: function(){
-
-                }
-            });
-            <% else %>
-            window.location.href="/users/sign_in"
-            <% end %>
-        });
-
-        // Visa endast den markerade MOUSEOVER
-        $('.stars-wrap1').mouseover(function(){
-            // Beräkna hur många stjärnor som fanns från början för mouseout senare
-            oldUserRating = $(this).children(':visible:first').children('.full-star1').length;
-
-            //Ta bort "children"
-            $(this).children().css('display', 'none');
-            // Hitta och visa stars-first1 (hover)
-            $(this).find('.stars-first1').css('display', 'block');
-            // Fixa stjärnorna efter klick
-            $(this).find('.stars-first1').children('.full-star1').css({
-                '-webkit-transform':'scale(1)',
-                '-moz-transform':'scale(1)',
-                '-ms-transform':'scale(1)',
-                '-o-transform':'scale(1)',
-                'transform':'scale(1)'
-            });
-        });
-
-        // Återgå till det som blir valt eller var valt tidigare. MOUSEOUT
-        $('.stars-wrap1').mouseout(function(){
-            //Ta bort stars-first1
-            $(this).find('.stars-first1').css('display', 'none');
-            // if-sats som kolla ifall det är clickat eller inte och skriver ut
-            // den rätta boxen antingen den nyligen valda eller det gamla.
-            if (newUserRating) {
-                $(this).find(newUserRating).css('display', 'block');
-                newUserRating = false;
-            } else if(oldUserRating > 0){
-                oldUserRating = ".stars-"+oldUserRating+"-user1";
-                $(this).find(oldUserRating).css('display', 'block');
-            } else{
-                // Annars har man inte röstat och får då tillbaka 0 stjärnor
-                $(this).find('.stars-0-user1').css('display', 'block');
-            }
-        });
-
-        // Hover på stjärnorna
-        $('.stars-first1 .empty-star1').mouseover(function(){
-            $(this).removeClass('empty-star1').addClass('full-star1');
-            $(this).prevAll().removeClass('empty-star1').addClass('full-star1');
-        });
-
-        // Hover på stjärnorna
-        $('.stars-first1 .empty-star1').mouseout(function(){
-            $(this).removeClass('full-star1').addClass('empty-star1');
-            $(this).prevAll().removeClass('full-star1').addClass('empty-star1');
-        });
-    });
-</script>
-
-<!-- Loopar igenom och skriver ut alla filmer -->
-<% if user_signed_in? %>
-    <% if current_user.access == 2 %>
-        <div class="admin-new-button"> <%= link_to 'Ny Film', new_movie_path, :class => 'login-button' %></div>
+<div class="row">
+  <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+    <% if user_signed_in? %>
+        <% if current_user.access == 2 %>
+            <%= link_to 'Ny Film', new_movie_path, :class => 'button success expand' %>
+        <% end %>
     <% end %>
-<% end %>
+    <br><br>
+    <div id="movies-container" class="centered">
+      <ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
+        <% @movies.each do |movie| %>
 
-<% num = 0 %>
-<% @movies.each do |movie| %>
-    <% @id=movie.id %>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Hämta användarens rating från databasen och loopar ut det i filmer
-            defaultUserRating = <%= rating_for_user %>;
-            // Skapa stringen innan den skrivs ut
-            // Använder movie.id-1 för att det ska bli korrekt
-            defaultUserRating = ".stars-"+defaultUserRating+"-user1:eq(<%= num %>)";
-            // Default raiting från movies_helper är  = 0 så det kommer alltid vara true, annars funkar inte funktionen i helpern.
-            if (defaultUserRating) {
-                // Skriv ut
-                $(defaultUserRating).css('display', 'block');
-            } else {
-                $alert("Default rating failed");
-            }
-        });
-    </script>
-
-    <!-- Mobil -->
-    <div class="mobile-movies">
-      <%= link_to movie, :class => "simple-ajax-popup-align-top no-underline" do %>
-          <div class="movie-link2">
-            <%= image_tag(movie.videocover, size: "102x139") %>
-          </div>
-
-          <div class="movie-link">
-            <h3><%= movie.title %></h3>
-
-            <div class="rating-star">
-              <p><b><%= movie.average_rating %></b></p>
-            </div>
-            <div class="user-rating1">
-              <% if user_signed_in? %>
-                  <div class="user_rating_info" style="display: none" data-movie_id="<%= movie.id %>" data-user_id="<%= current_user.id %>" >
-                    <%= form_for(@rating) do |f| %>
-                    <% end %>
-                  </div>
-              <% end %>
-              <div class="stars-wrap1">
-
-                <div class="stars-first1">
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                </div>
-
-                <!-- Stars 0 user -->
-                <div class="stars-0-user1">
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                </div>
-
-                <!-- Stars 1 user -->
-                <div class="stars-1-user1">
-                  <div class="full-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                </div>
-
-                <!-- Stars 2 user -->
-                <div class="stars-2-user1">
-                  <div class="full-star1"></div>
-                  <div class="full-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                </div>
-
-                <!-- Stars 3 user -->
-                <div class="stars-3-user1">
-                  <div class="full-star1"></div>
-                  <div class="full-star1"></div>
-                  <div class="full-star1"></div>
-                  <div class="empty-star1"></div>
-                  <div class="empty-star1"></div>
-                </div>
-
-                <!-- Stars 4 user -->
-                <div class="stars-4-user1">
-                  <div class="full-star1"></div>
-                  <div class="full-star1"></div>
-                  <div class="full-star1"></div>
-                  <div class="full-star1"></div>
-                  <div class="empty-star1"></div>
-                </div>
-
-                <!-- Stars 5 user -->
-                <div class="stars-5-user1">
-                  <div class="full-star1"></div>
-                  <div class="full-star1"></div>
-                  <div class="full-star1"></div>
-                  <div class="full-star1"></div>
-                  <div class="full-star1"></div>
-                </div>
+           <li class="item">
+              <div class="movie-container bordered-grey width-fix">
+                  <%= link_to movie, remote: true, data: {:"reveal-id" => "movie-modal"} do %>
+                      <div class="movie-link2 image">
+                        <% if movie.image_size == 1 %>
+                            <%= image_tag(movie.videocover, size: "280x382") %>
+                        <% else %>
+                            <%= image_tag(movie.videocover, size: "200x280") %>
+                        <% end  %>
+                      </div>
+                      <div class="movie-description rounded">
+                        <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
+                        <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %>
+                      </div>
+                  <% end %>
               </div>
-              <!-- Stars 0 -->
-            </div>
-          </div>
-          </div>
-          <% num = num + 1%>
-      <% end %>
-<% end %>
-
-
-<br>
-
-<%= link_to 'New Movie', new_movie_path %>
+           </li>
+        <% end %>
+     </ul>
+    </div>
+  </div>
+  <%= render partial: 'movie_modal' %>
+</div>

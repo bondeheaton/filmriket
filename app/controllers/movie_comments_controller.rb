@@ -29,7 +29,8 @@ class MovieCommentsController < ApplicationController
   def create_comment
     @movie_comment = MovieComment.new(movie_comment_params)
     @movie_comment.save
-    @movie_comments = MovieComment.where('movie_id = ?', params[:movie_comment][:movie_id]).reverse
+    #@movie_comments = MovieComment.where('movie_id = ?', params[:movie_comment][:movie_id]).reverse
+    @movie_comments = Movie.find(params[:id]).movie_comments.order('id ASC')
     respond_to do |format|
       format.js
     end

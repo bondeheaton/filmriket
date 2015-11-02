@@ -1,0 +1,27 @@
+<%= form_for(@filmschool_comment, :url => create_comment_filmschool_comment_path) do |f| %>
+  <% if @filmschool_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filmschool_comment.errors.count, "error") %> prohibited this filmschool_comment from being saved:</h2>
+
+      <ul>
+      <% @filmschool_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_area :message %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :filmschool_id, :value => params[:id] %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

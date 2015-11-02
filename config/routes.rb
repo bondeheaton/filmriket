@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :filmschool_comments do
+    member do
+      post 'create_comment'
+    end
+  end
+
+  resources :filmschools
+
   resources :uploads
 
   resources :bookings do
@@ -15,7 +23,9 @@ Rails.application.routes.draw do
   #get 'home/index'
 
   get '/admin_log', :controller => 'home', :action => 'admin_log'
+  get '/filmriket', :controller => 'home', :action => 'filmriket'
   get '/about', :controller => 'home', :action => 'about'
+  get '/contact', :controller => 'home', :action => 'contact'
 
   resources :events do
     get :autocomplete_club_name, :on => :collection
@@ -69,10 +79,6 @@ Rails.application.routes.draw do
       get 'disapprove', :controller => 'users', :action => 'mobile_disapprove'
     end
   end
-
-
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

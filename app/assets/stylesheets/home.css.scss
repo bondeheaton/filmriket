@@ -1,11 +1,238 @@
 // Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.scss.
+// They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.popup-text {
+  color: #000000!important;
+}
+
+.padding-fix {
+  padding-left: 80px!important;
+  padding-right: 80px!important;
+}
+
+.close-fix {
+  padding-right: 50px!important;
+}
+
+.video-container {
+  width: 100%;
+  height: 225px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #ffffff;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.border-test {
+  border: 1px solid black;
+}
+
+.content-video {
+  width: 318px!important;
+  height: 232px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -5px;
+}
+
+.content {
+  width: 290px!important;
+  height: 225px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -5px;
+  border: 3px solid #ffffff;
+  padding: 0!important;
+}
+
+.content img {
+  width: 100%;
+}
+
+h4.index-heading {
+  color: #fff;
+  margin-top: -3px;
+  padding: 0;
+  font-size: 16px;
+  font-family: Calibri!important;
+  font-weight: bold;
+}
+
+.movie-box-wrapper {
+  text-align: center;
+  padding-top: 12px;
+  width: 444px!important;
+  height: 300px;
+  background: url(content-box.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  margin-bottom: 25px;
+}
+
+.topbar {
+  min-height: 150px;
+  padding-top: 10px;
+}
+
+/*
+.topbar {
+  height: 150px!important;
+  padding-top: 10px;
+  position: fixed!important;
+  margin-top: 0px;
+  background-color: #c2dad1;
+  z-index: 10;
+  border-bottom: 1px solid #333;
+}
+
+*/
+
+.social-media-links img {
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1);
+  transition: all 200ms ease-in;
+  transform: scale(1);
+}
+.social-media-links img:hover {
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1.2);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1.2);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1.2);
+  transition: all 200ms ease-in;
+  transform: scale(1.2);
+}
+
+
+
+.sidebar {
+  float: left;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.menu-login {
+  width: 100%;
+  height: 150px;
+  margin-left: -10px;
+  background: url(login.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button, .menu-button2, .menu-button3, .menu-button4, .menu-button5, .menu-button6, .menu-button7, .menu-button8, .menu-button9 {
+  width: 100%;
+  height: 40px;
+  padding-top: 7px;
+  margin-bottom: 10px;
+}
+
+.menu-button {
+  background: url(menu-button.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button2 {
+  background: url(menu-button3.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button3 {
+  background: url(menu-button4.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button4 {
+  background: url(menu-button5.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button5 {
+  background: url(menu-button6.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button6 {
+  background: url(menu-button7.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button7 {
+  background: url(menu-button8.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button8 {
+  background: url(menu-button9.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button:hover, .menu-button2:hover, .menu-button3:hover, .menu-button4:hover, .menu-button5:hover, .menu-button6:hover, .menu-button7:hover, .menu-button8:hover {
+  opacity: 0.7;
+  text-decoration: none;
+  color: #c2dad1;
+}
+
+.menu-text {
+  color: #c2dad1;
+  font-size: 18px;
+}
+
+.menu-text a:link, a:hover, a:active, a:visited {
+  text-decoration: none!important;
+  color: #c2dad1;
+}
+
+
+h1.topbar_header {
+  font-size: 40px;
+  font-family: Calibri!important;
+  font-weight: bold;
+}
 
 h1.admin_header {
   padding-top: 20px;
   padding-bottom: 10px;
   font-size: 25px;
+  font-family: Calibri!important;
+  font-weight: bold;
 }
 
 .comments {
@@ -38,6 +265,7 @@ p.created {
   padding: 0;
   margin: 0;
   margin-top: -35px;
+  font-family: Calibri!important;
 }
 
 .button-fix {
@@ -61,6 +289,7 @@ p.created {
     z-index: 10;
     text-align: center;
     background: #f5f5f5;
+    margin-top: 50px;
   }
 
   #menu.fixed {
@@ -74,4 +303,274 @@ p.created {
   .admin_log_icons {
     margin-right: 3px;
   }
+
+  .sidebar {
+    position: fixed!important;
+    display: none;
+    z-index: 999;
+    width: 75%!important;
+    margin-left: -25px;
+    overflow: scroll!important;
+    height: 100%;
+    margin-top: 50px;
+    background: #16bf7f;
+    border-right: 1px solid #0dad70;
+    box-shadow-right: 0px 2px 2px -2px #02633e;
+    -webkit-box-shadow-right: 0px 2px 2px -2px #02633e;
+    -moz-box-shadow-right: 0px 2px 2px -2px #02633e;
+    -o-box-shadow-right: 0px 2px 2px -2px #02633e;
+  }
+
+  .sidebar a:link, a:visited, a:hover, a:active {
+    color: #909090;
+  }
+
+  .topbar {
+    margin-top: 50px;
+  }
+  .menu-btn {
+    position: fixed!important;
+    display: inline-block;
+    width: 100%;
+    background: #16bf7f;
+    color: #fff;
+    height: 50px;
+    margin-top: 0px;
+    z-index: 999;
+    border-bottom: 1px solid #0dad70;
+    box-shadow-bottom: 0px 2px 2px -2px #02633e;
+    box-shadow-bottom: 0px 2px 2px -2px #02633e;
+    -webkit-box-shadow-bottom: 0px 2px 2px -2px #02633e;
+    -moz-box-shadow-bottom: 0px 2px 2px -2px #02633e;
+    -o-box-shadow-bottom: 0px 2px 2px -2px #02633e;
+  }
+
+  .social-media-icons {
+    padding-top: 20px;
+  }
+
+  .content-video {
+    width: 100%!important;
+    height: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+  }
+
+  .content-img {
+    width: 100%!important;
+    height: 170px!important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+  }
+
+  .video-container {
+    width: 90%!important;
+    height: 170px!important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content-wrapper {
+    width: 80%;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content {
+    width: 100%!important;
+    height: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+  }
+
+  .movie-box-wrapper {
+    margin-bottom: -25px!important;
+  }
+
+  .padding-fix {
+    padding-left: 40px!important;
+    padding-right: 15px!important;
+  }
 }
+
+
+@media only screen and (max-width: 1000px){
+  .sidebar {
+    position: fixed!important;
+    display: none;
+    z-index: 999;
+    width: 75%!important;
+    margin-left: -25px;
+    overflow: scroll!important;
+    height: 100%;
+    margin-top: 50px;
+    background: #16bf7f;
+    border-right: 1px solid #0dad70;
+    box-shadow-right: 0px 2px 2px -2px #02633e;
+    -webkit-box-shadow-right: 0px 2px 2px -2px #02633e;
+    -moz-box-shadow-right: 0px 2px 2px -2px #02633e;
+    -o-box-shadow-right: 0px 2px 2px -2px #02633e;
+  }
+
+  .sidebar a:link, a:visited, a:hover, a:active {
+    color: #909090;
+  }
+
+  .topbar {
+    margin-top: 50px;
+  }
+
+  .menu-btn {
+    position: fixed!important;
+    display: inline-block;
+    width: 100%;
+    background: #16bf7f;
+    color: #fff;
+    height: 51px;
+    margin-top: 0px;
+    z-index: 999;
+    border-bottom: 1px solid #0dad70;
+    box-shadow-bottom: 0px 2px 2px -2px #02633e;
+    -webkit-box-shadow-bottom: 0px 2px 2px -2px #02633e;
+    -moz-box-shadow-bottom: 0px 2px 2px -2px #02633e;
+    -o-box-shadow-bottom: 0px 2px 2px -2px #02633e;
+  }
+
+  .movie-box-wrapper {
+    width: 100%!important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+
+@media only screen and (min-width: 800px) and (max-width: 1300px) {
+  .movie-box-wrapper {
+    width: 315px!important;
+  }
+
+  .content-wrapper {
+    width: 270px!important;
+    height: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+  }
+
+  .content, .content-img{
+    width: 75%!important;
+    height: 157px!important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+  }
+
+  .content-video{
+    width: 85%!important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .video-container {
+    height: 170px!important;
+    margin-top: 35px;
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+  .movie-box-wrapper {
+    width: 444px!important;
+  }
+}
+
+
+@media only screen and (min-width: 1600px) {
+  /* Fixa testboxen här, döp om skiten */
+  .movie-box-wrapper {
+    height: 350px!important;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  /* Fixa testboxen här, döp om skiten */
+  .movie-box-wrapper {
+    height: 350px!important;
+    width: 600px!important;
+  }
+
+  .content-wrapper {
+    width: 300px!important;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+  }
+
+  .content, .content-img {
+    width: 95%!important;
+    height: 220px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content-video {
+    width: 75%!important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .video-container {
+    height: 230px!important;
+    width: 300px!important;
+    margin-top: 30px;
+  }
+
+  .index-heading {
+    margin-top: 5px!important;
+    font-size: 25px!important;
+  }
+}
+
+
+.link-fix {
+  color: #ffffff!important;
+}
+
+.fix-stuff {
+  overflow: hidden;
+}
+
+.show-map {
+  width: 100%;
+  height: 210px;
+  position: absolute;
+  text-align: center;
+  z-index: 99;
+}
+
+#map_before {
+  width: 100%;
+  min-height: 210px;
+}
+
+#map_id {
+  width: 97%;
+  min-height: 600px;
+  margin-bottom: 50px!important;
+  margin-top: -75px;
+}
+
+.tjena {
+  width: 50px;
+  height: 50px;
+  margin-left: 200px;
+  border: 1px solid black;
+  background: #111;
+}
+

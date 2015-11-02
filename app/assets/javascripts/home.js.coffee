@@ -27,8 +27,46 @@ $(document).on 'click', '#to_uploads', ->
 header = $('#admin_log')
 $(window).scroll ->
   scroll = $(window).scrollTop()
-  if scroll >= window.innerHeight - 100
+  if scroll >= window.innerHeight - 200
     $('#menu').addClass 'fixed'
   else
     $('#menu').removeClass 'fixed'
   return
+
+btn = false
+
+$(document).on "click", ".menu-btn", ->
+  if btn
+    $('.sidebar').hide()
+    $('.topbar').show()
+    btn = false
+  else
+    $('.sidebar').show()
+    $('.topbar').hide()
+    btn = true
+  return
+
+
+$(window).on 'orientationchange', ->
+  if $('.menu-btn').is(":visible")
+    $('#js-fix').removeClass('medium-10')
+    $('#js-fix').addClass('medium-12')
+  else
+    $('#js-fix').removeClass('medium-12')
+    $('#js-fix').addClass('medium-10')
+
+$(document).on 'ready page:load', ->
+  if $('.menu-btn').is(":visible")
+    $('#js-fix').removeClass('medium-10')
+    $('#js-fix').addClass('medium-12')
+
+
+$(document).on 'click', '.link-fix', ->
+  center = handlerr.getMap().getCenter()
+  setTimeout (->
+    google.maps.event.trigger handler.getMap(), 'resize'
+    handler.map.centerOn(center)
+    return
+  ), 200
+
+

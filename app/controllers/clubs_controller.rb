@@ -1,7 +1,7 @@
 class ClubsController < ApplicationController
   autocomplete :club, :name
   before_action :set_club, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   respond_to :html, :js
 
@@ -53,9 +53,7 @@ class ClubsController < ApplicationController
         end
       end
     end
-    
-    
-    
+
     @hash = Gmaps4rails.build_markers(@verifiedclubs) do |club, marker|
       marker.lat club.latitude
       marker.lng club.longitude
@@ -67,6 +65,9 @@ class ClubsController < ApplicationController
       marker.infowindow "#{view_context.link_to club.name, club_path(club)}"
 
     end
+
+    @upload = Upload.new
+
     respond_with(@clubs)
   end
 

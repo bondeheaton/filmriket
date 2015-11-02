@@ -10,7 +10,7 @@ $(document).on 'ready page:load', ->
     $("#new_booking").append "error"
 
 
-$(document).on 'ready page:load', -> #document ready innan, byt?
+$(document).on 'ready page:load', ->
   $('.bookings_box .access').click (e) ->
     e.preventDefault()
     $.ajax

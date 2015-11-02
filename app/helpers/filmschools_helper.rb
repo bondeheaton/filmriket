@@ -1,0 +1,2 @@
+module FilmschoolsHelper
+end
