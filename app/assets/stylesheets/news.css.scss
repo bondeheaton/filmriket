@@ -30,3 +30,13 @@ p.news {
   padding: 0!important;
   height: 219px;
 }
+
+@media only screen and (min-width: 1700px) {
+  .big-screen-fix {
+    margin-top: 0px;
+  }
+
+  .big-screen-content {
+    width: 500px;
+  }
+}

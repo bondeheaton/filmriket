@@ -4,26 +4,25 @@
   <% @news.each do |news| %>
       <div class="row">
         <div class="large-6 columns medium-6 movie-box-wrapper">
-          <div class="content-wrapper">
-            <h4 class="index-heading">&nbsp;</h4>
-            <div class="large-8 large-centered columns content">
-                Fixa bild kolumn db
+          <div class="content-wrapper big-screen-fix">
+            <h4 class="index-heading">Fixa bild kolumn db för img</h4>
+            <div class="large-8 large-centered medium-8 medium-centered columns content">
+              <%= image_tag('mockup.jpg') %>
             </div>
           </div>
         </div>
-        <div class="large-6 columns medium-6">
-          <div class="content-wrapper news-content">
-            <div class="large-11 large-centered columns">
+        <div class="large-6 columns medium-6 tablet-fix">
+          <div class="content-wrapper news-content big-screen-content">
+            <div class="large-8 large-centered medium-11 medium-centered columns">
               <span><h2> <%= news.title.html_safe %> </h2></span>
               <span><p> <%= news.content.html_safe %> </p></span>
             </div>
           </div>
         </div>
-      </div>
-     </div>
+        </div>
       <hr>
   <% end %>
 </div>
+</div>
+</div>
 <%= will_paginate @news %>
-</div>
-</div>

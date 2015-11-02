@@ -8,3 +8,15 @@ $(document).on 'ready page:load', ->
     $.get @href, null, null, 'script'
     false
   return
+
+$(window).on 'orientationchange', ->
+  tabletfix()
+
+$(document).on 'ready page:load', ->
+  tabletfix()
+
+tabletfix = ->
+  if $(document).width() > 760 and $(document).width() < 800
+    $('.tablet-fix').addClass('medium-centered')
+  else
+    $('.tablet-fix').removeClass('medium-centered')

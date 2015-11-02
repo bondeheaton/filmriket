@@ -52,6 +52,7 @@
   margin-right: auto;
   margin-top: -5px;
   border: 3px solid #ffffff;
+  padding: 0!important;
 }
 
 .content img {
@@ -461,14 +462,15 @@ p.created {
     margin-top: 35px;
   }
 
-  .content {
+  .content, .content-img{
     width: 75%!important;
-    height: 170px;
+    height: 157px!important;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5px;
   }
 
-  .content-video {
+  .content-video{
     width: 85%!important;
     margin-left: auto;
     margin-right: auto;
@@ -510,7 +512,7 @@ p.created {
     margin-top: 35px;
   }
 
-  .content {
+  .content, .content-img {
     width: 95%!important;
     height: 220px;
     margin-left: auto;
@@ -527,6 +529,11 @@ p.created {
     height: 230px!important;
     width: 300px!important;
     margin-top: 30px;
+  }
+
+  .index-heading {
+    margin-top: 5px!important;
+    font-size: 25px!important;
   }
 }
 
