@@ -12,6 +12,9 @@ class FilmschoolsController < ApplicationController
     @filmschool = Filmschool.find(params[:id])
     @filmschool_comment = FilmschoolComment.new
     @filmschool_comments = FilmschoolComment.where("filmschool_id = ?", params[:id]).reverse
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new

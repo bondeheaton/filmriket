@@ -8,7 +8,7 @@ $(document).on 'ready page:load', ->
 
 $(document).on 'click', '.seen-movies-link', ->
   setTimeout (->
-    $('#masonry-container').masonry ->
+    $('#masonry-container-club').masonry ->
       itemSelector: '.item',
       isFitWidth: true
     return

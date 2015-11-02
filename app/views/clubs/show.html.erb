@@ -43,7 +43,7 @@
             <h2 class="popup-text">Sedda Filmer</h2>
 
               <div id="movies-container" class="centered">
-                <ul class="large-block-grid-3" id="masonry-container">
+                <ul class="large-block-grid-3" id="masonry-container-">
                   <% @seen_movies.each do |movie| %>
 
                       <li class="item">
@@ -75,9 +75,9 @@
       <div class="large-6 columns medium-6 movie-box-wrapper">
         <h4 class="index-heading">Bilder</h4>
         <div class="large-8 large-centered columns content-img">
-
+          <% if @club.uploads.last %>
           <a href="#" data-reveal-id="club-images"><img src="<%= @club.uploads.last.image %>" width="200px" height="150px"></a>
-
+          <% end %>
           <div id="club-images" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
             <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 
