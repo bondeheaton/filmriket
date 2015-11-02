@@ -3,8 +3,8 @@
     <div class="row">
       <div class="large-6 columns medium-6 movie-box-wrapper">
         <h4 class="index-heading">Se prata och gör film!</h4>
+        <div class="content-wrapper">
         <div class="large-8 large-centered columns content-img">
-
 
           <a href="#" data-reveal-id="myModal"><%= image_tag("mockup.jpg") %></a>
 
@@ -30,19 +30,17 @@
             </p>
             <%= link_to "Bli medlem", new_user_registration_path %>
           </div>
-
+         </div>
         </div>
       </div>
       <div class="large-6 columns medium-6 movie-box-wrapper">
         <h4 class="index-heading">Hur funkar Filmriket</h4>
-        <div class="content-wrapper">
           <div class="large-8 large-centered columns content-video">
             <div class="video-container">
               <iframe title="YouTube video player" src="http://www.youtube.com/embed/9W3JtRwJe3o?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
         </div>
-      </div>
     </div>
     <div class="row">
       <div class="large-6 columns medium-6 movie-box-wrapper">
@@ -66,23 +64,26 @@
     <div class="row">
       <div class="large-6 columns medium-6 movie-box-wrapper">
         <%= link_to "<h4 class='index-heading'>Klubbfilmer</h4>".html_safe, club_movies_path %>
-        <div class="content-wrapper">
           <div class="large-8 large-centered columns content-video">
             <div class="video-container">
               <iframe title="YouTube video player" src="http://www.youtube.com/embed/i5YY-XZO6-E?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
-        </div>
       </div>
+    </div>
+    <div class="row">
       <div class="large-6 columns medium-6 movie-box-wrapper">
         <h4 class="index-heading">Nyheter</h4>
-        <div class="large-8 large-centered columns content">
+        <div class="content-wrapper">
+         <div class="large-8 large-centered columns content-img">
           <%= link_to image_tag("mockup.jpg"), news_index_path %>
-        </div>
+         </div>
+       </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
 

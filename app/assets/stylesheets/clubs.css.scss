@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.user-info {
+  margin: 5px;
+  padding-left: 5px;
+  float: left;
+}
+
+.read-more {
+  float: left;
+}
+
 
 input#club_name, input#club_description, input#club_address, input#club_zipcode {
   width: 100%;

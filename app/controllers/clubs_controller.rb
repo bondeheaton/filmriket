@@ -53,8 +53,8 @@ class ClubsController < ApplicationController
         end
       end
     end
-    
-    
+
+
     
     @hash = Gmaps4rails.build_markers(@verifiedclubs) do |club, marker|
       marker.lat club.latitude
@@ -67,6 +67,9 @@ class ClubsController < ApplicationController
       marker.infowindow "#{view_context.link_to club.name, club_path(club)}"
 
     end
+
+    @upload = Upload.new
+
     respond_with(@clubs)
   end
 

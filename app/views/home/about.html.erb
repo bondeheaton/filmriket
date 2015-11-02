@@ -1,8 +1,10 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <div class="row">
   <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
     <div class="row">
       <div class="large-6 columns medium-6 movie-box-wrapper">
         <h4 class="index-heading">Om Filmriket</h4>
+        <div class="content-wrapper">
         <div class="large-8 large-centered columns content-img">
 
           <a href="#" data-reveal-id="omfilmriket"><%= image_tag("mockup.jpg") %></a>
@@ -15,7 +17,7 @@
               Filmriket är ett nationellt arvsfondsprojekt för dig mellan 12-19 år. I Filmriket gör vi framförallt tre saker i våra filmklubbar– vi ser, pratar och gör film. Projektet är ett samarbete mellan Reaktor Sydost, Film i Jönköping, Filmpool Nord samt studieförbundet Bilda Sydöst.
             </p>
           </div>
-
+         </div>
         </div>
       </div>
       <div class="large-6 columns medium-6 movie-box-wrapper">
@@ -58,6 +60,7 @@
       </div>
       <div class="large-6 columns medium-6 movie-box-wrapper">
         <h4 class="index-heading">Sociala Medier</h4>
+        <div class="content-wrapper">
         <div class="large-8 large-centered columns content-img">
 
           <a href="#" data-reveal-id="socialamedier"><%= image_tag("mockup.jpg") %></a>
@@ -70,6 +73,7 @@
               Medialänkar artiklar annan media om Filmriket
             </p>
           </div>
+         </div>
         </div>
       </div>
     </div>
@@ -85,8 +89,10 @@
                 <div id="map_before">
                   <script type="text/javascript">
                       var handlerr;
+                      $(document).on('ready page:load', function() {
+
                       handlerr = Gmaps.build('Google');
-                      handlerr.buildMap({ provider: {}, internal: {id: 'map_before'}}, function(){
+                      handlerr.buildMap({ provider: {disableDefaultUI: true}, internal: {id: 'map_before'}}, function(){
                           markers = handlerr.addMarkers(<%=raw @hash.to_json %>)
                           handlerr.bounds.extendWith(markers);
                           handlerr.fitMapToBounds();
@@ -114,6 +120,7 @@
 
                       }
                       InfoBox.prototype = new google.maps.OverlayView();
+                      });
 
                   </script>
                 </div>
@@ -125,12 +132,14 @@
 
                 <script type="text/javascript">
                     var handler;
+                    $(document).on('ready page:load', function() {
+
                     handler = Gmaps.build('Google');
                     handler.buildMap({ provider: {}, internal: {id: 'map_id'}}, function(){
                         markers = handler.addMarkers(<%=raw @hash.to_json %>)
                         handler.bounds.extendWith(markers);
                         handler.fitMapToBounds();
-                        handler.getMap().setZoom(handlerr.getMap().getZoom());
+                        handler.getMap().setZoom(6);
                     });
                     function InfoBox(opts) {
                         google.maps.OverlayView.call(this);
@@ -154,7 +163,7 @@
 
                     }
                     InfoBox.prototype = new google.maps.OverlayView();
-
+                    });
                 </script>
 
             </div>

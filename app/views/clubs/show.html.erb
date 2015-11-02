@@ -1,47 +1,127 @@
-<br>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <div class="row">
-<div class="small-9 small-centered columns">
+  <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+    <div class="row">
+
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading"><%= @club.name %></h4>
+        <div class="large-8 large-centered columns content-img">
+          <p>Klubben bildades <%= @club.created_at.strftime("%d/%m-%Y")%></p>
+          <p><%= @club.description %></p>
+          <p>Klubben har <%= @club.users.length %> medlemmar.</p>
+
+          <a href="#" data-reveal-id="club-info"><p>Läs mer..</p></a>
+
+          <div id="club-info" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+
+            <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+            <h2 class="popup-text"><%= @club.name %></h2>
+            <p class="popup-text"> Klubben bildades <%= @club.created_at.strftime("%d/%m-%Y")%></p>
+            <p class="popup-text"><%= @club.description %></p>
+            <p class="popup-text">Klubben har <%= @club.users.length %> medlemmar.</p>
+            <strong>Medlemmar:</strong><br>
+            <% @club.users.each do |user| %>
+                <img src="../<%= user.avatar %>.png" alt="User avatar" width="50px" height="50px"/>
+                <%= user.email %>
+                <br>
+            <% end %>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Sedda Filmer</h4>
+        <div class="large-8 large-centered columns content-img">
+
+          <a href="#" data-reveal-id="seen-movies" class="seen-movies-link"><p>Popup</p></a>
+
+          <div id="seen-movies" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+            <h2 class="popup-text">Sedda Filmer</h2>
+
+              <div id="movies-container" class="centered">
+                <ul class="large-block-grid-3" id="masonry-container">
+                  <% @seen_movies.each do |movie| %>
+
+                      <li class="item">
+                        <div class="movie-container bordered-grey width-fix">
+
+                          <%= link_to movie, class: 'test-link', remote: true do %>
+                              <div class="movie-link2 image">
+                                <% if movie.image_size == 1 %>
+                                    <%= image_tag(movie.videocover, size: "280x382") %>
+                                <% else %>
+                                    <%= image_tag(movie.videocover, size: "200x280") %>
+                                <% end  %>
+                              </div>
+                              <div class="movie-description rounded">
+                                <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
+                                <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %>
+                              </div>
+                          <% end %>
+                        </div>
+                      </li>
+
+                  <% end %>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Bilder</h4>
+        <div class="large-8 large-centered columns content-img">
+
+          <a href="#" data-reveal-id="club-images"><img src="<%= @club.uploads.last.image %>" width="200px" height="150px"></a>
+
+          <div id="club-images" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+            <h2 class="popup-text">Bilder</h2>
+            <div id="thumbs">
+               <ul class="large-block-grid-3">
+                  <% @club.uploads.each do |upload|%>
+                     <li class="item">
+                         <a href="<%= upload.image %>"><img src="<%= upload.image %>"width="100px" height="100px"/></a>
+                     </li>
+                  <% end %>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <% if user_in_club(@club)  %>
+            <a href="#" data-reveal-id="upload-image"><p>Ladda upp</p></a>
+
+            <div id="upload-image" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+              <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+              <h2 class="popup-text">Ladda upp</h2>
+                 <%= render 'uploads/form', :object => @upload %>
+              </div>
+            </div>
+        <% else %>
+        <% end %>
+      </div>
+      </div>
+
 	
 Achievementscore:<%= club_achievement_score(@club)%>
 
 <br>
 <p>
-  <strong>Name:</strong>
-  <%= @club.name %><br>
-  <%= @club.created_at.strftime("%d/%m-%Y")%><br>
-  <%= club_bookings(@club)%>
+  Bokningar: <%= club_bookings(@club)%>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @club.description %>
-</p>
-
-<p>
 
 <p>
   <strong>Zipcode:</strong>
   <%= @club.zipcode %><br>
 
-
-  <strong>Uploads</strong>
-<div id="thumbs">
-
-  
-  <% @club.uploads.each do |upload|%>
-      <% if user_in_club(@club) %>
-        <%= link_to 'Destroy', upload, method: :delete, data: { confirm: "Är du säker?"}%>
-      <% end %>
-      <a href="<%= upload.image %>" style="background-image:url(<%= upload.image %>)" width="100px" height="100px"></a>
-  <% end %>
-    </div>
 </p>
 
-<strong>Medlemmar</strong><br>
-<% @club.users.each do |user| %>
-    <%= user.email %><br>
-<% end %>
-<br>
 <strong>Events</strong><br>
 <%@club.events.each do |event| %>
     Namn: <%= event.title %><br>
@@ -50,14 +130,6 @@ Achievementscore:<%= club_achievement_score(@club)%>
 
 <br><br>
 
-<strong>Seen movies</strong><br>
-
-<% @seen_movies.each do |movie| %>
-    <%= movie.title %>
-    <%= club_seen_movies(movie.id) %><br>
-<% end %>
-
-<br><br>
 
 <strong>Reviews</strong><br>
 
@@ -95,6 +167,9 @@ Achievementscore:<%= club_achievement_score(@club)%>
 
   <div id="map" style='width: 800px; height: 400px;'>
     <script type="text/javascript">
+
+        var handler;
+        $(document).on('ready page:load', function() {
         handler = Gmaps.build('Google');
         handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
             markers = handler.addMarkers(<%=raw @hash.to_json %>)
@@ -124,7 +199,10 @@ Achievementscore:<%= club_achievement_score(@club)%>
             this.setMap(this.map_);
         }
         InfoBox.prototype = new google.maps.OverlayView();
+        });
     </script>
   </div>
 </div>
 </div>
+</div>
+<%= render partial: 'movies/movie_modal' %>
