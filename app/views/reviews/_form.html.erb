@@ -1,4 +1,7 @@
+<div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+<h2>Ny Recension</h2>
 <%= form_for(@review) do |f| %>
+ <div class="row">
   <% if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -10,25 +13,27 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+   <div class="large-12 columns">
+    <%= f.cktext_area :description, :cols => '500' %><br>
   </div>
-  <div class="field">
-    <%= f.label :movie_id %><br><br>
+   <div class="large-12 columns">
+    <%= f.label "Film", class: 'white-text' %>
     <%= f.hidden_field :movie_id, :value => movies_to_pick %>
     <%= f.collection_select :movie_id, movies_to_pick, :id, :title, {multiple: true, 'style' => 'height:100px, width:100px'} %></p>
   </div>
-  <div class="field">
+   <div class="large-12 columns">
     <%= f.hidden_field :videolink, :value => "inactive" %>
   </div>
-  <div class="field">
+   <div class="large-12 columns">
     <%= f.hidden_field :active, :value => 1 %>
   </div>
-  <div class="field">
+   <div class="large-12 columns">
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+   <div class="large-12 columns">
+    <%= f.submit "Skapa", class: 'button expand' %>
+  </div>
   </div>
 <% end %>
+
+</div>

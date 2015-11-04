@@ -26,9 +26,8 @@ class ReviewsController < ApplicationController
     @club_name = Club.find(@user.club_id).name
     @movie = Movie.find(@review.movie_id).title
     @title = ("Filmriket - " + @club_name + " recenserar " + @movie).to_s
-    @description = @review.description
     @client = YouTubeIt::Client.new(:username => "shorts@live.se", :password =>  "filmriket", :dev_key => "AI39si5QCJpA99I-VxTU1Q-wiggLXaAdT2n1WKw-fJqlIhyrGxjdeDK5gMgoCX1wbSbku2CLBPg8BWaDMsNhr6L0hzD148Lnog")
-    @paramshash = {:title => @title, :description => @description, :category => "People", :keywords => ["Filmriket"], :private => true}
+    @paramshash = {:title => @title, :description => "Fix description", :category => "People", :keywords => ["Filmriket"], :private => true}
     @upload_info = @client.upload_token(@paramshash, review_attach_url)
     @review.title = @title
     @review.save
