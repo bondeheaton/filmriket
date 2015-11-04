@@ -14,13 +14,6 @@
     <%= link_to "<div class='menu-button6'>Om Filmriket</div>".html_safe, about_path, class: 'menu-text' %>
     <%= link_to "<div class='menu-button7'>Kontakt</div>".html_safe, contact_path, class: 'menu-text' %>
 
-    <% if current_user %>
-        <% if current_user.club %>
-            <%= link_to "<div class='menu-button8'>Skapa Recension</div>".html_safe, new_review_path, class: 'menu-text' %>
-            <%= link_to "<div class='menu-button'>Skapa Klubbfilm</div>".html_safe, new_club_movie_path, class: 'menu-text' %>
-        <% end %>
-    <% end  %>
-
     <%= link_to "Events", events_path, class: 'menu-text' %>
     <%= link_to "Ladda upp", new_upload_path, class: 'menu-text' %>
 
