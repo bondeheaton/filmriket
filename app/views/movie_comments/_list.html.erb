@@ -1,8 +1,7 @@
 <% @movie_comments.each do |comment| %>
-    <div class="comments_mwraper">
-      <div class="comments_pic"></div>
-      <div class="comments_u"><strong><%= comment_user_name(comment.user_id) %></strong></div>
-      <img src="http://filmriket.nu/img/<%= comment_user_avatar(comment.user_id) %>.png" id="thumb" alt="avatar" width="100" height="100">
-      <div class="comments_c">  <%= comment.message %></div>
+    <div class="comments_list">
+        <img src="http://filmriket.nu/img/<%= comment_user_avatar(comment.user_id) %>.png" id="thumb" alt="avatar" width="40" height="40">
+        <strong><%= comment_user_name(comment.user_id) %>: </strong> <%= comment.message %>
+      <hr>
     </div>
 <% end %>

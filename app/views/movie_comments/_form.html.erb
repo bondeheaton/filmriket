@@ -1,4 +1,5 @@
-<%= form_for(@movie_comment, :url => create_comment_movie_comment_path) do |f| %>
+<div class="large-12 large-centered columns">
+<%= form_for(@movie_comment, remote: true) do |f| %>
   <% if @movie_comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@movie_comment.errors.count, "error") %> prohibited this movie_comment from being saved:</h2>
@@ -10,9 +11,10 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :message %><br>
-    <%= f.text_area :message %>
+
+  <div class="large-12 columns">
+    <div id="message_notice"></div>
+    <%= f.text_area :message, placeholder: "Skriv kommentar.." %>
   </div>
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -20,7 +22,5 @@
   <div class="field">
     <%= f.hidden_field :movie_id, :value => params[:id] %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
+</div>

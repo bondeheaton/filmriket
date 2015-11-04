@@ -26,3 +26,4 @@ bigscreen = ->
     $('.large-block-grid-3').addClass('large-block-grid-4')
   else
     $('.large-block-grid-3').removeClass('large-block-grid-4')
+

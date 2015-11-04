@@ -1,0 +1,5 @@
+$("#comment_list").html("<%= escape_javascript(render(:partial => "list")) %>");
+$("#new_movie_comment").bind("ajax:complete", function(event,xhr,status){
+    $('#movie_comment_message').val('');
+    $('#message_notice').html('Kommentar skickad!');
+});
