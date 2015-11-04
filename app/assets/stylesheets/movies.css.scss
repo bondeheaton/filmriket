@@ -118,6 +118,10 @@ div.big-star:hover{
   float: right;
 }
 
+.margin-fix {
+  margin-top: 15px;
+}
+
 .comments_list {
   width: 90%;
   height: auto;
@@ -154,6 +158,7 @@ div.big-star:hover{
   margin-bottom: -10px;
 }
 
+
 .centered {
   margin-left: auto;
   margin-right: auto;
@@ -162,7 +167,6 @@ div.big-star:hover{
 .width-fix {
   width: 280px!important;
 }
-
 
 .image {
   z-index: -99!important;
