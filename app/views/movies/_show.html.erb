@@ -1,5 +1,5 @@
-<div class="large-10 large-centered columns movie">
-<a class="close-movie-modal close-movie-fix" aria-label="Close">&#215;</a>
+<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+<div class="large-10 large-centered medium-10 medium-centered columns movie scrollable margin-fix">
 <div class="large-6 columns">
 
   <div class="movie-picture">
@@ -52,7 +52,7 @@
 
   <p class="movie-text">Speltid: <%= @movie.playtime %> min</p>
 
-  <p class="movie-text"Publicerad: <%= @movie.published %></p>
+  <p class="movie-text">Publicerad: <%= @movie.published %></p>
 </div>
 
 <script>
@@ -246,8 +246,8 @@
     </div>
   </div>
 
-  <div class="large-7 columns right right-fix">
-      <div class="comments_wraper_m scrollable">
+  <div class="large-12 columns">
+      <div class="comments_wraper_m">
         <% if user_signed_in? %>
             <%= render 'movie_comments/form' %>
             <div id="comment_list">

@@ -5,7 +5,7 @@ class NewsController < ApplicationController
   respond_to :html
 
   def index
-    @news = News.paginate(:page => params[:page], :per_page => 3)
+    @news = News.paginate(:page => params[:page], :per_page => 3).order(id: :desc)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @news }
@@ -47,6 +47,6 @@ class NewsController < ApplicationController
     end
 
     def news_params
-      params.require(:news).permit(:title, :content, :category)
+      params.require(:news).permit(:title, :img, :content, :category)
     end
 end

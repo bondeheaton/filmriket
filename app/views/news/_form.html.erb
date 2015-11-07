@@ -15,7 +15,13 @@
     <br>
     <h3>Rubrik</h3>
     <%= f.text_field :title %><br>
-	<%= f.select :category, ['option1', 'option2', 'option3']%>
+	<%= f.select :category, ['Nyhet', 'Aktivitet', 'Tips', 'Evenemang']%>
+  </div>
+  <div class="field">
+    <span class="button expand btn-file">
+      Välj Bild
+      <%= f.file_field :img %>
+    </span>
   </div>
   <div class="field">
     <h3>Innehåll</h3>

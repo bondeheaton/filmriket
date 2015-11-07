@@ -5,8 +5,7 @@ class Club < ActiveRecord::Base
   has_many :participants
   has_many :events, :through => :participants
   has_many :uploads
-  
-  
+
   def self.score(club)
     @users = club.users
     return @users.first
