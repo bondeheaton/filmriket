@@ -5,7 +5,6 @@
 $(document).on 'ready page:load', ->
   $('#thumbs a').touchTouch();
 
-
 $(document).on 'click', '.seen-movies-link', ->
   setTimeout (->
     $('#masonry-container-club').masonry ->
@@ -21,9 +20,6 @@ $(document).on 'click', '.club-movies-reviews-link', ->
       isFitWidth: true
     return
   ), 500
-
-
-
 
 $(document).on 'click', '.test-link', ->
   $('#seen-movies').foundation 'reveal', 'close'
