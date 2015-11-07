@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :filmschool_comments do
-    member do
-      post 'create_comment'
-    end
-  end
+  resources :filmschool_comments
 
   resources :filmschools
 

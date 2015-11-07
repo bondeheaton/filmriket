@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
     @bookings = @movie.bookings
     @movie_comment = MovieComment.new
     #@movie_comments = MovieComment.where("movie_id = ?", params[:id]).reverse
-    @movie_comments = @movie.movie_comments.order('id ASC')
+    @movie_comments = @movie.movie_comments.order('id DESC')
     respond_to do |format|
       format.js
     end

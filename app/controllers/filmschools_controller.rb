@@ -11,7 +11,7 @@ class FilmschoolsController < ApplicationController
   def show
     @filmschool = Filmschool.find(params[:id])
     @filmschool_comment = FilmschoolComment.new
-    @filmschool_comments = FilmschoolComment.where("filmschool_id = ?", params[:id]).reverse
+    @filmschool_comments = @filmschool.filmschool_comments.order('id DESC')
     respond_to do |format|
       format.js
     end

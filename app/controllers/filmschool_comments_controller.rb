@@ -23,13 +23,7 @@ class FilmschoolCommentsController < ApplicationController
   def create
     @filmschool_comment = FilmschoolComment.new(filmschool_comment_params)
     @filmschool_comment.save
-    respond_with(@filmschool_comment)
-  end
-
-  def create_comment
-    @filmschool_comment = FilmschoolComment.new(filmschool_comment_params)
-    @filmschool_comment.save
-    @filmschool_comments = FilmschoolComment.where('filmschool_id = ?', params[:filmschool_comment][:filmschool_id]).reverse
+    @filmschool_comments = Filmschool.find(@filmschool_comment.filmschool_id).filmschool_comments.order('id DESC')
     respond_to do |format|
       format.js
     end
