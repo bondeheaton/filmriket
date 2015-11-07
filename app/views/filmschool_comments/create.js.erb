@@ -1,0 +1,6 @@
+$("#filmschool_comment_list").html("<%= escape_javascript(render(:partial => "list")) %>");
+
+$('#filmschool_comment_message').val('');
+$('#f_message_notice').show();
+$('#f_message_notice').html('Kommentar skickad!');
+$('#f_message_notice').fadeOut(3000);
