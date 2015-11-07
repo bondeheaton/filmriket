@@ -14,6 +14,16 @@ $(document).on 'click', '.seen-movies-link', ->
     return
   ), 200
 
+$(document).on 'click', '.club-movies-reviews-link', ->
+  setTimeout (->
+    $('#masonry-container-club-movies-reviews').masonry ->
+      itemSelector: '.item',
+      isFitWidth: true
+    return
+  ), 500
+
+
+
 
 $(document).on 'click', '.test-link', ->
   $('#seen-movies').foundation 'reveal', 'close'

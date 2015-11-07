@@ -28,7 +28,7 @@ class ClubMoviesController < ApplicationController
     @title = @club_movies.title.to_s
     @description = @club_movies.description
     @client = YouTubeIt::Client.new(:username => "shorts@live.se", :password =>  "filmriket", :dev_key => "AI39si5QCJpA99I-VxTU1Q-wiggLXaAdT2n1WKw-fJqlIhyrGxjdeDK5gMgoCX1wbSbku2CLBPg8BWaDMsNhr6L0hzD148Lnog")
-    @paramshash = {:title => @title, :description => @description, :category => "People", :keywords => ["Filmriket"], :private => true}
+    @paramshash = {:title => @title, :description => "Filmriket", :category => "People", :keywords => ["Filmriket"], :private => true}
     @upload_info = @client.upload_token(@paramshash, club_movie_attach_url)
     @club_movies.title = @title
     @club_movies.save
