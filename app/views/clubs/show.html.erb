@@ -160,15 +160,34 @@
         <% else %>
         <% end %>
 
-  <div class="large-6 columns medium-6 movie-box-wrapper">
-    <h4 class="index-heading">Filmklubbar</h4>
-    <div class="content-wrapper">
-      <div class="large-8 large-centered medium-8 medium-centered columns content fix-stuff">
-        <a href="#" data-reveal-id="map_id" class="link-fix">
-          <div class="show-map">
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Evenemang/Aktiviteter</h4>
+        <div class="large-8 large-centered columns content">
 
+          <a href="#" data-reveal-id="event-info"><p>Läs mer..</p></a>
+
+          <div id="event-info" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+
+            <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+            <h2 class="popup-text">Evenemang/Aktiviteter</h2>
+            <%@club.events.each do |event| %>
+                <p class="popup-text">Namn: <%= event.title %></p>
+                <p class="popup-text">Beskrivning: <%= event.description %></p>
+            <% end %>
           </div>
-          <div id="map_before">
+        </div>
+      </div>
+
+
+    <div class="large-6 columns medium-6 movie-box-wrapper">
+      <h4 class="index-heading">Filmklubbar</h4>
+      <div class="content-wrapper">
+        <div class="large-8 large-centered medium-8 medium-centered columns content fix-stuff">
+          <a href="#" data-reveal-id="map_id" class="link-fix">
+            <div class="show-map">
+
+            </div>
+            <div id="map_before">
             <script type="text/javascript">
                 var handlerr;
                 $(document).on('ready page:load', function() {
@@ -246,27 +265,22 @@
                   }
                   InfoBox.prototype = new google.maps.OverlayView();
               });
-          </script>
+            </script>
 
+           </div>
+         </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+       </div>
 
 
+</div> <!-- Second row -->
+</div> <!-- large 10 columns -->
 
 
-
-
-<br><br>
-	
-Achievementscore:<%= club_achievement_score(@club)%>
 
 <br>
 <p>
-  Bokningar: <%= club_bookings(@club)%>
+  Totala Bokningar: <%= club_bookings(@club)%>
 </p>
 
 
@@ -285,7 +299,7 @@ Achievementscore:<%= club_achievement_score(@club)%>
 <br><br>
 
 
-<strong>Club Bookings</strong><br>
+<strong>Pending Club Bookings</strong><br>
 <% @club.users.each do |user| %>
 	<% user.bookings.where("status = 0").each do |booking| %>
 
@@ -303,6 +317,6 @@ Achievementscore:<%= club_achievement_score(@club)%>
 <% end %>
 <br><br>
 
-</div>
+</div> <!-- first row -->
 
 <%= render partial: 'movies/movie_modal' %>
