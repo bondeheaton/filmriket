@@ -6,19 +6,20 @@ $(document).on 'ready page:load', ->
   $('#thumbs a').touchTouch();
 
 $(document).on 'click', '.seen-movies-link', ->
-  setTimeout (->
-    $('#masonry-container-club').masonry ->
-      itemSelector: '.item',
-      isFitWidth: true
-    return
-  ), 200
+  masonryLoad('#masonry-container-club')
 
 $(document).on 'click', '.club-movies-reviews-link', ->
+  masonryLoad('#masonry-container-club-movies-reviews')
+
+$(document).on 'click', '.club-events-link', ->
+  masonryLoad('#masonry-container-club-events')
+
+masonryLoad = (div) ->
   setTimeout (->
-    $('#masonry-container-club-movies-reviews').masonry ->
+    $(div).masonry ->
       itemSelector: '.item',
       isFitWidth: true
-    return
+      return
   ), 500
 
 $(document).on 'click', '.test-link', ->

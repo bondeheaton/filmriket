@@ -28,7 +28,7 @@ class NewsController < ApplicationController
   def create
     @news = News.new(news_params)
     @news.save
-    respond_with(@news)
+    redirect_to news_index_path
   end
 
   def update

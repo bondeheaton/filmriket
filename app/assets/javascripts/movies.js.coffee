@@ -23,7 +23,7 @@ masonry = ->
     itemSelector: '.item',
     isFitWidth: true
     return
-  ), 200
+  ), 500
 
 bigscreen = ->
   if $(document).width() > 1700

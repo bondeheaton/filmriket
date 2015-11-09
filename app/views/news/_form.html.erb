@@ -11,23 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <br>
-    <h3>Rubrik</h3>
-    <%= f.text_field :title %><br>
-	<%= f.select :category, ['Nyhet', 'Aktivitet', 'Tips', 'Evenemang']%>
+  <div class="large-12 large-centered columns">
+    <%= f.label 'Titel' %>
+    <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <span class="button expand btn-file">
-      Välj Bild
-      <%= f.file_field :img %>
-    </span>
+  <div class="large-12 large-centered columns">
+    <%= f.select :category, ['Nyhet', 'Aktivitet', 'Tips', 'Evenemang']%>
   </div>
-  <div class="field">
-    <h3>Innehåll</h3>
+  <div class="large-12 large-centered columns">
+    <%= f.label 'Bild-länk' %>
+    <%= f.text_field :img %>
+  </div>
+  <div class="large-12 large-centered columns">
     <%= f.cktext_area :content, :cols => '500' %>
   </div>
-  <div class="actions">
+  <div class="large-12 large-centered columns">
     <%= f.submit "Skapa nyhet", :class => 'button success' %>
   </div>
 <% end %>

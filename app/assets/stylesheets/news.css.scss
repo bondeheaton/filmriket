@@ -2,6 +2,33 @@
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.center-text {
+  text-align: center;
+  font-size: 20px!important;
+}
+
+.paginate-text {
+  color: #ffffff!important;
+  a:link, a:visited, a:hover, a:active {
+    color: #ffffff!important;
+  }
+  a:active {
+    color: #ed3100!important;
+  }
+}
+
+.current {
+  color: #ed3100!important;
+}
+
+.white-text a {
+  color: #ffffff!important;
+}
+
+.center-text a:active {
+  color: red;
+}
+
 .news {
   text-align: center;
 }
