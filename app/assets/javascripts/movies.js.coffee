@@ -6,12 +6,16 @@ $(document).on 'click', '.close-movie-modal', ->
   $('#movie-modal').foundation('reveal', 'close')
 
 $(window).load ->
-  masonry()
-  bigscreen()
+  if window.location.href == 'http://localhost:3000/movies'
+    masonry()
+    bigscreen()
+  return
 
 $(document).on 'ready page:load', ->
-  masonry()
-  bigscreen()
+  if window.location.href == 'http://localhost:3000/movies'
+    masonry()
+    bigscreen()
+  return
 
 masonry = ->
   setTimeout (->
@@ -26,3 +30,5 @@ bigscreen = ->
     $('.large-block-grid-3').addClass('large-block-grid-4')
   else
     $('.large-block-grid-3').removeClass('large-block-grid-4')
+
+
