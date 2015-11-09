@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :admin_images
   
   resources :filmschool_comments
 

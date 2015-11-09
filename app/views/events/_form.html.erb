@@ -20,10 +20,8 @@
     <%= f.text_area :description %>
   </div>
   <div class="large-12 large-centered columns">
-    <span class="button expand btn-file">
-      Välj Bild
-      <%= f.file_field :img %>
-    </span>
+      <%= f.label 'Bild-länk' %><br>
+      <%= f.text_field :img %>
   </div>
   <div class="large-12 large-centered columns">
     Deltagande klubbar
