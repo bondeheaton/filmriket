@@ -18,23 +18,18 @@ class ClubsController < ApplicationController
     @reviews = []
     @club_movies = []
 
-    @users.each do |users|
-      users.ratings.each do |ratings|
+    @users.each do |user|
+      user.ratings.each do |ratings|
         @seen_movies.push(ratings.movie)
       end
-    end
-
-    @users.each do |user|
       user.reviews.each do |review|
         @reviews.push(review)
       end
-    end
-
-    @users.each do |users|
-      users.club_movies.each do |club_movie|
+      user.club_movies.each do |club_movie|
         @club_movies.push(club_movie)
       end
     end
+
 
     @seen_movies = @seen_movies.uniq
 

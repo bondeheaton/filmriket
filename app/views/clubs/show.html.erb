@@ -94,8 +94,8 @@
                             </div>
                             <div class="movie-description rounded">
                               <% if movie.title and movie.description %>
-                                  <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
-                                  <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %>
+                                  <h4><%= movie.title %></h4>
+                                  <%= movie.description %>
                               <% end %>
                             </div>
                         <% end %>
@@ -109,8 +109,8 @@
                             </div>
                             <div class="movie-description rounded">
                               <% if review.title and review.description %>
-                                  <h4><%= review.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
-                                  <%= review.description[0..20].gsub(/\s\w+\s*$/,'...') %>
+                                  <h4><%= review.title %></h4>
+                                  <%= review.description %>
                               <% end %>
                             </div>
                         <% end %>
@@ -177,8 +177,8 @@
                     handlerr.buildMap({ provider: {disableDefaultUI: true}, internal: {id: 'map_before'}}, function(){
                         markers = handlerr.addMarkers(<%=raw @hash.to_json %>)
                         handlerr.bounds.extendWith(markers);
-                        handlerr.map.centerOn(markers[0]);
                         handlerr.fitMapToBounds();
+                        handlerr.map.centerOn(markers[0]);
 
                     });
                     function InfoBox(opts) {
