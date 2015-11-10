@@ -131,7 +131,7 @@
 
                 <script type="text/javascript">
                     var handler;
-                    $(document).on('ready page:load', function() {
+                    $(document).on('page:change', function() {
 
                     handler = Gmaps.build('Google');
                     handler.buildMap({ provider: {}, internal: {id: 'map_id'}}, function(){
