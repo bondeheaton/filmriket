@@ -6,13 +6,13 @@ $(document).on 'click', '.close-movie-modal', ->
   $('#movie-modal').foundation('reveal', 'close')
 
 $(window).load ->
-  if window.location.href == 'http://46.101.49.13//movies'
+  if window.location.href == 'http://46.101.49.13/movies'
     masonry()
     bigscreen()
   return
 
 $(document).on 'ready page:load', ->
-  if window.location.href == 'http://46.101.49.13//movies'
+  if window.location.href == 'http://46.101.49.13/movies'
     masonry()
     bigscreen()
   return
