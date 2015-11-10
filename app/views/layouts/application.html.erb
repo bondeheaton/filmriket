@@ -14,10 +14,10 @@
       <div class="menu-btn"><a href="#"><%= image_tag('menu-icon-white.png') %></a></div>
       <%= render partial: 'home/topbar' %>
       <div class="row sidebar-width">
-          <%= render partial: 'home/sidebar'  %>
-          <div class="large-10 medium-10 columns" id="js-fix">
-            <%= yield %>
-          </div>
+      <%= render partial: 'home/sidebar'  %>
+      <div class="large-10 medium-10 columns" id="js-fix">
+        <%= yield %>
+      </div>
       </div>
 
       <%= javascript_include_tag "application", 'data-turbolinks-track' => true, "data-turbolinks-eval" => false %>
