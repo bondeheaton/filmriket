@@ -89,7 +89,7 @@
                 <div id="map_before">
                   <script type="text/javascript">
                       var handlerr;
-                      $(document).on('ready page:load', function() {
+                      $(document).on('page:change', function() {
 
                       handlerr = Gmaps.build('Google');
                       handlerr.buildMap({ provider: {disableDefaultUI: true}, internal: {id: 'map_before'}}, function(){

@@ -15,17 +15,17 @@
 //= require foundation
 //= require jquery-ui
 //= require autocomplete-rails
-//= require turbolinks
 //= require underscore
-//= require gmaps/google
 //= require ckeditor/init
 //= require gallery/touch_touch
 //= require footable-on-rails
 //= require masonry/jquery.masonry
+//= require gmaps/google
+//= require turbolinks
 //= require_tree .
 	
 
-$(function(){ $(document).foundation(); });
+$(document).foundation();
 
 
 

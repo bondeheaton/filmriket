@@ -9,9 +9,9 @@
     <%= link_to "<div class='menu-button'>Vad är Filmriket</div>".html_safe, filmriket_path, class: 'menu-text' %>
     <%= link_to "<div class='menu-button2'>Nyheter</div>".html_safe, news_index_path, class: 'menu-text' %>
     <%= link_to "<div class='menu-button3'>Bli medlem</div>".html_safe, new_user_registration_path, class: 'menu-text' %>
-    <%= link_to "<div class='menu-button4'>Filmer</div>".html_safe, movies_path, class: 'menu-text' %>
-    <%= link_to "<div class='menu-button5'>Filmskolan</div>".html_safe, filmschools_path, class: 'menu-text' %>
-    <%= link_to "<div class='menu-button6'>Om Filmriket</div>".html_safe, about_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button4'>Filmer</div>".html_safe, movies_path, class: 'menu-text', 'data-no-turbolink' => true %>
+    <%= link_to "<div class='menu-button5'>Filmskolan</div>".html_safe, filmschools_path, class: 'menu-text', 'data-no-turbolink' => true %>
+    <%= link_to "<div class='menu-button6'>Om Filmriket</div>".html_safe, about_path, class: 'menu-text', 'data-no-turbolink' => true %>
     <%= link_to "<div class='menu-button7'>Kontakt</div>".html_safe, contact_path, class: 'menu-text' %>
 
     <%= link_to "Events", events_path, class: 'menu-text' %>
