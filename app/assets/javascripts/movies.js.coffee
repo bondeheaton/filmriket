@@ -6,13 +6,13 @@ $(document).on 'click', '.close-movie-modal', ->
   $('#movie-modal').foundation('reveal', 'close')
 
 $(window).load ->
-  if window.location.href == 'http://46.101.49.13/movies'
+  if getURL('movies')
     masonry()
     bigscreen()
   return
 
 $(document).on 'page:change page:load', ->
-  if window.location.href == 'http://46.101.49.13/movies'
+  if getURL('movies')
     masonry()
     bigscreen()
   return
@@ -31,4 +31,11 @@ bigscreen = ->
   else
     $('.large-block-grid-3').removeClass('large-block-grid-4')
 
+
+getURL = (param) ->
+  pathname = window.location.pathname.split( '/' )
+  if param == pathname[1]
+    return true
+  else
+    return false
 
