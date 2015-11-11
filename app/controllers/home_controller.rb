@@ -37,7 +37,7 @@ class HomeController < ApplicationController
                          :width   => 32,
                          :height  => 32
                      })
-      marker.infowindow "#{view_context.link_to club.name, club_path(club)}"
+      marker.infowindow "#{view_context.link_to club.name, club_path(club), 'data-no-turbolink' => true}"
 
     end
   end
