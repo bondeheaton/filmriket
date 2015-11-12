@@ -134,7 +134,7 @@ h4.index-heading {
   width: 100%;
   height: 150px;
   margin-left: -10px;
-  background: asset-data-url('login.gif');
+  background: asset-data-url('login.png');
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
@@ -147,8 +147,11 @@ h4.index-heading {
   background-position:center;
 }
 
-.menu-logout:hover {
-  background: asset-data-url('login.gif');
+.menu-logout {
+  width: 100%;
+  height: 150px;
+  margin-left: -10px;
+  background: asset-data-url('logout.png');
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
