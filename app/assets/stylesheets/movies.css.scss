@@ -298,7 +298,6 @@ form#search_movie_form{
   }
 }
 
-
 a.no-underline{
   text-decoration: none;
 }
@@ -315,8 +314,16 @@ div.text-wrap{
 }
 
 .height-fix {
-  padding-top: 25px;
+  padding-top: 20px;
   height: 70px;
+}
+
+.img-fix img {
+  height: 38px!important;
+}
+
+.left-fix {
+  margin-left: -30px;
 }
 
 .center-text {

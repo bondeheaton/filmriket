@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
       @club = Club.find(clubid)
       @members = @club.users
       @members.each do |member|
-        @count.push(member.bookings.count)
+        @count.push(member.bookings.where(status: 0).count)
       end
       return @count.inject(:+)
     end

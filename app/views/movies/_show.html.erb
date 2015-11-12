@@ -6,7 +6,7 @@
     <%= image_tag(@movie.videocover, size: "350x477") %>
   </div>
 
-  <div class="large-6 columns center-text">
+  <div class="large-6 columns center-text left-fix">
       <% if current_user %>
           <% if current_user.club_id %>
               <% if club_bookings(current_user.club) < 3 %>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="large-6 columns height-fix center-text">
-    <%= link_to image_tag('trailer.png', size: '128x25'), @movie.trailerlink, target: '_blank' %>
+    <%= link_to image_tag('trailer.png', size: '275x48'), @movie.trailerlink, target: '_blank', class: 'img-fix' %>
   </div>
 
 </div>
