@@ -1,11 +1,12 @@
 <div class="large-2 medium-2 small-2 columns sidebar">
   <div class="row">
     <% if current_user %>
-        <%= link_to "<p>Logga ut</p>".html_safe, destroy_user_session_path, :method => :delete, class: 'menu-text' %><br>
+        <%= link_to "<div class='menu-logout'></div>".html_safe, destroy_user_session_path, :method => :delete, class: 'menu-text' %><br>
     <% else %>
         <%= link_to "<div class='menu-login'></div>".html_safe, new_user_session_path, class: 'menu-text' %><br>
     <% end %>
 
+    <%= link_to "<div class='menu-button'>Hem</div>".html_safe, root_path, class: 'menu-text' %>
     <%= link_to "<div class='menu-button'>Vad är Filmriket</div>".html_safe, filmriket_path, class: 'menu-text' %>
     <%= link_to "<div class='menu-button2'>Nyheter</div>".html_safe, news_index_path, class: 'menu-text' %>
     <%= link_to "<div class='menu-button3'>Bli medlem</div>".html_safe, new_user_registration_path, class: 'menu-text' %>
@@ -13,6 +14,8 @@
     <%= link_to "<div class='menu-button5'>Filmskolan</div>".html_safe, filmschools_path, class: 'menu-text', 'data-no-turbolink' => true %>
     <%= link_to "<div class='menu-button6'>Om Filmriket</div>".html_safe, about_path, class: 'menu-text', 'data-no-turbolink' => true %>
     <%= link_to "<div class='menu-button7'>Kontakt</div>".html_safe, contact_path, class: 'menu-text' %>
+    <%= link_to "<div class='menu-button'>Klubbfilmert</div>".html_safe, club_movies_path, class: 'menu-text' %>
+    <%= link_to "<div class='wish'></div>".html_safe, '#' %>
 
     <%= link_to "Events", events_path, class: 'menu-text' %>
     <%= link_to "Ladda upp", new_upload_path, class: 'menu-text' %>

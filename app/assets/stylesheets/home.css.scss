@@ -134,7 +134,38 @@ h4.index-heading {
   width: 100%;
   height: 150px;
   margin-left: -10px;
-  background: asset-data-url('login.png');
+  background: asset-data-url('login.gif');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-login:hover {
+  background: asset-data-url('login-hover.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-logout:hover {
+  background: asset-data-url('login.gif');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.wish {
+  width: 100%;
+  height: 250px;
+  margin-left: -10px;
+  background: asset-data-url('wish.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.wish:hover {
+  background: asset-data-url('wish-hover.png');
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
@@ -154,8 +185,22 @@ h4.index-heading {
   background-position:center;
 }
 
+.menu-button:hover {
+  background: asset-data-url('menu-button-hover.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
 .menu-button2 {
   background: asset-data-url('menu-button3.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button2:hover {
+  background: asset-data-url('menu-button2-hover.png');
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
@@ -168,6 +213,13 @@ h4.index-heading {
   background-position:center;
 }
 
+.menu-button3:hover {
+  background: asset-data-url('menu-button3-hover.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
 .menu-button4 {
   background: asset-data-url('menu-button5.png');
   background-repeat:no-repeat;
@@ -175,8 +227,22 @@ h4.index-heading {
   background-position:center;
 }
 
+.menu-button4:hover {
+  background: asset-data-url('menu-button4-hover.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
 .menu-button5 {
-  background: asset-data-url('menu-button6.png');
+  background: asset-data-url('menu-button5.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button5:hover {
+  background: asset-data-url('menu-button5-hover.png');
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
@@ -189,8 +255,22 @@ h4.index-heading {
   background-position:center;
 }
 
+.menu-button6:hover {
+  background: asset-data-url('menu-button6-hover.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
 .menu-button7 {
   background: asset-data-url('menu-button8.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.menu-button7:hover {
+  background: asset-data-url('menu-button7-hover.png');
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
@@ -203,11 +283,13 @@ h4.index-heading {
   background-position:center;
 }
 
-.menu-button:hover, .menu-button2:hover, .menu-button3:hover, .menu-button4:hover, .menu-button5:hover, .menu-button6:hover, .menu-button7:hover, .menu-button8:hover {
-  opacity: 0.7;
-  text-decoration: none;
-  color: #c2dad1;
+.menu-button8:hover {
+  background: asset-data-url('menu-button8-hover.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
 }
+
 
 .menu-text {
   color: #c2dad1;
