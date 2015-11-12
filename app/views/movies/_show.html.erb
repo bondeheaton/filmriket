@@ -9,7 +9,11 @@
   <div class="large-6 columns center-text">
       <% if current_user %>
           <% if current_user.club_id %>
-              <%= render partial: 'bookings/form' %>
+              <% if club_bookings(current_user.club) < 3 %>
+                <%= render partial: 'bookings/form' %>
+              <% else %>
+                <p class="movie-text">Du har redan bokat 3 filmer.</p>
+              <% end %>
           <% end %>
       <% end %>
   </div>
