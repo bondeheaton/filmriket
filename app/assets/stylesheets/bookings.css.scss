@@ -1,9 +1,25 @@
 // Place all the styles related to the Bookings controller here.
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#booked_button {
-	display:none;
+
+
+button#book_button    {
+  background: asset-data-url('boka.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width:100%;
+  height:75px;
+  border: 0;
 }
+
+button#book_button:hover {
+  background: asset-data-url('boka-hover.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
 
 .bookings_box {
   text-align: center;

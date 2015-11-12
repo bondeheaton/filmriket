@@ -3,9 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'ready page:load', ->
   $(".new_booking").on("ajax:success", (e, data, status, xhr) ->
-	  $("#book_button").hide();
-	  $(this).parent().find("#booked_button").show
-	  $("#booked_button").show();
+	  alert 'Filmen är bokad!'
   ).on "ajax:error", (e, xhr, status, error) ->
     $("#new_booking").append "error"
 

@@ -170,7 +170,7 @@
         <div class="content-wrapper">
         <div class="large-8 large-centered columns content">
 
-          <a href="#" data-reveal-id="event-info" class="club-events-link"><img src="<%= @club.events.last.img %>"></a>
+          <a href="#" data-reveal-id="event-info" class="club-events-link"><img src="<% if @club.events.last %><%= @club.events.last.img %><% else %>Fixa bild<% end %>"></a>
 
           <div id="event-info" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 

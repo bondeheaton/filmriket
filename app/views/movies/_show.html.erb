@@ -10,27 +10,6 @@
       <% if current_user %>
           <% if current_user.club_id %>
               <%= render partial: 'bookings/form' %>
-              <button id="booked_button">Bokad</button>
-              <% if check_already_booked(@movie.id) %>
-                  <script>
-                      $(document).ready(function() {
-                          $("#book_button").hide();
-                          $("#booked_button").show();
-                      });
-                  </script>
-              <% else%>
-                  <% if (club_bookings(Club.find(current_user.club_id)) > 2) %>
-                      <script>
-                          $(document).ready(function() {
-                              $("#book_button").hide();
-                              $("#booked_button").show();
-                              $("#booked_button").html("3bok");
-                          });
-                      </script>
-                  <% else %>
-                  <% end %>
-              <% end %>
-          <% else %>
           <% end %>
       <% end %>
   </div>
