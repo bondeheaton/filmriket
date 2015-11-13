@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_up) << :address
       devise_parameter_sanitizer.for(:sign_up) << :avatar
       devise_parameter_sanitizer.for(:sign_up) << :parentmail
+      devise_parameter_sanitizer.for(:sign_up) << :ownemail
       devise_parameter_sanitizer.for(:sign_up) << :city
       devise_parameter_sanitizer.for(:sign_up) << :zipcode
       devise_parameter_sanitizer.for(:sign_up) << :personalnumber
