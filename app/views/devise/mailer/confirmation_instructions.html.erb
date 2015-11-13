@@ -1,5 +1,23 @@
-<p>Welcome <%= @email %>!</p>
+<% if User.find_by_email(@email) %>
 
-<p>You can confirm your account email through the link below:</p>
+    <p>Hej <%= @email %>!</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+    <p>Du har blivit uppgiven som målsman för en registrering hos oss på Filmriket.</p>
+
+    <p>Emailen som har registrerat är: <%= User.find_by_email(@email).parentmail %></p>
+
+    <p>Är det något som inte stämmer? Kontakta oss på info@filmriket.nu</p>
+
+    <p>För att ge ditt godkännande, klicka på länken nedan:</p>
+
+<% else %>
+
+    <p>Välkommen <%= @email %>!</p>
+
+    <p>Du kan bekräfta ditt konto genom att klicka på länken nedan:</p>
+
+<% end %>
+
+<p><%= link_to 'Bekräfta', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Mvh Filmriket</p>
