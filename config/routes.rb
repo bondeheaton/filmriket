@@ -37,8 +37,8 @@ Rails.application.routes.draw do
 
   resources :ratings
 
-  get '/reviews/:id', to: 'club_movies#show_review'
-  get '/club_movies/:id', to: 'club_movies#show_club_movie'
+  get '/reviews/show/:id', to: 'club_movies#show_review', as: 'review_show'
+  get '/club_movies/show/:id', to: 'club_movies#show_club_movie', as: 'club_movies_show'
 
   resources :reviews do
     get 'upload'

@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.upload-movie {
+  float: right;
+  z-index: 100!important;
+}
+
 .user-info {
   margin: 5px;
   padding-left: 5px;

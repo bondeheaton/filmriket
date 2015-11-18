@@ -123,6 +123,12 @@
              </div>
             </div>
           </div>
+          <div class="upload-movie">
+            <% if user_in_club(@club)  %>
+                <%= link_to image_tag('upload.png', size: '120x57'), new_review_path %>
+            <% else %>
+            <% end %>
+          </div>
         </div>
       </div>
 
