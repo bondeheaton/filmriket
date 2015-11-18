@@ -6,11 +6,22 @@ class ClubMoviesController < ApplicationController
 
   def index
     @club_movies = ClubMovie.all
+    @reviews = Review.all
     respond_with(@club_movies)
   end
 
-  def show
-    respond_with(@club_movie)
+  def show_club_movie
+    @club_movie = ClubMovie.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def show_review
+    @review = Review.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new

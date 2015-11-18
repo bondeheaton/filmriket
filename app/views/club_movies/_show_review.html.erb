@@ -1,0 +1,23 @@
+<div class="row">
+  <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+  <div class="large-10 large-centered medium-10 medium-centered columns movie margin-fix">
+    <div class="row">
+      <div class="large-10 columns large-centered">
+        <h4 class="movie-text">
+          <%= @review.title %>
+        </h4>
+        <div class="club-movie">
+          <%= raw(youtube_embed(@review.videolink )) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-10 columns large-centered">
+        <p class="movie-text">
+          <%= @review.description %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

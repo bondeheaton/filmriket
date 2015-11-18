@@ -37,6 +37,9 @@ Rails.application.routes.draw do
 
   resources :ratings
 
+  get '/reviews/:id', to: 'club_movies#show_review'
+  get '/club_movies/:id', to: 'club_movies#show_club_movie'
+
   resources :reviews do
     get 'upload'
     patch 'attach'
