@@ -178,6 +178,10 @@ div.big-star:hover{
   border: 1px solid #666;
 }
 
+.marg-fix {
+  margin-left: 15px;
+  margin-top: -10px;
+}
 
 .rounded {
   background: #ffffff;
@@ -808,6 +812,13 @@ div.trailerbtn{
     float: none !important;
     margin-left: auto !important;
     margin-right: auto !important;
+  }
+
+  .movie-box-wrapper {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
   }
 }
 

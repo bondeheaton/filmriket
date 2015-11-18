@@ -1,3 +1,4 @@
+<div class="tablet-fix">
 <%= form_for(@user, :method => 'patch') do |f| %>
     <% if @user.errors.any? %>
         <div id="error_explanation">
@@ -15,6 +16,7 @@
       <%= f.hidden_field :status, :value => 4 %>
     </div>
     <div class="actions">
-      <%= f.submit 'Lämna klubb' %>
+      <%= f.submit 'Lämna klubb', class: 'button tiny' %>
     </div>
 <% end %>
+</div>

@@ -14,7 +14,7 @@
 
   <div class="large-12 columns">
     <div id="m_message_notice"></div>
-    <%= f.text_area :message, placeholder: "Skriv kommentar.." %>
+    <%= f.text_area :message, placeholder: "Skriv kommentar..", rows: '5' %>
   </div>
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -22,8 +22,8 @@
   <div class="field">
     <%= f.hidden_field :movie_id, :value => params[:id] %>
   </div>
-  <div class="actions">
-    <%= f.submit 'Skicka' %>
+  <div class="actions marg-fix">
+    <%= f.submit 'Skicka', class: 'button tiny' %>
    </div>
 <% end %>
 </div>

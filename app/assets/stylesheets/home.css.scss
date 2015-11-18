@@ -585,6 +585,10 @@ p.created {
     margin-right: auto;
   }
 
+  .upload-mobile-fix {
+    margin-bottom: 15px!important;
+  }
+
 }
 
 
@@ -630,14 +634,14 @@ p.created {
 
 
 @media only screen and (min-width: 1600px) {
-  /* Fixa testboxen här, döp om skiten */
+  /* Fixa testboxen här, döp om*/
   .movie-box-wrapper {
     height: 350px!important;
   }
 }
 
 @media only screen and (min-width: 1700px) {
-  /* Fixa testboxen här, döp om skiten */
+  /* Fixa testboxen här, döp om */
   .movie-box-wrapper {
     height: 350px!important;
     width: 600px!important;

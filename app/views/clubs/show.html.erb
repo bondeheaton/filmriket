@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <div class="large-6 columns medium-6 movie-box-wrapper">
+      <div class="large-6 columns medium-6 movie-box-wrapper upload-mobile-fix">
         <h4 class="index-heading">Filmer/Recensioner</h4>
         <div class="content-wrapper">
         <div class="large-8 large-centered columns content">
@@ -123,12 +123,10 @@
              </div>
             </div>
           </div>
-          <div class="upload-movie">
             <% if user_in_club(@club)  %>
-                <%= link_to image_tag('upload.png', size: '120x57'), new_review_path %>
+                <%= link_to "<div class='upload-movie'></div>".html_safe, new_review_path %>
             <% else %>
             <% end %>
-          </div>
         </div>
       </div>
 
@@ -160,7 +158,8 @@
         </div>
         </div>
         <% if user_in_club(@club)  %>
-            <a href="#" data-reveal-id="upload-image"><p>Ladda upp</p></a>
+            <%= link_to "<div class='upload-movie' data-reveal-id='upload-image'></div>".html_safe, "#"%>
+
 
             <div id="upload-image" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
               <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
@@ -176,7 +175,7 @@
         <div class="content-wrapper">
         <div class="large-8 large-centered columns content">
 
-          <a href="#" data-reveal-id="event-info" class="club-events-link"><img src="<% if @club.events.last %><%= @club.events.last.img %><% else %>Fixa bild<% end %>"></a>
+          <a href="#" data-reveal-id="event-info" class="club-events-link"><% if @club.events.last %><img src="<%= @club.events.last.img %>"><% else %> <p class="white-text">Fixa bild</p> <% end %>"></a>
 
           <div id="event-info" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
