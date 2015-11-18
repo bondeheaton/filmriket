@@ -2,6 +2,50 @@
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.contact-box {
+  padding-top: 60px;
+  padding-bottom: 20px;
+  background: #ffffff;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -o-border-radius: 30px;
+  margin-bottom: 40px;
+  margin-right: -25px;
+}
+
+.margin-top-fix {
+  margin-top: 25px;
+}
+
+
+.contact-circle {
+  background: #9daba4;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -o-border-radius: 100%;
+  float: right;
+  margin-top: 15px;
+  width: 60px;
+  height: 60px;
+}
+
+.contact-text {
+  color: #9daba4!important;
+  font-weight: bold;
+  font-size: 17px;
+  margin: 0;
+}
+
+.contact-text-white {
+  color: #ffffff!important;
+  font-weight: bold;
+  font-size: 17px;
+  margin: -85px 0 0 15px;
+  padding-bottom: 50px;
+}
+
 .popup-text {
   color: #000000!important;
 }
@@ -488,7 +532,12 @@ p.created {
 }
 
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 1024px){
+
+  .contact-box {
+    margin-right: 0px!important;
+  }
+
   .sidebar {
     position: fixed!important;
     display: none;
