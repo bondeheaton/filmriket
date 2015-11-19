@@ -1,6 +1,7 @@
 // Place all the styles related to the Movies controller here.
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .empty-star{
   width: 20%;
   height: 100%;
@@ -782,6 +783,13 @@ div.trailerbtn{
 }
 
 @media only screen and (max-width: 800px){
+  .reveal-modal {
+    border-radius: 20px!important;
+    -webkit-border-radius: 20px!important;
+    -moz-border-radius: 20px!important;
+    -o-border-radius: 20px!important;
+  }
+
   div.description{
     width: 100% !important;
     margin-left: auto !important;

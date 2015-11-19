@@ -47,10 +47,6 @@
           <%= f.text_field :email %>
         </div>
         <div class="large-12 columns">
-          <%= f.label :access %>
-          <%= f.number_field :access %>
-        </div>
-        <div class="large-12 columns">
           <%= f.label "Status:", class: 'white-text' %>
           <%= f.select(:status, options_for_select(status_values)) %>
         </div>

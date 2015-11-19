@@ -17,4 +17,8 @@ $(document).on 'ready page:load', ->
   return
 
 $(document).on 'click', '#book_button', ->
-  $('#book_button').html('Filmen är nu bokad!')
+  $(this).hide()
+  $('#booked').html('Filmen är nu bokad')
+
+
+
