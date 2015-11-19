@@ -24,8 +24,13 @@ $(document).on 'click', '#to_uploads', ->
   return
 
 $(document).on 'click', '#wish-link', ->
+  $('#wish-message').val('')
   $('.wish-form').toggle()
 
+$(document).on 'click', '#wish-button', ->
+  $('.wish-notice').show().html('Tack för ditt önskemål!')
+  $('.wish-notice').delay(2000).fadeOut('fast')
+  $('.wish-form').delay(2000).fadeOut('fast')
 
 header = $('#admin_log')
 $(window).scroll ->
