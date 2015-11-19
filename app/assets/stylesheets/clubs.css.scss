@@ -6,7 +6,7 @@
   float: left;
 }
 
-.upload-review {
+.upload-review, .upload-image {
   float: right;
   z-index: 100!important;
   width: 120px;
@@ -28,7 +28,7 @@
   background-position:center;
 }
 
-.upload-movie:hover, .upload-review:hover {
+.upload-movie:hover, .upload-review:hover, .upload-image:hover {
   background: asset-data-url('upload-hover.png');
   background-repeat:no-repeat;
   background-size:contain;
@@ -95,20 +95,18 @@ a:hover{
 -----------------------------*/
 
 #thumbs{
-  width:480px;
-  margin:60px auto 35px;
+  width:100%!important;
   text-align:center;
   background: #ffffff !important;
 }
 
 #thumbs a{
-  width:120px;
-  height:120px;
+  width:160px!important;
+  height:160px!important;
   display:inline-block;
   border:0px !important;
   box-shadow:0 0 0 0 !important;
   border-radius:0 !important;
-  margin: 6px 6px 40px;
   position:relative;
   text-decoration:none;
 
@@ -135,15 +133,14 @@ a:hover{
 #thumbs a:after{
   background-color: #ffffff !important;
   border-radius: 0 !important;
-  bottom: -136px;
+  bottom: -250px!important;
   box-shadow: 0 0 0 0 !important;
   color: #FFFFFF;
   content: attr(title);
   display: inline-block;
-  font-size: 10px;
-  max-width: 90px;
+  font-size: 0px!important;
   overflow: hidden;
-  padding: 2px 10px;
+  padding: 0!important;
   position: relative;
   text-align: center;
   white-space: nowrap;
@@ -179,7 +176,7 @@ a:hover{
     display:none;
   }
 
-  .upload-movie {
+  .upload-movie, .upload-review, .upload-image {
     margin-top: 20px;
   }
 }

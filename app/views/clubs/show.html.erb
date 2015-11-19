@@ -144,13 +144,13 @@
             <h2 class="popup-text">Bilder</h2>
             <% if @club.uploads.exists? %>
                 <div id="thumbs">
-                   <ul class="large-block-grid-3">
+                   <div class="large-12 columns">
                       <% @club.uploads.each do |upload|%>
-                        <li class="item">
-                           <a href="<%= upload.image %>"><img src="<%= upload.image %>"width="100px" height="100px"/></a>
-                        </li>
+                        <div class="large-3 columns">
+                           <a href="<%= upload.image %>"><img src="<%= upload.image %>" width="160px" height="160px"/></a>
+                        </div>
                       <% end %>
-                    </ul>
+                   </div>
                 </div>
             <% else %>
                 <p class="popup-text">Den här klubben har inga bilder ännu.</p>
@@ -159,7 +159,7 @@
         </div>
         </div>
         <% if user_in_club(@club)  %>
-            <%= link_to "<div class='upload-movie' data-reveal-id='upload-image'></div>".html_safe, "#"%>
+            <%= link_to "<div class='upload-image' data-reveal-id='upload-image'></div>".html_safe, "#"%>
 
 
             <div id="upload-image" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
