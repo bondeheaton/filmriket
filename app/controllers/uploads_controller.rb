@@ -1,6 +1,7 @@
 class UploadsController < ApplicationController
   before_action :set_upload, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :check_admin!, except: [:create]
 
   respond_to :html
 

@@ -1,5 +1,7 @@
 class AdminImagesController < ApplicationController
 
+  before_filter :check_admin!
+
   def index
     @admin_images = AdminImage.all.order(id: :desc)
     @admin_image = AdminImage.new

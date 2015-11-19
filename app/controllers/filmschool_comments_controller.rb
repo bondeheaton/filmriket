@@ -3,17 +3,14 @@ class FilmschoolCommentsController < ApplicationController
 
   respond_to :js, :html, :json
 
+  before_filter :check_admin!, except: [:create]
+
   def index
     @filmschool_comments = FilmschoolComment.all
     respond_with(@filmschool_comments)
   end
 
   def show
-    respond_with(@filmschool_comment)
-  end
-
-  def new
-    @filmschool_comment = FilmschoolComment.new
     respond_with(@filmschool_comment)
   end
 

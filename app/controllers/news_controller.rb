@@ -1,7 +1,7 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  before_action :check_admin!, only: [:edit, :update, :destroy]
+  before_action :check_admin!, except: [:index]
   respond_to :html
 
   def index

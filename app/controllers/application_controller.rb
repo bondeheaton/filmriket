@@ -37,9 +37,7 @@ class ApplicationController < ActionController::Base
     
     def check_admin!
       if current_user.access != 2
-        redirect_to new_user_session_path, notice: 'Log-in'
+        redirect_to root_path
       end
     end
-    
-    
 end

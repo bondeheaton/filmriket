@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+  before_filter :check_admin!, only: [:admin_log]
 
   def index
 

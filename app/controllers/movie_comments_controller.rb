@@ -1,6 +1,7 @@
 class MovieCommentsController < ApplicationController
   before_action :set_movie_comment, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :check_admin!, except: [:create]
   respond_to :js, :html, :json
 
   def index

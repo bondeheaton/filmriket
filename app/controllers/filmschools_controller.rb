@@ -3,6 +3,8 @@ class FilmschoolsController < ApplicationController
 
   respond_to :html
 
+  before_filter :check_admin!, except: [:index, :show]
+
   def index
     @filmschools = Filmschool.all
     respond_with(@filmschools)
