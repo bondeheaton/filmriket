@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_filter :check_admin!, exept: [:create, :upload, :attach]
+  before_filter :check_admin!, except: [:new, :create, :upload, :attach]
 
   respond_to :html
 
