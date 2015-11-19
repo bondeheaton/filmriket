@@ -124,7 +124,8 @@
             </div>
           </div>
             <% if user_in_club(@club)  %>
-                <%= link_to "<div class='upload-movie'></div>".html_safe, new_review_path %>
+              <%= link_to "<div class='upload-movie'></div>".html_safe, new_club_movie_path %>
+              <%= link_to "<div class='upload-review'></div>".html_safe, new_review_path %>
             <% else %>
             <% end %>
         </div>

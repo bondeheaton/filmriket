@@ -6,8 +6,19 @@
   float: left;
 }
 
-.upload-movie {
+.upload-review {
   float: right;
+  z-index: 100!important;
+  width: 120px;
+  height: 57px;
+  background: asset-data-url('upload.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+
+.upload-movie {
+  float: left;
   z-index: 100!important;
   width: 120px;
   height: 57px;
