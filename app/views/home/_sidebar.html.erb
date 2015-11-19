@@ -60,12 +60,16 @@
         <%= link_to "<div class='menu-button'>Klubbfilmer</div>".html_safe, club_movies_path, class: 'menu-text', 'data-no-turbolink' => true %>
     <% end %>
 
-    <%= link_to "<div class='wish'></div>".html_safe, '#'%>
+    <div class="wish" id="wish-link"></div>
 
+    <div class="wish-form">
+        <%= render partial: 'wishes/form'%>
+    </div>
     <% if current_user %>
         <% if current_user.access == 2 %>
             <br>
             <%= link_to "<div class='menu-button'>Admin-logg</div>".html_safe, admin_log_path, class: 'menu-text' %>
+            <%= link_to "<div class='menu-button'>Önskemål</div>".html_safe, wishes_path, class: 'menu-text' %>
             <%= link_to "<div class='menu-button'>Användare</div>".html_safe, users_path, class: 'menu-text' %>
             <%= link_to "<div class='menu-button'>Klubbar</div>".html_safe, clubs_path, class: 'menu-text' %>
             <%= link_to "<div class='menu-button'>Bokningar</div>".html_safe, bookings_path, class: 'menu-text' %>

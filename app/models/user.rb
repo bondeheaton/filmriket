@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   has_many :ratings
   has_many :bookings
   has_many :club_movies
+  has_many :wishes
 end

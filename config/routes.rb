@@ -77,6 +77,10 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/wishes', to: 'wishes#create'
+  delete '/wishes/:id', to: 'wishes#destroy', as: 'wish'
+  get '/wishes', to: 'wishes#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

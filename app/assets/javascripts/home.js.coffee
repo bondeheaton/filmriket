@@ -23,6 +23,9 @@ $(document).on 'click', '#to_uploads', ->
   $('html, body').animate({ scrollTop: $('#uploads').offset().top }, 'fast');
   return
 
+$(document).on 'click', '#wish-link', ->
+  $('.wish-form').toggle()
+
 
 header = $('#admin_log')
 $(window).scroll ->
