@@ -60,6 +60,7 @@ class ClubMoviesController < ApplicationController
 
   def create
     @club_movie = ClubMovie.new(club_movie_params)
+    @club_movie.access(current_user)
     @club_movie.save
     redirect_to club_movie_upload_path(@club_movie)
   end

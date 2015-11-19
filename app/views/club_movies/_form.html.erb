@@ -23,15 +23,6 @@
     <%= f.cktext_area :description, :cols => '500' %><br>
   </div>
   <div class="large-12 columns">
-    <%= f.hidden_field :videolink, :value => "inactive" %>
-  </div>
-  <div class="large-12 columns">
-    <%= f.hidden_field :active, :value => 1 %>
-  </div>
-  <div class="large-12 columns">
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
-  <div class="large-12 columns">
     <%= f.submit "Skapa", class: 'button expand' %>
   </div>
  </div>

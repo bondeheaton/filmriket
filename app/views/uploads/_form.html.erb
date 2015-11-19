@@ -15,11 +15,11 @@
 	<%= f.hidden_field :club_id, :value => current_user.club_id %>
   </div>
   <div class="actions">
-
-       Välj fil
+    <span class="button tiny btn-file">
+      Välj fil
       <%= file_field_tag :image %>
-
-    <br>
-    <%= f.submit 'Ladda upp', class: 'button' %>
-  </div>
+    </span>
+      <br>
+      <%= f.submit 'Ladda upp', class: 'button' %>
+    </div>
 <% end %>

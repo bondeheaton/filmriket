@@ -22,15 +22,6 @@
     <%= f.collection_select :movie_id, movies_to_pick, :id, :title, {multiple: true, 'style' => 'height:100px, width:100px'} %></p>
   </div>
    <div class="large-12 columns">
-    <%= f.hidden_field :videolink, :value => "inactive" %>
-  </div>
-   <div class="large-12 columns">
-    <%= f.hidden_field :active, :value => 1 %>
-  </div>
-   <div class="large-12 columns">
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
-   <div class="large-12 columns">
     <%= f.submit "Skapa", class: 'button expand' %>
   </div>
   </div>

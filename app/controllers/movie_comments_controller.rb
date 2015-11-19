@@ -22,6 +22,7 @@ class MovieCommentsController < ApplicationController
 
   def create
     @movie_comment = MovieComment.new(movie_comment_params)
+    @movie_comment.user_id = current_user.id
     @movie_comment.save
     @movie_comments = Movie.find(@movie_comment.movie_id).movie_comments.order('id DESC')
     respond_to do |format|

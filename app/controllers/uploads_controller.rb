@@ -23,6 +23,7 @@ class UploadsController < ApplicationController
 
   def create
     @upload = Upload.new(upload_params)
+    #@upload.club_id = current_user.club_id
     @upload.save
     respond_with(current_user.club)
   end

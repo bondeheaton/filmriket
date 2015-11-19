@@ -49,6 +49,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.access(current_user)
     @review.save
     redirect_to review_upload_path(@review)
   end
