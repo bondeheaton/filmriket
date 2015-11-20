@@ -6,12 +6,8 @@
             <li class="item">
               <div class="movie-container bordered-grey width-fix">
                 <%= link_to movie, remote: true, data: {:"reveal-id" => "filmschool-modal"}, class: 'testt' do %>
-                    <div class="movie-link2 image">
-                      <% if i.odd? %>
-                        <%= image_tag('mockup.jpg') %>
-                      <% else %>
-                        <img src="http://i2.mirror.co.uk/incoming/article1760559.ece/ALTERNATES/s927b/No%20smoking%20posters%20-%201985.jpg"/>
-                      <% end %>
+                    <div class="movie-link2 filmschool-movie image fs-videolink-fix">
+                      <%= raw(youtube_embed(movie.videolink)) %>
                     </div>
                     <div class="movie-description rounded">
                       <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>

@@ -30,7 +30,7 @@ class FilmschoolsController < ApplicationController
   def create
     @filmschool = Filmschool.new(filmschool_params)
     @filmschool.save
-    respond_with(@filmschool)
+    redirect_to :back
   end
 
   def update
