@@ -1,6 +1,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <div class="row">
   <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+  <p class="white-text"><%=raw @hash.to_json %></p>
     <div class="row">
       <div class="large-6 columns medium-6 movie-box-wrapper">
         <h4 class="index-heading"><%= @club.name %></h4>
@@ -219,7 +220,7 @@
             <div id="map_before">
             <script type="text/javascript">
                 var handlerr;
-                $(document).on('ready page:load', function() {
+                $(document).on('page:change', function() {
 
                     handlerr = Gmaps.build('Google');
                     handlerr.buildMap({ provider: {disableDefaultUI: true}, internal: {id: 'map_before'}}, function(){
@@ -262,7 +263,7 @@
 
           <script type="text/javascript">
               var handler;
-              $(document).on('ready page:load', function() {
+              $(document).on('page:change', function() {
 
                   handler = Gmaps.build('Google');
                   handler.buildMap({ provider: {}, internal: {id: 'map_id'}}, function(){
