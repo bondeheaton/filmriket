@@ -42,7 +42,7 @@
 
               <div id="movies-container" class="centered">
                 <ul class="large-block-grid-3 centering-fix" id="masonry-container-club">
-                  <% if @seen_movies %>
+                  <% if @seen_movies.any? %>
                       <% @seen_movies.each do |movie| %>
 
                           <li class="item">
@@ -90,7 +90,7 @@
             <div id="movies-container" class="centered">
               <ul class="large-block-grid-3 centering-fix" id="masonry-container-club-movies-reviews">
 
-               <% if @club_movies || @reviews %>
+               <% if @club_movies.any? || @reviews.any? %>
                    <% @club_movies.zip(@reviews).each do |movie, review| %>
 
                         <li class="item">
