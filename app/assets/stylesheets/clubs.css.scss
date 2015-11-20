@@ -206,6 +206,15 @@ a:hover{
   }
 
   .upload-movie, .upload-review, .upload-image {
-    margin-top: 20px;
+    margin-top: 15px;
+    width: 95px!important;
+  }
+
+  .mobile-fix {
+    margin-top: 30px!important;
+  }
+
+  .upload-review {
+    float: left;
   }
 }
