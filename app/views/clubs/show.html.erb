@@ -42,26 +42,30 @@
 
               <div id="movies-container" class="centered">
                 <ul class="large-block-grid-3 centering-fix" id="masonry-container-club">
-                  <% @seen_movies.each do |movie| %>
+                  <% if @seen_movies %>
+                      <% @seen_movies.each do |movie| %>
 
-                      <li class="item">
-                        <div class="movie-container bordered-grey width-fix">
+                          <li class="item">
+                            <div class="movie-container bordered-grey width-fix">
 
-                          <%= link_to movie, class: 'test-link', remote: true do %>
-                              <div class="movie-link2 image">
-                                <% if movie.image_size == 1 %>
-                                    <%= image_tag(movie.videocover, size: "280x382") %>
-                                <% else %>
-                                    <%= image_tag(movie.videocover, size: "280x280") %>
-                                <% end  %>
-                              </div>
-                              <div class="movie-description rounded">
-                                <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
-                                <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %>
-                              </div>
-                          <% end %>
-                        </div>
-                      </li>
+                              <%= link_to movie, class: 'test-link', remote: true do %>
+                                  <div class="movie-link2 image">
+                                    <% if movie.image_size == 1 %>
+                                        <%= image_tag(movie.videocover, size: "280x382") %>
+                                    <% else %>
+                                        <%= image_tag(movie.videocover, size: "280x280") %>
+                                    <% end  %>
+                                  </div>
+                                  <div class="movie-description rounded">
+                                    <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
+                                    <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %>
+                                  </div>
+                              <% end %>
+                            </div>
+                          </li>
+                      <% end %>
+                  <% else %>
+                      <p class="popup-text">Den här klubben har inte sett några filmer ännu.</p>
                   <% end %>
                 </ul>
               </div>
@@ -86,39 +90,43 @@
             <div id="movies-container" class="centered">
               <ul class="large-block-grid-3 centering-fix" id="masonry-container-club-movies-reviews">
 
-                <% @club_movies.zip(@reviews).each do |movie, review| %>
+               <% if @club_movies || @reviews %>
+                   <% @club_movies.zip(@reviews).each do |movie, review| %>
 
-                    <li class="item">
-                      <div class="movie-container bordered-grey width-fix">
+                        <li class="item">
+                          <div class="movie-container bordered-grey width-fix">
 
-                        <%= link_to movie, class: 'test-link', remote: true do %>
-                            <div class="movie-link2 image videolink-fix">
-                              <%= raw(youtube_embed(movie.videolink)) %>
-                            </div>
-                            <div class="movie-description rounded">
-                              <% if movie.title and movie.description %>
-                                  <h4><%= movie.title %></h4>
-                                  <%= movie.description %>
-                              <% end %>
-                            </div>
-                        <% end %>
-                      </div>
-                    </li>
-                    <li class="item">
-                      <div class="movie-container bordered-grey width-fix">
-                        <%= link_to review, class: 'test-link', remote: true do %>
-                            <div class="movie-link2 image videolink-fix">
-                              <%= raw(youtube_embed(review.videolink)) %>
-                            </div>
-                            <div class="movie-description rounded">
-                              <% if review.title and review.description %>
-                                  <h4><%= review.title %></h4>
-                                  <%= review.description %>
-                              <% end %>
-                            </div>
-                        <% end %>
-                      </div>
-                    </li>
+                            <%= link_to movie, class: 'test-link', remote: true do %>
+                                <div class="movie-link2 image videolink-fix">
+                                  <%= raw(youtube_embed(movie.videolink)) %>
+                                </div>
+                                <div class="movie-description rounded">
+                                  <% if movie.title and movie.description %>
+                                      <h4><%= movie.title %></h4>
+                                      <%= movie.description %>
+                                  <% end %>
+                                </div>
+                            <% end %>
+                          </div>
+                        </li>
+                        <li class="item">
+                          <div class="movie-container bordered-grey width-fix">
+                            <%= link_to review, class: 'test-link', remote: true do %>
+                                <div class="movie-link2 image videolink-fix">
+                                  <%= raw(youtube_embed(review.videolink)) %>
+                                </div>
+                                <div class="movie-description rounded">
+                                  <% if review.title and review.description %>
+                                      <h4><%= review.title %></h4>
+                                      <%= review.description %>
+                                  <% end %>
+                                </div>
+                            <% end %>
+                          </div>
+                        </li>
+                    <% end %>
+                <% else %>
+                    <p class="popup-text">Den här klubben har inga filmer eller recensioner ännu.</p>
                 <% end %>
               </ul>
              </div>
@@ -176,7 +184,7 @@
         <div class="content-wrapper">
         <div class="large-8 large-centered medium-8 medium-centered columns content">
 
-          <a href="#" data-reveal-id="event-info" class="club-events-link"><% if @club.events.last %><img src="<%= @club.events.last.img %>"><% else %> <p class="white-text">Fixa bild</p> <% end %>"></a>
+          <a href="#" data-reveal-id="event-info" class="club-events-link"><% if @club.events.last %><img src="<%= @club.events.last.img %>"><% else %> <p class="white-text">Senaste bilden från evenemang/aktivitet</p> <% end %>"></a>
 
           <div id="event-info" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
@@ -184,21 +192,25 @@
             <h2 class="popup-text">Evenemang/Aktiviteter</h2>
             <div id="movies-container" class="centered">
               <ul class="large-block-grid-3" id="masonry-container-club-events">
-                <% @club.events.each do |event| %>
+               <% if @club.events.exists? %>
+                    <% @club.events.each do |event| %>
 
-                    <li class="item">
-                      <div class="movie-container bordered-grey width-fix">
+                        <li class="item">
+                          <div class="movie-container bordered-grey width-fix">
 
 
-                        <div class="movie-link2 image">
-                          <img src="<%= event.img %>" height="255" width="330">
-                        </div>
-                        <div class="movie-description rounded">
-                          <h4><%= event.title %></h4>
-                          <%= event.description %>
-                        </div>
-                      </div>
-                    </li>
+                            <div class="movie-link2 image">
+                              <img src="<%= event.img %>" height="255" width="330">
+                            </div>
+                            <div class="movie-description rounded">
+                              <h4><%= event.title %></h4>
+                              <%= event.description %>
+                            </div>
+                          </div>
+                        </li>
+                      <% end %>
+                  <% else %>
+                    <p class="popup-text">Den här klubben har inte deltagit på några evenemang eller aktiviteter ännu.</p>
                   <% end %>
                  </ul>
                 </div>
