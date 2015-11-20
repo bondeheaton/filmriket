@@ -222,13 +222,6 @@ h4.index-heading {
   background-position:center;
 }
 
-.wish:hover {
-  background: asset-data-url('wish-hover.png');
-  background-repeat:no-repeat;
-  background-size:contain;
-  background-position:center;
-}
-
 .menu-button, .menu-button2, .menu-button3, .menu-button4, .menu-button5, .menu-button6, .menu-button7, .menu-button8, .menu-button9 {
   width: 100%;
   height: 40px;
@@ -348,7 +341,7 @@ h4.index-heading {
   background-position:center;
 }
 
-.menu-button8:hover, .menu-button8-selected {
+.menu-button8-selected {
   background: asset-data-url('menu-button8-hover.png');
   background-repeat:no-repeat;
   background-size:contain;
@@ -637,6 +630,13 @@ p.created {
 }
 
 @media only screen and (min-width: 1025px) {
+  .wish:hover {
+    background: asset-data-url('wish-hover.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+  }
+
   .menu-button:hover, .menu-button-selected {
     background: asset-data-url('menu-button-hover.png');
     background-repeat:no-repeat;
