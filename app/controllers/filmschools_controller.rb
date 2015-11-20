@@ -30,7 +30,7 @@ class FilmschoolsController < ApplicationController
   def create
     @filmschool = Filmschool.new(filmschool_params)
     @filmschool.save
-    redirect_to :back
+    redirect_to filmschools_path
   end
 
   def update
