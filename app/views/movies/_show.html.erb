@@ -1,43 +1,47 @@
 <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 <div class="large-10 large-centered medium-10 medium-centered columns movie margin-fix">
-<div class="large-6 columns">
+<div class="large-12 large-center columns">
+    <div class="large-6 columns">
 
-  <div class="movie-picture">
-    <%= image_tag(@movie.videocover, size: "350x477") %>
-  </div>
+      <div class="movie-picture">
+        <%= image_tag(@movie.videocover, size: "350x477") %>
+      </div>
+    </div>
+    <div class="large-6 columns">
+      <h2 class="movie-text"><%= @movie.title %></h2>
 
-  <div class="large-6 columns center-text left-fix">
-      <% if current_user %>
-          <% if current_user.club_id %>
-              <% if club_bookings(current_user.club) < 3 %>
-                <%= render partial: 'bookings/form' %>
-              <% else %>
-                <p class="movie-text">Du har redan bokat 3 filmer.</p>
+      <h6 class="movie-text bold">GENRE: <%= @movie.genre %></h6>
+
+      <p class="movie-text"><%= @movie.description %></p>
+
+      <p class="movie-text">Regissör: <%= @movie.director %></p>
+
+      <p class="movie-text">Speltid: <%= @movie.playtime %> min</p>
+
+      <p class="movie-text">Publicerad: <%= @movie.published %></p>
+    </div>
+</div>
+<div class="large-12 large-center columns">
+  <div class="large-6 columns">
+      <div class="large-6 columns center-text">
+          <% if current_user %>
+              <% if current_user.club_id %>
+                  <% if club_bookings(current_user.club) < 3 %>
+                    <%= render partial: 'bookings/form' %>
+                  <% else %>
+                    <p class="movie-text">Du har redan bokat 3 filmer.</p>
+                  <% end %>
               <% end %>
           <% end %>
-      <% end %>
+      </div>
+
+      <div class="large-6 columns height-fix center-text">
+        <%= link_to image_tag('trailer.png', size: '275x48'), @movie.trailerlink, target: '_blank', class: 'img-fix' %>
+      </div>
   </div>
 
-  <div class="large-6 columns height-fix center-text">
-    <%= link_to image_tag('trailer.png', size: '275x48'), @movie.trailerlink, target: '_blank', class: 'img-fix' %>
-  </div>
 
-</div>
-
-<div class="large-6 columns">
-  <h2 class="movie-text"><%= @movie.title %></h2>
-
-  <h6 class="movie-text bold">GENRE: <%= @movie.genre %></h6>
-
-  <p class="movie-text"><%= @movie.description %></p>
-
-  <p class="movie-text">Regissör: <%= @movie.director %></p>
-
-  <p class="movie-text">Speltid: <%= @movie.playtime %> min</p>
-
-  <p class="movie-text">Publicerad: <%= @movie.published %></p>
-</div>
-
+<div class="large-6 medium-6 center-text columns">
 <script>
     $(document).ready(function() {
         var newUserRating = false;
@@ -142,16 +146,7 @@
     });
 </script>
 
-
-  <div class="movieTitlePosition">
-    <p class="movieTitleStyle">
-      <%= @movie.title %>
-    </p>
-  </div>
-  <div class="rating-star">
-
-      <p class="movie-text"><b>&nbsp;&nbsp;&nbsp;&nbsp;Poäng: <%= @movie.average_rating %></b></p>
-
+  <div class="large-8 no-padding columns">
     <div class="user-rating">
 
       <% if user_signed_in? %>
@@ -228,18 +223,23 @@
       <!-- Stars 0 -->
     </div>
   </div>
-
+  <div class="large-4 no-padding columns">
+    <div class="average-rating">
+        Poäng: <%= @movie.average_rating %>
+    </div>
+</div>
+ </div>
   <div class="large-12 columns">
-      <div class="comments_wraper_m">
+
         <% if user_signed_in? %>
             <%= render 'movie_comments/form' %>
-            <div id="comment_list">
-              <%= render 'movie_comments/list' %>
-            </div>
-        <% end %>
-      </div>
-  </div>
 
+              <%= render 'movie_comments/list' %>
+
+        <% end %>
+
+  </div>
+</div>
 <br>
 <% if current_user %>
     <% if current_user.access == 2 %>
