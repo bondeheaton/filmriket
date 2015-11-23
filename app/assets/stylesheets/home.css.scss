@@ -418,7 +418,7 @@ p.created {
 }
 
 
-@media only screen and (max-width: 760px){
+@media only screen and (max-width: 1024px){
   .menu {
     display: block;
     width: 100%;
@@ -593,8 +593,42 @@ p.created {
 
 }
 
+@media only screen and (min-width: 770px) and (max-width: 930px) {
+  .movie-box-wrapper {
+    width: 270px!important;
+  }
 
-@media only screen and (min-width: 800px) and (max-width: 1300px) {
+  .content-wrapper {
+    width: 250px!important;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+  }
+
+  .content, .content-img{
+    width: 75%!important;
+    height: 157px!important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+  }
+
+  .content-video{
+    width: 95%!important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .video-container {
+    height: 150px!important;
+    margin-top: 35px;
+  }
+
+}
+
+
+@media only screen and (min-width: 930px) and (max-width: 1200px) {
   .movie-box-wrapper {
     width: 315px!important;
   }
@@ -616,13 +650,13 @@ p.created {
   }
 
   .content-video{
-    width: 85%!important;
-    margin-left: auto;
-    margin-right: auto;
-  }
+     width: 85%!important;
+     margin-left: auto;
+     margin-right: auto;
+   }
 
   .video-container {
-    height: 170px!important;
+    height: 157px!important;
     margin-top: 35px;
   }
 }
@@ -693,21 +727,40 @@ p.created {
 }
 
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) and (max-width: 1360px) {
   .movie-box-wrapper {
-    width: 444px!important;
+    width: 340px!important;
+  }
+
+  .content-wrapper {
+    width: 270px!important;
+    height: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+  }
+
+  .content, .content-img{
+    width: 80%!important;
+    height: 157px!important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+  }
+
+  .content-video{
+    width: 75%!important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .video-container {
+    height: 170px!important;
+    margin-top: 35px;
   }
 }
 
-
-@media only screen and (min-width: 1600px) {
-  /* Fixa testboxen här, döp om*/
-  .movie-box-wrapper {
-    height: 350px!important;
-  }
-}
-
-@media only screen and (min-width: 1700px) {
+@media only screen and (min-width: 1820px) {
   /* Fixa testboxen här, döp om */
   .movie-box-wrapper {
     height: 350px!important;
