@@ -15,9 +15,9 @@
     <% if current_user %>
         <% if current_user.club %>
             <% if current_page? club_path(current_user.club) %>
-                <%= link_to "<div class='menu-button4-selected'>Min Klubb</div>".html_safe, club_path(current_user.club), class: 'menu-text' %>
+                <%= link_to "<div class='menu-button4-selected'>Min Klubb</div>".html_safe, club_path(current_user.club), class: 'menu-text', 'data-no-turbolink' => true %>
             <% else %>
-                <%= link_to "<div class='menu-button4'>Min Klubb</div>".html_safe, club_path(current_user.club), class: 'menu-text' %>
+                <%= link_to "<div class='menu-button4'>Min Klubb</div>".html_safe, club_path(current_user.club), class: 'menu-text', 'data-no-turbolink' => true %>
             <% end %>
         <% end %>
     <% end %>
