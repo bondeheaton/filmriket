@@ -2,6 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$(document).on 'click tap touchstart', '.reveal-modal-bg', ->
+  $('[data-reveal]').foundation('reveal', 'close')
+
 $(document).on 'click', '.close-movie-modal', ->
   $('#movie-modal').foundation('reveal', 'close')
 
