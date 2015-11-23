@@ -4,7 +4,7 @@
 
 .wish-form {
   width: 100%;
-  height: 125px;
+  height: 170px;
   margin-top: 5px;
   display: none;
 }
@@ -419,6 +419,11 @@ p.created {
 
 
 @media only screen and (max-width: 770px){
+
+  .wish-form {
+    height: 200px;
+  }
+
   .menu {
     display: block;
     width: 100%;

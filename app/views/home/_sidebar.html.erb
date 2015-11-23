@@ -1,4 +1,4 @@
-<div class="large-2 medium-2 small-2 columns sidebar">
+<div class="large-2 medium-2 small-2 columns sidebar" id="sidebar">
   <div class="row">
     <% if current_user %>
         <%= link_to "<div class='menu-logout'></div>".html_safe, destroy_user_session_path, :method => :delete, class: 'menu-text' %><br>
@@ -69,13 +69,16 @@
     <% else %>
         <%= link_to "<div class='menu-button'>Klubbfilmer</div>".html_safe, club_movies_path, class: 'menu-text', 'data-no-turbolink' => true %>
     <% end %>
+    <% if current_user %>
+        <div id="wish-container">
+            <div class="wish" id="wish-link"></div>
 
-    <div class="wish" id="wish-link"></div>
-
-    <div class="wish-notice"></div>
-    <div class="wish-form">
-        <%= render partial: 'wishes/form'%>
-    </div>
+            <div class="wish-notice"></div>
+            <div class="wish-form">
+                <%= render partial: 'wishes/form'%>
+            </div>
+        </div>
+    <% end %>
     <% if current_user %>
         <% if current_user.access == 2 %>
             <br>
