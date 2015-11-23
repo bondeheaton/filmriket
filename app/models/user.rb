@@ -6,7 +6,14 @@ class User < ActiveRecord::Base
 
   validates :firstname, presence: true
   validates :lastname, presence: true
+  validates :personalnumber, presence: true
+  validates :phonenumber, presence: true
+  validates :address, presence: true
+  validates :zipcode, presence: true
+  validates :parentmail, presence: true
+  validates :status, presence: true
   validates :agreement, presence: true
+
   belongs_to :club
   has_many :movie_comments
   has_many :reviews
