@@ -1,5 +1,5 @@
 class ClubMovie < ActiveRecord::Base
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   def access(user)
     self.videolink = 'inactive'

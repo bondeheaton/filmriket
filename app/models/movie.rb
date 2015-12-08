@@ -1,8 +1,8 @@
 class Movie < ActiveRecord::Base
-  has_many :movie_comments
-  has_many :ratings
+  has_many :movie_comments, dependent: :destroy
+  has_many :ratings, dependent: :destroy
   has_many :reviews
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   mount_uploader :videocover, VideocoverUploader
 
   def average_rating
