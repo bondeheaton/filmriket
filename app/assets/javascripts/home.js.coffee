@@ -34,10 +34,6 @@ $(document).on 'click', '#wish-link', ->
     $("#sidebar").animate({scrollTop:$("#sidebar")[0].scrollHeight}, 'fast')
     #Detta buggar för admin i mobil eftersom de har fler länkar efter önskelådan.
 
-
-
-
-
 $(document).on 'click', '#wish-button', ->
   $('.wish-notice').show().html('Tack för ditt önskemål!')
   $('.wish-notice').delay(2000).fadeOut('fast')

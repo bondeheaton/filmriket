@@ -7,7 +7,7 @@
       <%= devise_error_messages! %>
 
       <div class="large-12 columns">
-        <%= f.label "Email:", class: 'white-text' %>
+        <%= f.label "Mail:", class: 'white-text' %>
         <%= f.email_field :parentmail %>
         <%= f.hidden_field :ownemail, :value => ""%>
       </div>
@@ -43,7 +43,19 @@
           <%= f.number_field :zipcode %>
         </div>
         <div class="large-12 columns">
-          <%= f.label "Målsmans email:", class: 'white-text' %>
+          <%= f.label "Målsmans förnamn:", class: 'white-text' %>
+          <%= f.text_field :parentfirstname %>
+        </div>
+        <div class="large-12 columns">
+          <%= f.label "Målsmans efternamn:", class: 'white-text' %>
+          <%= f.text_field :parentlastname %>
+        </div>
+        <div class="large-12 columns">
+          <%= f.label "Målsmans telefonnummer:", class: 'white-text' %>
+          <%= f.text_field :parentphonenumber %>
+        </div>
+        <div class="large-12 columns">
+          <%= f.label "Målsmans mail:", class: 'white-text' %>
           <%= f.text_field :email %>
         </div>
         <div class="large-12 columns">
@@ -86,6 +98,17 @@
         </div>
         <div class="large-12 columns">
           <p class="white-text"><%= f.check_box :agreement %>Acceptera<%= link_to "användaravtal", '/filmclub.pdf', class:'white-text', target: "_blank"%></p>
+        </div>
+        <div class="large-12 columns">
+          <p>Betala: Swish eller Bankgiro<br />
+          Swish: 1235704549<br />
+          Skriv i meddelande: Ditt F&ouml;r och Efternamn</p>
+
+          <p>BankGiro: 481-8530<br />
+          M&auml;rk inbetalning med ditt F&ouml;r och Efternamn</p>
+
+          <p>Har du n&aring;gra fr&aring;gor om medlemskap i Filmriket kontakta oss<br />
+          Mail: filmriket@reaktorsydost.se</p>
         </div>
         <div class="large-12 columns">
           <%= f.button "Bli medlem", class: 'button expand' %>
