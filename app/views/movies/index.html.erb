@@ -8,7 +8,7 @@
               <div class="movie-container bordered-grey width-fix">
                   <%= link_to movie, remote: true, data: {:"reveal-id" => "movie-modal"} do %>
                       <div class="movie-link2 image">
-                        <% if movie.image_size == 1 %>
+                        <% if movie.image_size == 2 %>
                             <%= image_tag(movie.videocover, size: "280x382") %>
                         <% else %>
                             <%= image_tag(movie.videocover, size: "280x280") %>

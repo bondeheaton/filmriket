@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918150058) do
+ActiveRecord::Schema.define(version: 20151201124048) do
+
+  create_table "admin_images", force: true do |t|
+    t.string   "img"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "bookings", force: true do |t|
     t.integer  "user_id"
@@ -53,6 +59,26 @@ ActiveRecord::Schema.define(version: 20150918150058) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "img"
+  end
+
+  create_table "filmschool_comments", force: true do |t|
+    t.string   "message"
+    t.integer  "user_id"
+    t.integer  "filmschool_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "filmschool_comments", ["filmschool_id"], name: "index_filmschool_comments_on_filmschool_id"
+  add_index "filmschool_comments", ["user_id"], name: "index_filmschool_comments_on_user_id"
+
+  create_table "filmschools", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "videolink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "movie_comments", force: true do |t|
@@ -77,6 +103,7 @@ ActiveRecord::Schema.define(version: 20150918150058) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "videocover"
+    t.integer  "image_size"
   end
 
   create_table "news", force: true do |t|
@@ -84,6 +111,8 @@ ActiveRecord::Schema.define(version: 20150918150058) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
+    t.string   "img"
   end
 
   create_table "participants", force: true do |t|
@@ -163,10 +192,22 @@ ActiveRecord::Schema.define(version: 20150918150058) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "ownemail"
+    t.integer  "parentphonenumber"
+    t.string   "parentfirstname"
+    t.string   "parentlastname"
   end
 
   add_index "users", ["club_id"], name: "index_users_on_club_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "wishes", force: true do |t|
+    t.string   "message"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wishes", ["user_id"], name: "index_wishes_on_user_id"
 
 end

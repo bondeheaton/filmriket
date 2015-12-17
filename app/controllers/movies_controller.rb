@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     @movie.save
-    respond_with(@movie)
+    redirect_to movies_path
   end
 
   def update
