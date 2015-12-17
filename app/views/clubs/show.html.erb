@@ -76,7 +76,7 @@
       </div>
       <div class="row">
       <div class="large-6 columns medium-6 movie-box-wrapper upload-mobile-fix">
-        <h4 class="index-heading">Filmer/Recensioner</h4>
+        <h4 class="index-heading">Filmer</h4>
         <div class="content-wrapper">
         <div class="large-8 large-centered medium-8 medium-centered columns content">
 
@@ -85,13 +85,13 @@
           <div id="club-movies-reviews" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
             <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 
-            <h2 class="popup-text">Filmer/Recensioner</h2>
+            <h2 class="popup-text">Filmer</h2>
 
             <div id="movies-container" class="centered">
               <ul class="large-block-grid-3 centering-fix" id="masonry-container-club-movies-reviews">
 
-               <% if @club_movies.any? || @reviews.any? %>
-                   <% @club_movies.zip(@reviews).each do |movie, review| %>
+               <% if @club_movies.any? %>
+                   <% @club_movies.each do |movie| %>
 
                         <li class="item">
                           <div class="movie-container bordered-grey width-fix">
@@ -109,24 +109,9 @@
                             <% end %>
                           </div>
                         </li>
-                        <li class="item">
-                          <div class="movie-container bordered-grey width-fix">
-                            <%= link_to review, class: 'test-link', remote: true do %>
-                                <div class="movie-link2 image videolink-fix">
-                                  <%= raw(youtube_embed(review.videolink)) %>
-                                </div>
-                                <div class="movie-description rounded">
-                                  <% if review.title and review.description %>
-                                      <h4><%= review.title %></h4>
-                                      <%= review.description %>
-                                  <% end %>
-                                </div>
-                            <% end %>
-                          </div>
-                        </li>
                     <% end %>
                 <% else %>
-                    <p class="popup-text">Den här klubben har inga filmer eller recensioner ännu.</p>
+                    <p class="popup-text">Den här klubben har inga filmer ännu.</p>
                 <% end %>
               </ul>
              </div>
@@ -134,12 +119,60 @@
           </div>
             <% if user_in_club(@club)  %>
               <%= link_to "<div class='upload-movie'></div>".html_safe, new_club_movie_path %>
-              <%= link_to "<div class='upload-review'></div>".html_safe, new_review_path %>
             <% else %>
             <% end %>
         </div>
       </div>
 
+      <div class="large-6 columns medium-6 movie-box-wrapper upload-mobile-fix">
+        <h4 class="index-heading">Recensioner</h4>
+        <div class="content-wrapper">
+        <div class="large-8 large-centered medium-8 medium-centered columns content">
+
+          <a href="#" data-reveal-id="club-movies-reviews" class="club-movies-reviews-link"><%= image_tag('club-ruta3ny.png') %></a>
+
+          <div id="club-movies-reviews" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+            <h2 class="popup-text">Recensioner</h2>
+
+            <div id="movies-container" class="centered">
+              <ul class="large-block-grid-3 centering-fix" id="masonry-container-club-movies-reviews">
+
+               <% if @reviews.any? %>
+                   <% @reviews.each do |movie| %>
+
+                        <li class="item">
+                          <div class="movie-container bordered-grey width-fix">
+
+                            <%= link_to movie, class: 'test-link', remote: true do %>
+                                <div class="movie-link2 image videolink-fix">
+                                  <%= raw(youtube_embed(movie.videolink)) %>
+                                </div>
+                                <div class="movie-description rounded">
+                                  <% if movie.title and movie.description %>
+                                      <h4><%= movie.title %></h4>
+                                      <%= movie.description %>
+                                  <% end %>
+                                </div>
+                            <% end %>
+                          </div>
+                        </li>
+                    <% end %>
+                <% else %>
+                    <p class="popup-text">Den här klubben har inga filmer ännu.</p>
+                <% end %>
+              </ul>
+             </div>
+            </div>
+          </div>
+            <% if user_in_club(@club)  %>
+              <%= link_to "<div class='upload-review'></div>".html_safe, new_review_path %>
+            <% end %>
+        </div>
+      </div>
+      </div>
+      <div class="row">
       <div class="large-6 columns medium-6 movie-box-wrapper">
         <h4 class="index-heading">Bilder</h4>
         <div class="content-wrapper">
@@ -177,9 +210,7 @@
         <% end %>
         </div>
        </div>
-      </div>
-      <div class="row">
-      <div class="large-6 columns medium-6 movie-box-wrapper mobile-fix">
+       <div class="large-6 columns medium-6 movie-box-wrapper mobile-fix">
         <h4 class="index-heading">Evenemang/Aktiviteter</h4>
         <div class="content-wrapper">
         <div class="large-8 large-centered medium-8 medium-centered columns content">
@@ -218,8 +249,9 @@
             </div>
           </div>
         </div>
+      </div>
 
-
+    <div class="row">
     <div class="large-6 columns medium-6 movie-box-wrapper">
       <h4 class="index-heading">Filmklubbar</h4>
       <div class="content-wrapper">
@@ -312,6 +344,14 @@
          </div>
         </div>
        </div>
+       <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Kontakt</h4>
+            <div class="content-wrapper">
+                <div class="large-8 large-centered mediunm-8 medium-centered columns content">
+                  <%= link_to image_tag('mockup.jpg'), contact_path %>
+                </div>
+            </div>
+          </div>
        </div>
     </div>
   </div>
