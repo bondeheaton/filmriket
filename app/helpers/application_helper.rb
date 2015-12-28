@@ -29,7 +29,7 @@ module ApplicationHelper
     @count = []
     @members = club.users
     @members.each do |member|
-      @count.push(member.bookings.count)
+      @count.push(member.bookings.where(status: 0).count)
     end
     return @count.inject(:+)
   end
@@ -153,5 +153,7 @@ module ApplicationHelper
     end
     %Q{<iframe id="iframe-id" title="YouTube video player" src="http://www.youtube.com/embed/#{ youtube_id }?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>}
   end
+
+
   
 end

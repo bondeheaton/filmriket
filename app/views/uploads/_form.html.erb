@@ -10,12 +10,12 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-	<%= f.hidden_field :club_id, :value => current_user.club_id %>
-  </div>
   <div class="actions">
-	 <%= f.file_field :image %>
-    <%= f.submit %>
-  </div>
+    <span class="button tiny btn-file">
+      Välj fil
+      <%= f.file_field :image %>
+    </span>
+      <br>
+      <%= f.submit 'Ladda upp', class: 'button' %>
+    </div>
 <% end %>

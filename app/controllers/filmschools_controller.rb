@@ -3,6 +3,8 @@ class FilmschoolsController < ApplicationController
 
   respond_to :html
 
+  before_filter :check_admin!, except: [:index, :show]
+
   def index
     @filmschools = Filmschool.all
     respond_with(@filmschools)
@@ -28,7 +30,7 @@ class FilmschoolsController < ApplicationController
   def create
     @filmschool = Filmschool.new(filmschool_params)
     @filmschool.save
-    respond_with(@filmschool)
+    redirect_to filmschools_path
   end
 
   def update

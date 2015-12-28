@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+  before_filter :check_admin!, only: [:admin_log]
 
   def index
 
@@ -33,11 +33,11 @@ class HomeController < ApplicationController
       marker.lat club.latitude
       marker.lng club.longitude
       marker.picture({
-                         :url     => "../assets/#{Club.achievement_icon(club)}",
+                         :url     => ActionController::Base.helpers.asset_path(Club.achievement_icon(club)),
                          :width   => 32,
                          :height  => 32
                      })
-      marker.infowindow "#{view_context.link_to club.name, club_path(club)}"
+      marker.infowindow "#{view_context.link_to club.name, club_path(club), 'data-no-turbolink' => true}"
 
     end
   end

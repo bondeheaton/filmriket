@@ -56,6 +56,10 @@
     </span>
   </div>
   <div class="large-12 columns">
+    <%= f.label "Storlek, 2 = stor, 1 = liten" %>
+    <%= f.number_field :image_size %>
+  </div>
+  <div class="large-12 columns">
     <%= f.submit "Skapa Film", :class => 'button expand' %>
   </div>
  </div>

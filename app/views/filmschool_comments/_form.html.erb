@@ -17,13 +17,10 @@
     <%= f.text_area :message, placeholder: "Skriv kommentar.." %>
   </div>
   <div class="field">
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
-  <div class="field">
     <%= f.hidden_field :filmschool_id, :value => params[:id] %>
   </div>
   <div class="actions">
-    <%= f.submit 'Skicka' %>
+    <%= f.submit 'Skicka', class: 'button tiny' %>
   </div>
 <% end %>
 </div>

@@ -1,7 +1,8 @@
 class ClubsController < ApplicationController
   autocomplete :club, :name
   before_action :set_club, only: [:show, :edit, :update, :destroy]
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
+  before_filter :check_admin!, except: [:show]
 
   respond_to :html, :js
 
@@ -18,23 +19,18 @@ class ClubsController < ApplicationController
     @reviews = []
     @club_movies = []
 
-    @users.each do |users|
-      users.ratings.each do |ratings|
+    @users.each do |user|
+      user.ratings.each do |ratings|
         @seen_movies.push(ratings.movie)
       end
-    end
-
-    @users.each do |user|
       user.reviews.each do |review|
         @reviews.push(review)
       end
-    end
-
-    @users.each do |users|
-      users.club_movies.each do |club_movie|
+      user.club_movies.each do |club_movie|
         @club_movies.push(club_movie)
       end
     end
+
 
     @seen_movies = @seen_movies.uniq
 
@@ -56,11 +52,11 @@ class ClubsController < ApplicationController
       marker.lat club.latitude
       marker.lng club.longitude
       marker.picture({
-              :url     => "../assets/#{Club.achievement_icon(club)}",
+              :url     => ActionController::Base.helpers.asset_path(Club.achievement_icon(club)),
               :width   => 32,
               :height  => 32
               })
-      marker.infowindow "#{view_context.link_to club.name, club_path(club)}"
+      marker.infowindow "#{view_context.link_to club.name, club_path(club), 'data-no-turbolink' => true}"
 
     end
 

@@ -1,23 +1,40 @@
 // Place all the styles related to the Movies controller here.
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.empty-star{
-  width: 20%;
-  height: 100%;
-  background-image: url("../assets/starempty.png");
-  background-repeat: no-repeat;
-  float: left;
+
+.average-rating {
+  background: asset-data-url('average-rating.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  width: 100%;
+  height: 50px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding-top: 8px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #ca380c;
 }
+
+
+.no-padding {
+  padding: 0px!important;
+}
+
+
 .user-rating {
-  width: 100px;
-  height: 20px;
-  margin: 13px;
-  float: left;
+  width: 200px;
+  min-height: 40px;
+  margin-top: 25px;
+  margin-left: auto!important;
+  margin-right: auto!important;
 }
 .stars-wrap {
   width: 100%;
   height: 100%;
-  float: left;
+  margin-left: auto!important;
+  margin-right: auto!important;
 }
 .stars-first {
   width: 100%;
@@ -26,27 +43,22 @@
 }
 .empty-star{
   width: 20%;
-  height: 100%;
-  background-image: url("../assets/starempty.png");
-  background-repeat: no-repeat;
+  height: 30px;
+  background: asset-data-url('rating-empty.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
   float: left;
 }
 
 .full-star{
   width: 20%;
-  height: 100%;
-  background-image: url("../assets/starfull.png");
-  background-repeat: no-repeat;
+  height: 30px;
+  background: asset-data-url('rating.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
   float: left;
-  -webkit-transition-duration: 100ms;
-  -moz-transition-duration: 100ms;
-  -o-transition-duration: 100ms;
-  transition-duration: 100ms;
-  -webkit-transform:scale(1); /* Safari and Chrome */
-  -moz-transform:scale(1); /* Firefox */
-  -ms-transform:scale(1); /* IE 9 */
-  -o-transform:scale(1); /* Opera */
-  transform:scale(1);
 }
 
 div.stars-0-user, div.stars-1-user, div.stars-2-user, div.stars-3-user, div.stars-4-user, div.stars-5-user {
@@ -57,40 +69,28 @@ div.stars-0-user, div.stars-1-user, div.stars-2-user, div.stars-3-user, div.star
 
 div.empty-star{
   width: 20%;
-  height: 100%;
-  background-image: url("../assets/starempty.png");
-  background-repeat: no-repeat;
+  height: 30px;
+  background: asset-data-url('rating-empty.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
   float: left;
   cursor: pointer;
-  -webkit-transform:scale(0.9); /* Safari and Chrome */
-  -moz-transform:scale(0.9); /* Firefox */
-  -ms-transform:scale(0.9); /* IE 9 */
-  -o-transform:scale(0.9); /* Opera */
-  transform:scale(0.9);
 }
 
 div.full-star{
   width: 20%;
-  height: 100%;
-  background-image: url("../assets/starfull.png");
+  height: 30px;
+  background: asset-data-url('rating.png');
   background-repeat: no-repeat;
+  background-size:contain;
+  background-position:center;
   float: left;
   cursor: pointer;
-  -webkit-transform:scale(0.9); /* Safari and Chrome */
-  -moz-transform:scale(0.9); /* Firefox */
-  -ms-transform:scale(0.9); /* IE 9 */
-  -o-transform:scale(0.9); /* Opera */
-  transform:scale(0.9);
 }
-div.rating-star{
-  width: -webkit-calc(100% - 380px);
-  width: -moz-calc(100% - 380px);
-  width: -o-calc(100% - 380px);
-  width: calc(100% - 380px);
-  float: left;
 
 
-}
+
 div.big-star{
   background-image: url("../assets/bigstar.png");
   background-repeat: no-repeat;
@@ -99,20 +99,10 @@ div.big-star{
   height: 55px;
   margin: auto;
   float: left;
-  cursor:pointer;
-  -webkit-transition-duration: 200ms;
-  -moz-transition-duration: 200ms;
-  -o-transition-duration: 200ms;
-  transition-duration: 200ms;
-}
-div.big-star:hover{
-  -webkit-transform:scale(1.1); /* Safari and Chrome */
-  -moz-transform:scale(1.1); /* Firefox */
-  -ms-transform:scale(1.1); /* IE 9 */
-  -o-transform:scale(1.1); /* Opera */
-  transform:scale(1.1);
+  cursor: pointer;
 
 }
+
 
 .close-movie-fix {
   float: right;
@@ -123,14 +113,14 @@ div.big-star:hover{
 }
 
 .comments_list {
-  width: 90%;
+  width: 100%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
 }
 
 .rating{
-  padding-left: 17px;
+  padding-left: 0px;
   line-height: 28px;
 }
 
@@ -178,6 +168,10 @@ div.big-star:hover{
   border: 1px solid #666;
 }
 
+.marg-fix {
+  margin-left: 15px;
+  margin-top: -10px;
+}
 
 .rounded {
   background: #ffffff;
@@ -205,6 +199,7 @@ div.big-star:hover{
 
 .movie {
   background: #ffffff;
+  min-height: auto!important;
 }
 
 input#movie_title, input#movie_description, input#movie_director, input#movie_genre, input#movie_playtime, input#movie_published, input#movie_trailerlink, input#movie_videocover {
@@ -217,7 +212,7 @@ input#movie_title, input#movie_description, input#movie_director, input#movie_ge
 
 div.comments_wraper_m {
   width: 100%;
-  height: 300px;
+  height: auto!important;
 }
 
 .right-fix {
@@ -298,7 +293,6 @@ form#search_movie_form{
   }
 }
 
-
 a.no-underline{
   text-decoration: none;
 }
@@ -315,8 +309,16 @@ div.text-wrap{
 }
 
 .height-fix {
-  padding-top: 25px;
+  padding-top: 20px;
   height: 70px;
+}
+
+.img-fix img {
+  height: 38px!important;
+}
+
+.left-fix {
+  margin-left: -30px;
 }
 
 .center-text {
@@ -466,14 +468,6 @@ div.mobile-movies{
       }
     }
 
-    div.rating-star:hover{
-      -webkit-transform:scale(1.1); /* Safari and Chrome */
-      -moz-transform:scale(1.1); /* Firefox */
-      -ms-transform:scale(1.1); /* IE 9 */
-      -o-transform:scale(1.1); /* Opera */
-      transform:scale(1.1);
-    }
-
     /* Ratings */
     div.user-rating{
       width: 100px;
@@ -495,7 +489,7 @@ div.mobile-movies{
           div.empty-star{
             width: 20%;
             height: 100%;
-            background-image: url(starempty.png);
+            background: asset-data-url('rating-empty.png');
             background-repeat: no-repeat;
             float: left;
           }
@@ -503,18 +497,9 @@ div.mobile-movies{
           div.full-star{
             width: 20%;
             height: 100%;
-            background-image: url(starfull.png);
+            background: asset-data-url('rating.png');
             background-repeat: no-repeat;
             float: left;
-            -webkit-transition-duration: 100ms;
-            -moz-transition-duration: 100ms;
-            -o-transition-duration: 100ms;
-            transition-duration: 100ms;
-            -webkit-transform:scale(1); /* Safari and Chrome */
-            -moz-transform:scale(1); /* Firefox */
-            -ms-transform:scale(1); /* IE 9 */
-            -o-transform:scale(1); /* Opera */
-            transform:scale(1);
           }
         }
 
@@ -526,27 +511,17 @@ div.mobile-movies{
           div.empty-star{
             width: 20%;
             height: 100%;
-            background-image: url(starempty.png);
+            background: asset-data-url('rating-empty.png');
             background-repeat: no-repeat;
             float: left;
-            -webkit-transform:scale(0.9); /* Safari and Chrome */
-            -moz-transform:scale(0.9); /* Firefox */
-            -ms-transform:scale(0.9); /* IE 9 */
-            -o-transform:scale(0.9); /* Opera */
-            transform:scale(0.9);
           }
 
           div.full-star{
             width: 20%;
             height: 100%;
-            background-image: url(starfull.png);
+            background: asset-data-url('rating.png');
             background-repeat: no-repeat;
             float: left;
-            -webkit-transform:scale(0.9); /* Safari and Chrome */
-            -moz-transform:scale(0.9); /* Firefox */
-            -ms-transform:scale(0.9); /* IE 9 */
-            -o-transform:scale(0.9); /* Opera */
-            transform:scale(0.9);
           }
         }
       }
@@ -574,7 +549,7 @@ div.mobile-movies{
         div.empty-star1{
           width: 20%;
           height: 100%;
-          background-image: url(starempty.png);
+          background: asset-data-url('rating-empty.png');
           background-repeat: no-repeat;
           float: left;
         }
@@ -582,18 +557,9 @@ div.mobile-movies{
         div.full-star1{
           width: 20%;
           height: 100%;
-          background-image: url(starfull.png);
+          background: asset-data-url('rating.png');
           background-repeat: no-repeat;
           float: left;
-          -webkit-transition-duration: 100ms;
-          -moz-transition-duration: 100ms;
-          -o-transition-duration: 100ms;
-          transition-duration: 100ms;
-          -webkit-transform:scale(1); /* Safari and Chrome */
-          -moz-transform:scale(1); /* Firefox */
-          -ms-transform:scale(1); /* IE 9 */
-          -o-transform:scale(1); /* Opera */
-          transform:scale(1);
         }
       }
 
@@ -605,27 +571,17 @@ div.mobile-movies{
         div.empty-star1{
           width: 20%;
           height: 100%;
-          background-image: url(starempty.png);
+          background: asset-data-url('rating-empty.png');
           background-repeat: no-repeat;
           float: left;
-          -webkit-transform:scale(0.9); /* Safari and Chrome */
-          -moz-transform:scale(0.9); /* Firefox */
-          -ms-transform:scale(0.9); /* IE 9 */
-          -o-transform:scale(0.9); /* Opera */
-          transform:scale(0.9);
         }
 
         div.full-star1{
           width: 20%;
           height: 100%;
-          background-image: url(starfull.png);
+          background: asset-data-url('rating.png');
           background-repeat: no-repeat;
           float: left;
-          -webkit-transform:scale(0.9); /* Safari and Chrome */
-          -moz-transform:scale(0.9); /* Firefox */
-          -ms-transform:scale(0.9); /* IE 9 */
-          -o-transform:scale(0.9); /* Opera */
-          transform:scale(0.9);
         }
       }
     }
@@ -770,6 +726,13 @@ div.trailerbtn{
 }
 
 @media only screen and (max-width: 800px){
+  .reveal-modal {
+    border-radius: 20px!important;
+    -webkit-border-radius: 20px!important;
+    -moz-border-radius: 20px!important;
+    -o-border-radius: 20px!important;
+  }
+
   div.description{
     width: 100% !important;
     margin-left: auto !important;
@@ -800,6 +763,13 @@ div.trailerbtn{
     float: none !important;
     margin-left: auto !important;
     margin-right: auto !important;
+  }
+
+  .movie-box-wrapper {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
   }
 }
 

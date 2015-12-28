@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :check_admin!, only: [:edit, :update, :destroy]
   respond_to :html, :js
+  before_filter :check_admin!, except: [:index, :show]
 
   def index
     @movies = Movie.all
@@ -35,7 +36,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     @movie.save
-    respond_with(@movie)
+    redirect_to movies_path
   end
 
   def update

@@ -69,6 +69,8 @@ class BookingsController < ApplicationController
     @userclub = Club.find(User.find(current_user.id).club_id)
     @booking = Booking.new(booking_params)
     if club_bookings(@userclub) < 3
+      @booking.user_id = current_user.id
+      @booking.status = 0
       @booking.save
     else
     end

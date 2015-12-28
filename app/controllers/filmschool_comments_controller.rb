@@ -3,6 +3,8 @@ class FilmschoolCommentsController < ApplicationController
 
   respond_to :js, :html, :json
 
+  before_filter :check_admin!, except: [:create]
+
   def index
     @filmschool_comments = FilmschoolComment.all
     respond_with(@filmschool_comments)
@@ -12,16 +14,12 @@ class FilmschoolCommentsController < ApplicationController
     respond_with(@filmschool_comment)
   end
 
-  def new
-    @filmschool_comment = FilmschoolComment.new
-    respond_with(@filmschool_comment)
-  end
-
   def edit
   end
 
   def create
     @filmschool_comment = FilmschoolComment.new(filmschool_comment_params)
+    @filmschool_comment.user_id = current_user.id
     @filmschool_comment.save
     @filmschool_comments = Filmschool.find(@filmschool_comment.filmschool_id).filmschool_comments.order('id DESC')
     respond_to do |format|

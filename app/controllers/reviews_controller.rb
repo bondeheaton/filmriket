@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_filter :check_admin!, except: [:new, :create, :upload, :attach]
 
   respond_to :html
 
@@ -49,6 +50,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.access(current_user)
     @review.save
     redirect_to review_upload_path(@review)
   end

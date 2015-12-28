@@ -1,16 +1,28 @@
 class ClubMoviesController < ApplicationController
-  before_action :set_club_movie, only: [:show, :edit, :update, :destroy]
+  before_action :set_club_movie, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :check_admin!, only: [:edit, :update, :show]
 
   respond_to :html
 
   def index
     @club_movies = ClubMovie.all
+    @reviews = Review.all
     respond_with(@club_movies)
   end
 
-  def show
-    respond_with(@club_movie)
+  def show_club_movie
+    @club_movie = ClubMovie.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def show_review
+    @review = Review.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
@@ -49,6 +61,7 @@ class ClubMoviesController < ApplicationController
 
   def create
     @club_movie = ClubMovie.new(club_movie_params)
+    @club_movie.access(current_user)
     @club_movie.save
     redirect_to club_movie_upload_path(@club_movie)
   end

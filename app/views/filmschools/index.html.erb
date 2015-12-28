@@ -1,19 +1,13 @@
 <div class="row">
-  <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+  <div class="large-10 large-centered medium-10 medium-centered columns media-container" id="js-fix">
     <div id="movies-container" class="centered">
       <ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
         <% @filmschools.each do |movie| %>
-            <% i = 1 %>
-            <% while i < 10 %>
             <li class="item">
               <div class="movie-container bordered-grey width-fix">
                 <%= link_to movie, remote: true, data: {:"reveal-id" => "filmschool-modal"}, class: 'testt' do %>
-                    <div class="movie-link2 image">
-                      <% if i.odd? %>
-                        <%= image_tag('mockup.jpg') %>
-                      <% else %>
-                        <img src="http://i2.mirror.co.uk/incoming/article1760559.ece/ALTERNATES/s927b/No%20smoking%20posters%20-%201985.jpg"/>
-                      <% end %>
+                    <div class="movie-link2 filmschool-movie image fs-videolink-fix">
+                      <%= raw(youtube_embed(movie.videolink)) %>
                     </div>
                     <div class="movie-description rounded">
                       <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
@@ -29,8 +23,6 @@
                 <% end %>
                </div>
               </li>
-             <% i+=1 %>
-            <% end %>
         <% end %>
       </ul>
     </div>

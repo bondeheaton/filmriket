@@ -1,7 +1,7 @@
 <% @approved_bookings.each do |booking| %>
     <tr class="b_head">
       <td class="b_content"><%= booking.movie.title %></td>
-      <td>FILMKLUBBEN</td>
+      <td><%= booking.user.club.name %></td>
       <td class="buttons"><%= link_to "Arkivera", bookings_done_booking_path(booking.id), :class => "button tiny radius success access" %></td>
       <td class="buttons"><%= link_to 'Förstör', booking, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button tiny radius alert" %></td>
     </tr>

@@ -5,7 +5,7 @@
       <div class="row">
         <div class="large-6 columns medium-6 movie-box-wrapper">
           <div class="content-wrapper big-screen-fix">
-            <h4 class="index-heading">Fixa bild kolumn db för img</h4>
+            <h4 class="index-heading">&nbsp;</h4>
             <div class="large-8 large-centered medium-8 medium-centered columns content">
               <%= image_tag(news.img) %>
             </div>
@@ -13,7 +13,7 @@
         </div>
         <div class="large-6 columns medium-6 tablet-fix">
           <div class="content-wrapper news-content big-screen-content">
-            <div class="large-8 large-centered medium-11 medium-centered columns">
+            <div class="large-12 large-centered medium-12 medium-centered columns">
               <span><h2><%= news.category %>: <%= news.title.html_safe %> </h2></span>
               <span><p> <%= news.content.html_safe %> </p></span>
             </div>
@@ -26,4 +26,5 @@
 </div>
 </div>
 </div>
-<p><%= will_paginate @news %></p>
+<%= will_paginate @news, class: 'paginate-text center-text', previous_label: image_tag('previous-arrow.png'), next_label: image_tag('next-arrow.png'), link_separator: '&nbsp;&nbsp;' %>
+<br>

@@ -1,33 +1,43 @@
-<h1>Listing club_movies</h1>
+<div class="row">
+  <div class="large-10 large-centered medium-10 medium-centered columns media-container" id="js-fix">
+    <div id="club-reviews-movies-container" class="centered">
+      <ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
+        <% @club_movies.zip(@reviews).each do |movie, review| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Videolink</th>
-      <th>Active</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+            <li class="item">
+              <div class="movie-container bordered-grey width-fix">
 
-  <tbody>
-    <% @club_movies.each do |club_movie| %>
-      <tr>
-        <td><%= club_movie.title %></td>
-        <td><%= club_movie.description %></td>
-        <td><%= club_movie.videolink %></td>
-        <td><%= club_movie.active %></td>
-        <td><%= club_movie.user %></td>
-        <td><%= link_to 'Show', club_movie %></td>
-        <td><%= link_to 'Edit', edit_club_movie_path(club_movie) %></td>
-        <td><%= link_to 'Destroy', club_movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Club movie', new_club_movie_path %>
+                <%= link_to club_movies_show_path(movie), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
+                    <div class="movie-link2 image videolink-fix">
+                      <%= raw(youtube_embed(movie.videolink)) %>
+                    </div>
+                    <div class="movie-description rounded">
+                      <% if movie.title and movie.description %>
+                          <h4><%= movie.title %></h4>
+                          <%= movie.description %>
+                      <% end %>
+                    </div>
+                <% end %>
+              </div>
+            </li>
+            <li class="item">
+              <div class="movie-container bordered-grey width-fix">
+                <%= link_to review_show_path(review), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
+                    <div class="movie-link2 image videolink-fix">
+                      <%= raw(youtube_embed(review.videolink)) %>
+                    </div>
+                    <div class="movie-description rounded">
+                      <% if review.title and review.description %>
+                          <h4><%= review.title %></h4>
+                          <%= review.description %>
+                      <% end %>
+                    </div>
+                <% end %>
+              </div>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <%= render partial: 'club_reviews_movies_modal' %>
+</div>

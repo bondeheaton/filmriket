@@ -1,5 +1,5 @@
   <div class="row">
-    <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+    <div class="large-10 large-centered medium-10 medium-centered columns centering-fix" id="js-fix">
         <div class="row">
           <div class="large-6 columns medium-6 movie-box-wrapper" data-equalizer="testt">
             <h4 class="index-heading">Vad är Filmriket</h4>
@@ -26,19 +26,17 @@
             <div class="content-wrapper">
               <div class="large-8 large-centered mediunm-8 medium-centered  columns content">
 
-                <%= link_to image_tag('mockup.jpg'), about_path %>
+                <%= link_to image_tag('index-ruta3.png'), about_path, 'data-no-turbolink' => true %>
 
               </div>
             </div>
           </div>
           <div class="large-6 columns medium-6 movie-box-wrapper">
             <h4 class="index-heading">Filmskolan</h4>
-            <div class="large-8 large-centered columns mediunm-8 medium-centered  content-video">
-
-              <div class="video-container">
-                <%= raw(youtube_embed('https://www.youtube.com/watch?v=i5YY-XZO6-E')) %>
+            <div class="content-wrapper">
+              <div class="large-8 large-centered columns mediunm-8 medium-centered  content">
+                <%= link_to image_tag('filmskolan.png'), filmschools_path, 'data-no-turbolink' => true %>
               </div>
-
             </div>
           </div>
         </div>

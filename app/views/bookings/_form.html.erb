@@ -12,16 +12,12 @@
     <% end %>
 
     <div class="field">
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-    </div>
-    <div class="field">
       <%= f.hidden_field :movie_id, :value => params[:id] %>
     </div>
-    <div class="field">
-      <%= f.hidden_field :status, :value => 0 %>
-    </div>
-    <div class="actions" id="book_button">
-      <%= f.button "Boka", :id => 'book_button', class: 'button alert radius' %>
+
+    <div class="actions" id="bookings-button">
+      <%= f.button "", :id => 'book_button' %>
+      <div id="booked"></div>
     </div>
 <% end %>
 

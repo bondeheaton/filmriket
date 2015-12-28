@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :admin_images
   
   resources :filmschool_comments
 
@@ -34,6 +36,9 @@ Rails.application.routes.draw do
   resources :news
 
   resources :ratings
+
+  get '/reviews/show/:id', to: 'club_movies#show_review', as: 'review_show'
+  get '/club_movies/show/:id', to: 'club_movies#show_club_movie', as: 'club_movies_show'
 
   resources :reviews do
     get 'upload'
@@ -71,6 +76,10 @@ Rails.application.routes.draw do
       get 'disapprove', :controller => 'users', :action => 'mobile_disapprove'
     end
   end
+
+  post '/wishes', to: 'wishes#create'
+  delete '/wishes/:id', to: 'wishes#destroy', as: 'wish'
+  get '/wishes', to: 'wishes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

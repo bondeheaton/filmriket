@@ -1,6 +1,7 @@
 class MovieCommentsController < ApplicationController
   before_action :set_movie_comment, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :check_admin!, except: [:create]
   respond_to :js, :html, :json
 
   def index
@@ -22,6 +23,7 @@ class MovieCommentsController < ApplicationController
 
   def create
     @movie_comment = MovieComment.new(movie_comment_params)
+    @movie_comment.user_id = current_user.id
     @movie_comment.save
     @movie_comments = Movie.find(@movie_comment.movie_id).movie_comments.order('id DESC')
     respond_to do |format|

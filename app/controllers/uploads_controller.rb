@@ -1,6 +1,7 @@
 class UploadsController < ApplicationController
   before_action :set_upload, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :check_admin!, except: [:create]
 
   respond_to :html
 
@@ -23,6 +24,7 @@ class UploadsController < ApplicationController
 
   def create
     @upload = Upload.new(upload_params)
+    @upload.club_id = current_user.club_id
     @upload.save
     respond_with(current_user.club)
   end
