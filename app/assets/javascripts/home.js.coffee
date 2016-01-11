@@ -82,7 +82,7 @@ $(document).on 'click', '.link-fix', ->
     google.maps.event.trigger handler.getMap(), 'resize'
     handler.map.centerOn(center)
     return
-  ), 50
+  ), 200
 
 $(document).on 'ready page:load', ->
   setTimeout (->
@@ -90,6 +90,6 @@ $(document).on 'ready page:load', ->
     google.maps.event.trigger handlerr.getMap(), 'resize'
     handlerr.map.centerOn(center)
     return
-  ), 50
+  ), 200
 
 
