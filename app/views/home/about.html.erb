@@ -127,7 +127,7 @@
                           markers = handlerr.addMarkers(<%=raw @hash.to_json %>)
                           handlerr.bounds.extendWith(markers);
                           handlerr.fitMapToBounds();
-                          handler.getMap().setZoom(6);
+                          handlerr.getMap().setZoom(6);
 
                       });
                       function InfoBox(opts) {
