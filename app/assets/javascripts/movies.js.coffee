@@ -3,7 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'click tap touchstart', '.reveal-modal-bg', ->
-  $('[data-reveal]').foundation('reveal', 'close')
+  if $(document).width() < 600
+    $('[data-reveal]').foundation('reveal', 'close')
+  return 
 
 $(document).on 'click', '.close-movie-modal', ->
   $('#movie-modal').foundation('reveal', 'close')
