@@ -39,7 +39,7 @@ class ClubMoviesController < ApplicationController
     @club_name = Club.find(@user.club_id).name
     @title = @club_movies.title.to_s
     @description = @club_movies.description
-    @client = YouTubeIt::Client.new(:username => "shorts@live.se", :password =>  "filmriket", :dev_key => "AI39si5QCJpA99I-VxTU1Q-wiggLXaAdT2n1WKw-fJqlIhyrGxjdeDK5gMgoCX1wbSbku2CLBPg8BWaDMsNhr6L0hzD148Lnog")
+    @client = YouTubeIt::Client.new(:username => "filmriket@gmail.com", :password =>  "tjocktv1", :dev_key => "531336192067-nc9vid15md754trtk5h30qnt3o3pbh40.apps.googleusercontent.com")
     @paramshash = {:title => @title, :description => "Filmriket", :category => "People", :keywords => ["Filmriket"], :private => true}
     @upload_info = @client.upload_token(@paramshash, club_movie_attach_url)
     @club_movies.title = @title
@@ -51,7 +51,7 @@ class ClubMoviesController < ApplicationController
     @club_movie = ClubMovie.find(params[:club_movie_id])
     @user = User.find(@club_movie.user_id)
     @club_name = Club.find(@user.club_id).name
-    @client = YouTubeIt::Client.new(:username => "shorts@live.se", :password =>  "filmriket", :dev_key => "AI39si5QCJpA99I-VxTU1Q-wiggLXaAdT2n1WKw-fJqlIhyrGxjdeDK5gMgoCX1wbSbku2CLBPg8BWaDMsNhr6L0hzD148Lnog")
+    @client = YouTubeIt::Client.new(:username => "filmriket@gmail.com", :password =>  "tjocktv1", :dev_key => "531336192067-nc9vid15md754trtk5h30qnt3o3pbh40.apps.googleusercontent.com")
     @lastvideo = @client.my_videos.videos.first
     @club_movie.videolink = params[:id]
     @club_movie.save
