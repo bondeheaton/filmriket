@@ -4,7 +4,7 @@
       <td><%= user.lastname %></td>
       <td><%= user.email %><span class="footable-toggle"></span></td>
       <td><%= user.personalnumber %></td>
-      <td>0<%= user.phonenumber %></td>
+      <td><%= user.phonenumber %></td>
       <td><%= user.points %></td>
       <td><%= link_to 'Ändra', edit_user_path(user), :class => "button tiny radius right_button_edit" %></td>
       <td><%= link_to 'Förstör', user, method: :delete, data: { confirm: 'Är du säker?' }, :class => "button tiny radius alert right_button_destroy" %></td>

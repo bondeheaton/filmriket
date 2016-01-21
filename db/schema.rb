@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201124048) do
+ActiveRecord::Schema.define(version: 20160121085012) do
 
   create_table "admin_images", force: true do |t|
     t.string   "img"
@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 20151201124048) do
     t.string   "firstname"
     t.string   "lastname"
     t.integer  "personalnumber"
-    t.integer  "phonenumber"
+    t.string   "phonenumber"
     t.string   "avatar"
     t.string   "address"
     t.string   "city"
