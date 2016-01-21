@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121104847) do
+ActiveRecord::Schema.define(version: 20160121113517) do
 
   create_table "admin_images", force: true do |t|
     t.string   "img"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20160121104847) do
     t.datetime "updated_at"
     t.string   "category"
     t.string   "img"
+    t.datetime "newsdate"
   end
 
   create_table "participants", force: true do |t|
