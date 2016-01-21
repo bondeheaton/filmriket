@@ -313,7 +313,7 @@
                       markers = handler.addMarkers(<%=raw @hash.to_json %>)
                       handler.bounds.extendWith(markers);
                       handler.fitMapToBounds();
-                      handler.getMap().setZoom(6);
+                      handler.getMap().setZoom(5);
                   });
                   function InfoBox(opts) {
                       google.maps.OverlayView.call(this);
