@@ -29,6 +29,7 @@ class Club < ActiveRecord::Base
         @achievement_score.push(user.club_movies.where.not(videolink: "inactive").count)
       end
     end
+    @achievement_score.push(club.points)
     if @achievement_score.inject(:+) > 0
       @achievement_icon = "bronze_medal.png"
     end
