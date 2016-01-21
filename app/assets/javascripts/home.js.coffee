@@ -84,4 +84,12 @@ $(document).on 'click', '.link-fix', ->
     return
   ), 200
 
+$(document).on 'ready page:load', ->
+  setTimeout (->
+    center = handlerr.getMap().getCenter()
+    google.maps.event.trigger handlerr.getMap(), 'resize'
+    handlerr.map.centerOn(center)
+    return
+  ), 200
+
 

@@ -3,35 +3,38 @@
     <div id="club-reviews-movies-container" class="centered">
       <ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
         <% @club_movies.zip(@reviews).each do |movie, review| %>
-
+    
             <li class="item">
               <div class="movie-container bordered-grey width-fix">
-
-                <%= link_to club_movies_show_path(movie), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
-                    <div class="movie-link2 image videolink-fix">
-                      <%= raw(youtube_embed(movie.videolink)) %>
-                    </div>
-                    <div class="movie-description rounded">
-                      <% if movie.title and movie.description %>
-                          <h4><%= movie.title %></h4>
-                          <%= movie.description %>
-                      <% end %>
-                    </div>
+                <% if movie %>
+                  <%= link_to club_movies_show_path(movie), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
+                      <div class="movie-link2 image videolink-fix">
+                        <%= raw(youtube_embed(movie.videolink)) %>
+                      </div>
+                      <div class="movie-description rounded">
+                        <% if movie.title and movie.description %>
+                            <h4><%= movie.title %></h4>
+                            <%= movie.description %>
+                        <% end %>
+                      </div>
+                  <% end %>
                 <% end %>
               </div>
             </li>
             <li class="item">
               <div class="movie-container bordered-grey width-fix">
-                <%= link_to review_show_path(review), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
-                    <div class="movie-link2 image videolink-fix">
-                      <%= raw(youtube_embed(review.videolink)) %>
-                    </div>
-                    <div class="movie-description rounded">
-                      <% if review.title and review.description %>
-                          <h4><%= review.title %></h4>
-                          <%= review.description %>
-                      <% end %>
-                    </div>
+                <% if review %>
+                  <%= link_to review_show_path(review), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
+                      <div class="movie-link2 image videolink-fix">
+                        <%= raw(youtube_embed(review.videolink)) %>
+                      </div>
+                      <div class="movie-description rounded">
+                        <% if review.title and review.description %>
+                            <h4><%= review.title %></h4>
+                            <%= review.description %>
+                        <% end %>
+                      </div>
+                  <% end %>
                 <% end %>
               </div>
             </li>

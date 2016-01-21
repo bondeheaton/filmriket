@@ -1,7 +1,7 @@
 class Club < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
-  has_many :users, dependent: :destroy
+  has_many :users
   has_many :participants, dependent: :destroy
   has_many :events, :through => :participants, dependent: :destroy
   has_many :uploads, dependent: :destroy
@@ -29,6 +29,7 @@ class Club < ActiveRecord::Base
         @achievement_score.push(user.club_movies.where.not(videolink: "inactive").count)
       end
     end
+    @achievement_score.push(club.points)
     if @achievement_score.inject(:+) > 0
       @achievement_icon = "bronze_medal.png"
     end

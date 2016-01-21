@@ -20,7 +20,7 @@
             <strong>Medlemmar:</strong><br>
             <% @club.users.each do |user| %>
                 <img src="../<%= user.avatar %>.png" alt="User avatar" width="50px" height="50px"/>
-                <%= user.firstname %> <%= user.lastname %>
+                <%= user.firstname %>
                 <br>
             <% end %>
           </div>
@@ -270,6 +270,7 @@
                         markers = handlerr.addMarkers(<%=raw @hash.to_json %>)
                         handlerr.bounds.extendWith(markers);
                         handlerr.fitMapToBounds();
+												handlerr.getMap().setZoom(5);
                         handlerr.map.centerOn(markers[0]);
 
                     });
@@ -313,7 +314,7 @@
                       markers = handler.addMarkers(<%=raw @hash.to_json %>)
                       handler.bounds.extendWith(markers);
                       handler.fitMapToBounds();
-                      handler.getMap().setZoom(6);
+                      handler.getMap().setZoom(5);
                   });
                   function InfoBox(opts) {
                       google.maps.OverlayView.call(this);
@@ -348,7 +349,7 @@
         <h4 class="index-heading">Kontakt</h4>
             <div class="content-wrapper">
                 <div class="large-8 large-centered mediunm-8 medium-centered columns content">
-                  <%= link_to image_tag('mockup.jpg'), contact_path %>
+                  <%= link_to image_tag('filmriket-logga-ruta.png'), contact_path %>
                 </div>
             </div>
           </div>

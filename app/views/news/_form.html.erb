@@ -16,6 +16,10 @@
     <%= f.text_field :title %>
   </div>
   <div class="large-12 large-centered columns">
+    <%= f.label 'Datum' %>
+    <%= f.datetime_select :newsdate, prompt: {day: 'Välj dag', month: 'Välj månad', year: 'Välj år', hour: 'Välj timme', minute: 'Välj minut'} %>
+  </div>
+  <div class="large-12 large-centered columns">
     <%= f.select :category, ['Nyhet', 'Aktivitet', 'Tips', 'Evenemang']%>
   </div>
   <div class="large-12 large-centered columns">

@@ -1,6 +1,5 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
   before_action :check_admin!, except: [:index]
   respond_to :html
 
@@ -47,6 +46,6 @@ class NewsController < ApplicationController
     end
 
     def news_params
-      params.require(:news).permit(:title, :img, :content, :category)
+      params.require(:news).permit(:title, :img, :content, :category, :newsdate)
     end
 end
