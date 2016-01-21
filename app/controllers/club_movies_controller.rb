@@ -1,7 +1,7 @@
 class ClubMoviesController < ApplicationController
   before_action :set_club_movie, only: [:edit, :update, :destroy]
-  before_filter :authenticate_user!
-  before_filter :check_admin!, only: [:edit, :update, :show]
+  before_filter :authenticate_user!, except: [:index, :show_club_movie, :show_review]
+  before_filter :check_admin!, only: [:edit, :update, :destroy]
 
   respond_to :html
 
