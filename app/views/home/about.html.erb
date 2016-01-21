@@ -99,9 +99,11 @@
           <div id="socialamedier" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
             <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 
-            <h2 class="popup-text">Sociala Medier Bilder?</h2>
+            <h2 class="popup-text"></h2>
             <p class="popup-text">
-              Medialänkar artiklar annan media om Filmriket
+							<% @media_photos.each do |media| %>
+							    <%= link_to image_tag(media.images.thumbnail.url), media.link, target: "_blank" %>
+							<% end %>
             </p>
           </div>
          </div>

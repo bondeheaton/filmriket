@@ -40,6 +40,9 @@ class HomeController < ApplicationController
       marker.infowindow "#{view_context.link_to club.name, club_path(club), 'data-no-turbolink' => true}"
 
     end
+    
+    client = Instagram.client(access_token: "1394749750.2a8d1ea.778623c9461246b8a308284e31dd49c2")
+    @media_photos = client.user_recent_media(count: 30)
   end
 
   def contact
