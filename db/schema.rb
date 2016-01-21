@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121085012) do
+ActiveRecord::Schema.define(version: 20160121104847) do
 
   create_table "admin_images", force: true do |t|
     t.string   "img"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160121085012) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "banner"
+    t.integer  "points"
   end
 
   create_table "events", force: true do |t|
