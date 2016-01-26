@@ -16,9 +16,11 @@
     <div class="large-12 columns">
       <%= f.check_box :remember_me %>
       <%= f.label 'Kom ihåg mig' %>
+			<div class="white-text">
+				<%= link_to f.label('Skicka nytt bekräftelsemail'), new_user_confirmation_path %>
+			</div>
     </div>
-  <% end -%>
-
+  <% end %>
   <div class="large-12 columns">
     <%= f.submit "Logga in", class: 'button expand' %>
   </div>

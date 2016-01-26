@@ -1,16 +1,12 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> 
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+	<div class="large-4 columns">
+		<h2>Skicka nytt bekräftelsemail</h2>
+		<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+	  	<%= devise_error_messages! %>
+    	<%= f.label "Email: (Skriv in den email som inte godkänt)", class: 'white-text' %>
+	  	<%= f.email_field :email, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> 
+	  	<%= f.submit "Skicka nytt bekräftelsemail", class: 'button expand' %>
+			<% end %>
+		<%= render "devise/shared/links" %>
+	</div>
+</div>
