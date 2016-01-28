@@ -73,9 +73,7 @@ class ClubMoviesController < ApplicationController
 
   def destroy
     @club_movie.destroy
-    respond_to do |format|
-      format.js { render nothing: true }
-    end
+    redirect_to :back
   end
 
   private
