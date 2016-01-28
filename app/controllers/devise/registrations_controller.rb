@@ -15,7 +15,7 @@ class Devise::RegistrationsController < DeviseController
     build_resource(sign_up_params)
     resource.update_attributes(:ownemail => resource.parentmail)
     resource.skip_reconfirmation!
-    resource.save!
+    resource.save
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
