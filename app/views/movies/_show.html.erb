@@ -234,9 +234,9 @@
 
         <% if user_signed_in? %>
             <%= render 'movie_comments/form' %>
-
+            <div id="comment_list">
               <%= render 'movie_comments/list' %>
-
+            </div>  
         <% end %>
 
   </div>
