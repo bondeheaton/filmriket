@@ -62,9 +62,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    respond_to do |format|
-      format.js { render nothing: true }
-    end
+    redirect_to :back
   end
 
   private

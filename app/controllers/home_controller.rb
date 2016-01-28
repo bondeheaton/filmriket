@@ -8,8 +8,12 @@ class HomeController < ApplicationController
   def admin_log
     @reviews = Review.all
     @club_movies = ClubMovie.all
-    @movie_comments = MovieComment.all
     @uploads = Upload.all
+    
+    movie_comments = MovieComment.all
+    filmschool_comments = FilmschoolComment.all
+    unsorted_comments = movie_comments + filmschool_comments
+    @comments = unsorted_comments.sort_by(&:created_at).reverse
   end
 
   def filmriket
