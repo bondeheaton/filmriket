@@ -1,6 +1,6 @@
 <% @filmschool_comments.each do |comment| %>
     <div class="comments_list">
-      <img src="http://filmriket.nu/img/<%= comment_user_avatar(comment.user_id) %>.png" id="thumb" alt="avatar" width="40" height="40">
+      <img src="/<%= comment_user_avatar(comment.user_id) %>.png" id="thumb" alt="avatar" width="40" height="40">
       <strong><%= comment_user_name(comment.user_id) %>: </strong> <%= comment.message %>
       <hr>
     </div>
