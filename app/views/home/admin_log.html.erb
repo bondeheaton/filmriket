@@ -11,8 +11,13 @@
     <h1 class="admin_header">RECENSIONER</h1>
       <% @reviews.each do |review| %>
         <div class="reviews">
-             har gjort en recension:  <%= link_to review.title, review_path(review.id) %><br>
-          <div class="button-fix"><%= link_to 'Ta bort', review, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%><p class="created"><%= review.created_at %></p></div>
+            <%= review.user.email %>
+            har gjort en recension:  
+            <%= review.title %><br>
+            <div class="button-fix">
+              <%= link_to 'Ta bort', review, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%>
+            <p class="created"><%= review.created_at %></p>
+            </div>
         </div>
       <% end %>
    </div>
@@ -21,19 +26,35 @@
     <h1 class="admin_header">KLUBBFILMER</h1>
       <% @club_movies.each do |club_movie| %>
         <div class="club_movies">
-            <b><%= club_movie.user.club.name %></b> har skapat en film: <%= link_to club_movie.title, club_movie_path(club_movie.id) %><br>
-          <div class="button-fix"><%= link_to 'Ta bort', club_movie, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%><p class="created"><%= club_movie.created_at %></p></div>
+            <b><%= club_movie.user.club.name %></b> 
+            har skapat en film: 
+            <%= club_movie.title %><br>
+            <div class="button-fix">
+              <%= link_to 'Ta bort', club_movie, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%>
+              <p class="created"><%= club_movie.created_at %></p>
+            </div>
         </div>
       <% end %>
    </div>
 
    <div class="medium-3 columns" id="comments">
     <h1 class="admin_header">KOMMENTARER</h1>
-      <% @movie_comments.each do |comment| %>
+      <% @comments.each do |comment| %>
         <div class="comments">
           <% if comment.user %>
-           <b><%= comment.user.email %></b><% end %> har kommenterat "<%= comment.message %>" på filmen <% if comment.movie %> <%= link_to comment.movie.title, movie_path(comment.movie_id) %><% end %><br>
+           <b><%= comment.user.email %></b>
+          <% end %> 
+          
+          har kommenterat "<%= comment.message %>" på 
+          
+          <% if comment.class == MovieComment %>
+            <%= comment.movie.title %>
+          <% else %>
+            <%= comment.filmschool.title %>
+          <% end %><br>
+
           <div class="button-fix"><%= link_to 'Ta bort', comment, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%><p class="created"><%= comment.created_at %></p></div>
+
         </div>
       <% end %>
     </div>
