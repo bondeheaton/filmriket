@@ -54,7 +54,7 @@ input#news_title {
   width: 100%;
   height: 45px;
   text-align: center;
-  background: url(news-border.png);
+  background: url(asset-path('news-border.png'));
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
