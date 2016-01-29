@@ -16,7 +16,14 @@
                       </div>
                       <div class="movie-description rounded">
                         <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
-                        <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %>
+                        <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %><br/>
+                        <% if current_user %>
+                          <% if current_user.access == 2 %>
+                              <%= link_to 'Redigera', edit_movie_path(movie) %> |
+                              <%= link_to 'Ta bort', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <% else %>
+                          <% end %>
+                      <% end %>
                       </div>
                   <% end %>
               </div>
