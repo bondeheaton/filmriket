@@ -837,11 +837,13 @@ p.created {
 }
 
 #map_id {
-  width: 97%;
+  width: 100%;
   min-height: 600px;
   margin-bottom: 50px!important;
   margin-top: -75px;
+  text-align: center!important;
 }
+
 
 .tjena {
   width: 50px;
@@ -850,4 +852,3 @@ p.created {
   border: 1px solid black;
   background: #111;
 }
-

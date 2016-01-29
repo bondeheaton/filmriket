@@ -17,7 +17,7 @@ $(window).load ->
   return
 
 $(document).on 'page:change page:load', ->
-  if getURL('movies')
+  if getURL('movies') or getURL('filmschools')
     masonry()
     bigscreen()
   return
