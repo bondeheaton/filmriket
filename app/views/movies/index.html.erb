@@ -14,9 +14,9 @@
                             <%= image_tag(movie.videocover, size: "280x280") %>
                         <% end  %>
                       </div>
-                      <div class="movie-description rounded">
+                      <div class="movie-description rounded description-fix">
                         <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
-                        <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %>
+                        <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...').html_safe %>
                       </div>
                   <% end %>
               </div>

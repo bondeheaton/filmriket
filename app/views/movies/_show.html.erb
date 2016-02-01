@@ -7,12 +7,12 @@
         <%= image_tag(@movie.videocover, size: "350x477") %>
       </div>
     </div>
-    <div class="large-6 columns">
-      <h2 class="movie-text"><%= @movie.title %></h2>
+    <div class="large-6 columns description-fix">
+      <h2 class="movie-text">Titel: <%= @movie.title %></h2>
 
-      <h6 class="movie-text bold">GENRE: <%= @movie.genre %></h6>
-
-      <p class="movie-text"><%= @movie.description %></p>
+      <p class="movie-text"><%= @movie.description.html_safe %></p>
+			
+			<p class="movie-text">Genre: <%= @movie.genre %></p>
 
       <p class="movie-text">Regissör: <%= @movie.director %></p>
 
