@@ -15,8 +15,10 @@
                         <% end  %>
                       </div>
                       <div class="movie-description rounded description-fix">
-                        <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
-                        <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...').html_safe %>
+                        <h4><%= movie.title[0..19] %>
+												<% if movie.title.length > 19 %>...<% end %>
+												</h4>
+                        <%= movie.description.html_safe %>
                         <% if current_user %>
                           <% if current_user.access == 2 %>
                               <%= link_to 'Redigera', edit_movie_path(movie) %> |
