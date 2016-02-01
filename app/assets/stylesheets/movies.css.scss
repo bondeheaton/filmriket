@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.description-fix p {
+	color: black!important;
+}
+
 .average-rating {
   background: asset-data-url('average-rating.png');
   background-repeat:no-repeat;
