@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
 
   def update
     @movie.update(movie_params)
-    respond_with(@movie)
+    redirect_to movies_path
   end
 
   def destroy
