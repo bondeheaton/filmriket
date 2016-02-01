@@ -32,7 +32,7 @@ class NewsController < ApplicationController
 
   def update
     @news.update(news_params)
-    respond_with(@news)
+    redirect_to news_index_path
   end
 
   def destroy

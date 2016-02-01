@@ -3,8 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.description-fix p, h1, h2, h3, h4, span {
-	color: black!important;
+.description-fix {
+	p, h1, h2, h3, h4, span {
+		color: black!important;
+	}
 }
 
 .average-rating {
