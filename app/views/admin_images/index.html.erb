@@ -9,11 +9,12 @@
                       <div class="large-6 columns medium-6 movie-box-wrapper">
                         <h4 class="index-heading">&nbsp;</h4>
                         <div class="content-wrapper">
+                          <div class="remove-img">
+                            <%= link_to '<p>Ta bort</p>'.html_safe, admin, method: 'DELETE', data: { confirm: 'Är du säker?' } %>
+                          </div>
                           <div class="large-8 large-centered medium-8 medium-centered columns content">
                             <img src="<%= admin.img %>" height="255" width="330"/><br>
                             <%= admin.img %><br>
-                            <%= link_to '<p>Ta bort</p>'.html_safe, admin, method: 'DELETE' %>
-
                           </div>
                         </div>
                       </div>
