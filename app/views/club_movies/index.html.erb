@@ -11,12 +11,11 @@
                       <div class="movie-link2 image videolink-fix">
                         <%= raw(youtube_embed(movie.videolink)) %>
                       </div>
-                      <div class="movie-description rounded">
+                      <div class="movie-description rounded description-fix">
                         <% if movie.title and movie.description %>
-                            <h4><%= movie.title %></h4>
-                            <%= movie.description %>
+                            <h4 class="movie-title"><%= movie.title %></h4>
+                            <%= movie.description.html_safe %>
                         <% end %>
-                        <br/>
                         <% if current_user %>
                           <% if current_user.access == 2 %>
                               <%= link_to 'Redigera', edit_club_movie_path(movie) %> |
@@ -36,12 +35,11 @@
                       <div class="movie-link2 image videolink-fix">
                         <%= raw(youtube_embed(review.videolink)) %>
                       </div>
-                      <div class="movie-description rounded">
-                        <% if review.title and review.description %>
-                            <h4><%= review.title %></h4>
-                            <%= review.description %>
+                      <div class="movie-description rounded description-fix">
+                        <% if review.description %>
+                            <h4 class="movie-title"><%= review.movie.title %></h4>
+                            <%= review.description.html_safe %>
                         <% end %>
-                        <br/>
                         <% if current_user %>
                           <% if current_user.access == 2 %>
                               <%= link_to 'Redigera', edit_review_path(review) %> |

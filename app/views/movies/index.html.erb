@@ -15,9 +15,7 @@
                         <% end  %>
                       </div>
                       <div class="movie-description rounded description-fix">
-                        <h4><%= movie.title[0..19] %>
-												<% if movie.title.length > 19 %>...<% end %>
-												</h4>
+                        <h4 class="movie-title"><%= movie.title %></h4>
                         <%= movie.description.html_safe %>
                         <% if current_user %>
                           <% if current_user.access == 2 %>
