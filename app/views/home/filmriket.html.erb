@@ -71,8 +71,8 @@
         <h4 class="index-heading">Nyheter</h4>
         <div class="content-wrapper">
          <div class="large-8 large-centered medium-8 medium-centered columns content">
-							<% if News.last %>
-								<%= link_to image_tag(News.last.img), news_index_path %>
+							<% if News.first %>
+								<%= link_to image_tag(News.first.img), news_index_path %>
 							<% else %>
               	<%= link_to image_tag("mockup.jpg"), news_index_path %>
 							<% end %>
