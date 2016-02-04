@@ -52,11 +52,11 @@
         </div>
       </div>
       <div class="large-6 columns medium-6 movie-box-wrapper">
-        <h4 class="index-heading">Partners</h4>
+        <h4 class="index-heading">Samarbeten</h4>
         <div class="content-wrapper">
           <div class="large-8 large-centered medium-8 medium-centered columns content">
 
-            <a href="#" data-reveal-id="partners"><%= image_tag("mockup.jpg") %></a>
+            <a href="#" data-reveal-id="partners"><%= image_tag("about-ruta2.png") %></a>
 
             <div id="partners" class="reveal-modal padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
               <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
@@ -207,7 +207,11 @@
         <h4 class="index-heading">Nyheter</h4>
         <div class="content-wrapper">
             <div class="large-8 large-centered medium-8 medium-centered columns content">
-              <%= link_to image_tag("mockup.jpg"), news_index_path %>
+							<% if News.last %>
+								<%= link_to image_tag(News.last.img), news_index_path %>
+							<% else %>
+              	<%= link_to image_tag("mockup.jpg"), news_index_path %>
+							<% end %>
             </div>
         </div>
       </div>
