@@ -16,6 +16,14 @@
                             <h4><%= movie.title %></h4>
                             <%= movie.description %>
                         <% end %>
+                        <br/>
+                        <% if current_user %>
+                          <% if current_user.access == 2 %>
+                              <%= link_to 'Redigera', edit_club_movie_path(movie) %> |
+                              <%= link_to 'Ta bort', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <% else %>
+                          <% end %>
+                      <% end %>
                       </div>
                   <% end %>
                 <% end %>
@@ -33,6 +41,14 @@
                             <h4><%= review.title %></h4>
                             <%= review.description %>
                         <% end %>
+                        <br/>
+                        <% if current_user %>
+                          <% if current_user.access == 2 %>
+                              <%= link_to 'Redigera', edit_review_path(review) %> |
+                              <%= link_to 'Ta bort', review, method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <% else %>
+                          <% end %>
+                      <% end %>
                       </div>
                   <% end %>
                 <% end %>
