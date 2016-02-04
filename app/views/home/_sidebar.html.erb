@@ -37,7 +37,9 @@
     <% if current_page? new_user_registration_path %>
         <%= link_to "<div class='menu-button3-selected'>Bli medlem</div>".html_safe, new_user_registration_path, class: 'menu-text' %>
     <% else %>
-        <%= link_to "<div class='menu-button3'>Bli medlem</div>".html_safe, new_user_registration_path, class: 'menu-text' %>
+				<% unless current_user %>
+        	<%= link_to "<div class='menu-button3'>Bli medlem</div>".html_safe, new_user_registration_path, class: 'menu-text' %>
+				<% end %>
     <% end %>
 
     <% if current_page? movies_path %>
