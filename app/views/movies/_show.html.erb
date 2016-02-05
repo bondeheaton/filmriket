@@ -7,10 +7,10 @@
         <%= image_tag(@movie.videocover, size: "350x477") %>
       </div>
     </div>
-    <div class="large-6 columns description-fix">
-      <h2 class="movie-text">Titel: <%= @movie.title %></h2>
-
-      <p class="movie-text"><%= @movie.description.html_safe %></p>
+    <div class="large-6 columns">
+      <h4 class="movie-title">Titel: <%= @movie.title %></h2>
+      
+      <span class="movie-text"><p class="movie-text"><%= @movie.description.html_safe %></p></span>
 			
 			<p class="movie-text">Genre: <%= @movie.genre %></p>
 
@@ -18,7 +18,9 @@
 
       <p class="movie-text">Speltid: <%= @movie.playtime %> min</p>
 
-      <p class="movie-text">Publicerad: <%= @movie.published %></p>
+      <p class="movie-text">År: <%= @movie.published %></p>
+
+      <p class="movie-text">Land: <%= @movie.country %></p>
     </div>
 </div>
 <div class="large-12 large-center columns">
