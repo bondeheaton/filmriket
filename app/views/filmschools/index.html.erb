@@ -14,6 +14,7 @@
                       <%= movie.description.html_safe %>
                       <% if current_user %>
                           <% if current_user.access == 2 %>
+                              <br/>
                               <%= link_to '<b>Redigera</b>'.html_safe, edit_filmschool_path(movie) %> |
                               <%= link_to '<b>Ta bort</b>'.html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' } %>
                           <% else %>
