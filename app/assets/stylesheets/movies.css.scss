@@ -4,24 +4,22 @@
 .movie-title {
   font-size: 26px;
   font-family: "calibri";
-  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 0;
-  line-height: 33px;
+  line-height: 25px; /* Fixa margin istället för line-height */
 }
 
 .description-fix {
 	p, h1, h2, h3, h4, span, a {
 		color: black!important;
 	}
-  span {
+  
+  p, a, span, h2, h3 {
     font-size: 14px!important;
-    font-family: "calibri";
-    margin: 0!important;
-    padding: 0!important;
-  }
-  p, a {
-    font-size: 14px!important;
-    font-family: "calibri";
+    font-family: "calibri"!important;
+    font-weight: normal!important;
+    font-style: none!important;
     margin: 0!important;
     padding: 0!important;
     line-height: 16px!important;
