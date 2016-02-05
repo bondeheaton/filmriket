@@ -35,7 +35,7 @@ class FilmschoolsController < ApplicationController
 
   def update
     @filmschool.update(filmschool_params)
-    respond_with(@filmschool)
+    redirect_to filmschools_path
   end
 
   def destroy
