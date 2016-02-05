@@ -15,14 +15,14 @@
 		color: black!important;
 	}
   
-  p, a, span, h2, h3 {
+  p, a, span, h2, h3, b {
     font-size: 14px!important;
-    font-family: "calibri"!important;
+    font-family: "calibri", sans-serif, Verdana!important;
     font-weight: normal!important;
-    font-style: none!important;
+    font-style: normal!important;
+    line-height: 16px!important;
     margin: 0!important;
     padding: 0!important;
-    line-height: 16px!important;
   }
 }
 
