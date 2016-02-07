@@ -1,7 +1,7 @@
 <% @movie_comments.each do |comment| %>
     <div class="comments_list">
-        <img src="/<%= comment_user_avatar(comment.user_id) %>.png" id="thumb" alt="avatar" width="40" height="40">
-        <strong><%= comment_user_name(comment.user_id) %>: </strong> <%= comment.message %>
+        <img src="/<%= comment.user.avatar %>.png" id="thumb" alt="avatar" width="40" height="40">
+        <strong><%= comment.user.firstname %>: </strong> <%= comment.message %>
       <hr>
     </div>
 <% end %>
