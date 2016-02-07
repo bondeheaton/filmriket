@@ -1,5 +1,5 @@
 class ClubMoviesController < ApplicationController
-  before_action :set_club_movie, only: [:edit, :update, :destroy]
+  before_action :set_club_movie, only: [:edit, :update, :destroy, :show_club_movie]
   before_filter :authenticate_user!, except: [:index, :show_club_movie, :show_review]
   before_filter :check_admin!, only: [:edit, :update, :destroy]
 
@@ -12,7 +12,6 @@ class ClubMoviesController < ApplicationController
   end
 
   def show_club_movie
-    @club_movie = ClubMovie.find(params[:id])
     respond_to do |format|
       format.js
     end
@@ -34,27 +33,27 @@ class ClubMoviesController < ApplicationController
   end
   
   def upload
-    @club_movies = ClubMovie.find(params[:club_movie_id])
-    @user = User.find(@club_movies.user_id)
-    @club_name = Club.find(@user.club_id).name
-    @title = @club_movies.title.to_s
-    @description = @club_movies.description
-    @client = YouTubeIt::Client.new(:username => "filmriket@gmail.com", :password =>  "tjocktv1", :dev_key => "531336192067-nc9vid15md754trtk5h30qnt3o3pbh40.apps.googleusercontent.com")
-    @paramshash = {:title => @title, :description => "Filmriket", :category => "People", :keywords => ["Filmriket"], :private => true}
-    @upload_info = @client.upload_token(@paramshash, club_movie_attach_url)
-    @club_movies.title = @title
-    @club_movies.save
+    club_movies = ClubMovie.find(params[:club_movie_id])
+    user = User.find(club_movies.user_id)
+    club_name = Club.find(user.club_id).name
+    title = club_movies.title.to_s
+    description = club_movies.description
+    client = YouTubeIt::Client.new(:username => "filmriket@gmail.com", :password =>  "tjocktv1", :dev_key => "531336192067-nc9vid15md754trtk5h30qnt3o3pbh40.apps.googleusercontent.com")
+    paramshash = {:title => title, :description => "Filmriket", :category => "People", :keywords => ["Filmriket"], :private => true}
+    @upload_info = client.upload_token(paramshash, club_movie_attach_url)
+    club_movies.title = title
+    club_movies.save
     respond_with(club_movie_attach_path)
   end
 
   def attach
-    @club_movie = ClubMovie.find(params[:club_movie_id])
-    @user = User.find(@club_movie.user_id)
-    @club_name = Club.find(@user.club_id).name
-    @client = YouTubeIt::Client.new(:username => "filmriket@gmail.com", :password =>  "tjocktv1", :dev_key => "531336192067-nc9vid15md754trtk5h30qnt3o3pbh40.apps.googleusercontent.com")
-    @lastvideo = @client.my_videos.videos.first
-    @club_movie.videolink = params[:id]
-    @club_movie.save
+    club_movie = ClubMovie.find(params[:club_movie_id])
+    user = User.find(club_movie.user_id)
+    club_name = Club.find(user.club_id).name
+    client = YouTubeIt::Client.new(:username => "filmriket@gmail.com", :password =>  "tjocktv1", :dev_key => "531336192067-nc9vid15md754trtk5h30qnt3o3pbh40.apps.googleusercontent.com")
+    lastvideo = client.my_videos.videos.first
+    club_movie.videolink = params[:id]
+    club_movie.save
     redirect_to club_path(current_user.club_id)
   end
   
