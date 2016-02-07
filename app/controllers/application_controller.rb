@@ -29,13 +29,12 @@ class ApplicationController < ActionController::Base
     end
     
     def club_bookings(clubid)
-      @count = []
-      @club = Club.find(clubid)
-      @members = @club.users
-      @members.each do |member|
-        @count.push(member.bookings.where(status: 0).count)
+      count = []
+      members = Club.find(clubid).users
+      members.each do |member|
+        count.push(member.bookings.where(status: 0).count)
       end
-      return @count.inject(:+)
+      return count.inject(:+)
     end
     
     def check_admin!
