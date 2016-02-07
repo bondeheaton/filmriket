@@ -17,7 +17,4 @@ class Movie < ActiveRecord::Base
     return @rating
   end
 
-  def user_rating
-    return ratings.find_by_user_id(current_user.id)
-  end
 end
