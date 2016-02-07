@@ -1,21 +1,14 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, except: [:index, :new, :create]
+  before_action :set_bookings, only: [:index, :approved_bookings, :bookings_done]
   before_filter :authenticate_user!
 
   respond_to :html
 
   def index
-    @bookings = Booking.all
-    @pending_bookings = Booking.where(status: 0)
-    @approved_bookings = Booking.where(status: 1)
-    @bookings_done = Booking.where(status: 2)
   end
 
   def approved_bookings
-    @pending_bookings = Booking.where(status: 0)
-    @approved_bookings = Booking.where(status: 1)
-    @bookings_done = Booking.where(status: 2)
-    @booking = Booking.find(params[:id])
     @booking.update_attributes(:status => 1)
     respond_to do |format|
       if @booking.update(:status => 1)
@@ -27,16 +20,11 @@ class BookingsController < ApplicationController
   end
 
   def mobile_approved_bookings
-    @booking = Booking.find(params[:id])
     @booking.update_attributes(:status => 1)
     redirect_to :back
   end
 
   def bookings_done
-    @pending_bookings = Booking.where(status: 0)
-    @approved_bookings = Booking.where(status: 1)
-    @bookings_done = Booking.where(status: 2)
-    @booking = Booking.find(params[:id])
     @booking.update_attributes(:status => 2)
     respond_to do |format|
       if @booking.update(:status => 2)
@@ -48,7 +36,6 @@ class BookingsController < ApplicationController
   end
 
   def mobile_bookings_done
-    @booking = Booking.find(params[:id])
     @booking.update_attributes(:status => 2)
     redirect_to :back
   end
@@ -72,11 +59,9 @@ class BookingsController < ApplicationController
       @booking.user_id = current_user.id
       @booking.status = 0
       @booking.save
-    else
     end
     respond_with(@booking)
   end
-  
   
   def update
     @booking.update(booking_params)
@@ -89,8 +74,15 @@ class BookingsController < ApplicationController
   end
 
   private
+  
     def set_booking
       @booking = Booking.find(params[:id])
+    end
+    
+    def set_bookings
+      @pending_bookings = Booking.where(status: 0)
+      @approved_bookings = Booking.where(status: 1)
+      @bookings_done = Booking.where(status: 2)
     end
 
     def booking_params
