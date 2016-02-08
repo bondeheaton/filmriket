@@ -1,44 +1,29 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, except: [:index, :new, :create, :disapprove_all]
+  before_action :set_user_access_types, only: [:index, :approve, :admin_approve, :disapprove, :disapprove_all, :ajax_on_users]
 
   before_filter :check_admin!
 
-  # GET /users
-  # GET /users.json
   def index
-    @users = User.all
-
-    @not_approved_users = User.where(access: nil)
-    @approved_users = User.where(access: 1)
-    @admin_users = User.where(access: 2)
-
     @users_join_club = User.where(status: 1)
     @users_start_club = User.where(status: 2)
     @users_looking_for_club = User.where(status: 3)
     @users_left_club = User.where(status: 4)
     @users_with_club = User.where(status: 5)
-
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
   end
 
-  # GET /users/new
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
   def edit
   end
 
-  # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -50,8 +35,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -64,8 +47,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user.destroy
     respond_to do |format|
@@ -75,10 +56,6 @@ class UsersController < ApplicationController
   end
 
   def approve
-    @not_approved_users = User.where(access: nil)
-    @approved_users = User.where(access: 1)
-    @admin_users = User.where(access: 2)
-    @user = User.find(params[:id])
     @user.update_attributes(:access => 1)
     respond_to do |format|
       if @user.update(:access => 1)
@@ -90,16 +67,11 @@ class UsersController < ApplicationController
   end
 
   def mobile_approve
-    @user = User.find(params[:id])
     @user.update_attributes(:access => 1)
     redirect_to :back
   end
 
   def admin_approve
-    @not_approved_users = User.where(access: nil)
-    @approved_users = User.where(access: 1)
-    @admin_users = User.where(access: 2)
-    @user = User.find(params[:id])
     @user.update_attributes(:access => 2)
     respond_to do |format|
       if @user.update(:access => 2)
@@ -111,17 +83,12 @@ class UsersController < ApplicationController
   end
 
   def mobile_admin_approve
-    @user = User.find(params[:id])
     @user.update_attributes(:access => 2)
     redirect_to :back
   end
 
 
   def disapprove
-    @not_approved_users = User.where(access: nil)
-    @approved_users = User.where(access: 1)
-    @admin_users = User.where(access: 2)
-    @user = User.find(params[:id])
     @user.update_attributes(:access => nil)
     respond_to do |format|
       format.js
@@ -129,7 +96,6 @@ class UsersController < ApplicationController
   end
 
   def mobile_disapprove
-    @user = User.find(params[:id])
     @user.update_attributes(:access => nil)
     redirect_to :back
   end
@@ -139,10 +105,6 @@ class UsersController < ApplicationController
       @not_approved_users = User.where("access = ? AND firstname LIKE ? OR lastname LIKE ? AND access IS ?",nil, "%#{params[:term]}%", "% #{params[:term]}%",nil)
       @approved_users = User.where("access = ? AND firstname LIKE ? OR lastname LIKE ? AND access = ?",1, "%#{params[:term]}%", "% #{params[:term]}%",1)
       @admin_users = User.where("access = ? AND firstname LIKE ? OR lastname LIKE ? AND access = ?",2, "%#{params[:term]}%", "% #{params[:term]}%",2)
-    else
-      @not_approved_users = User.where(access: nil)
-      @approved_users = User.where(access: 1)
-      @admin_users = User.where(access: 2)
     end
     respond_to do |format|
       format.js
@@ -150,9 +112,6 @@ class UsersController < ApplicationController
   end
 
   def disapprove_all
-    @not_approved_users = User.where(access: nil)
-    @approved_users = User.where(access: 1)
-    @admin_users = User.where(access: 2)
     @users = User.where(access: 1)
     @users.each do |user|
       user.update_attributes(:access => nil)
@@ -164,7 +123,7 @@ class UsersController < ApplicationController
 
   private
 
-    def get_data
+    def set_user_access_types
       @not_approved_users = User.where(access: nil)
       @approved_users = User.where(access: 1)
       @admin_users = User.where(access: 2)

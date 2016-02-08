@@ -11,7 +11,6 @@ class FilmschoolsController < ApplicationController
   end
 
   def show
-    @filmschool = Filmschool.find(params[:id])
     @filmschool_comment = FilmschoolComment.new
     @filmschool_comments = @filmschool.filmschool_comments.order('id DESC')
     respond_to do |format|
@@ -35,7 +34,7 @@ class FilmschoolsController < ApplicationController
 
   def update
     @filmschool.update(filmschool_params)
-    respond_with(@filmschool)
+    redirect_to filmschools_path
   end
 
   def destroy

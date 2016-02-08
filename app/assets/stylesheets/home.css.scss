@@ -837,10 +837,15 @@ p.created {
 }
 
 #map_id {
-  width: 97%;
-  min-height: 600px;
-  margin-bottom: 50px!important;
-  margin-top: -75px;
+  width: 100%;
+  height: 80%!important;
+  min-height: 60%!important;
+  max-height: 80%!important;
+  text-align: center!important;
+}
+
+.reveal-modal.open {
+  margin-bottom: 3%;
 }
 
 .tjena {
@@ -851,3 +856,18 @@ p.created {
   background: #111;
 }
 
+.remove-img {
+  width: 50px;
+  height: 20px;
+  float: left;
+  padding-left: 3px;
+}
+
+@media only screen and (max-width: 600px) {
+  #map_id {
+    height: 80%!important;
+    min-height: 60%!important;
+    max-height: 80%!important;
+    margin-top: 20%!important;
+  }
+}

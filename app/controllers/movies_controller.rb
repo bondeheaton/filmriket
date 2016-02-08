@@ -1,24 +1,21 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :check_admin!, only: [:edit, :update, :destroy]
+  before_action :set_ratings, only: [:index, :show]
   respond_to :html, :js
   before_filter :check_admin!, except: [:index, :show]
 
   def index
     @movies = Movie.all
     @rating = Rating.new
-    @ratings = Rating.where("movie_id = ?", params[:id])
     respond_with(@movies)
   end
 
   def show
     @rating = Rating.new
-    @ratings = Rating.where("movie_id = ?", params[:id])
-    @movie = Movie.find(params[:id])
     @booking = Booking.new
-    @bookings = @movie.bookings
     @movie_comment = MovieComment.new
-    #@movie_comments = MovieComment.where("movie_id = ?", params[:id]).reverse
+    @bookings = @movie.bookings
     @movie_comments = @movie.movie_comments.order('id DESC')
     respond_to do |format|
       format.js
@@ -41,7 +38,7 @@ class MoviesController < ApplicationController
 
   def update
     @movie.update(movie_params)
-    respond_with(@movie)
+    redirect_to movies_path
   end
 
   def destroy
@@ -53,8 +50,12 @@ class MoviesController < ApplicationController
     def set_movie
       @movie = Movie.find(params[:id])
     end
+    
+    def set_ratings
+      @ratings = Rating.where("movie_id = ?", params[:id])
+    end
 
     def movie_params
-      params.require(:movie).permit(:title, :description, :director, :genre, :playtime, :published, :videocover, :trailerlink)
+      params.require(:movie).permit(:title, :description, :director, :genre, :playtime, :published, :videocover, :trailerlink, :image_size, :country)
     end
 end

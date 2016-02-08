@@ -52,11 +52,11 @@
         </div>
       </div>
       <div class="large-6 columns medium-6 movie-box-wrapper">
-        <h4 class="index-heading">Partners</h4>
+        <h4 class="index-heading">Samarbeten</h4>
         <div class="content-wrapper">
           <div class="large-8 large-centered medium-8 medium-centered columns content">
 
-            <a href="#" data-reveal-id="partners"><%= image_tag("mockup.jpg") %></a>
+            <a href="#" data-reveal-id="partners"><%= image_tag("about-ruta2.png") %></a>
 
             <div id="partners" class="reveal-modal padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
               <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
@@ -78,13 +78,17 @@
 
             <a href="#" data-reveal-id="media"><%= image_tag("about-ruta3.png") %></a>
 
-            <div id="media" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <div id="media" class="reveal-modal padding-fix black-links" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
               <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 
               <h2 class="popup-text">Press</h2>
-              <p class="popup-text">
-                Medialänkar artiklar annan media om Filmriket
-              </p>
+							 <%= link_to '2015-10-14 SVT Smålandsnytt - Barnfilmfestival', 'http://www.svtplay.se/klipp/4199289/barnfilmfestival?start=auto', target: "_blank" %><br><br>
+							 <%= link_to '2015-10-14 Smålandsposten - Festival för unga filmälskare', '/pdf4.pdf', target: "_blank" %><br><br>
+							 <%= link_to '2015-10-14 SVT Smålandsnytt - Festivalen ska bredda barns syn på film', '/pdf3.pdf', target: "_blank" %><br><br>
+							 <%= link_to '2015-10-14 Öppna Kanalen Växjö - Invigning av BUFF Småland', 'http://okv.se/play/filmriket-reaktor-sydost/invigning-av-buff-smaland', target: "_blank" %><br><br>
+							 <%= link_to '2015-10-16 24 Kalmar - Unga filmfantaster visar bio på Kalmar teater', 'http://24kalmar.se/2015/10/16/unga-filmfantaster-visar-bio-pa-kalmar-teater/', target: "_blank" %><br><br>
+							 <%= link_to '2015-10-13 Barometern Kalmar - Filmfestival för unga kommer till Småland', '/pdf2.pdf', target: "_blank" %><br><br>
+							 <%= link_to '2015-12-09 Barometern Kalmar - Filmälskare har en klubb', '/pdf1.pdf', target: "_blank" %><br><br>
             </div>
           </div>
         </div>
@@ -99,9 +103,11 @@
           <div id="socialamedier" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
             <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 
-            <h2 class="popup-text">Sociala Medier Bilder?</h2>
+            <h2 class="popup-text"></h2>
             <p class="popup-text">
-              Medialänkar artiklar annan media om Filmriket
+							<% @media_photos.each do |media| %>
+							    <%= link_to image_tag(media.images.thumbnail.url), media.link, target: "_blank" %>
+							<% end %>
             </p>
           </div>
          </div>
@@ -205,7 +211,11 @@
         <h4 class="index-heading">Nyheter</h4>
         <div class="content-wrapper">
             <div class="large-8 large-centered medium-8 medium-centered columns content">
-              <%= link_to image_tag("mockup.jpg"), news_index_path %>
+							<% if News.first %>
+								<%= link_to image_tag(News.first.img), news_index_path %>
+							<% else %>
+              	<%= link_to image_tag("mockup.jpg"), news_index_path %>
+							<% end %>
             </div>
         </div>
       </div>

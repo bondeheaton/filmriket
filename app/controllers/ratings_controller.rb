@@ -23,12 +23,12 @@ class RatingsController < ApplicationController
 
   def create
     if Rating.exists?(:user_id => params[:rating][:user_id], :movie_id => params[:rating][:movie_id])
-      @rating = Rating.where('user_id = ? AND movie_id = ? ', params[:rating][:user_id], params[:rating][:movie_id]).take
-      @rating.value = params[:rating][:value]
-      @rating.save
+      rating = Rating.where('user_id = ? AND movie_id = ? ', params[:rating][:user_id], params[:rating][:movie_id]).take
+      rating.value = params[:rating][:value]
+      rating.save
     else
-      @rating = Rating.new(rating_params)
-      @rating.save
+      rating = Rating.new(rating_params)
+      rating.save
     end
     respond_to do |format|
       format.js

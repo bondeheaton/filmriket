@@ -40,12 +40,17 @@
   </div>
   <br>
   <div class="large-12 columns">
-    <%= f.label "Publicerad", class: 'white-text' %>
+    <%= f.label "År", class: 'white-text' %>
     <%= f.number_field :published %>
   </div>
   <br>
   <div class="large-12 columns">
-    <%= f.label "Trailer-länk", class: 'white-text' %>
+    <%= f.label "Land", class: 'white-text' %>
+    <%= f.text_field :country %>
+  </div>
+  <br>
+  <div class="large-12 columns">
+    <%= f.label "Trailer-länk (inkludera http:// i länken)", class: 'white-text' %>
     <%= f.text_field :trailerlink %>
   </div>
   <br>

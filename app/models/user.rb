@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates :firstname, presence: true
   validates :lastname, presence: true
-  validates :personalnumber, length: { is: 6 }, presence: true
+  validates :personalnumber, presence: true
   validates :phonenumber, presence: true
   validates :address, presence: true
   validates :zipcode, presence: true

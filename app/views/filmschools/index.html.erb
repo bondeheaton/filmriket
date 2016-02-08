@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="large-10 large-centered medium-10 medium-centered columns media-container" id="js-fix">
+  <div class="large-10 large-centered medium-10 medium-centered columns centering-fix" id="js-fix">
     <div id="movies-container" class="centered">
       <ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
         <% @filmschools.each do |movie| %>
@@ -9,13 +9,14 @@
                     <div class="movie-link2 filmschool-movie image fs-videolink-fix">
                       <%= raw(youtube_embed(movie.videolink)) %>
                     </div>
-                    <div class="movie-description rounded">
-                      <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
-                      <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %><br>
+                    <div class="movie-description rounded description-fix">
+                      <h4 class="movie-title"><%= movie.title %></h4>
+                      <%= movie.description.html_safe %>
                       <% if current_user %>
                           <% if current_user.access == 2 %>
-                              <%= link_to 'Redigera', edit_filmschool_path(movie) %> |
-                              <%= link_to 'Ta bort', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              <br/>
+                              <%= link_to '<b>Redigera</b>'.html_safe, edit_filmschool_path(movie) %> |
+                              <%= link_to '<b>Ta bort</b>'.html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' } %>
                           <% else %>
                           <% end %>
                       <% end %>

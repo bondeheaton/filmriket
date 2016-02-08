@@ -4,7 +4,7 @@ class NewsController < ApplicationController
   respond_to :html
 
   def index
-    @news = News.paginate(:page => params[:page], :per_page => 3).order(id: :desc)
+    @news = News.paginate(:page => params[:page], :per_page => 5).order(id: :desc)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @news }
@@ -32,7 +32,7 @@ class NewsController < ApplicationController
 
   def update
     @news.update(news_params)
-    respond_with(@news)
+    redirect_to news_index_path
   end
 
   def destroy

@@ -3,22 +3,25 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="row">
     <div class="large-12 columns">
-    <%= f.label "Email:", class: 'white-text' %><br />
+    <%= f.label "Email:", class: 'white-text' %>
     <%= f.email_field :email %>
     </div>
 
     <div class="large-12 columns">
-    <%= f.label "Lösenord", class: 'white-text' %><br />
+    <%= f.label "Lösenord:", class: 'white-text' %>
     <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="large-12 columns">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label 'Kom ihåg mig' %>
+			<div class="white-text">
+				<%= link_to f.label('Skicka nytt bekräftelsemail'), new_user_confirmation_path %>
+				<%= link_to f.label('Glömt lösenord'), new_user_password_path %>
+			</div>
     </div>
-  <% end -%>
-
+  <% end %>
   <div class="large-12 columns">
     <%= f.submit "Logga in", class: 'button expand' %>
   </div>

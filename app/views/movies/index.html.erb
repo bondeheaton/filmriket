@@ -1,6 +1,6 @@
 <div class="row">
   <div class="large-10 large-centered medium-10 medium-centered columns centering-fix" id="js-fix">
-    <div id="movies-container" class="centered ">
+    <div id="movies-container" class="centered">
       <ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
         <% @movies.each do |movie| %>
 
@@ -14,9 +14,16 @@
                             <%= image_tag(movie.videocover, size: "280x280") %>
                         <% end  %>
                       </div>
-                      <div class="movie-description rounded">
-                        <h4><%= movie.title[0..20].gsub(/\s\w+\s*$/,'...') %></h4>
-                        <%= movie.description[0..20].gsub(/\s\w+\s*$/,'...') %>
+                      <div class="movie-description rounded description-fix">
+                        <h4 class="movie-title"><%= movie.title %></h4>
+                        <%= movie.description.html_safe %>
+                        <% if current_user %>
+                          <% if current_user.access == 2 %>
+                              <%= link_to 'Redigera', edit_movie_path(movie) %> |
+                              <%= link_to 'Ta bort', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <% else %>
+                          <% end %>
+                      <% end %>
                       </div>
                   <% end %>
               </div>

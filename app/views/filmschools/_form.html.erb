@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+	<div class="large-12 large-centered columns">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+	<div class="large-12 large-centered columns">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.cktext_area :description %>
   </div>
-  <div class="field">
+	<div class="large-12 large-centered columns">
     <%= f.label :videolink %><br>
     <%= f.text_field :videolink %>
   </div>
-  <div class="actions">
+	<div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

@@ -12,13 +12,14 @@ class ClubsController < ApplicationController
   end
 
   def show
-    @clubs = Club.all
-    @club = Club.find(params[:id])
+    clubs = Club.all
     @users = @club.users
+    
     @seen_movies = []
     @reviews = []
     @club_movies = []
 
+    # Extract users seen-movies, reviews and club_movies to combine to club-stats
     @users.each do |user|
       user.ratings.each do |ratings|
         @seen_movies.push(ratings.movie)
@@ -30,24 +31,23 @@ class ClubsController < ApplicationController
         @club_movies.push(club_movie)
       end
     end
-
-
+    
     @seen_movies = @seen_movies.uniq
-
-    @user = current_user
-
+    
+    # Check clubs for coordinates
     @verifiedclubs = []
     if @club.longitude
       @verifiedclubs.push(@club)
     end
-    @clubs.each do |club|
-      unless club == @club
-        if club.longitude
-          @verifiedclubs.push(club)
+    clubs.each do |film_club|
+      unless film_club == @club
+        if film_club.longitude
+          @verifiedclubs.push(film_club)
         end
       end
     end
-
+    
+    # Create markers for google-map for each club with verified coordinates
     @hash = Gmaps4rails.build_markers(@verifiedclubs) do |club, marker|
       marker.lat club.latitude
       marker.lng club.longitude
@@ -57,11 +57,9 @@ class ClubsController < ApplicationController
               :height  => 32
               })
       marker.infowindow "#{view_context.link_to club.name, club_path(club), 'data-no-turbolink' => true}"
-
     end
 
     @upload = Upload.new
-
     respond_with(@clubs)
   end
 
@@ -76,21 +74,21 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     @club.save
-    @users = @club.users
-    @users.each do |user|
+    users = @club.users
+    users.each do |user|
       user.update_attributes(:status => 5)
     end
     respond_with(@club)
   end
 
   def update
-    @current_users = @club.users
-    @current_users.each do |user|
+    current_users = @club.users
+    current_users.each do |user|
       user.update_attributes(:status => 4)
     end
     @club.update(club_params)
-    @users = @club.users
-    @users.each do |user|
+    users = @club.users
+    users.each do |user|
       user.update_attributes(:status => 5)
     end
     respond_with(@club)
@@ -98,8 +96,8 @@ class ClubsController < ApplicationController
 
   def destroy
     @club.destroy
-    @users = @club.users
-    @users.each do |user|
+    users = @club.users
+    users.each do |user|
       user.update_attributes(:status => 4)
     end
     respond_with(@club)

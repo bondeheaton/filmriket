@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121113517) do
+ActiveRecord::Schema.define(version: 20160205091219) do
 
   create_table "admin_images", force: true do |t|
     t.string   "img"
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 20160121113517) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "club_id"
   end
 
+  add_index "club_movies", ["club_id"], name: "index_club_movies_on_club_id"
   add_index "club_movies", ["user_id"], name: "index_club_movies_on_user_id"
 
   create_table "clubs", force: true do |t|
@@ -147,8 +149,10 @@ ActiveRecord::Schema.define(version: 20160121113517) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "movie_id"
+    t.integer  "club_id"
   end
 
+  add_index "reviews", ["club_id"], name: "index_reviews_on_club_id"
   add_index "reviews", ["movie_id"], name: "index_reviews_on_movie_id"
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
@@ -164,12 +168,12 @@ ActiveRecord::Schema.define(version: 20160121113517) do
   create_table "users", force: true do |t|
     t.string   "firstname"
     t.string   "lastname"
-    t.integer  "personalnumber"
+    t.string   "personalnumber"
     t.string   "phonenumber"
     t.string   "avatar"
     t.string   "address"
     t.string   "city"
-    t.integer  "zipcode"
+    t.string   "zipcode"
     t.string   "parentmail"
     t.integer  "access"
     t.datetime "created_at"
