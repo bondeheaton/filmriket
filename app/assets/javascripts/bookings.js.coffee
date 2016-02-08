@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# Ajax call for movie bookings
+# Ajax call for movie bookings for admin control panel
 $(document).on 'ready page:load', ->
   $('.bookings_box .access').click (e) ->
     e.preventDefault()
