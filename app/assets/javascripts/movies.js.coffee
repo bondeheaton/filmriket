@@ -12,13 +12,13 @@ $(document).on 'click tap touchstart', '.reveal-modal-bg', ->
 $(window).load ->
   if getURL('movies') or getURL('filmschools') or getURL('club_movies')
     masonry()
-    resize_grid()
+    resizeGrid()
   return
 
 $(document).on 'page:change page:load', ->
   if getURL('movies') or getURL('filmschools') or getURL('club_movies')
     masonry()
-    resize_grid()
+    resizeGrid()
   return
 
 # Delay to make sure masonry loads properly
@@ -30,7 +30,7 @@ masonry = ->
     return
   ), 500
 
-resize_grid = ->
+resizeGrid = ->
   if $(document).width() > 1700
     $('.large-block-grid-3').addClass('large-block-grid-4')
   else
