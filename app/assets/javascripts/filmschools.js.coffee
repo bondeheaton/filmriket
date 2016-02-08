@@ -4,11 +4,11 @@
 
 $(document).on 'click', '.filmschool-link', ->
   setTimeout (->
-    bigscreen()
+    video_size()
   ), 1000
 
 # Change filmschool video size depending on screen size
-bigscreen = ->
+video_size = ->
   if $(document).width() > 1200 and $(document).width() < 1700
     $('#iframe-id').width(375).height(250)
   else if $(document).width() > 1700
