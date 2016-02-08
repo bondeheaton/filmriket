@@ -369,7 +369,17 @@ div.text-wrap{
 
 .movie-text {
   color: #666!important;
-  font-family: calibri!important;
+  font-family: "calibri", sans-serif, Verdana!important;
+  font-weight: normal!important;
+  font-style: normal!important;
+  p, b, a, span, h2 {
+    color: #666!important;
+    font-family: "calibri", sans-serif, Verdana!important;
+    font-weight: normal!important;
+    font-style: normal!important;
+    padding: 0!important;
+    margin: 0!important;
+  }
 }
 
 .bold {

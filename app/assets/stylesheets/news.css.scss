@@ -2,7 +2,25 @@
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.news-content-container {
+  width: 100%;
+  min-height: 200px;
+  margin: 0 auto;
+  color: #FFFFFF!important;
+  p, span {
+    margin: 0!important;
+    padding: 0!important;
+  }
+}
 
+.news-category {
+  float: left; 
+  margin-top: 5px;
+  width: auto;
+  padding-right: 3px;
+  height: 15px;
+  font-size: 10px!important;
+}
 
 .center-text {
   text-align: center;
