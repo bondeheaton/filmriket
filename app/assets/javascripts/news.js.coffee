@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
 $(document).on 'ready page:load', ->
   $('.pagination a').click ->
     $.get @href, null, null, 'script'
@@ -10,12 +9,13 @@ $(document).on 'ready page:load', ->
   return
 
 $(window).on 'orientationchange', ->
-  tabletfix()
+  centerGrid()
 
 $(document).on 'ready page:load', ->
-  tabletfix()
+  centerGrid()
 
-tabletfix = ->
+# Layout fix for specific mobile devises
+centerGrid = ->
   if $(document).width() > 760 and $(document).width() < 800
     $('.tablet-fix').addClass('medium-centered')
   else
