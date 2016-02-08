@@ -22,8 +22,3 @@ masonryLoad = (div) ->
       return
   ), 500
 
-$(document).on 'click', '.test-link', ->
-  $('#seen-movies').foundation 'reveal', 'close'
-  $('#movie-modal').html "<%= render '/movies/show' %>"
-  $('#movie-modal').foundation 'reveal', 'open'
-

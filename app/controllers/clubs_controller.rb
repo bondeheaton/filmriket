@@ -16,19 +16,13 @@ class ClubsController < ApplicationController
     @users = @club.users
     
     @seen_movies = []
-    @reviews = []
-    @club_movies = []
+    @reviews = @club.reviews
+    @club_movies = @club.club_movies
 
     # Extract users seen-movies, reviews and club_movies to combine to club-stats
     @users.each do |user|
       user.ratings.each do |ratings|
         @seen_movies.push(ratings.movie)
-      end
-      user.reviews.each do |review|
-        @reviews.push(review)
-      end
-      user.club_movies.each do |club_movie|
-        @club_movies.push(club_movie)
       end
     end
     
