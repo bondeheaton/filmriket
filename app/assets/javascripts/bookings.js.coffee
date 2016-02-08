@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# Ajax call for movie bookings
 $(document).on 'ready page:load', ->
   $('.bookings_box .access').click (e) ->
     e.preventDefault()
@@ -19,6 +20,3 @@ $(document).on 'ready page:load', ->
 $(document).on 'click', '#book_button', ->
   $(this).hide()
   $('#booked').html('Filmen är nu bokad')
-
-
-
