@@ -16,8 +16,8 @@ class ClubsController < ApplicationController
     @users = @club.users
     
     @seen_movies = []
-    @reviews = @club.reviews
-    @club_movies = @club.club_movies
+    @reviews = @club.reviews.where(active: 1)
+    @club_movies = @club.club_movies.where(active: 1)
 
     # Extract users seen-movies, reviews and club_movies to combine to club-stats
     @users.each do |user|
