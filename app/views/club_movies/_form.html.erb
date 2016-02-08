@@ -22,6 +22,20 @@
     <%= f.label "Beskrivning", class: 'white-text' %>
     <%= f.cktext_area :description, :cols => '500' %><br>
   </div>
+	<% if current_user.access == 2 %>
+  	<div class="large-12 columns">
+   	 	<%= f.label "Video-länk", class: 'white-text' %>
+   		<%= f.text_field :videolink %>
+	 	</div>
+		<div class="large-12 columns">
+			<%= f.label "Video-status (1 för aktiv 0 för inaktiv)", class: 'white-text' %>
+			<%= f.number_field :active %>
+		</div>
+  	<div class="large-12 columns">
+   	 	<%= f.label "Klubb", class: 'white-text' %>
+   		<%= f.collection_select :club_id, clubs, :id, :name, { multiple: false, 'style' => 'height:100px, width:100px'}%>
+	 	</div>
+ 	<% end %>
   <div class="large-12 columns">
     <%= f.submit "Skapa", class: 'button expand' %>
   </div>

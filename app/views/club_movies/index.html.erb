@@ -2,57 +2,47 @@
   <div class="large-10 large-centered medium-10 medium-centered columns media-container" id="js-fix">
     <div id="club-reviews-movies-container" class="centered">
       <ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
-        <% @club_movies.zip(@reviews).each do |movie, review| %>
-    
+        <% @videos.each do |video| %>
+						<% if video.active == 1 || current_user && current_user.access == 2 %>
             <li class="item">
               <div class="movie-container bordered-grey width-fix">
-                <% if movie %>
-                  <%= link_to club_movies_show_path(movie), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
+                <% if video.class == ClubMovie %>
+                  <%= link_to club_movies_show_path(video), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
                       <div class="movie-link2 image videolink-fix">
-                        <%= raw(youtube_embed(movie.videolink)) %>
+                        <%= raw(youtube_embed(video.videolink)) %>
                       </div>
                       <div class="movie-description rounded description-fix">
-                        <% if movie.title and movie.description %>
-                            <h4 class="movie-title"><%= movie.title %></h4>
-                            <%= movie.description.html_safe %>
-                        <% end %>
+	                      <h4 class="movie-title"><%= video.title %></h4>
+	                      <%= video.description.html_safe %>
                         <% if current_user %>
                           <% if current_user.access == 2 %>
-                              <%= link_to 'Redigera', edit_club_movie_path(movie) %> |
-                              <%= link_to 'Ta bort', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
-                          <% else %>
+                              <%= link_to 'Redigera', edit_club_movie_path(video) %> |
+                              <%= link_to 'Ta bort', video, method: :delete, data: { confirm: 'Are you sure?' } %>
                           <% end %>
-                      <% end %>
+                      	<% end %>
+                      </div>
+                  <% end %>
+									<% else %>
+                  	<%= link_to review_show_path(video), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
+                      <div class="movie-link2 image videolink-fix">
+                        <%= raw(youtube_embed(video.videolink)) %>
+                      </div>
+                      <div class="movie-description rounded description-fix">
+	                      <h4 class="movie-title"><%= video.title %></h4>
+	                      <%= video.description.html_safe %>
+                        <% if current_user %>
+                          <% if current_user.access == 2 %>
+                              <%= link_to 'Redigera', edit_review_path(video) %> |
+                              <%= link_to 'Ta bort', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <% end %>
+                      	<% end %>
                       </div>
                   <% end %>
                 <% end %>
+							<% end %>
               </div>
             </li>
-            <li class="item">
-              <div class="movie-container bordered-grey width-fix">
-                <% if review %>
-                  <%= link_to review_show_path(review), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
-                      <div class="movie-link2 image videolink-fix">
-                        <%= raw(youtube_embed(review.videolink)) %>
-                      </div>
-                      <div class="movie-description rounded description-fix">
-                        <% if review.description %>
-                            <h4 class="movie-title"><%= review.movie.title %></h4>
-                            <%= review.description.html_safe %>
-                        <% end %>
-                        <% if current_user %>
-                          <% if current_user.access == 2 %>
-                              <%= link_to 'Redigera', edit_review_path(review) %> |
-                              <%= link_to 'Ta bort', review, method: :delete, data: { confirm: 'Are you sure?' } %>
-                          <% else %>
-                          <% end %>
-                      <% end %>
-                      </div>
-                  <% end %>
-                <% end %>
-              </div>
-            </li>
-        <% end %>
+				<% end %>
       </ul>
     </div>
   </div>

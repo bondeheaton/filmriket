@@ -5,6 +5,8 @@ class Club < ActiveRecord::Base
   has_many :participants, dependent: :destroy
   has_many :events, :through => :participants, dependent: :destroy
   has_many :uploads, dependent: :destroy
+  has_many :club_movies
+  has_many :reviews
 
   def self.score(club)
     @users = club.users
