@@ -2,9 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on 'click', '.close-movie-modal', ->
-  $('#club-reviews-movies-modal').foundation('reveal', 'close')
-
 $(window).load ->
   if getURL('club_movies')
     masonry()
@@ -17,7 +14,6 @@ $(document).on 'page:change page:load', ->
     bigscreen()
   return
 
-
 masonry = ->
   setTimeout (->
     $('#masonry-container').masonry ->
@@ -26,13 +22,14 @@ masonry = ->
     return
   ), 500
 
+# Change grid on full hd screens
 bigscreen = ->
   if $(document).width() > 1700
     $('.large-block-grid-3').addClass('large-block-grid-4')
   else
     $('.large-block-grid-3').removeClass('large-block-grid-4')
 
-
+# Extract and format URL 
 getURL = (param) ->
   pathname = window.location.pathname.split( '/' )
   if param == pathname[1]
