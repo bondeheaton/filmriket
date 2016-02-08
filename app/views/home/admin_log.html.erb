@@ -26,7 +26,7 @@
     <h1 class="admin_header">KLUBBFILMER</h1>
       <% @club_movies.each do |club_movie| %>
         <div class="club_movies">
-            <b><%= club_movie.user.club.name %></b> 
+            <b><%= club_movie.user.email %></b> 
             har skapat en film: 
             <%= club_movie.title %><br>
             <div class="button-fix">
