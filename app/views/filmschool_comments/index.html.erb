@@ -1,5 +1,4 @@
 <h1>Listing filmschool_comments</h1>
-
 <table>
   <thead>
     <tr>
@@ -9,7 +8,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @filmschool_comments.each do |filmschool_comment| %>
       <tr>
@@ -23,7 +21,5 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Filmschool comment', new_filmschool_comment_path %>

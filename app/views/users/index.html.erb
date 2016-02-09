@@ -1,230 +1,203 @@
 <head xmlns="http://www.w3.org/1999/html">
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
-
-
 <div class="row">
-
-<div class="users_box">
-
-  <div class="small-12 small-centered columns">
-  <h1 class="users_h1">Väntar på godkännade</h1>
-
-    <table class="footable table">
-      <thead>
-      <tr>
-        <th data-hide="phone">Förnamn</th>
-        <th data-hide="phone">Efternamn</th>
-        <th data-toggle="true">Email</th>
-        <th data-hide="phone">Födelsedatum</th>
-        <th data-hide="phone">Telefonnummer</th>
-        <th data-hide="phone">Poäng</th>
-        <th data-hide="phone" colspan="4"></th>
-      </tr>
-    </thead>
-
-    <tbody id="not_approved">
-    <%= render 'users/not_approved' %>
-    </tbody>
-  </table>
-  </div>
-
-
-  <div class="small-12 small-centered columns">
-  <h1 class="users_h1">Godkända Användare</h1>
-
-  <table class="footable table">
-    <thead>
-    <tr>
-      <th data-hide="phone">Förnamn</th>
-      <th data-hide="phone">Efternamn</th>
-      <th data-toggle="true">Email</th>
-      <th data-hide="phone">Födelsedatum</th>
-      <th data-hide="phone">Telefonnummer</th>
-      <th data-hide="phone">Poäng</th>
-      <th data-hide="phone" colspan="4"></th>
-    </tr>
-    </thead>
-
-
-    <tbody id="approved">
-    <%= render 'users/approve' %>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="small-11 small-centered columns">
-  <h1 class="users_h1">Admin-Användare</h1>
-
-
-    <table class="footable table">
-      <thead>
-      <tr>
-        <th data-hide="phone">Förnamn</th>
-        <th data-hide="phone">Efternamn</th>
-        <th data-toggle="true">Email</th>
-        <th data-hide="phone">Födelsedatum</th>
-        <th data-hide="phone">Telefonnummer</th>
-        <th data-hide="phone">Poäng</th>
-        <th data-hide="phone" colspan="4"></th>
-      </tr>
-    </thead>
-
-    <tbody id="admin_approved">
-    <%= render 'users/admin_approve'%>
-    </tbody>
-  </table>
-  </div>
-  <br>
-
-
-  <hr>
-  <div class="small-11 small-centered columns">
-
-  <h2 class="status_header">Vill gå med i klubb</h2>
-  <table class="footable table">
-    <thead>
-    <tr>
-      <th data-hide="phone">Förnamn</th>
-      <th data-hide="phone">Efternamn</th>
-      <th data-toggle="true">Email</th>
-      <th data-hide="phone">Födelsedatum</th>
-      <th data-hide="phone">Telefonnummer</th>
-      <th data-hide="phone">Postnummer</th>
-      <th data-hide="phone">Meddelande</th>
-    </tr>
-    </thead>
-    <tbody>
-  <% @users_join_club.each do |user| %>
-        <tr>
-        <td><%= user.firstname %></td>
-        <td><%= user.lastname %></td>
-        <td><%= user.email %></td>
-        <td><%= user.personalnumber %></td>
-        <td><%= user.phonenumber %></td>
-        <td><%= user.zipcode %></td>
-        <td><%= user.statusmessage %></td>
-        </tr>
-  <% end %>
-  </tbody>
-  </table>
-
-  <h2 class="status_header">Vill starta klubb</h2>
-
-    <table class="footable table">
-      <thead>
-      <tr>
-        <th data-hide="phone">Förnamn</th>
-        <th data-hide="phone">Efternamn</th>
-        <th data-toggle="true">Email</th>
-        <th data-hide="phone">Födelsedatum</th>
-        <th data-hide="phone">Telefonnummer</th>
-        <th data-hide="phone">Postnummer</th>
-        <th data-hide="phone">Meddelande</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @users_start_club.each do |user| %>
-          <tr>
-            <td><%= user.firstname %></td>
-            <td><%= user.lastname %></td>
-            <td><%= user.email %></td>
-            <td><%= user.personalnumber %></td>
-            <td><%= user.phonenumber %></td>
-            <td><%= user.zipcode %></td>
-            <td><%= user.statusmessage %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-
-  <h2 class="status_header">Letar klubb</h2>
-
-    <table class="footable table">
-      <thead>
-      <tr>
-        <th data-hide="phone">Förnamn</th>
-        <th data-hide="phone">Efternamn</th>
-        <th data-toggle="true">Email</th>
-        <th data-hide="phone">Födelsedatum</th>
-        <th data-hide="phone">Telefonnummer</th>
-        <th data-hide="phone">Postnummer</th>
-        <th data-hide="phone">Meddelande</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @users_looking_for_club.each do |user| %>
-          <tr>
-            <td><%= user.firstname %></td>
-            <td><%= user.lastname %></td>
-            <td><%= user.email %></td>
-            <td><%= user.access %></td>
-            <td><%= user.phonenumber %></td>
-            <td><%= user.zipcode %></td>
-            <td><%= user.statusmessage %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-
-  <h2 class="status_header">Gått ur klubb</h2>
-
-    <table class="footable table">
-      <thead>
-      <tr>
-        <th data-hide="phone">Förnamn</th>
-        <th data-hide="phone">Efternamn</th>
-        <th data-toggle="true">Email</th>
-        <th data-hide="phone">Födelsedatum</th>
-        <th data-hide="phone">Telefonnummer</th>
-        <th data-hide="phone">Postnummer</th>
-        <th data-hide="phone">Meddelande</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @users_left_club.each do |user| %>
-          <tr>
-            <td><%= user.firstname %></td>
-            <td><%= user.lastname %></td>
-            <td><%= user.email %></td>
-            <td><%= user.personalnumber %></td>
-            <td><%= user.phonenumber %></td>
-            <td><%= user.zipcode %></td>
-            <td><%= user.statusmessage %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-
-  <h2 class="status_header">Är med i klubb</h2>
-
-    <table class="footable table">
-      <thead>
-      <tr>
-        <th data-hide="phone">Förnamn</th>
-        <th data-hide="phone">Efternamn</th>
-        <th data-toggle="true">Email</th>
-        <th data-hide="phone">Födelsedatum</th>
-        <th data-hide="phone">Telefonnummer</th>
-        <th data-hide="phone">Postnummer</th>
-        <th data-hide="phone">Meddelande</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @users_with_club.each do |user| %>
-          <tr>
-            <td><%= user.firstname %></td>
-            <td><%= user.lastname %></td>
-            <td><%= user.email %></td>
-            <td><%= user.personalnumber %></td>
-            <td><%= user.phonenumber %></td>
-            <td><%= user.zipcode %></td>
-            <td><%= user.statusmessage %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
-
-</div>
+	<div class="users_box">
+		<div class="small-12 small-centered columns">
+			<h1 class="users_h1">Väntar på godkännade</h1>
+			<table class="footable table">
+				<thead>
+					<tr>
+						<th data-hide="phone">Förnamn</th>
+						<th data-hide="phone">Efternamn</th>
+						<th data-toggle="true">Email</th>
+						<th data-hide="phone">Födelsedatum</th>
+						<th data-hide="phone">Telefonnummer</th>
+						<th data-hide="phone">Poäng</th>
+						<th data-hide="phone" colspan="4"></th>
+					</tr>
+				</thead>
+				<tbody id="not_approved">
+					<%= render 'users/not_approved' %>
+				</tbody>
+			</table>
+		</div>
+		<div class="small-12 small-centered columns">
+			<h1 class="users_h1">Godkända Användare</h1>
+			<table class="footable table">
+				<thead>
+					<tr>
+						<th data-hide="phone">Förnamn</th>
+						<th data-hide="phone">Efternamn</th>
+						<th data-toggle="true">Email</th>
+						<th data-hide="phone">Födelsedatum</th>
+						<th data-hide="phone">Telefonnummer</th>
+						<th data-hide="phone">Poäng</th>
+						<th data-hide="phone" colspan="4"></th>
+					</tr>
+				</thead>
+				<tbody id="approved">
+					<%= render 'users/approve' %>
+				</tbody>
+			</table>
+		</div>
+		<div class="small-11 small-centered columns">
+			<h1 class="users_h1">Admin-Användare</h1>
+			<table class="footable table">
+				<thead>
+					<tr>
+						<th data-hide="phone">Förnamn</th>
+						<th data-hide="phone">Efternamn</th>
+						<th data-toggle="true">Email</th>
+						<th data-hide="phone">Födelsedatum</th>
+						<th data-hide="phone">Telefonnummer</th>
+						<th data-hide="phone">Poäng</th>
+						<th data-hide="phone" colspan="4"></th>
+					</tr>
+				</thead>
+				<tbody id="admin_approved">
+					<%= render 'users/admin_approve'%>
+				</tbody>
+			</table>
+		</div>
+		<br>
+		<hr>
+		<div class="small-11 small-centered columns">
+			<h2 class="status_header">Vill gå med i klubb</h2>
+			<table class="footable table">
+				<thead>
+					<tr>
+						<th data-hide="phone">Förnamn</th>
+						<th data-hide="phone">Efternamn</th>
+						<th data-toggle="true">Email</th>
+						<th data-hide="phone">Födelsedatum</th>
+						<th data-hide="phone">Telefonnummer</th>
+						<th data-hide="phone">Postnummer</th>
+						<th data-hide="phone">Meddelande</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @users_join_club.each do |user| %>
+						<tr>
+							<td><%= user.firstname %></td>
+							<td><%= user.lastname %></td>
+							<td><%= user.email %></td>
+							<td><%= user.personalnumber %></td>
+							<td><%= user.phonenumber %></td>
+							<td><%= user.zipcode %></td>
+							<td><%= user.statusmessage %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<h2 class="status_header">Vill starta klubb</h2>
+			<table class="footable table">
+				<thead>
+					<tr>
+						<th data-hide="phone">Förnamn</th>
+						<th data-hide="phone">Efternamn</th>
+						<th data-toggle="true">Email</th>
+						<th data-hide="phone">Födelsedatum</th>
+						<th data-hide="phone">Telefonnummer</th>
+						<th data-hide="phone">Postnummer</th>
+						<th data-hide="phone">Meddelande</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @users_start_club.each do |user| %>
+						<tr>
+							<td><%= user.firstname %></td>
+							<td><%= user.lastname %></td>
+							<td><%= user.email %></td>
+							<td><%= user.personalnumber %></td>
+							<td><%= user.phonenumber %></td>
+							<td><%= user.zipcode %></td>
+							<td><%= user.statusmessage %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<h2 class="status_header">Letar klubb</h2>
+			<table class="footable table">
+				<thead>
+					<tr>
+						<th data-hide="phone">Förnamn</th>
+						<th data-hide="phone">Efternamn</th>
+						<th data-toggle="true">Email</th>
+						<th data-hide="phone">Födelsedatum</th>
+						<th data-hide="phone">Telefonnummer</th>
+						<th data-hide="phone">Postnummer</th>
+						<th data-hide="phone">Meddelande</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @users_looking_for_club.each do |user| %>
+						<tr>
+							<td><%= user.firstname %></td>
+							<td><%= user.lastname %></td>
+							<td><%= user.email %></td>
+							<td><%= user.access %></td>
+							<td><%= user.phonenumber %></td>
+							<td><%= user.zipcode %></td>
+							<td><%= user.statusmessage %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<h2 class="status_header">Gått ur klubb</h2>
+			<table class="footable table">
+				<thead>
+					<tr>
+						<th data-hide="phone">Förnamn</th>
+						<th data-hide="phone">Efternamn</th>
+						<th data-toggle="true">Email</th>
+						<th data-hide="phone">Födelsedatum</th>
+						<th data-hide="phone">Telefonnummer</th>
+						<th data-hide="phone">Postnummer</th>
+						<th data-hide="phone">Meddelande</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @users_left_club.each do |user| %>
+						<tr>
+							<td><%= user.firstname %></td>
+							<td><%= user.lastname %></td>
+							<td><%= user.email %></td>
+							<td><%= user.personalnumber %></td>
+							<td><%= user.phonenumber %></td>
+							<td><%= user.zipcode %></td>
+							<td><%= user.statusmessage %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<h2 class="status_header">Är med i klubb</h2>
+			<table class="footable table">
+				<thead>
+					<tr>
+						<th data-hide="phone">Förnamn</th>
+						<th data-hide="phone">Efternamn</th>
+						<th data-toggle="true">Email</th>
+						<th data-hide="phone">Födelsedatum</th>
+						<th data-hide="phone">Telefonnummer</th>
+						<th data-hide="phone">Postnummer</th>
+						<th data-hide="phone">Meddelande</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @users_with_club.each do |user| %>
+						<tr>
+							<td><%= user.firstname %></td>
+							<td><%= user.lastname %></td>
+							<td><%= user.email %></td>
+							<td><%= user.personalnumber %></td>
+							<td><%= user.phonenumber %></td>
+							<td><%= user.zipcode %></td>
+							<td><%= user.statusmessage %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>

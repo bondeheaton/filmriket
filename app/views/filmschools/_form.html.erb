@@ -1,29 +1,27 @@
 <%= form_for(@filmschool) do |f| %>
-  <% if @filmschool.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@filmschool.errors.count, "error") %> prohibited this filmschool from being saved:</h2>
-
-      <ul>
-      <% @filmschool.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+	<% if @filmschool.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@filmschool.errors.count, "error") %> prohibited this filmschool from being saved:</h2>
+			<ul>
+				<% @filmschool.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 	<div class="large-12 large-centered columns">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
+		<%= f.label :Titel %><br>
+		<%= f.text_field :title %>
+	</div>
 	<div class="large-12 large-centered columns">
-    <%= f.label :description %><br>
-    <%= f.cktext_area :description %>
-  </div>
+		<%= f.label :Beskrivning %><br>
+		<%= f.cktext_area :description %>
+	</div>
 	<div class="large-12 large-centered columns">
-    <%= f.label :videolink %><br>
-    <%= f.text_field :videolink %>
-  </div>
+		<%= f.label :Videolänk %><br>
+		<%= f.text_field :videolink %>
+	</div>
 	<div class="actions">
-    <%= f.submit %>
-  </div>
+		<%= f.submit %>
+	</div>
 <% end %>

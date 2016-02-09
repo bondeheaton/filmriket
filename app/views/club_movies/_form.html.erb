@@ -1,45 +1,42 @@
 <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
-<h2>Ny Klubbfilm</h2>
-<%= form_for(@club_movie) do |f| %>
- <div class="row">
-  <% if @club_movie.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@club_movie.errors.count, "error") %> prohibited this club_movie from being saved:</h2>
-
-      <ul>
-      <% @club_movie.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="large-12 columns">
-    <%= f.label "Titel", class: 'white-text' %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="large-12 columns">
-    <%= f.label "Beskrivning", class: 'white-text' %>
-    <%= f.cktext_area :description, :cols => '500' %><br>
-  </div>
-	<% if current_user.access == 2 %>
-  	<div class="large-12 columns">
-   	 	<%= f.label "Video-länk", class: 'white-text' %>
-   		<%= f.text_field :videolink %>
-	 	</div>
-		<div class="large-12 columns">
-			<%= f.label "Video-status (1 för aktiv 0 för inaktiv)", class: 'white-text' %>
-			<%= f.number_field :active %>
+	<h2>Ny Klubbfilm</h2>
+	<%= form_for(@club_movie) do |f| %>
+		<div class="row">
+			<% if @club_movie.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@club_movie.errors.count, "error") %> prohibited this club_movie from being saved:</h2>
+					<ul>
+						<% @club_movie.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+			<div class="large-12 columns">
+				<%= f.label "Titel", class: 'white-text' %>
+				<%= f.text_field :title %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Beskrivning", class: 'white-text' %>
+				<%= f.cktext_area :description, :cols => '500' %><br>
+			</div>
+			<% if current_admin? %>
+				<div class="large-12 columns">
+					<%= f.label "Video-länk", class: 'white-text' %>
+					<%= f.text_field :videolink %>
+				</div>
+				<div class="large-12 columns">
+					<%= f.label "Video-status (1 för aktiv 0 för inaktiv)", class: 'white-text' %>
+					<%= f.number_field :active %>
+				</div>
+				<div class="large-12 columns">
+					<%= f.label "Klubb", class: 'white-text' %>
+					<%= f.collection_select :club_id, clubs, :id, :name, { multiple: false, 'style' => 'height:100px, width:100px'}%>
+				</div>
+			<% end %>
+			<div class="large-12 columns">
+				<%= f.submit "Skapa", class: 'button expand' %>
+			</div>
 		</div>
-  	<div class="large-12 columns">
-   	 	<%= f.label "Klubb", class: 'white-text' %>
-   		<%= f.collection_select :club_id, clubs, :id, :name, { multiple: false, 'style' => 'height:100px, width:100px'}%>
-	 	</div>
- 	<% end %>
-  <div class="large-12 columns">
-    <%= f.submit "Skapa", class: 'button expand' %>
-  </div>
- </div>
-<% end %>
-
+	<% end %>
 </div>

@@ -1,120 +1,118 @@
 <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+	<%= render 'sign_up_info' %>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		<div class="row">
+			<%= devise_error_messages! %>
+			<div class="large-12 columns">
+				<%= f.label "Mail:", class: 'white-text' %>
+				<%= f.email_field :parentmail %>
+				<%= f.hidden_field :ownemail, :value => ""%>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Förnamn:", class: 'white-text' %>
+				<%= f.text_field :firstname %>
+				<%= f.hidden_field :points, :value => 0 %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Efternamn:", class: 'white-text' %>
+				<%= f.text_field :lastname %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Personnummer:", class: 'white-text' %>
+				<em class="white-text">(6 siffror, ex. 990101)</em>
+				<%= f.number_field :personalnumber %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Telefonnummer:", class: 'white-text' %>
+				<%= f.text_field :phonenumber %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Adress:", class: 'white-text' %>
+				<%= f.text_field :address %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Ort:", class: 'white-text' %>
+				<%= f.text_field :city %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Postnummer:", class: 'white-text' %>
+				<%= f.number_field :zipcode %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Målsmans förnamn:", class: 'white-text' %>
+				<%= f.text_field :parentfirstname %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Målsmans efternamn:", class: 'white-text' %>
+				<%= f.text_field :parentlastname %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Målsmans telefonnummer:", class: 'white-text' %>
+				<%= f.text_field :parentphonenumber %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Målsmans mail:", class: 'white-text' %>
+				<%= f.text_field :email %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Status:", class: 'white-text' %>
+				<%= f.select(:status, options_for_select(status_values)) %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Önskemål om klubb:", class: 'white-text' %>
+				<%= f.text_field :statusmessage %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Lösenord:", class: 'white-text' %>
+				<% if @minimum_password_length %>
+					<em class="white-text">(Minst <%= @minimum_password_length %> tecken)</em>
+				<% end %><br />
+				<%= f.password_field :password, autocomplete: "off" %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Bekräfta Lösenord:", class: 'white-text' %>
+				<%= f.password_field :password_confirmation, autocomplete: "off" %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Välj avatar:", class: 'white-text' %>
+				<img src="/avatar1.png" id="thumb" alt="avatar" width="100" height="100">
+				<%= f.radio_button(:avatar, 'avatar1') %>
 
-<%= render 'sign_up_info' %>
+				<img src="/avatar2.png" id="thumb" alt="avatar" width="100" height="100">
+				<%= f.radio_button :avatar, 'avatar2' %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <div class="row">
-      <%= devise_error_messages! %>
+				<img src="/avatar3.png" id="thumb" alt="avatar" width="100" height="100">
+				<%= f.radio_button :avatar, 'avatar3' %>
 
-      <div class="large-12 columns">
-        <%= f.label "Mail:", class: 'white-text' %>
-        <%= f.email_field :parentmail %>
-        <%= f.hidden_field :ownemail, :value => ""%>
-      </div>
+				<img src="/avatar4.png" id="thumb" alt="avatar" width="100" height="100">
+				<%= f.radio_button :avatar, 'avatar4' %>
 
-        <div class="large-12 columns">
-          <%= f.label "Förnamn:", class: 'white-text' %>
-          <%= f.text_field :firstname %>
-          <%= f.hidden_field :points, :value => 0 %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Efternamn:", class: 'white-text' %>
-          <%= f.text_field :lastname %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Personnummer:", class: 'white-text' %>
-					<em class="white-text">(6 siffror, ex. 990101)</em>
-          <%= f.number_field :personalnumber %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Telefonnummer:", class: 'white-text' %>
-          <%= f.text_field :phonenumber %>
-        </div>
-
-        <div class="large-12 columns">
-          <%= f.label "Adress:", class: 'white-text' %>
-          <%= f.text_field :address %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Ort:", class: 'white-text' %>
-          <%= f.text_field :city %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Postnummer:", class: 'white-text' %>
-          <%= f.number_field :zipcode %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Målsmans förnamn:", class: 'white-text' %>
-          <%= f.text_field :parentfirstname %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Målsmans efternamn:", class: 'white-text' %>
-          <%= f.text_field :parentlastname %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Målsmans telefonnummer:", class: 'white-text' %>
-          <%= f.text_field :parentphonenumber %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Målsmans mail:", class: 'white-text' %>
-          <%= f.text_field :email %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Status:", class: 'white-text' %>
-          <%= f.select(:status, options_for_select(status_values)) %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Önskemål om klubb:", class: 'white-text' %>
-          <%= f.text_field :statusmessage %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Lösenord:", class: 'white-text' %>
-          <% if @minimum_password_length %>
-              <em class="white-text">(Minst <%= @minimum_password_length %> tecken)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
-
-        <div class="large-12 columns">
-          <%= f.label "Bekräfta Lösenord:", class: 'white-text' %>
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-        <div class="large-12 columns">
-          <%= f.label "Välj avatar:", class: 'white-text' %>
-          <img src="/avatar1.png" id="thumb" alt="avatar" width="100" height="100">
-          <%= f.radio_button(:avatar, 'avatar1') %>
-
-          <img src="/avatar2.png" id="thumb" alt="avatar" width="100" height="100">
-          <%= f.radio_button :avatar, 'avatar2' %>
-
-          <img src="/avatar3.png" id="thumb" alt="avatar" width="100" height="100">
-          <%= f.radio_button :avatar, 'avatar3' %>
-
-          <img src="/avatar4.png" id="thumb" alt="avatar" width="100" height="100">
-          <%= f.radio_button :avatar, 'avatar4' %>
-
-          <img src="/avatar5.png" id="thumb" alt="avatar" width="100" height="100">
-          <%= f.radio_button :avatar, 'avatar5' %>
-          <br><br>
-        </div>
-        <div class="large-12 columns">
-          <p class="white-text"><%= f.check_box :agreement %>Acceptera<%= link_to "användaravtal", '/filmclub.pdf', class:'white-text', target: "_blank"%></p>
-        </div>
-        <div class="large-12 columns">
-          <p>Betala: Swish eller Bankgiro<br />
-          Swish: 1235704549<br />
-          Skriv ditt f&ouml;r- och efternamn i meddelandet</p>
-
-          <p>BankGiro: 481-8530<br />
-          M&auml;rk inbetalning med ditt f&ouml;r- och efternamn</p>
-
-          <p>Har du n&aring;gra fr&aring;gor om medlemskap i Filmriket kontakta oss<br />
-          Mail: filmriket@reaktorsydost.se</p>
-        </div>
-        <div class="large-12 columns">
-          <%= f.button "Bli medlem", class: 'button expand' %>
-        </div>
-  </div>
-<% end %>
+				<img src="/avatar5.png" id="thumb" alt="avatar" width="100" height="100">
+				<%= f.radio_button :avatar, 'avatar5' %>
+				<br><br>
+			</div>
+			<div class="large-12 columns">
+				<p class="white-text"><%= f.check_box :agreement %>Acceptera<%= link_to "användaravtal", '/filmclub.pdf', class:'white-text', target: "_blank"%></p>
+			</div>
+			<div class="large-12 columns">
+				<p>
+					Betala: Swish eller Bankgiro<br/>
+					Swish: 1235704549<br/>
+					Skriv ditt f&ouml;r- och efternamn i meddelandet
+				</p>
+				<p>
+					BankGiro: 481-8530<br/>
+					M&auml;rk inbetalning med ditt f&ouml;r- och efternamn
+				</p>
+				<p>
+					Har du n&aring;gra fr&aring;gor om medlemskap i Filmriket kontakta oss<br/>
+					Mail: filmriket@reaktorsydost.se
+				</p>
+			</div>
+			<div class="large-12 columns">
+				<%= f.button "Bli medlem", class: 'button expand' %>
+			</div>
+		</div>
+	<% end %>
 </div>
 <br><br>

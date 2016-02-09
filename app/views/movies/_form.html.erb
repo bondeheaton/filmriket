@@ -1,73 +1,71 @@
 <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
-<h2>Ny Film</h2>
-<%= form_for(@movie) do |f| %>
- <div class="row">
-  <% if @movie.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
-
-      <ul>
-      <% @movie.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="large-12 columns">
-    <%= f.label "Filmtitel", class: 'white-text' %>
-    <%= f.text_field :title %>
-  </div>
-  <br>
-  <div class="large-12 columns">
-    <%= f.label "Beskrivning", class: 'white-text' %>
-    <%= f.cktext_area :description %><br>
-  </div>
-  <br>
-  <div class="large-12 columns">
-    <%= f.label "Regissör", class: 'white-text' %>
-    <%= f.text_field :director %>
-  </div>
-  <br>
-  <div class="large-12 columns">
-    <%= f.label "Genre", class: 'white-text' %>
-    <%= f.text_field :genre %>
-  </div>
-  <br>
-  <div class="large-12 columns">
-    <%= f.label "Speltid", class: 'white-text' %>
-    <%= f.number_field :playtime %>
-  </div>
-  <br>
-  <div class="large-12 columns">
-    <%= f.label "År", class: 'white-text' %>
-    <%= f.number_field :published %>
-  </div>
-  <br>
-  <div class="large-12 columns">
-    <%= f.label "Land", class: 'white-text' %>
-    <%= f.text_field :country %>
-  </div>
-  <br>
-  <div class="large-12 columns">
-    <%= f.label "Trailer-länk (inkludera http:// i länken)", class: 'white-text' %>
-    <%= f.text_field :trailerlink %>
-  </div>
-  <br>
-  <div class="large-12 columns">
-    <span class="button expand btn-file">
-      Välj Bild
-	 <%= f.file_field :videocover %>
-    </span>
-  </div>
-  <div class="large-12 columns">
-    <%= f.label "Storlek, 2 = stor, 1 = liten" %>
-    <%= f.number_field :image_size %>
-  </div>
-  <div class="large-12 columns">
-    <%= f.submit "Skapa Film", :class => 'button expand' %>
-  </div>
- </div>
-<% end %>
+	<h2>Ny Film</h2>
+	<%= form_for(@movie) do |f| %>
+		<div class="row">
+			<% if @movie.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+					<ul>
+						<% @movie.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+			<div class="large-12 columns">
+				<%= f.label "Filmtitel", class: 'white-text' %>
+				<%= f.text_field :title %>
+			</div>
+			<br>
+			<div class="large-12 columns">
+				<%= f.label "Beskrivning", class: 'white-text' %>
+				<%= f.cktext_area :description %><br>
+			</div>
+			<br>
+			<div class="large-12 columns">
+				<%= f.label "Regissör", class: 'white-text' %>
+				<%= f.text_field :director %>
+			</div>
+			<br>
+			<div class="large-12 columns">
+				<%= f.label "Genre", class: 'white-text' %>
+				<%= f.text_field :genre %>
+			</div>
+			<br>
+			<div class="large-12 columns">
+				<%= f.label "Speltid", class: 'white-text' %>
+				<%= f.number_field :playtime %>
+			</div>
+			<br>
+			<div class="large-12 columns">
+				<%= f.label "År", class: 'white-text' %>
+				<%= f.number_field :published %>
+			</div>
+			<br>
+			<div class="large-12 columns">
+				<%= f.label "Land", class: 'white-text' %>
+				<%= f.text_field :country %>
+			</div>
+			<br>
+			<div class="large-12 columns">
+				<%= f.label "Trailer-länk (inkludera http:// i länken)", class: 'white-text' %>
+				<%= f.text_field :trailerlink %>
+			</div>
+			<br>
+			<div class="large-12 columns">
+				<span class="button expand btn-file">
+					Välj Bild
+					<%= f.file_field :videocover %>
+				</span>
+			</div>
+			<div class="large-12 columns">
+				<%= f.label "Storlek, 2 = stor, 1 = liten" %>
+				<%= f.number_field :image_size %>
+			</div>
+			<div class="large-12 columns">
+				<%= f.submit "Skapa Film", :class => 'button expand' %>
+			</div>
+		</div>
+	<% end %>
 </div>
 <br>

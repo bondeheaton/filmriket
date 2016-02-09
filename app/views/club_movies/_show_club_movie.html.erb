@@ -1,23 +1,22 @@
 <div class="row">
-  <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
-  <div class="large-10 large-centered medium-10 medium-centered columns movie margin-fix">
-    <div class="row">
-        <div class="large-11 columns large-centered">
-          <h4 class="movie-text">
-            <%= @club_movie.title %>
-          </h4>
-          <div class="club-movie">
-            <%= raw(youtube_embed(@club_movie.videolink )) %>
-          </div>
-        </div>
-    </div>
-
-   <div class="row">
-     <div class="large-11 columns large-centered">
-        <span class="movie-text">
-          <%= @club_movie.description.html_safe %></p>
-        </span>
-     </div>
-   </div>
-  </div>
+	<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+	<div class="large-10 large-centered medium-10 medium-centered columns movie margin-fix">
+		<div class="row">
+			<div class="large-11 columns large-centered">
+				<h4 class="movie-text">
+					<%= @club_movie.title %>
+				</h4>
+				<div class="club-movie">
+					<%= raw(youtube_embed(@club_movie.videolink )) %>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-11 columns large-centered">
+				<span class="movie-text">
+					<%= @club_movie.description.html_safe %>
+				</span>
+			</div>
+		</div>
+	</div>
 </div>

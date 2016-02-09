@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>User:</strong>
   <%= @booking.user.club.name %>
 </p>
-
 <p>
   <strong>Movie:</strong>
   <%= @booking.movie.title %>
 </p>
-
 <p>
   <strong>Status:</strong>
   <%= @booking.status %>
 </p>
-
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', bookings_path %>

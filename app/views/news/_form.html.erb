@@ -1,35 +1,33 @@
 <%= form_for(@news) do |f| %>
-  <% if @news.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
-
-      <ul>
-      <% @news.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="large-12 large-centered columns">
-    <%= f.label 'Titel' %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="large-12 large-centered columns">
-    <%= f.label 'Datum' %>
-    <%= f.datetime_select :newsdate, prompt: {day: 'Välj dag', month: 'Välj månad', year: 'Välj år', hour: 'Välj timme', minute: 'Välj minut'} %>
-  </div>
-  <div class="large-12 large-centered columns">
-    <%= f.select :category, ['Nyhet', 'Aktivitet', 'Tips', 'Evenemang']%>
-  </div>
-  <div class="large-12 large-centered columns">
-    <%= f.label 'Bild-länk' %>
-    <%= f.text_field :img %>
-  </div>
-  <div class="large-12 large-centered columns">
-    <%= f.cktext_area :content, :cols => '500' %>
-  </div>
-  <div class="large-12 large-centered columns">
-    <%= f.submit "Skapa nyhet", :class => 'button success' %>
-  </div>
+	<% if @news.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
+			<ul>
+				<% @news.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="large-12 large-centered columns">
+		<%= f.label 'Titel' %>
+		<%= f.text_field :title %>
+	</div>
+	<div class="large-12 large-centered columns">
+		<%= f.label 'Datum' %>
+		<%= f.datetime_select :newsdate, prompt: {day: 'Välj dag', month: 'Välj månad', year: 'Välj år', hour: 'Välj timme', minute: 'Välj minut'} %>
+	</div>
+	<div class="large-12 large-centered columns">
+		<%= f.select :category, ['Nyhet', 'Aktivitet', 'Tips', 'Evenemang']%>
+	</div>
+	<div class="large-12 large-centered columns">
+		<%= f.label 'Bild-länk' %>
+		<%= f.text_field :img %>
+	</div>
+	<div class="large-12 large-centered columns">
+		<%= f.cktext_area :content, :cols => '500' %>
+	</div>
+	<div class="large-12 large-centered columns">
+		<%= f.submit "Skapa nyhet", :class => 'button success' %>
+	</div>
 <% end %>

@@ -1,21 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Title:</strong>
+  <strong>Titel:</strong>
   <%= @event.title %>
 </p>
-
 <p>
-  <strong>Description:</strong>
+  <strong>Beskrivning:</strong>
   <%= @event.description %>
 </p>
-
 <p>
   <strong>Deltagande klubbar:</strong>
   <% @event.clubs.each do |club| %>
     <%= club.name %>
   <% end %>
 </p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Redigera', edit_event_path(@event) %> |
+<%= link_to 'Tillbaka', events_path %>

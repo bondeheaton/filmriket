@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Message:</strong>
   <%= @movie_comment.message %>
 </p>
-
 <p>
   <strong>User:</strong>
   <%= @movie_comment.user %>
 </p>
-
 <p>
   <strong>Movie:</strong>
   <%= @movie_comment.movie %>
 </p>
-
-<%= link_to 'Edit', edit_movie_comment_path(@movie_comment) %> |
-<%= link_to 'Back', movie_comments_path %>

@@ -38,8 +38,9 @@ class ApplicationController < ActionController::Base
     end
     
     def check_admin!
-      if current_user.access != 2
+      if current_user == nil || current_user.access != 2
         redirect_to root_path
       end
     end
+    
 end

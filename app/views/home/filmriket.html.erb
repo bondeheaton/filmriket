@@ -1,89 +1,84 @@
 <div class="row">
-  <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
-    <div class="row">
-      <div class="large-6 columns medium-6 movie-box-wrapper">
-        <h4 class="index-heading">Se prata och gör film!</h4>
-        <div class="content-wrapper">
-        <div class="large-8 large-centered medium-8 medium-centered columns content">
+	<div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+		<div class="row">
+			<div class="large-6 columns medium-6 movie-box-wrapper">
+				<h4 class="index-heading">Se prata och gör film!</h4>
+				<div class="content-wrapper">
+					<div class="large-8 large-centered medium-8 medium-centered columns content">
+						<a href="#" data-reveal-id="myModal"><%= image_tag("filmriket-ruta1.png") %></a>
+						<div id="myModal" class="reveal-modal padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+							<h2 class="popup-text">Se prata och gör film!</h2>
+							<p class="popup-text">
+								<p>I Filmrikets kan du tillsammans med dina v&auml;nner se starka, roliga, otroliga filmer som ifr&aring;gas&auml;tter, v&auml;cker debatt och ber&ouml;r. L&aring;t dig &#160;inspireras av storslagen film och l&auml;r dig diskutera och g&ouml;ra dina egna filmer. F&ouml;lj med p&aring; of&ouml;rgl&ouml;mliga filmtr&auml;ffar, se exklusiva f&ouml;rhandsvisningar och tr&auml;ffa riktiga filmstj&auml;rnor!</p>
 
-          <a href="#" data-reveal-id="myModal"><%= image_tag("filmriket-ruta1.png") %></a>
+								<p>Filmriket &auml;r f&ouml;r dig mellan 12-19 &aring;r som bor i Sverige. G&aring; med i en filmklubb i n&auml;rheten av d&auml;r du bor eller starta en ny filmklubb. I Filmklubbarna g&ouml;r vi fr&auml;mst tre saker &ndash; ser, prata och g&ouml;r egen film!</p>
 
-          <div id="myModal" class="reveal-modal padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-            <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+								<p>Filmklubbarna v&auml;ljer sj&auml;lv vilka filmer de skall se ur v&aring;rt filmutbud d&auml;r vi samlat n&aring;gra av Filmhistoriens b&auml;sta filmer. Efter filmen finns det fr&aring;gor som g&ouml;r att man l&auml;tt kommer ig&aring;ng och diskuterar filmen man just sett.</p>
 
-            <h2 class="popup-text">Se prata och gör film!</h2>
-            <p class="popup-text">
-              <p>I Filmrikets kan du tillsammans med dina v&auml;nner se starka, roliga, otroliga filmer som ifr&aring;gas&auml;tter, v&auml;cker debatt och ber&ouml;r. L&aring;t dig &#160;inspireras av storslagen film och l&auml;r dig diskutera och g&ouml;ra dina egna filmer. F&ouml;lj med p&aring; of&ouml;rgl&ouml;mliga filmtr&auml;ffar, se exklusiva f&ouml;rhandsvisningar och tr&auml;ffa riktiga filmstj&auml;rnor!</p>
+								<p>Innan ni ser n&auml;sta film &auml;r det dax att g&ouml;ra en egen film. Temat &auml;r fritt och man f&aring;r g&auml;rna inspireras av filmen man precis sett. Om filmklubben &auml;r intresserad f&aring;r ni en kostnadsfri workshop i hur man filmar och redigerar och s&aring; kan man ocks&aring; spana in Filmrikets egna Filmskola d&auml;r det finns massvis med tips p&aring; hur man g&ouml;r film med sin mobil eller surfplatta. N&auml;r filmen &auml;r klar l&auml;gger ni upp filmen p&aring; Filmrikets Youtubesida och er egne klubbsida.</p>
 
-              <p>Filmriket &auml;r f&ouml;r dig mellan 12-19 &aring;r som bor i Sverige. G&aring; med i en filmklubb i n&auml;rheten av d&auml;r du bor eller starta en ny filmklubb. I Filmklubbarna g&ouml;r vi fr&auml;mst tre saker &ndash; ser, prata och g&ouml;r egen film!</p>
-
-              <p>Filmklubbarna v&auml;ljer sj&auml;lv vilka filmer de skall se ur v&aring;rt filmutbud d&auml;r vi samlat n&aring;gra av Filmhistoriens b&auml;sta filmer. Efter filmen finns det fr&aring;gor som g&ouml;r att man l&auml;tt kommer ig&aring;ng och diskuterar filmen man just sett.</p>
-
-              <p>Innan ni ser n&auml;sta film &auml;r det dax att g&ouml;ra en egen film. Temat &auml;r fritt och man f&aring;r g&auml;rna inspireras av filmen man precis sett. Om filmklubben &auml;r intresserad f&aring;r ni en kostnadsfri workshop i hur man filmar och redigerar och s&aring; kan man ocks&aring; spana in Filmrikets egna Filmskola d&auml;r det finns massvis med tips p&aring; hur man g&ouml;r film med sin mobil eller surfplatta. N&auml;r filmen &auml;r klar l&auml;gger ni upp filmen p&aring; Filmrikets Youtubesida och er egne klubbsida.</p>
-
-              <p>Filmklubbarna blir ocks&aring; inbjudna till filmtr&auml;ffar med andra Filmklubbar lokalt och nationellt. Ni f&aring;r vara med och arrangera filmfestivaler som BUFF och delta i filmt&auml;vlingar som Noo Maraton<br />
-              Ett medlemsskap kostar 100 kr. &#160;</p>
-            </p>
-            <%= link_to "Bli medlem", new_user_registration_path %>
-          </div>
-         </div>
-        </div>
-      </div>
-      <div class="large-6 columns medium-6 movie-box-wrapper">
-        <h4 class="index-heading">Hur funkar Filmriket</h4>
-          <div class="large-8 large-centered medium-'8 medium-centered columns content-video">
-            <div class="video-container">
-               <%= raw(youtube_embed('https://www.youtube.com/watch?v=RMEA4IDjAh4')) %>
-            </div>
-          </div>
-        </div>
-    </div>
-    <div class="row">
-      <div class="large-6 columns medium-6 movie-box-wrapper">
-        <h4 class="index-heading">Se film</h4>
-        <div class="content-wrapper">
-          <div class="large-8 large-centered medium-8 medium-centered columns content">
-
-            <%= link_to image_tag("filmriket-ruta3.png"), movies_path, 'data-no-turbolink' => true %>
-          </div>
-        </div>
-      </div>
-      <div class="large-6 columns medium-6 movie-box-wrapper">
-        <h4 class="index-heading">Filmskolan</h4>
-        <div class="content-wrapper">
-          <div class="large-8 large-centered columns mediunm-8 medium-centered  content">
-            <%= link_to image_tag('filmskolan.png'), filmschools_path, 'data-no-turbolink' => true %>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="large-6 columns medium-6 movie-box-wrapper">
-        <h4 class='index-heading'>Klubbfilmer</h4>
-				  <div class="content-wrapper">
-						<div class="large-8 large-centered medium-8 medium-centered columns content">
-          		<%= link_to image_tag("filmriket-ruta5.png"), club_movies_path %>
-          	</div>
+								<p>Filmklubbarna blir ocks&aring; inbjudna till filmtr&auml;ffar med andra Filmklubbar lokalt och nationellt. Ni f&aring;r vara med och arrangera filmfestivaler som BUFF och delta i filmt&auml;vlingar som Noo Maraton<br />
+									Ett medlemsskap kostar 100 kr. &#160;</p>
+								</p>
+								<%= link_to "Bli medlem", new_user_registration_path %>
+						</div>
 					</div>
-      </div>
-      <div class="large-6 columns medium-6 movie-box-wrapper">
-        <h4 class="index-heading">Nyheter</h4>
-        <div class="content-wrapper">
-         <div class="large-8 large-centered medium-8 medium-centered columns content">
-							<% if News.first %>
-								<%= link_to image_tag(News.first.img), news_index_path %>
-							<% else %>
-              	<%= link_to image_tag("mockup.jpg"), news_index_path %>
-							<% end %>
-         </div>
-       </div>
-      </div>
-    </div>
-  </div>
+				</div>
+			</div>
+			
+			<div class="large-6 columns medium-6 movie-box-wrapper">
+				<h4 class="index-heading">Hur funkar Filmriket</h4>
+				<div class="large-8 large-centered medium-'8 medium-centered columns content-video">
+					<div class="video-container">
+						<%= raw(youtube_embed('https://www.youtube.com/watch?v=RMEA4IDjAh4')) %>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="large-6 columns medium-6 movie-box-wrapper">
+				<h4 class="index-heading">Se film</h4>
+				<div class="content-wrapper">
+					<div class="large-8 large-centered medium-8 medium-centered columns content">
+						<%= link_to image_tag("filmriket-ruta3.png"), movies_path, 'data-no-turbolink' => true %>
+					</div>
+				</div>
+			</div>
+			
+			<div class="large-6 columns medium-6 movie-box-wrapper">
+				<h4 class="index-heading">Filmskolan</h4>
+				<div class="content-wrapper">
+					<div class="large-8 large-centered columns mediunm-8 medium-centered  content">
+						<%= link_to image_tag('filmskolan.png'), filmschools_path, 'data-no-turbolink' => true %>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="large-6 columns medium-6 movie-box-wrapper">
+				<h4 class='index-heading'>Klubbfilmer</h4>
+				<div class="content-wrapper">
+					<div class="large-8 large-centered medium-8 medium-centered columns content">
+						<%= link_to image_tag("filmriket-ruta5.png"), club_movies_path %>
+					</div>
+				</div>
+			</div>
+			
+			<div class="large-6 columns medium-6 movie-box-wrapper">
+				<h4 class="index-heading">Nyheter</h4>
+				<div class="content-wrapper">
+					<div class="large-8 large-centered medium-8 medium-centered columns content">
+						<% if News.first %>
+							<%= link_to image_tag(News.first.img), news_index_path %>
+						<% else %>
+							<%= link_to image_tag("mockup.jpg"), news_index_path %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-
-
-
-

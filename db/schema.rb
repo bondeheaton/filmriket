@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20160205091219) do
     t.datetime "updated_at"
     t.string   "videocover"
     t.integer  "image_size"
+    t.string   "country"
   end
 
   create_table "news", force: true do |t|

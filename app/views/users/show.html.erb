@@ -1,69 +1,52 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Firstname:</strong>
   <%= @user.firstname %>
 </p>
-
 <p>
   <strong>Lastname:</strong>
   <%= @user.lastname %>
 </p>
-
 <p>
   <strong>Personalnumber:</strong>
   <%= @user.personalnumber %>
   <%= @user.bookings.count %>
 </p>
-
 <p>
   <strong>Phonenumber:</strong>
   0<%= @user.phonenumber %>
 </p>
-
 <p>
   <img src="http://filmriket.nu/img/<%= @user.avatar %>.png" id="thumb" alt="avatar" width="150" height="150">
 </p>
-
 <p>
   <strong>Adress:</strong>
   <%= @user.address %>
 </p>
-
 <p>
   <strong>City:</strong>
   <%= @user.city %>
 </p>
-
 <p>
   <strong>Zipcode:</strong>
   <%= @user.zipcode %>
 </p>
-
 <p>
   <strong>Parentmail:</strong>
   <%= @user.parentmail %>
 </p>
-
 <p>
   <strong>Access:</strong>
   <%= @user.access %>
 </p>
-
 <p>
   <strong>Points:</strong>
   <%= @user.points %>
 </p>
-
 <p>
   <strong>Status:</strong>
   <%= @user.status %>
 </p>
-
 <p>
   <strong>Statusmessage:</strong>
   <%= @user.statusmessage %>
 </p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

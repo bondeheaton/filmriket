@@ -1,72 +1,68 @@
 <div class="row adminlog" id="admin_log">
-  <div class="menu" id="menu">
-    <img src="reviews.png" width="60px" class="admin_log_icons" id="to_reviews">
-    <img src="movies.png" width="60px" class="admin_log_icons" id="to_clubmovies">
-    <img src="comments.png" width="60px" class="admin_log_icons" id="to_comments">
-    <img src="uploads.png" width="60px" class="admin_log_icons" id="to_uploads">
-    <img src="to_top.png" width="60px" class="admin_log_icons" id="to_top">
-  </div>
+	<div class="menu" id="menu">
+		<img src="reviews.png" width="60px" class="admin_log_icons" id="to_reviews">
+		<img src="movies.png" width="60px" class="admin_log_icons" id="to_clubmovies">
+		<img src="comments.png" width="60px" class="admin_log_icons" id="to_comments">
+		<img src="uploads.png" width="60px" class="admin_log_icons" id="to_uploads">
+		<img src="to_top.png" width="60px" class="admin_log_icons" id="to_top">
+	</div>
+	
+	<div class="medium-3 columns" id="reviews">
+		<h1 class="admin_header">RECENSIONER</h1>
+		<% @reviews.each do |review| %>
+			<div class="reviews">
+				<%= review.user.email %>
+				har gjort en recension:  
+				<%= review.title %><br>
+				<div class="button-fix">
+					<%= link_to 'Ta bort', review, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%>
+					<p class="created"><%= review.created_at %></p>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	
+	<div class="medium-3 columns" id="clubmovies">
+		<h1 class="admin_header">KLUBBFILMER</h1>
+		<% @club_movies.each do |club_movie| %>
+			<div class="club_movies">
+				<b><%= club_movie.user.email %></b> 
+				har skapat en film: 
+				<%= club_movie.title %><br>
+				<div class="button-fix">
+					<%= link_to 'Ta bort', club_movie, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%>
+					<p class="created"><%= club_movie.created_at %></p>
+				</div>
+			</div>
+		<% end %>
+	</div>
 
-   <div class="medium-3 columns" id="reviews">
-    <h1 class="admin_header">RECENSIONER</h1>
-      <% @reviews.each do |review| %>
-        <div class="reviews">
-            <%= review.user.email %>
-            har gjort en recension:  
-            <%= review.title %><br>
-            <div class="button-fix">
-              <%= link_to 'Ta bort', review, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%>
-            <p class="created"><%= review.created_at %></p>
-            </div>
-        </div>
-      <% end %>
-   </div>
+	<div class="medium-3 columns" id="comments">
+		<h1 class="admin_header">KOMMENTARER</h1>
+		<% @comments.each do |comment| %>
+			<div class="comments">
+				<% if comment.user %>
+					<b><%= comment.user.email %></b>
+				<% end %> 
+				har kommenterat "<%= comment.message %>" på 
+				<% if comment.class == MovieComment %>
+					<%= comment.movie.title %>
+				<% else %>
+					<%= comment.filmschool.title %>
+				<% end %><br>
+				<div class="button-fix"><%= link_to 'Ta bort', comment, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%><p class="created"><%= comment.created_at %></p></div>
+			</div>
+		<% end %>
+	</div>
 
-  <div class="medium-3 columns" id="clubmovies">
-    <h1 class="admin_header">KLUBBFILMER</h1>
-      <% @club_movies.each do |club_movie| %>
-        <div class="club_movies">
-            <b><%= club_movie.user.email %></b> 
-            har skapat en film: 
-            <%= club_movie.title %><br>
-            <div class="button-fix">
-              <%= link_to 'Ta bort', club_movie, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%>
-              <p class="created"><%= club_movie.created_at %></p>
-            </div>
-        </div>
-      <% end %>
-   </div>
-
-   <div class="medium-3 columns" id="comments">
-    <h1 class="admin_header">KOMMENTARER</h1>
-      <% @comments.each do |comment| %>
-        <div class="comments">
-          <% if comment.user %>
-           <b><%= comment.user.email %></b>
-          <% end %> 
-          
-          har kommenterat "<%= comment.message %>" på 
-          
-          <% if comment.class == MovieComment %>
-            <%= comment.movie.title %>
-          <% else %>
-            <%= comment.filmschool.title %>
-          <% end %><br>
-
-          <div class="button-fix"><%= link_to 'Ta bort', comment, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%><p class="created"><%= comment.created_at %></p></div>
-
-        </div>
-      <% end %>
-    </div>
-
-  <div class="medium-3 columns end" id="uploads">
-    <h1 class="admin_header">UPPLADDNINGAR</h1>
-    <% @uploads.each do |upload| %>
-        <div class="uploads">
-          <b><%= upload.club.name %></b> har laddat upp en bild:<br>
-            <img src="<%= upload.image %>" width="150" height="100" alt="<%= upload.club.name %>"></img><br>
-          <div class="button-fix"><%= link_to 'Ta bort', upload, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%><p class="created"><%= upload.created_at %></p></div>
-        </div>
-    <% end %>
-    </div>
+	<div class="medium-3 columns end" id="uploads">
+		<h1 class="admin_header">UPPLADDNINGAR</h1>
+		<% @uploads.each do |upload| %>
+			<div class="uploads">
+				<b><%= upload.club.name %></b> har laddat upp en bild:<br>
+				<img src="<%= upload.image %>" width="150" height="100" alt="<%= upload.club.name %>"></img><br>
+				<div class="button-fix"><%= link_to 'Ta bort', upload, method: :delete, data: { confirm: "Är du säker?"}, class: 'button tiny radius alert'%><p class="created"><%= upload.created_at %></p></div>
+			</div>
+		<% end %>
+	</div>
 </div>

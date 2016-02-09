@@ -1,49 +1,46 @@
 <%= form_for(@club) do |f| %>
-  <% if @club.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h2>
-
-      <ul>
-      <% @club.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <br>
-    <h3>Namn</h3>
-    <%= f.text_field :name %>
-  </div>
-    <br>
-  <div class="field">
-    <h3>Beskrivning</h3>
-    <%= f.text_field :description %>
-  </div>
-    <br>
-  <div class="field">
-    <h3>Adress</h3>
-    <%= f.text_field :address %>
-  </div>
-    <br>
-  <div class="field">
-    <h3>Postnummer</h3>
-    <%= f.number_field :zipcode %>
-  </div>
+	<% if @club.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h2>
+			<ul>
+				<% @club.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="field">
+		<br>
+		<h3>Namn</h3>
+		<%= f.text_field :name %>
+	</div>
 	<br>
-  <div class="field">
-    <h3>Extra-poäng</h3>
-    <%= f.number_field :points %>
-  </div>
-    <br>
-  <div class="field">
-	  <h3>Medlemmar</h3>
-    <%= f.label :Medlemmar %>
-    <%= f.collection_select :user_ids, users, :id, :email, {}, { multiple: true, 'style' => 'height:200px' } %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Skapa klubb", :class => 'button success' %>
-  </div>
+	<div class="field">
+		<h3>Beskrivning</h3>
+		<%= f.text_field :description %>
+	</div>
+	<br>
+	<div class="field">
+		<h3>Adress</h3>
+		<%= f.text_field :address %>
+	</div>
+	<br>
+	<div class="field">
+		<h3>Postnummer</h3>
+		<%= f.number_field :zipcode %>
+	</div>
+	<br>
+	<div class="field">
+		<h3>Extra-poäng</h3>
+		<%= f.number_field :points %>
+	</div>
+	<br>
+	<div class="field">
+		<h3>Medlemmar</h3>
+		<%= f.label :Medlemmar %>
+		<%= f.collection_select :user_ids, users, :id, :email, {}, { multiple: true, 'style' => 'height:200px' } %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Skapa klubb", :class => 'button success' %>
+	</div>
 <% end %>
