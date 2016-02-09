@@ -18,21 +18,13 @@ Rails.application.routes.draw do
     end
   end
 
-  #get 'home/index'
-
   get '/admin_log', :controller => 'home', :action => 'admin_log'
   get '/filmriket', :controller => 'home', :action => 'filmriket'
   get '/about', :controller => 'home', :action => 'about'
   get '/contact', :controller => 'home', :action => 'contact'
 
-  resources :events do
-    get :autocomplete_club_name, :on => :collection
-    member do
-      put 'add_club'
-      put 'delete_club'
-    end
-  end
-
+  resources :events
+  
   resources :news
 
   resources :ratings
@@ -43,29 +35,22 @@ Rails.application.routes.draw do
   resources :reviews do
     get 'upload'
     patch 'attach'
-    get 'attach'
-    get 'approve_review', to: 'reviews'
   end
 
   resources :club_movies do
     get 'upload'
     patch 'attach'
-    get 'attach'
-    get 'approve_club_movie', to: 'club_movies'
   end
 
   resources :movie_comments
 
   resources :movies
 
-  resources :clubs do
-    get :autocomplete_club_name, :on => :collection
-  end
+  resources :clubs
 
   devise_for :users
 
   resources :users do
-    get :ajax_on_users, :on => :collection
     member do
       put 'approve'
       put 'admin_approve'
