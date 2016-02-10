@@ -15,6 +15,9 @@
 			<%= f.file_field :image %>
 		</span>
 		<br>
+		<% if current_admin? %>
+			<%= f.hidden_field :club_id, :value => params[:id] %>
+		<% end %>
 		<%= f.submit 'Ladda upp', class: 'button' %>
 	</div>
 <% end %>
