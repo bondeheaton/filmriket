@@ -24,12 +24,12 @@ class PressesController < ApplicationController
   def create
     @press = Press.new(press_params)
     @press.save
-    respond_with(@press)
+    redirect_to presses_path
   end
 
   def update
     @press.update(press_params)
-    respond_with(@press)
+    redirect_to presses_path
   end
 
   def destroy
