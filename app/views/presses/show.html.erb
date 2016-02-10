@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @press.text %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @press.link %>
+</p>
+
+<%= link_to 'Edit', edit_press_path(@press) %> |
+<%= link_to 'Back', presses_path %>

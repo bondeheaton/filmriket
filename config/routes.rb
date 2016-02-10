@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :presses
+
   resources :admin_images
   
   resources :filmschool_comments
