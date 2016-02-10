@@ -44,7 +44,7 @@
 															<%= display_videocover(movie) %>
 														</div>
 														<div class="movie-description rounded description-fix">
-															<h4 class="movie-title"><%= movie.title.html_safe %></h4>
+															<h4 class="movie-title"><%= movie.title %></h4>
 															<%= movie.description.html_safe %>
 														</div>
 													<% end %>
@@ -82,7 +82,7 @@
 															<%= raw(youtube_embed(movie.videolink)) %>
 														</div>
 														<div class="movie-description rounded description-fix">
-															<h4 class="movie-title"><%= movie.title.html_safe %></h4>
+															<h4 class="movie-title"><%= movie.title %></h4>
 															<%= movie.description.html_safe %>
 														</div>
 													<% end %>
@@ -121,7 +121,7 @@
 															<%= raw(youtube_embed(review.videolink)) %>
 														</div>
 														<div class="movie-description rounded description-fix">
-															<h4 class="movie-title"><%= review.title.html_safe %></h4>
+															<h4 class="movie-title"><%= review.title %></h4>
 															<%= review.description.html_safe %>
 														</div>
 													<% end %>
