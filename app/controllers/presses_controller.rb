@@ -1,5 +1,6 @@
 class PressesController < ApplicationController
   before_action :set_press, only: [:show, :edit, :update, :destroy]
+  before_filter :check_admin!
 
   respond_to :html
 
