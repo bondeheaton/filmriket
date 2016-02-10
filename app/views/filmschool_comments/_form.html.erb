@@ -1,24 +1,21 @@
-<div class="large-12 large-centered columns">
-	<%= form_for(@filmschool_comment, remote: true) do |f| %>
-		<% if @filmschool_comment.errors.any? %>
-			<div id="error_explanation">
-				<h2><%= pluralize(@filmschool_comment.errors.count, "error") %> prohibited this filmschool_comment from being saved:</h2>
-				<ul>
-					<% @filmschool_comment.errors.full_messages.each do |message| %>
-						<li><%= message %></li>
-					<% end %>
-				</ul>
-			</div>
-		<% end %>
-		<div class="large-12 columns">
-			<div id="f_message_notice"></div>
-			<%= f.text_area :message, placeholder: "Skriv kommentar.." %>
-		</div>
-		<div class="field">
-			<%= f.hidden_field :filmschool_id, :value => params[:id] %>
-		</div>
-		<div class="actions">
-			<%= f.submit 'Skicka', class: 'button tiny' %>
+<br>
+<%= form_for(@filmschool_comment, remote: true) do |f| %>
+	<% if @filmschool_comment.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@filmschool_comment.errors.count, "error") %> prohibited this filmschool_comment from being saved:</h2>
+			<ul>
+				<% @filmschool_comment.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
 		</div>
 	<% end %>
-</div>
+	<div id="f_message_notice"></div>
+	<%= f.text_area :message, placeholder: "Skriv kommentar..", rows: '5' %>
+	<div class="field">
+		<%= f.hidden_field :filmschool_id, :value => params[:id] %>
+	</div>
+	<div class="actions marg-fix">
+		<%= f.submit 'Skicka', class: 'button tiny' %>
+	</div>
+<% end %>
