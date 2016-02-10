@@ -2,7 +2,6 @@
   <% if @press.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@press.errors.count, "error") %> prohibited this press from being saved:</h2>
-
       <ul>
       <% @press.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,16 +9,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+	<div class="large-12 large-centered columns">
     <%= f.label :text %><br>
     <%= f.text_field :text %>
   </div>
-  <div class="field">
-    <%= f.label :link %><br>
+	<div class="large-12 large-centered columns">
+    <%= f.label 'Länk' %><br>
     <%= f.text_field :link %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+	<div class="large-12 large-centered columns">
+    <%= f.submit 'Skapa presslänk', class: 'button success' %>
   </div>
 <% end %>
