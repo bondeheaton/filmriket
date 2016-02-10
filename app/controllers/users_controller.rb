@@ -120,6 +120,17 @@ class UsersController < ApplicationController
       format.js
     end
   end
+  
+  def manual_user_confirmation
+    unless @user.email == @user.ownemail
+      @user.parentmail = @user.email
+      @user.email = @user.ownemail
+      @user.skip_confirmation!
+      @user.confirm
+      @user.save
+    end
+    redirect_to :back
+  end
 
   private
 
@@ -136,6 +147,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:firstname, :lastname, :personalnumber, :phonenumber, :avatar, :adress, :city, :zipcode, :parentfirstname, :parentlastname, :parentphonenumber, :parentmail, :access, :agreement, :points, :status, :club_id)
+      params.require(:user).permit(:firstname, :lastname, :personalnumber, :phonenumber, :avatar, :adress, :city,
+                                   :zipcode, :parentfirstname, :parentlastname, :parentphonenumber, :parentmail,
+                                   :access, :agreement, :points, :status, :club_id)
     end
 end

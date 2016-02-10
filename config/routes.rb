@@ -52,6 +52,7 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
+      put 'manual_user_confirmation'
       put 'approve'
       put 'admin_approve'
       put 'disapprove'
