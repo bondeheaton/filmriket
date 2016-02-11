@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.item {
+  min-width: 285px!important;
+}
+
 .movie-title {
   font-size: 26px;
   font-family: "calibri";
