@@ -78,13 +78,9 @@
 						<div id="media" class="reveal-modal padding-fix black-links" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Press</h2>
-							<%= link_to '2015-12-09 Barometern Kalmar - Filmälskare har en klubb', '/pdf1.pdf', target: "_blank" %><br><br>
-							<%= link_to '2015-10-16 24 Kalmar - Unga filmfantaster visar bio på Kalmar teater', 'http://24kalmar.se/2015/10/16/unga-filmfantaster-visar-bio-pa-kalmar-teater/', target: "_blank" %><br><br>
-							<%= link_to '2015-10-14 SVT Smålandsnytt - Barnfilmfestival', 'http://www.svtplay.se/klipp/4199289/barnfilmfestival?start=auto', target: "_blank" %><br><br>
-							<%= link_to '2015-10-14 Smålandsposten - Festival för unga filmälskare', '/pdf4.pdf', target: "_blank" %><br><br>
-							<%= link_to '2015-10-14 SVT Smålandsnytt - Festivalen ska bredda barns syn på film', '/pdf3.pdf', target: "_blank" %><br><br>
-							<%= link_to '2015-10-14 Öppna Kanalen Växjö - Invigning av BUFF Småland', 'http://okv.se/play/filmriket-reaktor-sydost/invigning-av-buff-smaland', target: "_blank" %><br><br>
-							<%= link_to '2015-10-13 Barometern Kalmar - Filmfestival för unga kommer till Småland', '/pdf2.pdf', target: "_blank" %><br><br>
+							<% @presses.each do |press| %>
+								<%= link_to press.text, press.link, target: "_blank" %><br><br>
+							<% end %>
 						</div>
 					</div>
 				</div>

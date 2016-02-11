@@ -19,6 +19,7 @@ class HomeController < ApplicationController
   end
 
   def about
+    @presses = Press.all
     clubs = Club.all
     verifiedclubs = []
 
