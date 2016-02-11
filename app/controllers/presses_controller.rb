@@ -52,6 +52,6 @@ class PressesController < ApplicationController
     end
 
     def press_params
-      params.require(:press).permit(:text, :link, :text_file)
+      params.require(:press).permit(:text, :link, :text_file, :press_date)
     end
 end

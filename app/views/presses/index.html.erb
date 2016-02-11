@@ -3,6 +3,7 @@
     <tr>
       <th>Text</th>
       <th>Länk</th>
+			<th>Datum</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -11,6 +12,7 @@
       <tr>
         <td><%= press.text %></td>
         <td><%= link_to press.link, press.link %></td>
+				<td><%= press.press_date %>
         <td><%= link_to 'Redigera', edit_press_path(press) %></td>
         <td><%= link_to 'Ta bort', press, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

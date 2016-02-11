@@ -22,6 +22,10 @@
     <%= f.file_field :text_file %>
   </div>
 	<div class="large-12 large-centered columns">
+    <%= f.label 'Datum' %><br>
+		<%= f.datetime_select :press_date, prompt: {day: 'Välj dag', month: 'Välj månad', year: 'Välj år', hour: 'Välj timme', minute: 'Välj minut'} %>
+  </div>
+	<div class="large-12 large-centered columns">
     <%= f.submit 'Skapa presslänk', class: 'button success' %>
   </div>
 <% end %>
