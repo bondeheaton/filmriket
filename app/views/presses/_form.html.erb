@@ -18,6 +18,10 @@
     <%= f.text_field :link %>
   </div>
 	<div class="large-12 large-centered columns">
+    <%= f.label 'Text-fil' %><br>
+    <%= f.file_field :text_file %>
+  </div>
+	<div class="large-12 large-centered columns">
     <%= f.submit 'Skapa presslänk', class: 'button success' %>
   </div>
 <% end %>
