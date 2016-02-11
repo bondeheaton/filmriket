@@ -15,8 +15,8 @@
 											<h4 class="movie-title"><%= video.title %></h4>
 											<%= video.description.html_safe %>
 											<% if current_admin? %>
-												<%= link_to 'Redigera', edit_club_movie_path(video) %> |
-												<%= link_to 'Ta bort', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+												<%= link_to 'Redigera', edit_club_movie_path(video), class: 'admin-link' %> |
+												<%= link_to 'Ta bort', video, method: :delete, class: 'admin-link', data: { confirm: 'Are you sure?' } %>
 											<% end %>
 										</div>
 									<% end %>
@@ -29,8 +29,8 @@
 											<h4 class="movie-title"><%= video.title %></h4>
 											<%= video.description.html_safe %>
 											<% if current_admin? %>
-												<%= link_to 'Redigera', edit_review_path(video) %> |
-												<%= link_to 'Ta bort', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+												<%= link_to 'Redigera', edit_review_path(video), class: 'admin-link' %> |
+												<%= link_to 'Ta bort', video, method: :delete, class: 'admin-link', data: { confirm: 'Are you sure?' } %>
 											<% end %>
 										</div>
 									<% end %>

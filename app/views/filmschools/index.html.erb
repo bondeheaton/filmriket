@@ -14,8 +14,8 @@
 									<%= movie.description.html_safe %>
 									<% if current_admin? %>
 										<br/>
-										<%= link_to '<b>Redigera</b>'.html_safe, edit_filmschool_path(movie) %> |
-										<%= link_to '<b>Ta bort</b>'.html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+										<%= link_to '<b>Redigera</b>'.html_safe, edit_filmschool_path(movie), class: 'admin-link' %> |
+										<%= link_to '<b>Ta bort</b>'.html_safe, movie, method: :delete, class: 'admin-link', data: { confirm: 'Are you sure?' } %>
 									<% end %>
 								</div>
 							<% end %>
