@@ -7,6 +7,8 @@
 						<div class="movie-container bordered-grey width-fix">
 							<%= link_to movie, remote: true, data: {:"reveal-id" => "filmschool-modal"}, class: 'filmschool-link' do %>
 								<div class="movie-link2 image videolink-fix">
+									<div class="youtube-left-fix"></div>
+									<div class="youtube-right-fix"></div>
 									<%= raw(youtube_embed(movie.videolink)) %>
 								</div>
 								<div class="movie-description rounded description-fix filmschool-description">
