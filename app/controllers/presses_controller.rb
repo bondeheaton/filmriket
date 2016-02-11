@@ -24,11 +24,20 @@ class PressesController < ApplicationController
   def create
     @press = Press.new(press_params)
     @press.save
+    # Save first for uploaded file to move from temp to the right place
+    unless @press.text_file.nil?
+      @press.link = "http://filmriket.nu" + @press.text_file.url
+    end
+    @press.save
     redirect_to presses_path
   end
 
   def update
     @press.update(press_params)
+    unless @press.text_file.nil?
+      @press.link = "http://filmriket.nu" + @press.text_file.url
+    end
+    @press.save
     redirect_to presses_path
   end
 

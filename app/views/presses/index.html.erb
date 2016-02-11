@@ -10,7 +10,7 @@
     <% @presses.each do |press| %>
       <tr>
         <td><%= press.text %></td>
-        <td><%= press.link %></td>
+        <td><%= link_to press.link, press.link %></td>
         <td><%= link_to 'Redigera', edit_press_path(press) %></td>
         <td><%= link_to 'Ta bort', press, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
