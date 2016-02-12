@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 button#book_button    {
   background: asset-data-url('boka.png');
   background-repeat: no-repeat;
@@ -20,7 +19,6 @@ button#book_button:hover {
   background-position: center;
 }
 
-
 .bookings_box {
   text-align: center;
 }
@@ -34,7 +32,6 @@ button#book_button:hover {
     text-align: center
   }
 }
-
 
 th.b_head2 {
   padding: 5px !important;
@@ -52,12 +49,10 @@ td.buttons{
   padding-right: 2px !important;
 }
 
-
 td.content{
   padding: 5px !important;
   padding-right: 90px !important;
 }
-
 
 @media only screen and (max-width: 760px){
   h1 {

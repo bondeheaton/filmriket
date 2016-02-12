@@ -1,21 +1,23 @@
 <%= form_for(@upload) do |f| %>
-  <% if @upload.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
-
-      <ul>
-      <% @upload.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="actions">
-    <span class="button tiny btn-file">
-      Välj fil
-      <%= f.file_field :image %>
-    </span>
-      <br>
-      <%= f.submit 'Ladda upp', class: 'button' %>
-    </div>
+	<% if @upload.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
+			<ul>
+				<% @upload.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="actions">
+		<span class="button tiny btn-file">
+			Välj fil
+			<%= f.file_field :image %>
+		</span>
+		<br>
+		<% if current_admin? %>
+			<%= f.hidden_field :club_id, :value => params[:id] %>
+		<% end %>
+		<%= f.submit 'Ladda upp', class: 'button' %>
+	</div>
 <% end %>

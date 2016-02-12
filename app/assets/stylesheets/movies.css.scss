@@ -1,13 +1,18 @@
 // Place all the styles related to the Movies controller here.
 // They will automatically be included in application.css.scss.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.item {
+  min-width: 285px!important;
+}
+
 .movie-title {
   font-size: 26px;
   font-family: "calibri";
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 0;
-  line-height: 25px; /* Fixa margin istället för line-height */
+  line-height: 25px;
 }
 
 .description-fix {
@@ -48,11 +53,9 @@
   color: #ca380c;
 }
 
-
 .no-padding {
   padding: 0px!important;
 }
-
 
 .user-rating {
   width: 200px;
@@ -61,17 +64,20 @@
   margin-left: auto!important;
   margin-right: auto!important;
 }
+
 .stars-wrap {
   width: 100%;
   height: 100%;
   margin-left: auto!important;
   margin-right: auto!important;
 }
+
 .stars-first {
   width: 100%;
   height: 100%;
   display: none;
 }
+
 .empty-star{
   width: 20%;
   height: 30px;
@@ -120,8 +126,6 @@ div.full-star{
   cursor: pointer;
 }
 
-
-
 div.big-star{
   background-image: url("../assets/bigstar.png");
   background-repeat: no-repeat;
@@ -131,12 +135,6 @@ div.big-star{
   margin: auto;
   float: left;
   cursor: pointer;
-
-}
-
-
-.close-movie-fix {
-  float: right;
 }
 
 .margin-fix {
@@ -155,18 +153,6 @@ div.big-star{
   line-height: 28px;
 }
 
-.scrollable {
-  height: 600px;
-  overflow-y: scroll;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -o-border-radius: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 10px;
-}
-
 .movie-container {
   border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -178,7 +164,6 @@ div.big-star{
   overflow: hidden;
   margin-bottom: -10px;
 }
-
 
 .centered {
   margin-left: auto;
@@ -200,7 +185,6 @@ div.big-star{
 }
 
 .marg-fix {
-  margin-left: 15px;
   margin-top: -10px;
 }
 
@@ -241,103 +225,9 @@ input#movie_title, input#movie_description, input#movie_director, input#movie_ge
   margin-right: auto;
 }
 
-
 div.comments_wraper_m {
   width: 100%;
   height: auto!important;
-}
-
-.right-fix {
-  margin-right: -60px;
-}
-
-$text-color: #333;
-$button-color: #373737;
-$border-rgba: rgba(113, 113, 113, 0.9);
-
-div.admin-new-button{
-  width: 100%;
-  height: 80px;
-  float: left;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 15px;
-  position: relative;
-
-  a.login-button {
-    background: $button-color;
-    /*background: -webkit-gradient(linear, left top, left bottom, from(#0061a1), to(#0675bf));
-    background: -webkit-linear-gradient(top, #0061a1, #0675bf);
-    background: -moz-linear-gradient(top, #0061a1, #0675bf);
-    background: -ms-linear-gradient(top, #0061a1, #0675bf);
-    background: -o-linear-gradient(top, #0061a1, #0675bf);*/
-    display: block;
-    width: 80%;
-    height: 50px;
-    line-height: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    font-size: 1.3em;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    /*text-shadow: rgba(0,0,0,.5) 0 1px 0;*/
-    color: white;
-    font-family: sans-serif;
-    text-decoration: none;
-    cursor: pointer;
-    border: 1px solid rgba(255,255,255,0);
-  }
-
-  a.login-button:hover{
-    background: #ffffff;
-    color: $button-color;
-    border: 1px solid $border-rgba;
-    box-shadow: 0px 0px 10px 0px gray inset;
-  }
-
-  a.login-button:active {
-    color: black;
-  }
-}
-
-form#search_movie_form{
-  text-align: center;
-  margin-top: 25px;
-  margin-bottom: 40px;
-
-  input#search_movie{
-    width: 789px;
-    height: 30px;
-    font-size: 18px;
-    padding: 5px;
-    border: 1px solid rgba(80,80,80,0.5);
-    border-radius: 3px;
-    -webkit-transition-duration: 500ms;
-    -moz-transition-duration: 500ms;
-    -o-transition-duration: 500ms;
-    transition-duration: 500ms;
-  }
-
-  input#search_movie:focus{
-    border: 1px solid lime;
-  }
-}
-
-a.no-underline{
-  text-decoration: none;
-}
-
-div.text-wrap{
-
-  h1{
-    color: #424242;
-  }
-
-  p{
-    color: #424242;
-  }
 }
 
 .height-fix {
@@ -382,389 +272,11 @@ div.text-wrap{
   }
 }
 
-.bold {
-  font-weight: bold;
-}
-
-
-.movieFrame {
-  width: 100%;
-  height: auto;
-  border-radius:4px;
-}
-
-div.description{
-  width: -webkit-calc(100% - 380px);
-  width: -moz-calc(100% - 380px);
-  width: -o-calc(100% - 380px);
-  width: calc(100% - 380px);
-  float: left;
-  color: #424242;
-}
 div.info{
   height: auto;
   width: auto;
   float: left;
   color: #424242;
-}
-
-.moviePictureSize {
-  width: auto;
-  max-width: 100%;
-  height: 400px;
-  background-color: gray;
-  margin-right: 20px;
-  float: left;
-  margin-left: 20px;
-  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.6);
-  -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.6);
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.6);
-  -webkit-transition-duration: 500ms;
-  -moz-transition-duration: 500ms;
-  -o-transition-duration: 500ms;
-  transition-duration: 500ms;
-  img{
-    max-width: 100%;
-    -webkit-transition-duration: 500ms;
-    -moz-transition-duration: 500ms;
-    -o-transition-duration: 500ms;
-    transition-duration: 500ms;
-  }
-}
-
-.movieTitleStyle {
-  font-size: 32px;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.movieRatingStyle {
-  text-align: left;
-}
-
-.movieRatingStyle {
-  margin-top: 0px;
-}
-
-div.mobile-movies{
-  width: 800px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid rgba(0,0,0,0.3);
-  background-color: rgba(250,250,250,1);
-  margin-top: 10px;
-  margin-bottom: 10px;
-  overflow: hidden;
-  border-radius: 4px;
-  -webkit-transition-duration: 200ms;
-  -moz-transition-duration: 200ms;
-  -o-transition-duration: 200ms;
-  transition-duration: 200ms;
-
-  a{
-    color: $text-color;
-  }
-
-  a:hover{
-    color: $text-color;
-  }
-
-
-  div.movie-link{
-    height: 127px;
-    width: -webkit-calc(100% - 115px);
-    width: -moz-calc(100% - 115px);
-    width: -o-calc(100% - 115px);
-    width: calc(100% - 115px);
-    min-width: 50%;
-    float: left;
-    line-height: 1em;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-    margin-left: 5px;
-
-    h3{
-      margin-top: 10px;
-      margin-bottom: 5px;
-      font-size: 1.2em;
-    }
-
-    div.rating-star{
-      width: 46px;
-      height: 45px;
-      margin-top: -3px;
-      margin-bottom: 5px;
-      background-image: url(bigstar.png);
-      background-repeat: no-repeat;
-      background-size: 46px 45px;
-
-      p{
-        margin-top: 0px;
-        margin-bottom: 0px;
-        margin-left: 13px;
-        line-height: 48px;
-        font-size: 0.9em;
-      }
-    }
-
-    /* Ratings */
-    div.user-rating{
-      width: 100px;
-      height: 20px;
-      margin-top: -5px;
-      position: absolute;
-      right: 0px;
-      top: 15px;
-
-      div.stars-wrap{
-        width: 100%;
-        height: 100%;
-
-        div.stars-first{
-          width: 100%;
-          height: 100%;
-          display: none;
-
-          div.empty-star{
-            width: 20%;
-            height: 100%;
-            background: asset-data-url('rating-empty.png');
-            background-repeat: no-repeat;
-            float: left;
-          }
-
-          div.full-star{
-            width: 20%;
-            height: 100%;
-            background: asset-data-url('rating.png');
-            background-repeat: no-repeat;
-            float: left;
-          }
-        }
-
-        div.stars-0-user, div.stars-1-user, div.stars-2-user, div.stars-3-user, div.stars-4-user, div.stars-5-user{
-          width: 100%;
-          height: 100%;
-          display: none;
-
-          div.empty-star{
-            width: 20%;
-            height: 100%;
-            background: asset-data-url('rating-empty.png');
-            background-repeat: no-repeat;
-            float: left;
-          }
-
-          div.full-star{
-            width: 20%;
-            height: 100%;
-            background: asset-data-url('rating.png');
-            background-repeat: no-repeat;
-            float: left;
-          }
-        }
-      }
-    }
-  }
-
-  /* Ratings */
-  div.user-rating1{
-    width: 100px;
-    height: 20px;
-    margin-top: -5px;
-    position: absolute;
-    right: 0px;
-    top: 15px;
-
-    div.stars-wrap1{
-      width: 100%;
-      height: 100%;
-
-      div.stars-first1{
-        width: 100%;
-        height: 100%;
-        display: none;
-
-        div.empty-star1{
-          width: 20%;
-          height: 100%;
-          background: asset-data-url('rating-empty.png');
-          background-repeat: no-repeat;
-          float: left;
-        }
-
-        div.full-star1{
-          width: 20%;
-          height: 100%;
-          background: asset-data-url('rating.png');
-          background-repeat: no-repeat;
-          float: left;
-        }
-      }
-
-      div.stars-0-user1, div.stars-1-user1, div.stars-2-user1, div.stars-3-user1, div.stars-4-user1, div.stars-5-user1{
-        width: 100%;
-        height: 100%;
-        display: none;
-
-        div.empty-star1{
-          width: 20%;
-          height: 100%;
-          background: asset-data-url('rating-empty.png');
-          background-repeat: no-repeat;
-          float: left;
-        }
-
-        div.full-star1{
-          width: 20%;
-          height: 100%;
-          background: asset-data-url('rating.png');
-          background-repeat: no-repeat;
-          float: left;
-        }
-      }
-    }
-  }
-
-
-
-  div.movie-link2{
-    height: 139px;
-    min-width: 102px;
-    float: left;
-    position: relative;
-
-    img{
-      /*border-radius: 3px;*/
-      border-top-right-radius: 3px;
-      border-bottom-right-radius: 3px;
-    }
-  }
-}
-
-div.mobile-movies:hover{
-  border: 1px solid rgba(0,0,0,0.4);
-  -webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.4);
-  box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.4);
-  background-color: rgba(252,252,252,1);
-}
-
-div.newmovie_wrapper{
-
-  h1{
-    text-align: center;
-  }
-
-  p{
-    text-align: center;
-  }
-
-  div.newmovie{
-    width: 400px;
-    height: auto;
-    margin: 0 auto;
-    padding: 4px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-}
-
-
-
-div.smallreviews_wrapper{
-  width: 95%;
-  height: auto;
-  padding-top: 10px;
-  padding-right: 15px;
-  padding-left: 15px;
-  overflow: hidden;
-  margin: auto;
-
-  h4{
-    margin: 0px;
-  }
-
-  div.small_tube{
-    float: left;
-    height: auto;
-    width: auto;
-    margin: 2.47px;
-    padding-left: 3.35px;
-    padding-right: 3.35px;
-
-    p{
-
-      font-size: 11px;
-      color: black;
-      text-decoration: none;
-      text-align: center;
-      overflow: hidden;
-      white-space: nowrap; /*this one is must */
-      text-overflow: ellipsis;
-    }
-
-  }
-}
-
-div.trailerbtn{
-
-  width: 100%;
-  height: auto;
-  margin: auto;
-  float: left;
-  margin-top: 15px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-
-  .login-button {
-    background: $button-color;
-    /*background: -webkit-gradient(linear, left top, left bottom, from(#0061a1), to(#0675bf));
-    background: -webkit-linear-gradient(top, #0061a1, #0675bf);
-    background: -moz-linear-gradient(top, #0061a1, #0675bf);
-    background: -ms-linear-gradient(top, #0061a1, #0675bf);
-    background: -o-linear-gradient(top, #0061a1, #0675bf);*/
-    padding: 6px 30px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    color: white;
-    font-size: 17px;
-    font-family: sans-serif;
-    text-decoration: none;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 1px solid rgba(255,255,255,0);
-    margin-left: 0px;
-    width: 286px;
-  }
-
-  .login-button:hover {
-    background: #ffffff;
-    color: $button-color;
-    border: 1px solid $border-rgba;
-    box-shadow: 0px 0px 10px 0px gray inset;
-  }
-
-  .login-button:active {
-    color: black;
-  }
-}
-
-@media only screen and (max-width: 1060px){
-  div.mobile-movies{
-    width: 100%;
-  }
-
-  form#search_movie_form{
-
-    input#search_movie{
-      width: 90%;
-    }
-  }
 }
 
 @media only screen and (max-width: 800px){
@@ -775,46 +287,17 @@ div.trailerbtn{
     -o-border-radius: 20px!important;
   }
 
-  div.description{
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding: 0px !important;
-  }
   div.info{
     width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
     padding: 0px !important;
   }
-
-  div.trailerbtn{
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding: 0px !important;
-
-    .login-button {
-      margin: auto !important;
-      text-align: center !important;
-    }
-  }
-
-  .moviePictureSize{
-    width: 286px !important;
-    float: none !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
+  
   .movie-box-wrapper {
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -o-border-radius: 10px;
   }
-}
-
-@media only screen and (min-width: 1700px) {
-
 }

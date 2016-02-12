@@ -1,13 +1,13 @@
 <% @approved_users.each do |user| %>
-    <tr>
-      <td><%= user.firstname %></td>
-      <td><%= user.lastname %></td>
-      <td><%= user.email %><span class="footable-toggle"></span></td>
-      <td><%= user.personalnumber %></td>
-      <td><%= user.phonenumber %></td>
-      <td><%= user.points %></td>
-      <td><%= link_to 'Ändra', edit_user_path(user), :class => "button tiny radius right_button_edit" %></td>
-      <td><%= link_to "Neka", disapprove_user_path(user.id), :class => "button tiny radius alert access right_button_deny" %></td>
-      <td><%= link_to "+Admin", admin_approve_user_path(user.id), :class => "button tiny radius success access right_button_approve" %></td>
-    </tr>
+	<tr>
+		<td><%= user.firstname %></td>
+		<td><%= user.lastname %></td>
+		<td><%= user.email %><span class="footable-toggle"></span></td>
+		<td><%= user.personalnumber %></td>
+		<td><%= user.phonenumber %></td>
+		<td><%= user.points %></td>
+		<td><%= link_to 'Ändra', edit_user_path(user), :class => "button tiny radius right_button_edit" %></td>
+		<td><%= link_to "Neka", disapprove_user_path(user.id), :class => "button tiny radius alert access right_button_deny" %></td>
+		<td><%= link_to "+Admin", admin_approve_user_path(user.id), :class => "button tiny radius success access right_button_approve" %></td>
+	</tr>
 <% end %>

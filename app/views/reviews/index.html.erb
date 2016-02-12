@@ -1,51 +1,28 @@
 <h1>Listing reviews</h1>
-
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Videolink</th>
-      <th>Active</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td><%= review.title %></td>
-        <td><%= review.description %></td>
-        <td><%= review.videolink %></td>
-        <td><%= review.active %></td>
-        <td><%= review.user %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Videolink</th>
+			<th>Active</th>
+			<th>User</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @reviews.each do |review| %>
+			<tr>
+				<td><%= review.title %></td>
+				<td><%= review.description %></td>
+				<td><%= review.videolink %></td>
+				<td><%= review.active %></td>
+				<td><%= review.user %></td>
+				<td><%= link_to 'Show', review %></td>
+				<td><%= link_to 'Edit', edit_review_path(review) %></td>
+				<td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
-
 <br>
-
-<%= link_to 'New Review', new_review_path %>
-
-<% @reviews.each do |review| %>
-    <% if (check_if_private(review) != true) %>
-        <div class="reviews_box">
-          <%= link_to review do %>
-              <%= reviews_embed(review.videolink).html_safe %>
-              <div class="review-info">
-                <p>Recension på: <%= review.movie.title %></p><br>
-                <p>Skapad av: <%= review.user.firstname %></p>
-                <p class="read-more">Läs mer...</p>
-              </div>
-
-          <% end %>
-        </div>
-    <% end %>
-<% end %>
-
-

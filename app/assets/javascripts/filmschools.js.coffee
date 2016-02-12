@@ -2,15 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on 'click', '.close-movie-modal', ->
-  $('#filmschool-modal').foundation('reveal', 'close')
-
-$(document).on 'click', '.testt', ->
+$(document).on 'click', '.filmschool-link', ->
   setTimeout (->
-    bigscreen()
+    videoSize()
   ), 1000
 
-bigscreen = ->
+# Change filmschool video size depending on screen size
+videoSize = ->
   if $(document).width() > 1200 and $(document).width() < 1700
     $('#iframe-id').width(375).height(250)
   else if $(document).width() > 1700

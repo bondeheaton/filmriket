@@ -1,50 +1,50 @@
 <div class="row">
-  <div class="large-10 large-centered medium-10 medium-centered columns media-container" id="js-fix">
-    <div id="club-reviews-movies-container" class="centered">
-      <ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
-        <% @videos.each do |video| %>
-						<% if video.active == 1 || current_user && current_user.access == 2 %>
-            <li class="item">
-              <div class="movie-container bordered-grey width-fix">
-                <% if video.class == ClubMovie %>
-                  <%= link_to club_movies_show_path(video), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
-                      <div class="movie-link2 image videolink-fix">
-                        <%= raw(youtube_embed(video.videolink)) %>
-                      </div>
-                      <div class="movie-description rounded description-fix">
-	                      <h4 class="movie-title"><%= video.title %></h4>
-	                      <%= video.description.html_safe %>
-                        <% if current_user %>
-                          <% if current_user.access == 2 %>
-                              <%= link_to 'Redigera', edit_club_movie_path(video) %> |
-                              <%= link_to 'Ta bort', video, method: :delete, data: { confirm: 'Are you sure?' } %>
-                          <% end %>
-                      	<% end %>
-                      </div>
-                  <% end %>
-									<% else %>
-                  	<%= link_to review_show_path(video), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
-                      <div class="movie-link2 image videolink-fix">
-                        <%= raw(youtube_embed(video.videolink)) %>
-                      </div>
-                      <div class="movie-description rounded description-fix">
-	                      <h4 class="movie-title"><%= video.title %></h4>
-	                      <%= video.description.html_safe %>
-                        <% if current_user %>
-                          <% if current_user.access == 2 %>
-                              <%= link_to 'Redigera', edit_review_path(video) %> |
-                              <%= link_to 'Ta bort', video, method: :delete, data: { confirm: 'Are you sure?' } %>
-                          <% end %>
-                      	<% end %>
-                      </div>
-                  <% end %>
-                <% end %>
-							<% end %>
-              </div>
-            </li>
+	<div class="large-10 large-centered medium-10 medium-centered columns media-container" id="js-fix">
+		<div id="club-reviews-movies-container" class="centered">
+			<ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
+				<% @videos.each do |video| %>
+					<% if video.active == 1 || current_admin? %>
+						<li class="item">
+							<div class="movie-container bordered-grey width-fix">
+								<% if video.class == ClubMovie %>
+									<%= link_to club_movies_show_path(video), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
+										<div class="movie-link2 image videolink-fix">
+											<div class="youtube-left-fix"></div>
+											<div class="youtube-right-fix"></div>
+											<%= raw(youtube_embed(video.videolink)) %>
+										</div>
+										<div class="movie-description rounded description-fix">
+											<h4 class="movie-title"><%= video.title %></h4>
+											<%= video.description.html_safe %>
+											<% if current_admin? %>
+												<%= link_to 'Redigera', edit_club_movie_path(video), class: 'admin-link' %> |
+												<%= link_to 'Ta bort', video, method: :delete, class: 'admin-link', data: { confirm: 'Are you sure?' } %>
+											<% end %>
+										</div>
+									<% end %>
+								<% else %>
+									<%= link_to review_show_path(video), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
+										<div class="movie-link2 image videolink-fix">
+											<div class="youtube-left-fix"></div>
+											<div class="youtube-right-fix"></div>
+											<%= raw(youtube_embed(video.videolink)) %>
+										</div>
+										<div class="movie-description rounded description-fix">
+											<h4 class="movie-title"><%= video.title %></h4>
+											<%= video.description.html_safe %>
+											<% if current_admin? %>
+												<%= link_to 'Redigera', edit_review_path(video), class: 'admin-link' %> |
+												<%= link_to 'Ta bort', video, method: :delete, class: 'admin-link', data: { confirm: 'Are you sure?' } %>
+											<% end %>
+										</div>
+									<% end %>
+								<% end %>
+							</div>
+						</li>
+					<% end %>
 				<% end %>
-      </ul>
-    </div>
-  </div>
-  <%= render partial: 'club_reviews_movies_modal' %>
+			</ul>
+		</div>
+	</div>
+	<%= render partial: 'club_reviews_movies_modal' %>
 </div>

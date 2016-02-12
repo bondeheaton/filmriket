@@ -47,6 +47,10 @@ module ApplicationHelper
     current_user.access == 2 || current_user.club == club
   end
   
+  def current_admin?
+    current_user && current_user.access == 2
+  end
+  
   def youtube_embed(youtube_url)
     if youtube_url[/youtu\.be\/([^\?]*)/]
       youtube_id = $1

@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# Navigation for admin log on mobile
 $(document).on 'click', '#to_top', ->
   $('html, body').animate({ scrollTop: 0 }, 'fast');
   return
@@ -20,26 +21,9 @@ $(document).on 'click', '#to_comments', ->
 
 $(document).on 'click', '#to_uploads', ->
   $('html, body').animate({ scrollTop: $('#uploads').offset().top }, 'fast');
-  return
+  return  
 
-$(document).on 'click', '#wish-link', ->
-  $('#wish-message').val('')
-  $('.wish-form').toggle()
-  windowHeight = $(window).height()
-  elementOffset = $('#wish-container').offset().top
-  elementHeight = $('#wish-container').height()
-  if $(document).width() > 1024
-    $('html, body').animate({ scrollTop: elementOffset - windowHeight + elementHeight }, 'fast')
-  else
-    $("#sidebar").animate({scrollTop:$("#sidebar")[0].scrollHeight}, 'fast')
-    #Detta buggar för admin i mobil eftersom de har fler länkar efter önskelådan.
-
-$(document).on 'click', '#wish-button', ->
-  $('.wish-notice').show().html('Tack för ditt önskemål!')
-  $('.wish-notice').delay(2000).fadeOut('fast')
-  $('.wish-form').delay(2000).fadeOut('fast')
-
-header = $('#admin_log')
+# Enable sticky menu for admin log on mobile
 $(window).scroll ->
   scroll = $(window).scrollTop()
   if scroll >= window.innerHeight - 200
@@ -49,7 +33,6 @@ $(window).scroll ->
   return
 
 btn = false
-
 $(document).on "click", ".menu-btn", ->
   if btn
     $('.sidebar').hide()
@@ -61,7 +44,7 @@ $(document).on "click", ".menu-btn", ->
     btn = true
   return
 
-
+# Layout fix for larger mobile devices
 $(window).on 'orientationchange', ->
   if $('.menu-btn').is(":visible")
     $('#js-fix').removeClass('medium-10')
@@ -75,7 +58,7 @@ $(document).on 'ready page:load', ->
     $('#js-fix').removeClass('medium-10')
     $('#js-fix').addClass('medium-12')
 
-
+# Resize google map popup to prevent it from being grey 
 $(document).on 'click', '.link-fix', ->
   center = handlerr.getMap().getCenter()
   setTimeout (->
@@ -83,13 +66,3 @@ $(document).on 'click', '.link-fix', ->
     handler.map.centerOn(center)
     return
   ), 200
-
-$(document).on 'ready page:load', ->
-  setTimeout (->
-    center = handlerr.getMap().getCenter()
-    google.maps.event.trigger handlerr.getMap(), 'resize'
-    handlerr.map.centerOn(center)
-    return
-  ), 200
-
-

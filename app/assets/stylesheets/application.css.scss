@@ -20,13 +20,10 @@
  */
 @import "foundation_and_overrides";
 
-
-
 body {
   background-color: #c2dad1;
   font-family: Calibri!important;
   font-weight: bold;
-
 }
 
 h2 {
@@ -65,9 +62,8 @@ p {
 
 .sidebar-width a:link, a:visited, a:hover, a:active {
 	  text-decoration: none!important;
-	  background: none;
 	  color: #c2dad1;
-	}
+}
 
 .white-text {
   color: #ffffff!important;
@@ -78,7 +74,6 @@ p {
     color: #008cba!important;
   }
 }
-
 
 .white-text a:hover {
   text-decoration: underline!important;
@@ -167,5 +162,3 @@ p {
     margin-left: 12px!important;
   }
 }
-
-

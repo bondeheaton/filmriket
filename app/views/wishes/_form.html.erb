@@ -1,6 +1,6 @@
 <%= form_for(Wish.new, remote: true) do |f| %>
-    <div class="large-12 large-centered columns">
-      <%= f.text_area :message, rows: 3, placeholder: 'Skriv ditt önskemål..', id: 'wish-message' %>
-      <%= f.submit "Skicka", :class => 'button tiny expand success', id: 'wish-button' %>
-    </div>
+	<div class="large-12 large-centered columns">
+		<%= f.text_area :message, rows: 3, placeholder: 'Skriv ditt önskemål..', id: 'wish-message' %>
+		<%= f.submit "Skicka", :class => 'button tiny expand success', id: 'wish-button' %>
+	</div>
 <% end %>

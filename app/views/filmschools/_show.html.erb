@@ -1,35 +1,34 @@
 <div class="row">
-  <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
-  <div class="large-10 large-centered medium-10 medium-centered columns movie margin-fix">
-
-    <div class="row">
-      <div class="large-11 columns large-centered">
-        <h4 class="movie-text">
-          <%= @filmschool.title %>
-        </h4>
-        <div class="club-movie">
-          <%= raw(youtube_embed(@filmschool.videolink )) %>
-        </div>
-      </div>
-    </div>
-
-     <div class="row">
-      <div class="large-11 columns large-centered">
-        <p class="movie-text">
-          <%= @filmschool.description %>
-        </p>
-      </div>
-    </div>
-
-      <div class="large-10 large-center columns">
-        <div class="comments_wraper_m">
-          <% if user_signed_in? %>
-              <%= render 'filmschool_comments/form' %>
-              <div id="filmschool_comment_list">
-                <%= render 'filmschool_comments/list' %>
-              </div>
-          <% end %>
-        </div>
-    </div>
-  </div>
+	<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+	<div class="large-10 large-centered medium-10 medium-centered columns movie margin-fix">
+		<div class="row">
+			<div class="large-12 large-centered columns">
+				<h4 class="movie-text">
+					<%= @filmschool.title %>
+				</h4>
+				<div class="club-movie">
+					<%= raw(youtube_embed(@filmschool.videolink )) %>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 large-centered columns">
+				<span class="movie-text">
+					<%= @filmschool.description.html_safe %>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 large-center columns">
+				<div class="comments_wraper_m">
+					<% if user_signed_in? %>
+						<%= render 'filmschool_comments/form' %>
+						<div id="filmschool_comment_list">
+							<%= render 'filmschool_comments/list' %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

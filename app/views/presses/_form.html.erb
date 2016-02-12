@@ -1,0 +1,31 @@
+<%= form_for(@press) do |f| %>
+  <% if @press.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@press.errors.count, "error") %> prohibited this press from being saved:</h2>
+      <ul>
+      <% @press.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="large-12 large-centered columns">
+    <%= f.label :text %><br>
+    <%= f.text_field :text %>
+  </div>
+	<div class="large-12 large-centered columns">
+    <%= f.label 'Länk' %><br>
+    <%= f.text_field :link %>
+  </div>
+	<div class="large-12 large-centered columns">
+    <%= f.label 'Text-fil' %><br>
+    <%= f.file_field :text_file %>
+  </div>
+	<div class="large-12 large-centered columns">
+    <%= f.label 'Datum' %><br>
+		<%= f.datetime_select :press_date, prompt: {day: 'Välj dag', month: 'Välj månad', year: 'Välj år', hour: 'Välj timme', minute: 'Välj minut'} %>
+  </div>
+	<div class="large-12 large-centered columns">
+    <%= f.submit 'Skapa presslänk', class: 'button success' %>
+  </div>
+<% end %>

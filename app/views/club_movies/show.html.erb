@@ -1,29 +1,23 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @club_movie.title %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @club_movie.description %>
 </p>
-
 <p>
   <strong>Videolink:</strong>
   <%= @club_movie.videolink %>
 </p>
-
 <p>
   <strong>Active:</strong>
   <%= @club_movie.active %>
 </p>
-
 <p>
   <strong>User:</strong>
   <%= @club_movie.user_id %>
 </p>
-
 <%= link_to 'Edit', edit_club_movie_path(@club_movie) %> |
 <%= link_to 'Back', club_movies_path %>

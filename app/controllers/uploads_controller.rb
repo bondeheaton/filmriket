@@ -24,9 +24,11 @@ class UploadsController < ApplicationController
 
   def create
     @upload = Upload.new(upload_params)
-    @upload.club_id = current_user.club_id
+    unless current_user.access == 2
+      @upload.club_id = current_user.club_id
+    end
     @upload.save
-    respond_with(current_user.club)
+    redirect_to :back
   end
 
   def update

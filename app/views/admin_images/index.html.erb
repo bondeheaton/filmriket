@@ -1,26 +1,24 @@
-<% if current_user %>
-    <% if current_user.access == 2 %>
-        <div class="row">
-          <div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
-            <%= render 'form' %>
-            <br>
-            <div class="row">
-                <% @admin_images.each do |admin| %>
-                      <div class="large-6 columns medium-6 movie-box-wrapper">
-                        <h4 class="index-heading">&nbsp;</h4>
-                        <div class="content-wrapper">
-                          <div class="remove-img">
-                            <%= link_to '<p>Ta bort</p>'.html_safe, admin, method: 'DELETE', data: { confirm: 'Är du säker?' } %>
-                          </div>
-                          <div class="large-8 large-centered medium-8 medium-centered columns content">
-                            <img src="<%= admin.img %>" height="255" width="330"/><br>
-                            <%= admin.img %><br>
-                          </div>
-                        </div>
-                      </div>
-                <% end %>
+<% if current_admin? %>
+  <div class="row">
+  	<div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+    	<%= render 'form' %>
+      <br>
+      <div class="row">
+      	<% @admin_images.each do |image| %>
+        	<div class="large-6 columns medium-6 movie-box-wrapper">
+          	<h4 class="index-heading">&nbsp;</h4>
+            <div class="content-wrapper">
+              <div class="remove-img">
+                <%= link_to '<p>Ta bort</p>'.html_safe, image, method: 'DELETE', data: { confirm: 'Är du säker?' } %>
+              </div>
+              <div class="large-8 large-centered medium-8 medium-centered columns content">
+              	<img src="<%= image.img %>" height="255" width="330"/><br>
+                <%= image.img %><br>
+              </div>
             </div>
-        </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+   	</div>
+	</div>
 <% end %>

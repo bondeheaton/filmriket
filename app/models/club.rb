@@ -7,7 +7,13 @@ class Club < ActiveRecord::Base
   has_many :uploads, dependent: :destroy
   has_many :club_movies
   has_many :reviews
-
+  
+  validates :points, presence: true
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :description, presence: true
+  
+  
   def self.score(club)
     @users = club.users
     return @users.first

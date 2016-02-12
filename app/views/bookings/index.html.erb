@@ -1,60 +1,44 @@
-<br>
-
 <div class="small-10 small-centered columns">
-
-<div class="bookings_box">
-
-<h1>Bokningsförfrågningar</h1>
-
-<table class="footable table">
-
-  <thead>
-  <tr class="b_head">
-    <th class="b_head2" data-toggle="true">Film</th>
-    <th data-hide="phone" class="b_head2">Klubb</th>
-    <th data-hide="phone" colspan="2"></th>
-  </tr>
-  </thead>
-
-  <tbody id="pending_bookings">
-  <%= render partial: 'pending_bookings' %>
-  </tbody>
-</table>
-
-<h1 class="bookings_h1">Godkända Bokningar</h1>
-  <table class="footable table">
-
-    <thead>
-    <tr class="b_head">
-      <th class="b_head2" data-toggle="true">Film</th>
-      <th data-hide="phone" class="b_head2">Klubb</th>
-      <th data-hide="phone" colspan="2"></th>
-    </tr>
-    </thead>
-
-    <tbody id="approved_bookings">
-    <%= render partial: 'approved_bookings' %>
-    </tbody>
-  </table>
-
-  <h1 class="bookings_h1">Arkiverade/klara Bokningar</h1>
-  <table class="footable table">
-
-    <thead>
-    <tr class="b_head">
-      <th class="b_head2" data-toggle="true">Film</th>
-      <th data-hide="phone" class="b_head2">Klubb</th>
-      <th data-hide="phone" colspan="2"></th>
-    </tr>
-    </thead>
-
-    <tbody id="bookings_done">
-    <%= render partial: 'bookings_done' %>
-    </tbody>
-  </table>
-
-</div>
-
-
-<%= link_to 'New Booking', new_booking_path %>
+	<div class="bookings_box">
+		<h1>Bokningsförfrågningar</h1>
+		<table class="footable table">
+			<thead>
+				<tr class="b_head">
+					<th class="b_head2" data-toggle="true">Film</th>
+					<th data-hide="phone" class="b_head2">Klubb</th>
+					<th data-hide="phone" colspan="2"></th>
+				</tr>
+			</thead>
+			<tbody id="pending_bookings">
+				<%= render partial: 'pending_bookings' %>
+			</tbody>
+		</table>
+		<h1 class="bookings_h1">Godkända Bokningar</h1>
+		<table class="footable table">
+			<thead>
+				<tr class="b_head">
+					<th class="b_head2" data-toggle="true">Film</th>
+					<th data-hide="phone" class="b_head2">Klubb</th>
+					<th data-hide="phone" colspan="2"></th>
+				</tr>
+			</thead>
+			<tbody id="approved_bookings">
+				<%= render partial: 'approved_bookings' %>
+			</tbody>
+		</table>
+		<h1 class="bookings_h1">Arkiverade/klara Bokningar</h1>
+		<table class="footable table">
+			<thead>
+				<tr class="b_head">
+					<th class="b_head2" data-toggle="true">Film</th>
+					<th data-hide="phone" class="b_head2">Klubb</th>
+					<th data-hide="phone" colspan="2"></th>
+				</tr>
+			</thead>
+			<tbody id="bookings_done">
+				<%= render partial: 'bookings_done' %>
+			</tbody>
+		</table>
+	</div>
+	<%= link_to 'New Booking', new_booking_path %>
 </div>

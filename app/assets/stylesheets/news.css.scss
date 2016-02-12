@@ -53,13 +53,6 @@
   text-align: center;
 }
 
-input#news_title {
-  width: 100%;
-  height: 50px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .bordered {
   border: 1px solid black;
 }
@@ -81,12 +74,6 @@ input#news_title {
 
 p.news {
   color: #ffffff!important;
-}
-
-.content-img {
-  border: 3px solid #ffffff;
-  padding: 0!important;
-  height: 219px;
 }
 
 @media only screen and (min-width: 1700px) {

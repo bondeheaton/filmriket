@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# Initiate slideshow for club uploaded images
 $(document).on 'ready page:load', ->
   $('#thumbs a').touchTouch();
 
@@ -21,9 +22,3 @@ masonryLoad = (div) ->
       isFitWidth: true
       return
   ), 500
-
-$(document).on 'click', '.test-link', ->
-  $('#seen-movies').foundation 'reveal', 'close'
-  $('#movie-modal').html "<%= render '/movies/show' %>"
-  $('#movie-modal').foundation 'reveal', 'open'
-

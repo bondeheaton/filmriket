@@ -1,23 +1,20 @@
-
 <%= form_for(@movie_comment, remote: true) do |f| %>
-  <% if @movie_comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@movie_comment.errors.count, "error") %> prohibited this movie_comment from being saved:</h2>
-
-      <ul>
-      <% @movie_comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <div id="m_message_notice"></div>
-    <%= f.text_area :message, placeholder: "Skriv kommentar..", rows: '5' %>
-
-  <div class="field">
-    <%= f.hidden_field :movie_id, :value => params[:id] %>
-  </div>
-  <div class="actions marg-fix">
-    <%= f.submit 'Skicka', class: 'button tiny' %>
-   </div>
+	<% if @movie_comment.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@movie_comment.errors.count, "error") %> prohibited this movie_comment from being saved:</h2>
+			<ul>
+				<% @movie_comment.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div id="m_message_notice"></div>
+	<%= f.text_area :message, placeholder: "Skriv kommentar..", rows: '5' %>
+	<div class="field">
+		<%= f.hidden_field :movie_id, :value => params[:id] %>
+	</div>
+	<div class="actions marg-fix">
+		<%= f.submit 'Skicka', class: 'button tiny' %>
+	</div>
 <% end %>

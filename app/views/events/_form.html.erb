@@ -1,33 +1,31 @@
 <%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% @event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="large-12 large-centered columns">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-    <div class="large-12 large-centered columns">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="large-12 large-centered columns">
-      <%= f.label 'Bild-länk' %><br>
-      <%= f.text_field :img %>
-  </div>
-  <div class="large-12 large-centered columns">
-    Deltagande klubbar
-    <%= f.collection_select :club_ids, clubs, :id, :name, {}, { multiple: true, 'style' => 'height:200px' }%>
-  </div>
-  <div class="large-12 large-centered columns">
-    <%= f.submit %>
-  </div>
+	<% if @event.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+			<ul>
+				<% @event.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="large-12 large-centered columns">
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+	</div>
+	<div class="large-12 large-centered columns">
+		<%= f.label :description %><br>
+		<%= f.text_area :description %>
+	</div>
+	<div class="large-12 large-centered columns">
+		<%= f.label 'Bild-länk' %><br>
+		<%= f.text_field :img %>
+	</div>
+	<div class="large-12 large-centered columns">
+		Deltagande klubbar
+		<%= f.collection_select :club_ids, clubs, :id, :name, {}, { multiple: true, 'style' => 'height:200px' }%>
+	</div>
+	<div class="large-12 large-centered columns">
+		<%= f.submit %>
+	</div>
 <% end %>
