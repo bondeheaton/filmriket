@@ -76,6 +76,30 @@ p.news {
   color: #ffffff!important;
 }
 
+@media only screen and (min-width: 640px) and (max-width: 770px) {
+  .tablet-fix {
+    width: 100%!important;
+  }
+}
+
+@media only screen and (min-width: 770px) and (max-width: 930px) {
+  .content-news-margin {
+    margin-top: -8px!important;
+  }
+}
+
+@media only screen and (min-width: 930px) and (max-width: 1200px) {
+  .content-news-margin {
+    margin-top: -3px!important;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1360px) {
+  .content-news-margin {
+    margin-top: -10px!important;
+  }
+}
+
 @media only screen and (min-width: 1700px) {
   .big-screen-fix {
     margin-top: 0px;
