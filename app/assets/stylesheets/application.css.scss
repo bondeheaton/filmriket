@@ -79,6 +79,7 @@ p {
   text-decoration: underline!important;
 }
 
+
 @media only screen and (min-width: 1800px) {
   .media-container {
     margin-left: 70px!important;
@@ -91,16 +92,23 @@ p {
   }
 }
 
+
 @media only screen and (min-width: 1100px) and (max-width:1290px) {
   .media-container {
     margin-left: 40px!important;
   }
 }
 
-@media only screen and (min-width: 1000px) and (max-width:1100px) {
+@media only screen and (min-width: 930px) and (max-width:1100px) {
   .media-container {
     margin-left: 50px!important;
   }
+}
+
+@media only screen and (min-width: 768px) and (max-width:930px) {
+	.content {
+		height:146px!important;
+	}
 }
 
 @media only screen and (min-width: 640px) and (max-width:680px) {
