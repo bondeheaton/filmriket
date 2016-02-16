@@ -31,10 +31,10 @@ class Club < ActiveRecord::Base
     end
     @users.each do |user|
       if user.reviews
-        @achievement_score.push(user.reviews.where.not(videolink: "inactive").count)
+        @achievement_score.push(user.reviews.where.not(active: 0).count)
       end
       if user.club_movies
-        @achievement_score.push(user.club_movies.where.not(videolink: "inactive").count)
+        @achievement_score.push(user.club_movies.where.not(active: 0).count)
       end
     end
     @achievement_score.push(club.points)

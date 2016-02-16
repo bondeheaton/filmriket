@@ -37,8 +37,8 @@ module ApplicationHelper
     achievement_score.push(club.events.count)
     achievement_score.push(club.users.count)
     users.each do |user|
-      achievement_score.push(user.reviews.where.not(videolink: "inactive").count)
-      achievement_score.push(user.club_movies.where.not(videolink: "inactive").count)
+      achievement_score.push(user.reviews.where.not(active: 0).count)
+      achievement_score.push(user.club_movies.where.not(active: 0).count)
     end
     achievement_score.inject(:+)
   end
