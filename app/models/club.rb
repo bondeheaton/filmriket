@@ -20,37 +20,23 @@ class Club < ActiveRecord::Base
   end
   
   def self.achievement_icon(club)
-    @achievement_score = [0]
-    @achievement_icon = "locked.png"
-    @users = club.users
-    if club.events
-      @achievement_score.push(club.events.count)
+    achievement_score = [0]
+    achievement_score.push(club.events.count)
+    achievement_score.push(club.users.count)
+    achievement_score.push(club.reviews.where.not(active: 0).count)
+    achievement_score.push(club.club_movies.where.not(active: 0).count)
+    achievement_score.push(club.points)
+
+    case achievement_score.inject(:+)
+    when 0..9
+      achievement_icon = "bronze_medal.png"
+    when 10..19
+      achievement_icon = "silver_medal.png"
+    when 20..29
+      achievement_icon = "gold_medal.png"
+    else
+      achievement_icon = "rainbow_medal.png"
     end
-    if club.users
-      @achievement_score.push(club.users.count)
-    end
-    @users.each do |user|
-      if user.reviews
-        @achievement_score.push(user.reviews.where.not(active: 0).count)
-      end
-      if user.club_movies
-        @achievement_score.push(user.club_movies.where.not(active: 0).count)
-      end
-    end
-    @achievement_score.push(club.points)
-    if @achievement_score.inject(:+) > 0
-      @achievement_icon = "bronze_medal.png"
-    end
-    if @achievement_score.inject(:+) > 10
-      @achievement_icon = "silver_medal.png"
-    end
-    if @achievement_score.inject(:+) > 20
-      @achievement_icon = "gold_medal.png"
-    end
-    if @achievement_score.inject(:+) > 30
-      @achievement_icon = "rainbow_medal.png"
-    end
-    return @achievement_icon
   end
   
 end
