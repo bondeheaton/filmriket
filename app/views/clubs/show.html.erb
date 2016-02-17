@@ -79,6 +79,8 @@
 												<div class="movie-container bordered-grey width-fix">
 													<%= link_to club_movies_show_path(movie), class: 'test-link', remote: true do %>
 														<div class="movie-link2 image videolink-fix">
+															<div class="youtube-left-fix-club"></div>
+															<div class="youtube-right-fix-club"></div>
 															<%= raw(youtube_embed(movie.videolink)) %>
 														</div>
 														<div class="movie-description rounded description-fix">
@@ -118,6 +120,8 @@
 												<div class="movie-container bordered-grey width-fix">
 													<%= link_to review_show_path(review), class: 'review-link', remote: true do %>
 														<div class="movie-link2 image videolink-fix">
+															<div class="youtube-left-fix-club"></div>
+															<div class="youtube-right-fix-club"></div>
 															<%= raw(youtube_embed(review.videolink)) %>
 														</div>
 														<div class="movie-description rounded description-fix">
