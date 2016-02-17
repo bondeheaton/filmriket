@@ -108,7 +108,7 @@ a.close-fix:link, a.close-fix:active, a.close-fix:hover, a.close-fix:visited {
   margin-top: -5px;
 }
 
-.content {
+.content, .content-map {
   width: 290px!important;
   height: 225px;
   margin-left: auto;
@@ -503,9 +503,9 @@ p.created {
     margin-right: auto;
   }
 
-  .content {
+  .content, .content-map {
     width: 100%!important;
-    height: 168px;
+    height: 166px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 24px;
@@ -599,7 +599,7 @@ p.created {
     margin-top: 35px;
   }
 
-  .content, .content-img{
+  .content, .content-img, .content-map {
     width: 75%!important;
     height: 157px!important;
     margin-left: auto;
@@ -645,7 +645,7 @@ p.created {
     margin-top: 35px;
   }
 
-  .content, .content-img{
+  .content, .content-img, .content-map {
     width: 75%!important;
     height: 158px!important;
     margin-left: auto;
@@ -744,7 +744,7 @@ p.created {
     margin-top: 35px;
   }
 
-  .content, .content-img{
+  .content, .content-img, .content-map {
     width: 80%!important;
     height: 168px!important;
     margin-left: auto;
@@ -779,7 +779,7 @@ p.created {
     margin-top: 25px;
   }
 
-  .content, .content-img {
+  .content, .content-img, .content-map {
     width: 95%!important;
     height: 222px;
     margin-left: auto;
@@ -822,7 +822,7 @@ p.created {
 
 #map_before {
   width: 100%;
-  min-height: 215px;
+  min-height: 216px;
 }
 
 #map_id {
