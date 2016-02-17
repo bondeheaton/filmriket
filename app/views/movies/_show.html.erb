@@ -1,218 +1,216 @@
 <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 <div class="large-10 large-centered medium-10 medium-centered columns movie margin-fix">
-	<div class="large-12 large-center columns">
-		<div class="large-6 columns">
-			<div class="movie-picture">
-				<%= image_tag(@movie.videocover, size: "350x477") %>
-			</div>
-		</div>
-		<div class="large-6 columns">
-			<h4 class="movie-title">Titel: <%= @movie.title %></h2>
-				<span class="movie-text"><p class="movie-text"><%= @movie.description.html_safe %></p></span><br>
-				<p class="movie-text">Genre: <%= @movie.genre %></p>
-				<p class="movie-text">Regissör: <%= @movie.director %></p>
-				<p class="movie-text">Speltid: <%= @movie.playtime %> min</p>
-				<p class="movie-text">År: <%= @movie.published %></p>
-				<p class="movie-text">Land: <%= @movie.country %></p>
-			</div>
-		</div>
-		<div class="large-12 large-center columns">
-			<div class="large-6 columns">
-				<div class="large-6 columns center-text">
-					<% if current_user && current_user.club_id %>
-						<% if club_bookings(current_user.club) < 3 %>
-							<%= render partial: 'bookings/form' %>
-						<% else %>
-							<p class="movie-text">Du har redan bokat 3 filmer.</p>
-						<% end %>
-					<% end %>
-				</div>
-				<div class="large-6 columns height-fix center-text">
-					<%= link_to image_tag('trailer.png', size: '275x48'), @movie.trailerlink, target: '_blank', class: 'img-fix' %>
-				</div>
-			</div>
-			<div class="large-6 medium-6 center-text columns">
-				<script>
-				$(document).ready(function() {
-					var newUserRating = false;
-					var mouseoutstars = 0;
-					$('.stars-wrap .stars-first').click(function(e){
-						e.preventDefault();
-						var stars = $('.stars-first > .full-star').length;
-						var data = $(this).parent().parent().children('.user_rating_info');
-						newUserRating = '.stars-'+stars+'-user';
-						$(this).children('.full-star').prevAll().css({
-							'-webkit-transform':'scale(0.9)',
-							'-moz-transform':'scale(0.9)',
-							'-ms-transform':'scale(0.9)',
-							'-o-transform':'scale(0.9)',
-							'transform':'scale(0.9)'
-						});
-						$(this).children('.full-star').css({
-							'-webkit-transform':'scale(0.9)',
-							'-moz-transform':'scale(0.9)',
-							'-ms-transform':'scale(0.9)',
-							'-o-transform':'scale(0.9)',
-							'transform':'scale(0.9)'
-						});
-						<% if user_signed_in? %>
-							$.ajax({
-								url: '/ratings',
-								method: 'POST',
-								data: {"rating[value]":stars, "rating[user_id]":data.data('user_id'), "rating[movie_id]":data.data('movie_id')},
-								success: function(){
-								}
-							});
-						<% else %>
-							location.href = ('/users/sign_in');
-						<% end %>
-					});
-					// Visa endast den markerade MOUSEOVER
-					$('.stars-wrap').mouseover(function(){
-						// Beräkna hur många stjärnor som fanns från början för mouseout senare
-						oldUserRating = $(this).children(':visible:first').children('.full-star').length;
-						//Ta bort "children"
-						$(this).children().css('display', 'none');
-						// Hitta och visa stars-first (hover)
-						$(this).find('.stars-first').css('display', 'block');
-						// Fixa stjärnorna efter klick
-						$(this).find('.stars-first').children('.full-star').css({
-							'-webkit-transform':'scale(1)',
-							'-moz-transform':'scale(1)',
-							'-ms-transform':'scale(1)',
-							'-o-transform':'scale(1)',
-							'transform':'scale(1)'
-						});
-					});
-					// Återgå till det som blir valt eller var valt tidigare. MOUSEOUT
-					$('.stars-wrap').mouseout(function(){
-						//Ta bort stars-first
-						$(this).find('.stars-first').css('display', 'none');
-						// if-sats som kolla ifall det är clickat eller inte och skriver ut
-						// den rätta boxen antingen den nyligen valda eller det gamla.
-						if (newUserRating) {
-							$(this).find(newUserRating).css('display', 'block');
-							newUserRating = false;
-						} else if(oldUserRating > 0){
-							oldUserRating = ".stars-"+oldUserRating+"-user";
-							$(this).find(oldUserRating).css('display', 'block');
-						} else{
-							// Annars har man inte röstat och får då tillbaka 0 stjärnor
-							$(this).find('.stars-0-user').css('display', 'block');
-						}
-					});
-					// Hover på stjärnorna
-					$('.stars-first .empty-star').mouseover(function(){
-						$(this).removeClass('empty-star').addClass('full-star');
-						$(this).prevAll().removeClass('empty-star').addClass('full-star');
-					});
-					// Hover på stjärnorna
-					$('.stars-first .empty-star').mouseout(function(){
-						$(this).removeClass('full-star').addClass('empty-star');
-						$(this).prevAll().removeClass('full-star').addClass('empty-star');
-					});
-					<% @id = @movie.id %>
-					// Hämta användarens rating från databasen och loopar ut det i filmer
-					defaultUserRating = <%= rating_for_user %>;
-					// Skapa stringen innan den skrivs ut
-					// Använder movie.id-1 för att det ska bli korrekt
-					defaultUserRating = ".stars-"+defaultUserRating+"-user";
-					// Default raiting från movies_helper är  = 0 så det kommer alltid vara true, annars funkar inte funktionen i helpern.
-					if (defaultUserRating) {
-						// Skriv ut
-						$(defaultUserRating).css('display', 'block');
-					} else {
-						$alert("Default rating failed");
-					}
-				});
-				</script>
-				<div class="large-8 no-padding columns">
-					<div class="user-rating">
-
-						<% if current_user %>
-							<div class="user_rating_info" style="display: none" data-movie_id="<%= @movie.id %>" data-user_id="<%= current_user.id %>" >
-								<%= form_for(@rating) do |f| %>
-								<% end %>
-							</div>
-						<% end %>
-						<div class="stars-wrap">
-							<div class="stars-first">
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-							</div>
-							<!-- Stars 0 user -->
-							<div class="stars-0-user">
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-							</div>
-							<!-- Stars 1 user -->
-							<div class="stars-1-user">
-								<div class="full-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-							</div>
-							<!-- Stars 2 user -->
-							<div class="stars-2-user">
-								<div class="full-star"></div>
-								<div class="full-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-							</div>
-							<!-- Stars 3 user -->
-							<div class="stars-3-user">
-								<div class="full-star"></div>
-								<div class="full-star"></div>
-								<div class="full-star"></div>
-								<div class="empty-star"></div>
-								<div class="empty-star"></div>
-							</div>
-							<!-- Stars 4 user -->
-							<div class="stars-4-user">
-								<div class="full-star"></div>
-								<div class="full-star"></div>
-								<div class="full-star"></div>
-								<div class="full-star"></div>
-								<div class="empty-star"></div>
-							</div>
-							<!-- Stars 5 user -->
-							<div class="stars-5-user">
-								<div class="full-star"></div>
-								<div class="full-star"></div>
-								<div class="full-star"></div>
-								<div class="full-star"></div>
-								<div class="full-star"></div>
-							</div>
-						</div>
-						<!-- Stars 0 -->
-					</div>
-				</div>
-				<div class="large-4 no-padding columns">
-					<div class="average-rating">
-						Poäng: <%= @movie.average_rating %>
-					</div>
-				</div>
-			</div>
-			<div class="large-12 large-centered columns">
-				<% if current_user %>
-					<%= render 'movie_comments/form' %>
-					<div id="comment_list">
-						<%= render 'movie_comments/list' %>
-					</div>  
-				<% end %>
-			</div>
-		</div>
-		<br>
-		<% if current_admin? %>
-			<%= link_to 'Redigera', edit_movie_path(@movie) %>
-		<% end %>
+<div class="large-12 large-center columns">
+  <div class="large-6 columns">
+    <div class="movie-picture">
+      <%= image_tag(@movie.videocover, size: "350x477") %>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <h4 class="movie-title">Titel: <%= @movie.title %></h2>   
+    <span class="movie-text"><p class="movie-text"><%= @movie.description.html_safe %></p></span>			
+		<p class="movie-text">Genre: <%= @movie.genre %></p>
+    <p class="movie-text">Regissör: <%= @movie.director %></p>
+    <p class="movie-text">Speltid: <%= @movie.playtime %> min</p>
+    <p class="movie-text">År: <%= @movie.published %></p>
+    <p class="movie-text">Land: <%= @movie.country %></p>
+  </div>
+</div>
+<div class="large-12 large-center columns">
+  <div class="large-6 columns">
+    <div class="large-6 columns center-text">
+      <% if current_user %>
+        <% if current_user.club_id %>
+          <% if club_bookings(current_user.club) < 3 %>
+            <%= render partial: 'bookings/form' %>
+          <% else %>
+            <p class="movie-text">Du har redan bokat 3 filmer.</p>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="large-6 columns height-fix center-text">
+      <%= link_to image_tag('trailer.png', size: '275x48'), @movie.trailerlink, target: '_blank', class: 'img-fix' %>
+    </div>
+  </div>
+	<div class="large-6 medium-6 center-text columns">
+	<script>
+	    $(document).ready(function() {
+	        var newUserRating = false;
+	        var mouseoutstars = 0;
+	        $('.stars-wrap .stars-first').click(function(e){
+	            e.preventDefault();
+	            var stars = $('.stars-first > .full-star').length;
+	            var data = $(this).parent().parent().children('.user_rating_info');
+	            newUserRating = '.stars-'+stars+'-user';
+	            $(this).children('.full-star').prevAll().css({
+	                '-webkit-transform':'scale(0.9)',
+	                '-moz-transform':'scale(0.9)',
+	                '-ms-transform':'scale(0.9)',
+	                '-o-transform':'scale(0.9)',
+	                'transform':'scale(0.9)'
+	            });
+	            $(this).children('.full-star').css({
+	                '-webkit-transform':'scale(0.9)',
+	                '-moz-transform':'scale(0.9)',
+	                '-ms-transform':'scale(0.9)',
+	                '-o-transform':'scale(0.9)',
+	                'transform':'scale(0.9)'
+	            });
+	            <% if user_signed_in? %>
+	            $.ajax({
+	                url: '/ratings',
+	                method: 'POST',
+	                data: {"rating[value]":stars, "rating[user_id]":data.data('user_id'), "rating[movie_id]":data.data('movie_id')},
+	                success: function(){
+	                }
+	            });
+	            <% else %>
+	            location.href = ('/users/sign_in');
+	            <% end %>
+	        });
+	        // Visa endast den markerade MOUSEOVER
+	        $('.stars-wrap').mouseover(function(){
+	            // Beräkna hur många stjärnor som fanns från början för mouseout senare
+	            oldUserRating = $(this).children(':visible:first').children('.full-star').length;
+	            //Ta bort "children"
+	            $(this).children().css('display', 'none');
+	            // Hitta och visa stars-first (hover)
+	            $(this).find('.stars-first').css('display', 'block');
+	            // Fixa stjärnorna efter klick
+	            $(this).find('.stars-first').children('.full-star').css({
+	                '-webkit-transform':'scale(1)',
+	                '-moz-transform':'scale(1)',
+	                '-ms-transform':'scale(1)',
+	                '-o-transform':'scale(1)',
+	                'transform':'scale(1)'
+	            });
+	        });
+	        // Återgå till det som blir valt eller var valt tidigare. MOUSEOUT
+	        $('.stars-wrap').mouseout(function(){
+	            //Ta bort stars-first
+	            $(this).find('.stars-first').css('display', 'none');
+	            // if-sats som kolla ifall det är clickat eller inte och skriver ut
+	            // den rätta boxen antingen den nyligen valda eller det gamla.
+	            if (newUserRating) {
+	                $(this).find(newUserRating).css('display', 'block');
+	                newUserRating = false;
+	            } else if(oldUserRating > 0){
+	                oldUserRating = ".stars-"+oldUserRating+"-user";
+	                $(this).find(oldUserRating).css('display', 'block');
+	            } else{
+	                // Annars har man inte röstat och får då tillbaka 0 stjärnor
+	                $(this).find('.stars-0-user').css('display', 'block');
+	            }
+	        });
+	        // Hover på stjärnorna
+	        $('.stars-first .empty-star').mouseover(function(){
+	            $(this).removeClass('empty-star').addClass('full-star');
+	            $(this).prevAll().removeClass('empty-star').addClass('full-star');
+	        });
+	        // Hover på stjärnorna
+	        $('.stars-first .empty-star').mouseout(function(){
+	            $(this).removeClass('full-star').addClass('empty-star');
+	            $(this).prevAll().removeClass('full-star').addClass('empty-star');
+	        });
+	        <% @id = @movie.id %>
+	        // Hämta användarens rating från databasen och loopar ut det i filmer
+	        defaultUserRating = <%= rating_for_user %>;
+	        // Skapa stringen innan den skrivs ut
+	        // Använder movie.id-1 för att det ska bli korrekt
+	        defaultUserRating = ".stars-"+defaultUserRating+"-user";
+	        // Default raiting från movies_helper är  = 0 så det kommer alltid vara true, annars funkar inte funktionen i helpern.
+	        if (defaultUserRating) {
+	            // Skriv ut
+	            $(defaultUserRating).css('display', 'block');
+	        } else {
+	            $alert("Default rating failed");
+	        }
+	    });
+	</script>
+	<div class="large-8 no-padding columns">
+    <div class="user-rating">
+      <% if user_signed_in? %>
+          <div class="user_rating_info" style="display: none" data-movie_id="<%= @movie.id %>" data-user_id="<%= current_user.id %>" >
+            <%= form_for(@rating) do |f| %>
+            <% end %>
+          </div>
+      <% end %>
+      <div class="stars-wrap">
+        <div class="stars-first">
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+        </div>
+        <!-- Stars 0 user -->
+        <div class="stars-0-user">
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+        </div>
+        <!-- Stars 1 user -->
+        <div class="stars-1-user">
+          <div class="full-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+        </div>
+        <!-- Stars 2 user -->
+        <div class="stars-2-user">
+          <div class="full-star"></div>
+          <div class="full-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+        </div>
+        <!-- Stars 3 user -->
+        <div class="stars-3-user">
+          <div class="full-star"></div>
+          <div class="full-star"></div>
+          <div class="full-star"></div>
+          <div class="empty-star"></div>
+          <div class="empty-star"></div>
+        </div>
+        <!-- Stars 4 user -->
+        <div class="stars-4-user">
+          <div class="full-star"></div>
+          <div class="full-star"></div>
+          <div class="full-star"></div>
+          <div class="full-star"></div>
+          <div class="empty-star"></div>
+        </div>
+        <!-- Stars 5 user -->
+        <div class="stars-5-user">
+          <div class="full-star"></div>
+          <div class="full-star"></div>
+          <div class="full-star"></div>
+          <div class="full-star"></div>
+          <div class="full-star"></div>
+        </div>
+      </div>
+      <!-- Stars 0 -->
+    </div>
+  </div>
+  <div class="large-4 no-padding columns">
+    <div class="average-rating">
+        Poäng: <%= @movie.average_rating %>
+    </div>
 	</div>
 </div>
+<div class="large-12 columns">
+  <% if user_signed_in? %>
+    <%= render 'movie_comments/form' %>
+    <div id="comment_list">
+      <%= render 'movie_comments/list' %>
+    </div>  
+  <% end %>
+</div>
+<br>
+<% if current_admin? %>
+  <%= link_to 'Redigera', edit_movie_path(@movie) %>
+<% end %>
