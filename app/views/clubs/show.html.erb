@@ -67,12 +67,12 @@
 				<h4 class="index-heading">Filmer</h4>
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
-						<a href="#" data-reveal-id="club-movies"><%= image_tag('club-ruta3ny.png') %></a>
+						<a href="#" data-reveal-id="club-movies" class="club-movies-link"><%= image_tag('club-ruta3ny.png') %></a>
 						<div id="club-movies" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Filmer</h2>
 							<div id="movies-container" class="centered">
-								<ul class="large-block-grid-3 centering-fix" id="masonry-container-club-movies-reviews">
+								<ul class="large-block-grid-3 centering-fix" id="masonry-container-club-movies">
 									<% if @club_movies.any? %>
 										<% @club_movies.each do |movie| %>
 											<li class="item">
@@ -106,12 +106,12 @@
 				<h4 class="index-heading">Recensioner</h4>
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
-						<a href="#" data-reveal-id="club-reviews"><%= image_tag('club-ruta3ny.png') %></a>
+						<a href="#" data-reveal-id="club-reviews" class="club-reviews-link"><%= image_tag('club-ruta3ny.png') %></a>
 						<div id="club-reviews" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Recensioner</h2>
 							<div id="movies-container" class="centered">
-								<ul class="large-block-grid-3 centering-fix" id="masonry-container-club-movies-reviews">
+								<ul class="large-block-grid-3 centering-fix" id="masonry-container-club-reviews">
 									<% if @reviews.any? %>
 										<% @reviews.each do |review| %>
 											<li class="item">

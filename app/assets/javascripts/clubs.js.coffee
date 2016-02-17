@@ -8,6 +8,12 @@ $(document).on 'ready page:load', ->
 
 $(document).on 'click', '.seen-movies-link', ->
   masonryLoad('#masonry-container-club')
+	
+$(document).on 'click', '.club-movies-link', ->
+  masonryLoad('#masonry-container-club-movies')
+	
+$(document).on 'click', '.club-reviews-link', ->
+  masonryLoad('#masonry-container-club-reviews')
 
 $(document).on 'click', '.club-events-link', ->
   masonryLoad('#masonry-container-club-events')
