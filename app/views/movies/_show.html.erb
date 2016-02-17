@@ -1,7 +1,7 @@
-<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
-<div class="large-10 large-centered medium-10 medium-centered columns movie margin-fix">
-<div class="large-12 large-center columns">
-  <div class="large-6 columns">
+<a class="close-reveal-modal close-fix right-fix" aria-label="Close">&#215;</a>
+<div class="large-10 large-centered medium-12 medium-centered columns movie margin-fix">
+<div class="large-12 large-center medium-12 medium-centered columns">
+  <div class="large-6 medium-12 center-text columns">
     <div class="movie-picture">
       <%= image_tag(@movie.videocover, size: "350x477") %>
     </div>
@@ -30,10 +30,10 @@
       <% end %>
     </div>
     <div class="large-6 columns height-fix center-text">
-      <%= link_to image_tag('trailer.png', size: '275x48'), @movie.trailerlink, target: '_blank', class: 'img-fix' %>
+      <%= link_to image_tag('trailer.png', size: '275x48'), @movie.trailerlink, target: '_blank', class: 'img-fix menu-text-no-background' %>
     </div>
   </div>
-	<div class="large-6 medium-6 center-text columns">
+	<div class="large-6 center-text columns">
 	<script>
 	    $(document).ready(function() {
 	        var newUserRating = false;
@@ -128,7 +128,7 @@
 	        }
 	    });
 	</script>
-	<div class="large-8 no-padding columns">
+	<div class="large-8 center-text no-padding columns">
     <div class="user-rating">
       <% if user_signed_in? %>
           <div class="user_rating_info" style="display: none" data-movie_id="<%= @movie.id %>" data-user_id="<%= current_user.id %>" >
@@ -196,7 +196,7 @@
       <!-- Stars 0 -->
     </div>
   </div>
-  <div class="large-4 no-padding columns">
+  <div class="large-4 center-text no-padding columns">
     <div class="average-rating">
         Poäng: <%= @movie.average_rating %>
     </div>
@@ -209,8 +209,7 @@
       <%= render 'movie_comments/list' %>
     </div>  
   <% end %>
-</div>
-<br>
-<% if current_admin? %>
+  <% if current_admin? %>
   <%= link_to 'Redigera', edit_movie_path(@movie) %>
 <% end %>
+</div>

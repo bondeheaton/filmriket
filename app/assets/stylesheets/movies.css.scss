@@ -248,13 +248,17 @@ div.comments_wraper_m {
 }
 
 .movie-picture {
-  width: auto;
+  max-width: 350px;
   height: auto;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -o-border-radius: 20px;
   overflow: hidden;
+  text-align: center!important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
 }
 
 .movie-text {
@@ -300,4 +304,12 @@ div.info{
     -moz-border-radius: 10px;
     -o-border-radius: 10px;
   }
+}
+
+#movie-modal {
+  padding: 5px;
+}
+
+.right-fix {
+  margin-right: -30px;
 }

@@ -78,6 +78,7 @@ a.admin-link:link, a.admin-link:active, a.admin-link:hover, a.admin-link:visited
 
 .close-fix {
   padding-right: 50px!important;
+  z-index: 999;
 }
 
 a.close-fix:link, a.close-fix:active, a.close-fix:hover, a.close-fix:visited {
@@ -411,6 +412,10 @@ p.created {
 
 @media only screen and (max-width: 770px){
 
+  .close-fix {
+    padding-right: 20px!important;
+  }
+
   .wish-form {
     height: 200px;
   }
@@ -587,9 +592,19 @@ p.created {
 
 }
 
-@media only screen and (min-width: 770px) and (max-width: 970px) {
+@media only screen and (max-width: 767px) {
+  iframe#video-popup {
+    height: 200px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 970px) {
   .movie-box-wrapper {
     width: 270px!important;
+  }
+
+  iframe#video-popup {
+    height: 300px;
   }
 
   .content-wrapper {
