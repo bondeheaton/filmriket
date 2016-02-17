@@ -21,9 +21,12 @@ class Devise::ConfirmationsController < DeviseController
     self.resource = resource_class.confirm_by_token(params[:confirmation_token])
     @user = User.find_by_confirmation_token(params[:confirmation_token])
     yield resource if block_given?
-
     if resource.errors.empty?
-      set_flash_message(:notice, :confirmed) if is_flashing_format?
+      if @user.email == @user.ownemail
+        set_flash_message(:notice, :confirmed) if is_flashing_format?
+      else
+        set_flash_message(:notice, :parent_confirmed) if is_flashing_format?
+      end
       respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource, @user) }
     else
       respond_with_navigational(resource.errors, status: :unprocessable_entity){ render :new }

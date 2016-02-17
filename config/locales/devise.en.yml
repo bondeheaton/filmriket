@@ -4,6 +4,7 @@ en:
   devise:
     confirmations:
       confirmed: "Ditt konto har blivit verifierat."
+      parent_confirmed: "Målsman har nu godkänt, det har skickats ut ett email till användarmailen."
       send_instructions: "Det har skickats ut ett nytt bekräftelsemail."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
