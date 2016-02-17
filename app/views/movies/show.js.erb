@@ -1,2 +1,4 @@
+$(document).on('ready page:load page:change', function() {
+	$('#movie-modal').foundation('reveal', 'open');
+});
 $("#movie-modal").html("<%= escape_javascript(render(:partial => "show")) %>");
-$('#movie-modal').foundation('reveal', 'open');
