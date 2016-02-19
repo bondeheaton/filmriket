@@ -4,7 +4,7 @@
 		<div class="row">
 			<%= devise_error_messages! %>
 			<div class="large-12 columns">
-				<%= f.label "Mail:", class: 'white-text' %>
+				<%= f.label "Email:", class: 'white-text' %>
 				<%= f.email_field :parentmail %>
 				<%= f.hidden_field :ownemail, :value => ""%>
 			</div>
@@ -51,7 +51,7 @@
 				<%= f.text_field :parentphonenumber %>
 			</div>
 			<div class="large-12 columns">
-				<%= f.label "Målsmans mail:", class: 'white-text' %>
+				<%= f.label "Målsmans email:", class: 'white-text' %>
 				<%= f.text_field :email %>
 			</div>
 			<div class="large-12 columns">
