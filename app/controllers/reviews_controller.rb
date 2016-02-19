@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
     review.title = title
     review.save
     # If video got link it should not upload anything to youtube instead redirect to after-upload-path
-    if review.videolink.length > 0
+    if review.videolink
       redirect_to club_path(review.club)
     else
       # Youtube-connection
@@ -41,10 +41,10 @@ class ReviewsController < ApplicationController
   end
 
   def attach
-    @review = Review.find(params[:review_id])
+    review = Review.find(params[:review_id])
     # Setting videolink after upload is complete and video-url is available
-    @review.videolink = params[:id]
-    @review.save
+    review.videolink = params[:id]
+    review.save
     redirect_to club_path(@review.club)
   end
 
