@@ -18,15 +18,7 @@ class ClubsController < ApplicationController
     @seen_movies = []
     @reviews = @club.reviews.where(active: 1)
     @club_movies = @club.club_movies.where(active: 1)
-
-    # Extract users seen-movies, reviews and club_movies to combine to club-stats
-    @users.each do |user|
-      user.ratings.each do |ratings|
-        @seen_movies.push(ratings.movie)
-      end
-    end
-    
-    @seen_movies = @seen_movies.uniq
+    @seen_movies = @club.seen_movies
     
     # Check clubs for coordinates
     @verifiedclubs = []

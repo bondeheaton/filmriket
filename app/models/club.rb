@@ -13,6 +13,9 @@ class Club < ActiveRecord::Base
   validates :address, presence: true
   validates :description, presence: true
   
+  def seen_movies
+    seen_movies = Movie.find(users.joins(:ratings).pluck(:movie_id).uniq)
+  end
   
   def self.score(club)
     @users = club.users
