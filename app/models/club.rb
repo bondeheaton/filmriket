@@ -17,6 +17,12 @@ class Club < ActiveRecord::Base
     seen_movies = Movie.find(users.joins(:ratings).pluck(:movie_id).uniq)
   end
   
+  def verified_clubs
+    verified_clubs = Club.where.not(longitude: nil)
+    # Set self to first element for google-maps center
+    verified_clubs.unshift(self).uniq if longitude
+  end
+  
   def self.score(club)
     @users = club.users
     return @users.first

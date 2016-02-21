@@ -12,29 +12,14 @@ class ClubsController < ApplicationController
   end
 
   def show
-    clubs = Club.all
     @users = @club.users
-    
-    @seen_movies = []
     @reviews = @club.reviews.where(active: 1)
     @club_movies = @club.club_movies.where(active: 1)
     @seen_movies = @club.seen_movies
-    
-    # Check clubs for coordinates
-    @verifiedclubs = []
-    if @club.longitude
-      @verifiedclubs.push(@club)
-    end
-    clubs.each do |film_club|
-      unless film_club == @club
-        if film_club.longitude
-          @verifiedclubs.push(film_club)
-        end
-      end
-    end
+    verified_clubs = @club.verified_clubs
     
     # Create markers for google-map for each club with verified coordinates
-    @hash = Gmaps4rails.build_markers(@verifiedclubs) do |club, marker|
+    @hash = Gmaps4rails.build_markers(verified_clubs) do |club, marker|
       marker.lat club.latitude
       marker.lng club.longitude
       marker.picture({
