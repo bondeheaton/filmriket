@@ -3,7 +3,7 @@ class Club < ActiveRecord::Base
   after_validation :geocode
   has_many :users
   has_many :participants, dependent: :destroy
-  has_many :events, :through => :participants, dependent: :destroy
+  has_many :events, through: :participants, dependent: :destroy
   has_many :uploads, dependent: :destroy
   has_many :club_movies
   has_many :reviews
