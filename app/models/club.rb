@@ -28,13 +28,13 @@ class Club < ActiveRecord::Base
     awaiting_bookings_count < 3
   end
     
-  def self.achievement_icon(club)
+  def achievement_icon
     achievement_score = [0]
-    achievement_score.push(club.events.count)
-    achievement_score.push(club.users.count)
-    achievement_score.push(club.reviews.where.not(active: 0).count)
-    achievement_score.push(club.club_movies.where.not(active: 0).count)
-    achievement_score.push(club.points)
+    achievement_score.push(events.count)
+    achievement_score.push(users.count)
+    achievement_score.push(reviews.where.not(active: 0).count)
+    achievement_score.push(club_movies.where.not(active: 0).count)
+    achievement_score.push(points)
 
     case achievement_score.inject(:+)
     when 0..9

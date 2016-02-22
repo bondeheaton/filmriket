@@ -22,7 +22,7 @@ class ClubsController < ApplicationController
       marker.lat club.latitude
       marker.lng club.longitude
       marker.picture({
-              :url     => ActionController::Base.helpers.asset_path(Club.achievement_icon(club)),
+              :url     => ActionController::Base.helpers.asset_path(club.achievement_icon),
               :width   => 32,
               :height  => 32
               })
