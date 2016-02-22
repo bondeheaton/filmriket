@@ -20,16 +20,8 @@ class HomeController < ApplicationController
 
   def about
     @presses = Press.all
-    clubs = Club.all
-    verifiedclubs = []
-
-    clubs.each do |club|
-      if club.longitude
-        verifiedclubs.push(club)
-      end
-    end
-
-
+    verifiedclubs = Club.where.not(longitude: nil)
+    
     # Create markers for google map
     @hash = Gmaps4rails.build_markers(verifiedclubs) do |club, marker|
       marker.lat club.latitude
@@ -40,7 +32,6 @@ class HomeController < ApplicationController
                          :height  => 32
                      })
       marker.infowindow "#{view_context.link_to club.name, club_path(club), 'data-no-turbolink' => true}"
-
     end
     
     client = Instagram.client(access_token: "1394749750.2a8d1ea.778623c9461246b8a308284e31dd49c2")
