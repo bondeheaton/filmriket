@@ -16,10 +16,9 @@ class ClubsController < ApplicationController
     @reviews = @club.reviews.where(active: 1)
     @club_movies = @club.club_movies.where(active: 1)
     @seen_movies = @club.seen_movies
-    verified_clubs = @club.verified_clubs
     
     # Create markers for google-map for each club with verified coordinates
-    @hash = Gmaps4rails.build_markers(verified_clubs) do |club, marker|
+    @hash = Gmaps4rails.build_markers(@club.verified_clubs) do |club, marker|
       marker.lat club.latitude
       marker.lng club.longitude
       marker.picture({
@@ -45,32 +44,21 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     @club.save
-    users = @club.users
-    users.each do |user|
-      user.update_attributes(:status => 5)
-    end
+    @club.users.update_all(status: 5)
     respond_with(@club)
   end
 
   def update
-    current_users = @club.users
-    current_users.each do |user|
-      user.update_attributes(:status => 4)
-    end
+    # Set all users status to 4 in case someone is removed from the club
+    @club.users.update_all(status: 4)
     @club.update(club_params)
-    users = @club.users
-    users.each do |user|
-      user.update_attributes(:status => 5)
-    end
+    @club.users.update_all(status: 5)
     respond_with(@club)
   end
 
   def destroy
     @club.destroy
-    users = @club.users
-    users.each do |user|
-      user.update_attributes(:status => 4)
-    end
+    @club.users.update_all(status: 4)
     respond_with(@club)
   end
 
