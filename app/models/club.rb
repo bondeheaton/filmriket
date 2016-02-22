@@ -23,11 +23,6 @@ class Club < ActiveRecord::Base
     verified_clubs.unshift(self).uniq if longitude
   end
   
-  def self.score(club)
-    @users = club.users
-    return @users.first
-  end
-  
   def check_bookings?
     awaiting_bookings_count = users.joins(:bookings).where("bookings.status = 0").count
     awaiting_bookings_count < 3
