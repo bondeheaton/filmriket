@@ -8,9 +8,7 @@ class Review < ActiveRecord::Base
     self.active = 0
     self.user_id = user.id
     # Unless club is set in form from an admin
-    unless self.club_id
-      self.club_id = user.club_id
-    end
+    self.club_id = user.club_id unless self.club_id
   end
   
 end
