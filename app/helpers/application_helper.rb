@@ -21,16 +21,6 @@ module ApplicationHelper
     @status_values = [['Vill gå med i klubb', 1], ['Vill starta klubb', 2], ['Letar klubb', 3]]
   end
   
-  # Prevent clubs from booking more than 3 movies.
-  def club_bookings(club)
-    count = []
-    members = club.users
-    members.each do |member|
-      count.push(member.bookings.where(status: 0).count)
-    end
-    count.inject(:+)
-  end
-  
   # Returns clubs achievement score
   def club_achievement_score(club)
     achievement_score = [0]

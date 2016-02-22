@@ -28,6 +28,11 @@ class Club < ActiveRecord::Base
     return @users.first
   end
   
+  def check_bookings?
+    awaiting_bookings_count = users.joins(:bookings).where("bookings.status = 0").count
+    awaiting_bookings_count < 3
+  end
+    
   def self.achievement_icon(club)
     achievement_score = [0]
     achievement_score.push(club.events.count)

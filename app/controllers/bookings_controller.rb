@@ -11,11 +11,7 @@ class BookingsController < ApplicationController
   def approved_bookings
     @booking.update_attributes(:status => 1)
     respond_to do |format|
-      if @booking.update(:status => 1)
-        format.js
-      else
-        format.js
-      end
+      format.js
     end
   end
 
@@ -27,11 +23,7 @@ class BookingsController < ApplicationController
   def bookings_done
     @booking.update_attributes(:status => 2)
     respond_to do |format|
-      if @booking.update(:status => 2)
-        format.js
-      else
-        format.js
-      end
+      format.js
     end
   end
 
@@ -41,7 +33,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    respond_with(@booking)
   end
 
   def new
@@ -53,13 +44,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @userclub = Club.find(User.find(current_user.id).club_id)
     @booking = Booking.new(booking_params)
-    if club_bookings(@userclub) < 3
-      @booking.user_id = current_user.id
-      @booking.status = 0
-      @booking.save
-    end
+    @booking.save_booking(current_user)
     respond_with(@booking)
   end
   
