@@ -20,19 +20,7 @@ module ApplicationHelper
   def status_values
     @status_values = [['Vill gå med i klubb', 1], ['Vill starta klubb', 2], ['Letar klubb', 3]]
   end
-  
-  # Returns clubs achievement score
-  def club_achievement_score(club)
-    achievement_score = [0]
-    achievement_score.push(club.events.count)
-    achievement_score.push(club.users.count)
-    achievement_score.push(club.reviews.where.not(active: 0).count)
-    achievement_score.push(club.club_movies.where.not(active: 0).count)
-    achievement_score.push(club.points)
 
-    achievement_score.inject(:+)
-  end
-  
   def user_in_club(club)
     current_user.access == 2 || current_user.club == club
   end
