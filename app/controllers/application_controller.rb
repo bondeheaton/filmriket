@@ -28,15 +28,6 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_up) << :points
     end
     
-    def club_bookings(clubid)
-      count = []
-      members = Club.find(clubid).users
-      members.each do |member|
-        count.push(member.bookings.where(status: 0).count)
-      end
-      return count.inject(:+)
-    end
-    
     def check_admin!
       if current_user == nil || current_user.access != 2
         redirect_to root_path
