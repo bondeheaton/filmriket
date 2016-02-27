@@ -45,6 +45,12 @@
 		<% else %>
 			<%= link_to "<div class='menu-button4'>Filmer</div>".html_safe, movies_path, class: 'menu-text', 'data-no-turbolink' => true %>
 		<% end %>
+    
+		<% if current_page? club_movies_path %>
+			<%= link_to "<div class='menu-button-selected'>Klubbfilmer</div>".html_safe, club_movies_path, class: 'menu-text' %>
+		<% else %>
+			<%= link_to "<div class='menu-button'>Klubbfilmer</div>".html_safe, club_movies_path, class: 'menu-text', 'data-no-turbolink' => true %>
+		<% end %>
 
 		<% if current_page? filmschools_path %>
 			<%= link_to "<div class='menu-button5-selected'>Filmskolan</div>".html_safe, filmschools_path, class: 'menu-text', 'data-no-turbolink' => true %>
@@ -62,12 +68,6 @@
 			<%= link_to "<div class='menu-button7-selected'>Kontakt</div>".html_safe, contact_path, class: 'menu-text' %>
 		<% else %>
 			<%= link_to "<div class='menu-button7'>Kontakt</div>".html_safe, contact_path, class: 'menu-text' %>
-		<% end %>
-
-		<% if current_page? club_movies_path %>
-			<%= link_to "<div class='menu-button-selected'>Klubbfilmer</div>".html_safe, club_movies_path, class: 'menu-text' %>
-		<% else %>
-			<%= link_to "<div class='menu-button'>Klubbfilmer</div>".html_safe, club_movies_path, class: 'menu-text', 'data-no-turbolink' => true %>
 		<% end %>
 		
 		<% if current_user %>
