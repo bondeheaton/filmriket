@@ -2,6 +2,8 @@ class ClubMovie < ActiveRecord::Base
   belongs_to :user
   belongs_to :club
   
+  default_scope { order('created_at DESC') } 
+  
   # setting club_movie to inactive before upload is attached
   def access(user)
     self.active = 0

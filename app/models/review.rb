@@ -3,6 +3,8 @@ class Review < ActiveRecord::Base
   belongs_to :movie
   belongs_to :club
   
+  default_scope { order('created_at DESC') } 
+  
   # setting review to inactive before upload is attached
   def access(user)
     self.active = 0
