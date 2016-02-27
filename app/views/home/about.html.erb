@@ -74,7 +74,7 @@
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Presslänkar</h2>
 							<% @presses.each do |press| %>
-								<%= link_to press.text, press.link, target: "_blank" %><br><br>
+							  <%= link_to (press.press_date.strftime("%Y-%m-%d") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + press.text).html_safe, press.link, target: "_blank" %><br><br>
 							<% end %>
 						</div>
 					</div>
