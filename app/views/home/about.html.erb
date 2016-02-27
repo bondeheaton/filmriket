@@ -48,26 +48,21 @@
 					</div>
 				</div>
 			</div>
-			
-			<div class="large-6 columns medium-6 movie-box-wrapper">
-				<h4 class="index-heading">Samarbeten</h4>
-				<div class="content-wrapper">
-					<div class="large-8 large-centered medium-8 medium-centered columns content">
-
-						<a href="#" data-reveal-id="partners"><%= image_tag("about-ruta2.png") %></a>
-
-						<div id="partners" class="reveal-modal padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
-
-							<h2 class="popup-text">Filmriket partners</h2>
-							<p class="popup-text">
-								<p>Projektet drivs av Reaktor Sydost, Film i J&ouml;nk&ouml;ping och Filmpool Nord, tre resurscentrum f&ouml;r film som arbetar i Kronoberg, Kalmar, Blekinge, J&ouml;nk&ouml;ping och Norrbottens l&auml;n. Studief&ouml;rbundet Bilda har ocks&aring; en stor roll i projektet och har &ouml;kat under det g&aring;ngna &aring;ret. En representant fr&aring;n varje organisation utg&ouml;r styrgruppen. N&auml;r det g&auml;ller filmutbud och distribution av filmerna har vi kontakt och samarbete med Folkets Bio, BUFF och Av-media-centraler.</p>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+      
+    	<div class="large-6 columns medium-6 movie-box-wrapper">
+    		<h4 class="index-heading">Nyheter</h4>
+    		<div class="content-wrapper">
+    			<div class="large-8 large-centered medium-8 medium-centered columns content">
+    				<% if News.first %>
+    					<%= link_to image_tag(News.first.img), news_index_path %>
+    				<% else %>
+    					<%= link_to image_tag("mockup.jpg"), news_index_path %>
+    				<% end %>
+    			</div>
+    		</div>
+    	</div>
 		</div>
+    
 		
 		<div class="row">
 			<div class="large-6 columns medium-6 movie-box-wrapper">
@@ -185,19 +180,25 @@
 					</div>
 				</div>
 			</div>
-			
-			<div class="large-6 columns medium-6 movie-box-wrapper">
-				<h4 class="index-heading">Nyheter</h4>
-				<div class="content-wrapper">
-					<div class="large-8 large-centered medium-8 medium-centered columns content">
-						<% if News.first %>
-							<%= link_to image_tag(News.first.img), news_index_path %>
-						<% else %>
-							<%= link_to image_tag("mockup.jpg"), news_index_path %>
-						<% end %>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+      
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Samarbeten</h4>
+        <div class="content-wrapper">
+          <div class="large-8 large-centered medium-8 medium-centered columns content">
+
+            <a href="#" data-reveal-id="partners"><%= image_tag("about-ruta2.png") %></a>
+
+            <div id="partners" class="reveal-modal padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+              <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+              <h2 class="popup-text">Filmriket partners</h2>
+              <p class="popup-text">
+                <p>Projektet drivs av Reaktor Sydost, Film i J&ouml;nk&ouml;ping och Filmpool Nord, tre resurscentrum f&ouml;r film som arbetar i Kronoberg, Kalmar, Blekinge, J&ouml;nk&ouml;ping och Norrbottens l&auml;n. Studief&ouml;rbundet Bilda har ocks&aring; en stor roll i projektet och har &ouml;kat under det g&aring;ngna &aring;ret. En representant fr&aring;n varje organisation utg&ouml;r styrgruppen. N&auml;r det g&auml;ller filmutbud och distribution av filmerna har vi kontakt och samarbete med Folkets Bio, BUFF och Av-media-centraler.</p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+	  </div>
+  </div>
 </div>
