@@ -10,7 +10,7 @@
 						<div id="club-info" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text"><%= @club.name %></h2>
-							<p class="popup-text"> Klubben bildades <%= @club.created_at.strftime("%d/%m-%Y")%></p>
+							<p class="popup-text"> Klubben bildades <%= @club.start_date.strftime("%d/%m-%Y")%></p>
 							<p class="popup-text"><%= @club.description %></p>
 							<p class="popup-text">Poäng: <%= @club.achievement_score %></p>
 							<p class="popup-text">Klubben har <%= @club.users.length %> medlemmar.</p>

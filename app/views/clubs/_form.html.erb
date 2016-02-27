@@ -29,6 +29,10 @@
 		<h3>Postnummer</h3>
 		<%= f.number_field :zipcode %>
 	</div>
+	<div class="field">
+		<h3>Skapad</h3>
+		<%= f.date_select :start_date, prompt: {day: 'Välj dag', month: 'Välj månad', year: 'Välj år'} %>
+	</div>
 	<br>
 	<div class="field">
 		<h3>Extra-poäng</h3>
