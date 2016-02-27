@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   before_filter :check_admin!, only: [:admin_log]
 
   def index
+    @hash = build_gmaps_markers
   end
 
   def admin_log
@@ -21,19 +22,7 @@ class HomeController < ApplicationController
   def about
     @presses = Press.all
     verifiedclubs = Club.where.not(longitude: nil)
-    
-    # Create markers for google map
-    @hash = Gmaps4rails.build_markers(verifiedclubs) do |club, marker|
-      marker.lat club.latitude
-      marker.lng club.longitude
-      marker.picture({
-                         :url     => ActionController::Base.helpers.asset_path(club.achievement_icon),
-                         :width   => 32,
-                         :height  => 32
-                     })
-      marker.infowindow "#{view_context.link_to club.name, club_path(club), 'data-no-turbolink' => true}"
-    end
-    
+    @hash = build_gmaps_markers
     client = Instagram.client(access_token: "1394749750.2a8d1ea.778623c9461246b8a308284e31dd49c2")
     @media_photos = client.user_recent_media(count: 30)
   end

@@ -16,19 +16,8 @@ class ClubsController < ApplicationController
     @reviews = @club.reviews.where(active: 1)
     @club_movies = @club.club_movies.where(active: 1)
     @seen_movies = @club.seen_movies
+    @hash = build_gmaps_markers
     
-    # Create markers for google-map for each club with verified coordinates
-    @hash = Gmaps4rails.build_markers(@club.verified_clubs) do |club, marker|
-      marker.lat club.latitude
-      marker.lng club.longitude
-      marker.picture({
-              :url     => ActionController::Base.helpers.asset_path(club.achievement_icon),
-              :width   => 32,
-              :height  => 32
-              })
-      marker.infowindow "#{view_context.link_to club.name, club_path(club), 'data-no-turbolink' => true}"
-    end
-
     @upload = Upload.new
     respond_with(@clubs)
   end

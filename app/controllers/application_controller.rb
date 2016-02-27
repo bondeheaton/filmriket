@@ -4,6 +4,27 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  
+  def build_gmaps_markers
+    # If club params is present put this club first for centering map around this club
+    if params[:id]
+      club = Club.find(params[:id])
+      verifiedclubs = club.verified_clubs
+    else
+      verifiedclubs = Club.where.not(longitude: nil)
+    end
+    # Create markers for google map
+    Gmaps4rails.build_markers(verifiedclubs) do |club, marker|
+      marker.lat club.latitude
+      marker.lng club.longitude
+      marker.picture({
+                         :url     => ActionController::Base.helpers.asset_path(club.achievement_icon),
+                         :width   => 32,
+                         :height  => 32
+                     })
+      marker.infowindow "#{view_context.link_to club.name, club_path(club), 'data-no-turbolink' => true}"
+    end
+  end
 
     protected
 

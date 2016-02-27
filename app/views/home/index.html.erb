@@ -1,3 +1,4 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <div class="row">
 	<div class="large-10 large-centered medium-10 medium-centered columns centering-fix" id="js-fix">
 		<div class="row">
@@ -34,11 +35,81 @@
 				</div>
 			</div>
 			
-			<div class="large-6 columns medium-6 movie-box-wrapper">
-				<h4 class="index-heading">Filmskolan</h4>
-				<div class="content-wrapper">
-					<div class="large-8 large-centered columns mediunm-8 medium-centered  content">
-						<%= link_to image_tag('filmskolan.png'), filmschools_path, 'data-no-turbolink' => true %>
+		<div class="large-6 columns medium-6 movie-box-wrapper">
+			<h4 class="index-heading">Filmklubbar</h4>
+			<div class="content-wrapper">
+				<div class="large-8 large-centered medium-8 medium-centered columns content-map fix-stuff">
+					<a href="#" data-reveal-id="map_id" class="link-fix">
+						<div class="show-map">
+						</div>
+						<div id="map_before">
+							<script type="text/javascript">
+							var handlerrr;
+							$(document).on('page:change', function() {
+								handlerr = Gmaps.build('Google', { markers: { clusterer: null } });
+								handlerr.buildMap({ provider: {disableDefaultUI: true}, internal: {id: 'map_before'}}, function(){
+									markers = handlerr.addMarkers(<%=raw @hash.to_json %>)
+									handlerr.bounds.extendWith(markers);
+									handlerr.fitMapToBounds();
+									handlerr.getMap().setZoom(5);
+								});
+								function InfoBox(opts) {
+									google.maps.OverlayView.call(this);
+									this.latlng_ = opts.latlng;
+									this.map_ = opts.map;
+									this.offsetVertical_ = -195;
+									this.offsetHorizontal_ = 0;
+									this.height_ = 165;
+									this.width_ = 266;
+									var me = this;
+									this.boundsChangedListener_ =
+									google.maps.event.addListener(this.map_, "bounds_changed", function() {
+										return me.panMap.apply(me);
+									});
+									// Once the properties of this OverlayView are initialized, set its map so
+									// that we can display it.  This will trigger calls to panes_changed and
+									// draw.
+									this.setMap(this.map_);
+								}
+								InfoBox.prototype = new google.maps.OverlayView();
+							});
+							</script>
+						</div>
+					</a>
+
+					<div id="map_id" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+						<script type="text/javascript">
+						var handler;
+						$(document).on('page:change', function() {
+							handler = Gmaps.build('Google', { markers: { clusterer: null } });
+							handler.buildMap({ provider: {}, internal: {id: 'map_id'}}, function(){
+								markers = handler.addMarkers(<%=raw @hash.to_json %>)
+								handler.bounds.extendWith(markers);
+								handler.fitMapToBounds();
+								handler.getMap().setZoom(6);
+							});
+							function InfoBox(opts) {
+								google.maps.OverlayView.call(this);
+								this.latlng_ = opts.latlng;
+								this.map_ = opts.map;
+								this.offsetVertical_ = -195;
+								this.offsetHorizontal_ = 0;
+								this.height_ = 165;
+								this.width_ = 266;
+								var me = this;
+								this.boundsChangedListener_ =
+								google.maps.event.addListener(this.map_, "bounds_changed", function() {
+									return me.panMap.apply(me);
+								});
+								// Once the properties of this OverlayView are initialized, set its map so
+								// that we can display it.  This will trigger calls to panes_changed and
+								// draw.
+								this.setMap(this.map_);
+							}
+							InfoBox.prototype = new google.maps.OverlayView();
+						});
+						</script>
 					</div>
 				</div>
 			</div>
