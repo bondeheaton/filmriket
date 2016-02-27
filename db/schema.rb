@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227154439) do
+ActiveRecord::Schema.define(version: 20160227160242) do
 
   create_table "admin_images", force: true do |t|
     t.string   "img"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20160227154439) do
     t.string   "videocover"
     t.integer  "image_size"
     t.string   "country"
+    t.string   "discusslink"
   end
 
   create_table "news", force: true do |t|

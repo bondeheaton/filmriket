@@ -1,0 +1,54 @@
+<div class="row">
+	<div class="large-10 large-centered medium-10 medium-centered columns media-container" id="js-fix">
+		<div id="discuss-movies-container" class="centered">
+			<ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
+				<% @movies.each do |movie| %>
+						<li class="item">
+							<div class="movie-container width-fix">
+									<%= link_to movie_path(movie), remote: true, data: {:"reveal-id" => "discuss-modal" + movie.id.to_s} do %>
+										<div class="movie-link2 image videolink-fix">
+											<div class="youtube-left-fix"></div>
+											<div class="youtube-right-fix"></div>
+											<%= raw(youtube_embed(movie.discusslink)) %>
+										</div>
+										<div class="movie-description rounded description-fix">
+											<h4 class="movie-title"><%= movie.title %></h4>
+											<% if current_admin? %>
+												<%= link_to 'Redigera', edit_movie_path(movie), class: 'admin-link' %> |
+											<% end %>
+										</div>
+									<% end %>
+							</div>
+						</li>
+            <div id="<%= "discuss-modal" + movie.id.to_s %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+              <div class="row">
+              	<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+              	<div class="large-10 large-centered medium-10 medium-centered columns movie margin-fix">
+              		<div class="row">
+              			<div class="large-11 columns large-centered">
+              				<h4 class="movie-text">
+              					<%= movie.title %>
+              				</h4>
+              				<div class="club-movie">
+              					<%= raw(youtube_embed_popup(movie.discusslink)) %>
+              				</div>
+              			</div>
+              		</div>
+              		<div class="row">
+              			<div class="large-11 columns large-centered">
+              				<span class="movie-text">
+              					Här diskuterar vi filmen <%= movie.title %>
+              				</span>
+              			</div>
+              		</div>
+              	</div>
+              </div>
+            </div>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+	<%= render partial: 'discuss_modal' %>
+</div>
+
+

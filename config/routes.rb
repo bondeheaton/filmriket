@@ -47,6 +47,8 @@ Rails.application.routes.draw do
   resources :movie_comments
 
   resources :movies
+  
+  get '/discuss', to: 'movies#discuss_movies', as: 'discuss_movies'
 
   resources :clubs
 
