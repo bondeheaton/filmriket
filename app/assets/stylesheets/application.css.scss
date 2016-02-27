@@ -60,6 +60,14 @@ p {
 	}
 }
 
+.grey-background {
+  background-color: #99968E;
+}
+
+.grey-background:hover, .grey-background:active, .grey-background:visited, .grey-background:link {
+  background-color: #EC3623!important;
+}
+
 .sidebar-width a:link, a:visited, a:hover, a:active {
 	  text-decoration: none!important;
 	  color: #c2dad1;
