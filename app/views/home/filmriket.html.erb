@@ -68,14 +68,10 @@
 			</div>
 			
 			<div class="large-6 columns medium-6 movie-box-wrapper">
-				<h4 class="index-heading">Nyheter</h4>
+				<h4 class="index-heading">Prata film</h4>
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
-						<% if News.first %>
-							<%= link_to image_tag(News.first.img), news_index_path %>
-						<% else %>
-							<%= link_to image_tag("mockup.jpg"), news_index_path %>
-						<% end %>
+							<%= link_to image_tag("mockup.jpg"), discuss_movies_path %>
 					</div>
 				</div>
 			</div>
