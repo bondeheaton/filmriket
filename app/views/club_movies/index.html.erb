@@ -5,7 +5,7 @@
 				<% @videos.each do |video| %>
 					<% if video.active == 1 || current_admin? %>
 						<li class="item">
-							<div class="movie-container bordered-grey width-fix">
+							<div class="movie-container width-fix">
 								<% if video.class == ClubMovie %>
 									<%= link_to club_movies_show_path(video), remote: true, data: {:"reveal-id" => "movie-modal"} do %>
 										<div class="movie-link2 image videolink-fix">

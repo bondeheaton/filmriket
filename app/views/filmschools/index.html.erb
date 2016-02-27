@@ -4,7 +4,7 @@
 			<ul class="large-block-grid-3 medium-block-grid-2" id="masonry-container">
 				<% @filmschools.each do |movie| %>
 					<li class="item">
-						<div class="movie-container bordered-grey width-fix">
+						<div class="movie-container width-fix">
 							<%= link_to movie, remote: true, data: {:"reveal-id" => "filmschool-modal"}, class: 'filmschool-link' do %>
 								<div class="movie-link2 image videolink-fix">
 									<div class="youtube-left-fix"></div>
