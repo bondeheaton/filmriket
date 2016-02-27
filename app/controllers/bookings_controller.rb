@@ -44,9 +44,13 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.save_booking(current_user)
-    respond_with(@booking)
+    # Dont allow admins to book to prevent nil error in bookings index
+    unless current_user.access == 2
+      @booking = Booking.new(booking_params)
+      @booking.save_booking(current_user)
+      respond_with(@booking)
+    end
+    redirect_to :back
   end
   
   def update
