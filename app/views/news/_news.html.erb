@@ -17,7 +17,7 @@
 								<h2><%= news.title %> </h2></span>
 								<div class="news-content-container">
 									<div class="news-category">
-										<%= news.category.upcase %>:&nbsp;
+										<%= (news.category.upcase + "&nbsp;" + news.newsdate.strftime("%Y-%m-%d")).html_safe %>:&nbsp;
 									</div>            
 									<%= news.content.html_safe %>
 								</div>
