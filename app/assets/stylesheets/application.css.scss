@@ -97,6 +97,33 @@ p {
   text-decoration: underline!important;
 }
 
+.icons-topbar {
+  float:right;
+  height:51px;
+  width:85%;
+  display:none;
+}
+
+.icon-first {
+  width:40%;
+  float:left;
+}
+
+.icon {
+  width:20%;
+  margin-top:2px;
+  float:left;
+}
+
+
+@media only screen and (max-width: 640px) {
+  .icons-topbar {
+    display: block;
+  }
+  .topbar {
+    display:none;
+  }
+}
 
 @media only screen and (min-width: 1800px) {
   .media-container {
