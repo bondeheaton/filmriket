@@ -10,7 +10,7 @@
   width: 40px;
   height: 50px;
   border-radius: 50%;
-  box-shadow: 15px 0px 0px 0px #FFFFFF;
+  box-shadow: 15px 0px 0px 0px #EC3623;
   -moz-transform: scaleX(-1.0);    /* Gecko */
   -o-transform: scaleX(-1.0);      /* Opera */
   -webkit-transform: scaleX(-1.0); /* Webkit */
@@ -25,6 +25,7 @@
 }
 
 .youtube-right-fix-club {
+  background-color: #EC3623;
   position: absolute;
   top: -4px;
   right: 1px;
@@ -32,7 +33,7 @@
   width: 40px;
   height: 50px;
   border-radius: 50%;
-  box-shadow: 15px 0px 0px 0px #FFFFFF;
+  box-shadow: 15px 0px 0px 0px #EC3623;
   -o-transform: rotate(315deg);
   -moz-transform: rotate(315deg);
   -ms-transform: rotate(315deg); /* IE 9 */
