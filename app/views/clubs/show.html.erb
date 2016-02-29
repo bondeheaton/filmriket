@@ -7,7 +7,7 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="club-info"><%= image_tag("klubbinfo.png") %></a>
-						<div id="club-info" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="club-info" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text"><%= @club.name %></h2>
 							<p class="popup-text"> Klubben bildades <%= @club.start_date.strftime("%d/%m-%Y")%></p>
@@ -30,7 +30,7 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="seen-movies" class="seen-movies-link"><%= image_tag("club-ruta2.png") %></a>
-						<div id="seen-movies" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="seen-movies" class="reveal-modal popup-grey padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Sedda Filmer</h2>
 							<div id="movies-container" class="centered">
@@ -68,7 +68,7 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="club-movies" class="club-movies-link"><%= image_tag('club-ruta3ny.png') %></a>
-						<div id="club-movies" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="club-movies" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Filmer</h2>
 							<div id="movies-container" class="centered">
@@ -109,7 +109,7 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="club-reviews" class="club-reviews-link"><%= image_tag('club-ruta3ny.png') %></a>
-						<div id="club-reviews" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="club-reviews" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Recensioner</h2>
 							<div id="movies-container" class="centered">
@@ -152,7 +152,7 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="club-images"><%= image_tag('klubb-bilder.png') %></a>
-						<div id="club-images" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" data-reveal aria-hidden="true" role="dialog">
+						<div id="club-images" class="reveal-modal popup-grey padding-fix" data-reveal aria-labelledby="modalTitle" data-reveal aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Bilder</h2>
 							<% if @club.uploads.exists? %>
@@ -173,7 +173,7 @@
 					
 					<% if user_in_club(@club)  %>
 						<%= link_to "<div class='upload-image' data-reveal-id='upload-image'></div>".html_safe, "#"%>
-						<div id="upload-image" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="upload-image" class="reveal-modal popup-grey padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Ladda upp</h2>
 							<%= render 'uploads/form', :object => @upload %>
@@ -187,7 +187,7 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="event-info" class="club-events-link"><% if @club.events.last %><img src="<%= @club.events.last.img %>"><% else %><%= image_tag('club-ruta5.png') %><% end %></a>
-						<div id="event-info" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="event-info" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Evenemang/Aktiviteter</h2>
 							<div id="movies-container" class="centered">
@@ -302,7 +302,7 @@
 			<div class="large-6 columns medium-6 movie-box-wrapper">
 				<h4 class="index-heading">Kontakt</h4>
 				<div class="content-wrapper">
-					<div class="large-8 large-centered mediunm-8 medium-centered columns content">
+					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<%= link_to image_tag('filmriket-logga-ruta.png'), contact_path, class: 'menu-text-no-background' %>
 					</div>
 				</div>
