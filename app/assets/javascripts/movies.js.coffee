@@ -31,9 +31,13 @@ masonry = ->
   ), 500
 
 resizeGrid = ->
-  if $(document).width() > 1700
+  if $(document).width() > 1900
+    $('.large-block-grid-3').addClass('large-block-grid-5')
+  else if $(document).width() > 1450
+    $('.large-block-grid-3').removeClass('large-block-grid-5')
     $('.large-block-grid-3').addClass('large-block-grid-4')
   else
+    $('.large-block-grid-3').removeClass('large-block-grid-5')
     $('.large-block-grid-3').removeClass('large-block-grid-4')
 
 # Extract and format URL 
