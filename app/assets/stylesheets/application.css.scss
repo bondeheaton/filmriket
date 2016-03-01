@@ -20,21 +20,31 @@
  */
 @import "foundation_and_overrides";
 
+
+textarea:focus, input:focus{
+    outline: none!important;
+}
+
+*:focus {
+    outline: none!important;
+}
+
 body {
+  color: #FFFFFF;
   background-color: #c2dad1;
-  font-family: Calibri!important;
+  font-family: Calibri, Tahoma, Arial, Serif!important;
   font-weight: bold;
 }
 
 h2 {
-  font-family: Calibri!important;
+  font-family: Calibri, Tahoma, Arial, Serif!important;
   font-size: 22px;
   font-weight: bold;
   color: #ffffff!important;
 }
 
 p {
-  font-family: Calibri!important;
+  font-family: Calibri, Tahoma, Arial, Serif!important;
   color: #ffffff!important;
 }
 
@@ -56,8 +66,16 @@ p {
 	a:link, a:visited, a:hover, a:active {
 	  text-decoration: none!important;
 	  background: none;
-	  color: black!important;
+	  color: #FFF!important;
 	}
+}
+
+.grey-background, .grey-background:focus {
+  background-color: #8f8f8e;
+}
+
+.grey-background:link, .grey-background:visited,  .grey-background:hover, .grey-background:active {
+  background-color: #ca3806!important;
 }
 
 .sidebar-width a:link, a:visited, a:hover, a:active {
@@ -75,10 +93,48 @@ p {
   }
 }
 
+.popup-grey {
+  background-color:#8f8f8e;
+}
+
+.popup-red {
+  background-color:#ca3806;
+}
+
 .white-text a:hover {
   text-decoration: underline!important;
 }
 
+.icons-topbar {
+  float:right;
+  height:51px;
+  width:85%;
+  display:none;
+}
+
+.icon-first {
+  width:40%;
+  float:left;
+}
+
+.icon {
+  width:20%;
+  margin-top:2px;
+  float:left;
+}
+
+
+@media only screen and (max-width: 640px) {
+  .icons-topbar {
+    display: block;
+    z-index:10;
+    position:fixed;
+    margin-left:50px;
+  }
+  .topbar {
+    display:none;
+  }
+}
 
 @media only screen and (min-width: 1800px) {
   .media-container {

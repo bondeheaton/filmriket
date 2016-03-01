@@ -7,7 +7,7 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="omfilmriket"><%= image_tag("about-ruta1.png") %></a>
-						<div id="omfilmriket" class="reveal-modal padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="omfilmriket" class="reveal-modal popup-grey padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Om Filmriket</h2>
 							<p class="popup-text">
@@ -48,26 +48,21 @@
 					</div>
 				</div>
 			</div>
-			
-			<div class="large-6 columns medium-6 movie-box-wrapper">
-				<h4 class="index-heading">Samarbeten</h4>
-				<div class="content-wrapper">
-					<div class="large-8 large-centered medium-8 medium-centered columns content">
-
-						<a href="#" data-reveal-id="partners"><%= image_tag("about-ruta2.png") %></a>
-
-						<div id="partners" class="reveal-modal padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
-
-							<h2 class="popup-text">Filmriket partners</h2>
-							<p class="popup-text">
-								<p>Projektet drivs av Reaktor Sydost, Film i J&ouml;nk&ouml;ping och Filmpool Nord, tre resurscentrum f&ouml;r film som arbetar i Kronoberg, Kalmar, Blekinge, J&ouml;nk&ouml;ping och Norrbottens l&auml;n. Studief&ouml;rbundet Bilda har ocks&aring; en stor roll i projektet och har &ouml;kat under det g&aring;ngna &aring;ret. En representant fr&aring;n varje organisation utg&ouml;r styrgruppen. N&auml;r det g&auml;ller filmutbud och distribution av filmerna har vi kontakt och samarbete med Folkets Bio, BUFF och Av-media-centraler.</p>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+      
+    	<div class="large-6 columns medium-6 movie-box-wrapper">
+    		<h4 class="index-heading">Nyheter</h4>
+    		<div class="content-wrapper">
+    			<div class="large-8 large-centered medium-8 medium-centered columns content">
+    				<% if News.first %>
+    					<%= link_to image_tag(News.first.img), news_index_path %>
+    				<% else %>
+    					<%= link_to image_tag("mockup.jpg"), news_index_path %>
+    				<% end %>
+    			</div>
+    		</div>
+    	</div>
 		</div>
+    
 		
 		<div class="row">
 			<div class="large-6 columns medium-6 movie-box-wrapper">
@@ -75,11 +70,11 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="media"><%= image_tag("about-ruta3.png") %></a>
-						<div id="media" class="reveal-modal padding-fix black-links" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="media" class="reveal-modal popup-red padding-fix black-links" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
-							<h2 class="popup-text">Press</h2>
+							<h2 class="popup-text">Presslänkar</h2>
 							<% @presses.each do |press| %>
-								<%= link_to press.text, press.link, target: "_blank" %><br><br>
+							  <%= link_to (press.press_date.strftime("%Y-%m-%d") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + press.text).html_safe, press.link, target: "_blank" %><br><br>
 							<% end %>
 						</div>
 					</div>
@@ -91,10 +86,11 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered columns medium-8 medium-centered content">
 						<a href="#" data-reveal-id="socialamedier"><%= image_tag("omfilmriket-bilder.png") %></a>
-						<div id="socialamedier" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="socialamedier" class="reveal-modal popup-grey padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text"></h2>
-							<p class="popup-text">
+							<p class="filmriket-images">
+                <%= link_to image_tag("instagram-logo.png"), "https://instagram.com/filmriket/", target: "_blank" %>
 								<% @media_photos.each do |media| %>
 									<%= link_to image_tag(media.images.thumbnail.url), media.link, target: "_blank" %>
 								<% end %>
@@ -109,7 +105,7 @@
 			<div class="large-6 columns medium-6 movie-box-wrapper">
 				<h4 class="index-heading">Filmklubbar</h4>
 				<div class="content-wrapper">
-					<div class="large-8 large-centered medium-8 medium-centered columns content fix-stuff">
+					<div class="large-8 large-centered medium-8 medium-centered columns content-map fix-stuff">
 						<a href="#" data-reveal-id="map_id" class="link-fix">
 							<div class="show-map">
 							</div>
@@ -185,19 +181,25 @@
 					</div>
 				</div>
 			</div>
-			
-			<div class="large-6 columns medium-6 movie-box-wrapper">
-				<h4 class="index-heading">Nyheter</h4>
-				<div class="content-wrapper">
-					<div class="large-8 large-centered medium-8 medium-centered columns content">
-						<% if News.first %>
-							<%= link_to image_tag(News.first.img), news_index_path %>
-						<% else %>
-							<%= link_to image_tag("mockup.jpg"), news_index_path %>
-						<% end %>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+      
+      <div class="large-6 columns medium-6 movie-box-wrapper">
+        <h4 class="index-heading">Samarbeten</h4>
+        <div class="content-wrapper">
+          <div class="large-8 large-centered medium-8 medium-centered columns content">
+
+            <a href="#" data-reveal-id="partners"><%= image_tag("about-ruta2.png") %></a>
+
+            <div id="partners" class="reveal-modal popup-grey padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+              <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+              <h2 class="popup-text">Filmriket partners</h2>
+              <p class="popup-text">
+                <p>Projektet drivs av Reaktor Sydost, Film i J&ouml;nk&ouml;ping och Filmpool Nord, tre resurscentrum f&ouml;r film som arbetar i Kronoberg, Kalmar, Blekinge, J&ouml;nk&ouml;ping och Norrbottens l&auml;n. Studief&ouml;rbundet Bilda har ocks&aring; en stor roll i projektet och har &ouml;kat under det g&aring;ngna &aring;ret. En representant fr&aring;n varje organisation utg&ouml;r styrgruppen. N&auml;r det g&auml;ller filmutbud och distribution av filmerna har vi kontakt och samarbete med Folkets Bio, BUFF och Av-media-centraler.</p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+	  </div>
+  </div>
 </div>

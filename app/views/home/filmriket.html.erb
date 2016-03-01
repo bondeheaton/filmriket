@@ -2,11 +2,11 @@
 	<div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
 		<div class="row">
 			<div class="large-6 columns medium-6 movie-box-wrapper">
-				<h4 class="index-heading">Se prata och gör film!</h4>
+				<h4 class="index-heading">Vad är filmriket?</h4>
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="myModal"><%= image_tag("filmriket-ruta1.png") %></a>
-						<div id="myModal" class="reveal-modal padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="myModal" class="reveal-modal popup-red padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Se prata och gör film!</h2>
 							<p class="popup-text">
@@ -28,10 +28,10 @@
 			</div>
 			
 			<div class="large-6 columns medium-6 movie-box-wrapper">
-				<h4 class="index-heading">Hur funkar Filmriket</h4>
-				<div class="large-8 large-centered medium-'8 medium-centered columns content-video">
+				<h4 class="index-heading">Hur funkar Filmriket?</h4>
+				<div class="large-8 large-centered medium-8 medium-centered columns content-video">
 					<div class="video-container">
-						<%= raw(youtube_embed('https://www.youtube.com/watch?v=RMEA4IDjAh4')) %>
+						<%= raw(youtube_embed('https://www.youtube.com/watch?v=hsgAeWYX_38')) %>
 					</div>
 				</div>
 			</div>
@@ -68,14 +68,10 @@
 			</div>
 			
 			<div class="large-6 columns medium-6 movie-box-wrapper">
-				<h4 class="index-heading">Nyheter</h4>
+				<h4 class="index-heading">Prata film</h4>
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
-						<% if News.first %>
-							<%= link_to image_tag(News.first.img), news_index_path %>
-						<% else %>
-							<%= link_to image_tag("mockup.jpg"), news_index_path %>
-						<% end %>
+							<%= link_to image_tag("mockup.jpg"), discuss_movies_path %>
 					</div>
 				</div>
 			</div>

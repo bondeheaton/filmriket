@@ -5,7 +5,7 @@
 	  	<%= devise_error_messages! %>
     	<%= f.label "Email: (Skriv in den email som inte godkänt)", class: 'white-text' %>
 	  	<%= f.email_field :email, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> 
-	  	<%= f.submit "Skicka nytt bekräftelsemail", class: 'button expand' %>
+	  	<%= f.submit "Skicka nytt bekräftelsemail", class: 'button expand grey-background' %>
 			<% end %>
 		<%= render "devise/shared/links" %>
 	</div>

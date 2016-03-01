@@ -40,7 +40,7 @@ class ClubMoviesController < ApplicationController
     club_movie.title = title
     club_movie.save
     # If video got link it should not upload anything to youtube instead redirect to after-upload-path
-    if club_movie.videolink.length > 0
+    if club_movie.videolink
       redirect_to club_path(club_movie.club)
     else
       # Youtube-connection
@@ -52,9 +52,9 @@ class ClubMoviesController < ApplicationController
   end
 
   def attach
-    @club_movie = ClubMovie.find(params[:club_movie_id])
-    @club_movie.videolink = params[:id]
-    @club_movie.save
+    club_movie = ClubMovie.find(params[:club_movie_id])
+    club_movie.videolink = params[:id]
+    club_movie.save
     redirect_to club_path(@club_movie.club)
   end
   

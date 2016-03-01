@@ -14,18 +14,28 @@ class Devise::SessionsController < DeviseController
 
   # POST /resource/sign_in
   def create
-    @user = User.find_by_email(params[:user][:email])
-    if @user
-      if @user.email == @user.ownemail
+    user = User.find_by_email(params[:user][:email])
+    if user
+      if user.email == user.ownemail
         self.resource = warden.authenticate!(auth_options)
-        set_flash_message(:notice, :signed_in) if is_flashing_format?
         sign_in(resource_name, resource)
         yield resource if block_given?
         respond_with resource, location: after_sign_in_path_for(resource)
       else
+        set_flash_message(:notice, :no_user) if is_flashing_format?
         redirect_to :back
       end
     else
+      if User.find_by_ownemail(params[:user][:email])
+        user = User.find_by_ownemail(params[:user][:email])
+        if user.unconfirmed_email
+          set_flash_message(:notice, :not_confirmed) if is_flashing_format?
+        else
+          set_flash_message(:notice, :parent_not_confirmed) if is_flashing_format?
+        end
+      else
+        set_flash_message(:notice, :no_user) if is_flashing_format?
+      end
       redirect_to :back
     end
   end
@@ -33,7 +43,6 @@ class Devise::SessionsController < DeviseController
   # DELETE /resource/sign_out
   def destroy
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
-    set_flash_message :notice, :signed_out if signed_out && is_flashing_format?
     yield if block_given?
     respond_to_on_destroy
   end
@@ -67,15 +76,12 @@ class Devise::SessionsController < DeviseController
   # to the after_sign_out path.
   def verify_signed_out_user
     if all_signed_out?
-      set_flash_message :notice, :already_signed_out if is_flashing_format?
-
       respond_to_on_destroy
     end
   end
 
   def all_signed_out?
     users = Devise.mappings.keys.map { |s| warden.user(scope: s, run_callbacks: false) }
-
     users.all?(&:blank?)
   end
 

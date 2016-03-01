@@ -1,10 +1,10 @@
-<div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+<div class="large-6 large-centered medium-10 medium-centered columns" id="js-fix">
 	<%= render 'sign_up_info' %>
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 		<div class="row">
 			<%= devise_error_messages! %>
 			<div class="large-12 columns">
-				<%= f.label "Mail:", class: 'white-text' %>
+				<%= f.label "Email:", class: 'white-text' %>
 				<%= f.email_field :parentmail %>
 				<%= f.hidden_field :ownemail, :value => ""%>
 			</div>
@@ -51,7 +51,7 @@
 				<%= f.text_field :parentphonenumber %>
 			</div>
 			<div class="large-12 columns">
-				<%= f.label "Målsmans mail:", class: 'white-text' %>
+				<%= f.label "Målsmans email:", class: 'white-text' %>
 				<%= f.text_field :email %>
 			</div>
 			<div class="large-12 columns">
@@ -92,7 +92,7 @@
 				<br><br>
 			</div>
 			<div class="large-12 columns">
-				<p class="white-text"><%= f.check_box :agreement %>Acceptera<%= link_to "användaravtal", '/filmclub.pdf', class:'white-text', target: "_blank"%></p>
+				<p class="white-text"><%= f.check_box :agreement %>Acceptera<%= link_to "användaravtal", '/filmclub.pdf', class:'white-text menu-text-no-background', target: "_blank"%></p>
 			</div>
 			<div class="large-12 columns">
 				<p>
@@ -110,7 +110,7 @@
 				</p>
 			</div>
 			<div class="large-12 columns">
-				<%= f.button "Bli medlem", class: 'button expand' %>
+				<%= f.button "Bli medlem", class: 'button expand grey-background' %>
 			</div>
 		</div>
 	<% end %>

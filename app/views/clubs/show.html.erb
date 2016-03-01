@@ -7,12 +7,12 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="club-info"><%= image_tag("klubbinfo.png") %></a>
-						<div id="club-info" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="club-info" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text"><%= @club.name %></h2>
-							<p class="popup-text"> Klubben bildades <%= @club.created_at.strftime("%d/%m-%Y")%></p>
+							<p class="popup-text"> Klubben bildades <%= @club.start_date.strftime("%d/%m-%Y")%></p>
 							<p class="popup-text"><%= @club.description %></p>
-							<p class="popup-text">Poäng: <%= club_achievement_score(@club)%></p>
+							<p class="popup-text">Poäng: <%= @club.achievement_score %></p>
 							<p class="popup-text">Klubben har <%= @club.users.length %> medlemmar.</p>
 							<strong>Medlemmar:</strong><br>
 							<% @club.users.each do |user| %>
@@ -30,7 +30,7 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="seen-movies" class="seen-movies-link"><%= image_tag("club-ruta2.png") %></a>
-						<div id="seen-movies" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="seen-movies" class="reveal-modal popup-grey padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Sedda Filmer</h2>
 							<div id="movies-container" class="centered">
@@ -38,7 +38,7 @@
 									<% if @seen_movies.any? %>
 										<% @seen_movies.each do |movie| %>
 											<li class="item">
-												<div class="movie-container bordered-grey width-fix">
+												<div class="movie-container width-fix">
 													<%= link_to movie, class: 'seen-movie-link', remote: true do %>
 														<div class="movie-link2 image">
 															<%= display_videocover(movie) %>
@@ -67,18 +67,20 @@
 				<h4 class="index-heading">Filmer</h4>
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
-						<a href="#" data-reveal-id="club-movies" class="club-movies-reviews-link"><%= image_tag('club-ruta3ny.png') %></a>
-						<div id="club-movies" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<a href="#" data-reveal-id="club-movies" class="club-movies-link"><%= image_tag('club-ruta3ny.png') %></a>
+						<div id="club-movies" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Filmer</h2>
 							<div id="movies-container" class="centered">
-								<ul class="large-block-grid-3 centering-fix" id="masonry-container-club-movies-reviews">
+								<ul class="large-block-grid-3 centering-fix" id="masonry-container-club-movies">
 									<% if @club_movies.any? %>
 										<% @club_movies.each do |movie| %>
 											<li class="item">
-												<div class="movie-container bordered-grey width-fix">
+												<div class="movie-container width-fix">
 													<%= link_to club_movies_show_path(movie), class: 'test-link', remote: true do %>
 														<div class="movie-link2 image videolink-fix">
+															<div class="youtube-left-fix-club"></div>
+															<div class="youtube-right-fix-club"></div>
 															<%= raw(youtube_embed(movie.videolink)) %>
 														</div>
 														<div class="movie-description rounded description-fix">
@@ -90,7 +92,7 @@
 											</li>
 										<% end %>
 									<% else %>
-										<p class="popup-text">Den här klubben har inga filmer ännu.</p>
+										<p class="popup-text">Den här klubben har inte gjort några filmer ännu.</p>
 									<% end %>
 								</ul>
 							</div>
@@ -106,18 +108,20 @@
 				<h4 class="index-heading">Recensioner</h4>
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
-						<a href="#" data-reveal-id="club-reviews" class="club-movies-reviews-link"><%= image_tag('club-ruta3ny.png') %></a>
-						<div id="club-reviews" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<a href="#" data-reveal-id="club-reviews" class="club-reviews-link"><%= image_tag('club-ruta3ny.png') %></a>
+						<div id="club-reviews" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Recensioner</h2>
 							<div id="movies-container" class="centered">
-								<ul class="large-block-grid-3 centering-fix" id="masonry-container-club-movies-reviews">
+								<ul class="large-block-grid-3 centering-fix" id="masonry-container-club-reviews">
 									<% if @reviews.any? %>
 										<% @reviews.each do |review| %>
 											<li class="item">
-												<div class="movie-container bordered-grey width-fix">
+												<div class="movie-container width-fix">
 													<%= link_to review_show_path(review), class: 'review-link', remote: true do %>
 														<div class="movie-link2 image videolink-fix">
+															<div class="youtube-left-fix-club"></div>
+															<div class="youtube-right-fix-club"></div>
 															<%= raw(youtube_embed(review.videolink)) %>
 														</div>
 														<div class="movie-description rounded description-fix">
@@ -129,7 +133,7 @@
 											</li>
 										<% end %>
 									<% else %>
-										<p class="popup-text">Den här klubben har inga filmer ännu.</p>
+										<p class="popup-text">Den här klubben har inte gjort några recensioner ännu.</p>
 									<% end %>
 								</ul>
 							</div>
@@ -148,7 +152,7 @@
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
 						<a href="#" data-reveal-id="club-images"><%= image_tag('klubb-bilder.png') %></a>
-						<div id="club-images" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" data-reveal aria-hidden="true" role="dialog">
+						<div id="club-images" class="reveal-modal popup-grey padding-fix" data-reveal aria-labelledby="modalTitle" data-reveal aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Bilder</h2>
 							<% if @club.uploads.exists? %>
@@ -169,7 +173,7 @@
 					
 					<% if user_in_club(@club)  %>
 						<%= link_to "<div class='upload-image' data-reveal-id='upload-image'></div>".html_safe, "#"%>
-						<div id="upload-image" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<div id="upload-image" class="reveal-modal popup-grey padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Ladda upp</h2>
 							<%= render 'uploads/form', :object => @upload %>
@@ -182,8 +186,8 @@
 				<h4 class="index-heading">Evenemang/Aktiviteter</h4>
 				<div class="content-wrapper">
 					<div class="large-8 large-centered medium-8 medium-centered columns content">
-						<a href="#" data-reveal-id="event-info" class="club-events-link"><% if @club.events.last %><img src="<%= @club.events.last.img %>"><% else %><%= image_tag('club-ruta5.png') %><% end %>"></a>
-						<div id="event-info" class="reveal-modal padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<a href="#" data-reveal-id="event-info" class="club-events-link"><% if @club.events.last %><img src="<%= @club.events.last.img %>"><% else %><%= image_tag('club-ruta5.png') %><% end %></a>
+						<div id="event-info" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text">Evenemang/Aktiviteter</h2>
 							<div id="movies-container" class="centered">
@@ -191,7 +195,7 @@
 									<% if @club.events.exists? %>
 										<% @club.events.each do |event| %>
 											<li class="item">
-												<div class="movie-container bordered-grey width-fix">
+												<div class="movie-container width-fix">
 													<div class="movie-link2 image">
 														<img src="<%= event.img %>" height="255" width="330">
 													</div>
@@ -217,7 +221,7 @@
 			<div class="large-6 columns medium-6 movie-box-wrapper">
 				<h4 class="index-heading">Filmklubbar</h4>
 				<div class="content-wrapper">
-					<div class="large-8 large-centered medium-8 medium-centered columns content fix-stuff">
+					<div class="large-8 large-centered medium-8 medium-centered columns content-map fix-stuff">
 						<a href="#" data-reveal-id="map_id" class="link-fix">
 							<div class="show-map">
 							</div>
@@ -298,8 +302,8 @@
 			<div class="large-6 columns medium-6 movie-box-wrapper">
 				<h4 class="index-heading">Kontakt</h4>
 				<div class="content-wrapper">
-					<div class="large-8 large-centered mediunm-8 medium-centered columns content">
-						<%= link_to image_tag('filmriket-logga-ruta.png'), contact_path %>
+					<div class="large-8 large-centered medium-8 medium-centered columns content">
+						<%= link_to image_tag('filmriket-logga-ruta.png'), contact_path, class: 'menu-text-no-background' %>
 					</div>
 				</div>
 			</div>

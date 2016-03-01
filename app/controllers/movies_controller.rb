@@ -21,6 +21,10 @@ class MoviesController < ApplicationController
       format.js
     end
   end
+  
+  def discuss_movies
+    @movies = Movie.where.not(discusslink: nil)
+  end
 
   def new
     @movie = Movie.new
@@ -56,6 +60,6 @@ class MoviesController < ApplicationController
     end
 
     def movie_params
-      params.require(:movie).permit(:title, :description, :director, :genre, :playtime, :published, :videocover, :trailerlink, :image_size, :country)
+      params.require(:movie).permit(:title, :description, :director, :genre, :playtime, :published, :videocover, :trailerlink, :image_size, :country, :discusslink)
     end
 end

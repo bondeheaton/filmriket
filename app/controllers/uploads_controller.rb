@@ -24,9 +24,7 @@ class UploadsController < ApplicationController
 
   def create
     @upload = Upload.new(upload_params)
-    unless current_user.access == 2
-      @upload.club_id = current_user.club_id
-    end
+    @upload.club_id = current_user.club_id unless current_user.access == 2
     @upload.save
     redirect_to :back
   end
