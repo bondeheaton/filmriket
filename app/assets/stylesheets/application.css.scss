@@ -21,6 +21,14 @@
 @import "foundation_and_overrides";
 
 
+textarea:focus, input:focus{
+    outline: none!important;
+}
+
+*:focus {
+    outline: none!important;
+}
+
 body {
   color: #FFFFFF;
   background-color: #c2dad1;
@@ -62,11 +70,11 @@ p {
 	}
 }
 
-.grey-background {
+.grey-background, .grey-background:focus {
   background-color: #8f8f8e;
 }
 
-.grey-background:hover, .grey-background:active, .grey-background:visited, .grey-background:link {
+.grey-background:link, .grey-background:visited,  .grey-background:hover, .grey-background:active {
   background-color: #ca3806!important;
 }
 
