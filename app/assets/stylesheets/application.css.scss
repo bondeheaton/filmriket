@@ -119,6 +119,9 @@ p {
 @media only screen and (max-width: 640px) {
   .icons-topbar {
     display: block;
+    z-index:10;
+    position:fixed;
+    margin-left:50px;
   }
   .topbar {
     display:none;

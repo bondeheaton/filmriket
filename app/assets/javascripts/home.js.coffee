@@ -33,14 +33,12 @@ $(window).scroll ->
   return
 
 btn = false
-$(document).on "click", ".menu-btn", ->
+$(document).on "click", ".btn", ->
   if btn
     $('.sidebar').hide()
-    $('.topbar').show()
     btn = false
   else
     $('.sidebar').show()
-    $('.topbar').hide()
     btn = true
   return
 
