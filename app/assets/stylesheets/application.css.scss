@@ -137,7 +137,29 @@ p {
   .sidebar-width {
     margin-top:40px;
   }
+  .social-media-links img {
+    -webkit-transition: none;
+    -webkit-transform: none;
+    -ms-transition: none;
+    -ms-transform: none;
+    -moz-transition: none;
+    -moz-transform: none;
+    transition: none;
+    transform: none;
+  }
+  .social-media-links img:hover {
+    -webkit-transition: none;
+    -webkit-transform: none;
+    -ms-transition: none;
+    -ms-transform: none;
+    -moz-transition: none;
+    -moz-transform: none;
+    transition: none;
+    transform: none;
+  }
 }
+
+
 
 @media only screen and (min-width: 1800px) {
   .media-container {
