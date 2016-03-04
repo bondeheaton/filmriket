@@ -417,6 +417,10 @@ p.created {
 
 @media only screen and (max-width: 640px) {
 
+  iframe#video-popup {
+    height: 200px;
+  }
+  
   h4.index-heading {
     margin-top: 42px;
     line-height: 0.3;
@@ -496,6 +500,7 @@ p.created {
 
   .movie-box-wrapper {
     width: 300px!important;
+    padding-top: 20px;
     margin-bottom: -25px!important;
     float: none!important;
     margin-left: auto;
@@ -514,6 +519,10 @@ p.created {
 
 @media only screen and (min-width: 640px) and (max-width: 774px) {
 
+  iframe#video-popup {
+    height: 200px;
+  }
+  
   h4.index-heading {
     margin-top: 3px;
     line-height:0.3;
@@ -598,6 +607,7 @@ p.created {
 
   .movie-box-wrapper {
     width: 600px!important;
+    padding-top: 20px;
     float: none!important;
     margin-left: auto;
     margin-right: auto;
@@ -610,6 +620,85 @@ p.created {
   .padding-fix {
     padding-left: 15px!important;
     padding-right: 15px!important;
+  }
+}
+
+@media only screen and (min-width: 775px) and (max-width: 946px) {
+  .movie-box-wrapper {
+    width: 300px!important;
+    padding-top: 22px;
+  }
+
+  iframe#video-popup {
+    height: 300px;
+  }
+  
+  h4.index-heading {
+    margin-top: 45px;
+    line-height:0.3;
+  }
+  
+  .content-wrapper {
+    width: 250px!important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content, .content-img, .content-map {
+    width: 75%!important;
+    height: 157px!important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+  }
+
+  .content-video{
+    width: 95%!important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .video-container {
+    width: 85%!important;
+    height: 150px!important;
+  }
+}
+
+@media only screen and (min-width: 947px) and (max-width: 1024px) {
+  
+  h4.index-heading {
+    margin-top: 33px;
+    line-height:0.3;
+  }
+  
+  .movie-box-wrapper {
+    width: 368px!important;
+  }
+
+  .content-wrapper {
+    width: 320px!important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+  }
+
+  .content, .content-img, .content-map {
+    width: 75%!important;
+    height: 188px!important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+  }
+
+  .content-video{
+     width: 85%!important;
+     margin-left: auto;
+     margin-right: auto;
+   }
+
+  .video-container {
+    height: 187px!important;
+    margin-top: 5px;
   }
 }
 
@@ -669,98 +758,70 @@ p.created {
   .social-media-icons {
     margin-top: 40px;
   }
-
 }
 
-@media only screen and (max-width: 767px) {
-  iframe#video-popup {
-    height: 200px;
-  }
-}
-
-@media only screen and (min-width: 775px) and (max-width: 946px) {
-  .movie-box-wrapper {
-    width: 300px!important;
-    padding-top: 22px;
+@media only screen and (min-width: 1025px) {
+  .wish:hover {
+    background: asset-data-url('wish-hover.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
   }
 
-  iframe#video-popup {
-    height: 300px;
-  }
-  
-  h4.index-heading {
-    margin-top: 45px;
-    line-height:0.3;
-  }
-  
-  .content-wrapper {
-    width: 250px!important;
-    margin-left: auto;
-    margin-right: auto;
+  .menu-button:hover, .menu-button-selected {
+    background: asset-data-url('menu-button-hover.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
   }
 
-  .content, .content-img, .content-map {
-    width: 75%!important;
-    height: 157px!important;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
+  .menu-button2:hover, .menu-button2-selected {
+    background: asset-data-url('menu-button2-hover.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
   }
 
-  .content-video{
-    width: 95%!important;
-    margin-left: auto;
-    margin-right: auto;
+  .menu-button3:hover, .menu-button3-selected {
+    background: asset-data-url('menu-button3-hover.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
   }
 
-  .video-container {
-    width: 85%!important;
-    height: 150px!important;
+  .menu-button4:hover, .menu-button4-selected {
+    background: asset-data-url('menu-button4-hover.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
   }
 
-}
-
-@media only screen and (min-width: 640px) and (max-width: 770px) {
-  .movie-box-wrapper {
-    padding-top: 20px;
-  }
-}
-
-@media only screen and (min-width: 947px) and (max-width: 1024px) {
-  
-  h4.index-heading {
-    margin-top: 33px;
-    line-height:0.3;
-  }
-  
-  .movie-box-wrapper {
-    width: 368px!important;
+  .menu-button5:hover, .menu-button5-selected {
+    background: asset-data-url('menu-button5-hover.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
   }
 
-  .content-wrapper {
-    width: 320px!important;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
+  .menu-button6:hover, .menu-button6-selected {
+    background: asset-data-url('menu-button6-hover.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
   }
 
-  .content, .content-img, .content-map {
-    width: 75%!important;
-    height: 188px!important;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
+  .menu-button7:hover, .menu-button7-selected {
+    background: asset-data-url('menu-button7-hover.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
   }
 
-  .content-video{
-     width: 85%!important;
-     margin-left: auto;
-     margin-right: auto;
-   }
-
-  .video-container {
-    height: 187px!important;
-    margin-top: 5px;
+  .menu-button8:hover, .menu-button8-selected {
+    background: asset-data-url('menu-button8-hover.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
   }
 }
 
@@ -839,72 +900,6 @@ p.created {
     margin-top: 5px;
   }
 }
-
-@media only screen and (min-width: 1025px) {
-  .wish:hover {
-    background: asset-data-url('wish-hover.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-  }
-
-  .menu-button:hover, .menu-button-selected {
-    background: asset-data-url('menu-button-hover.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-  }
-
-  .menu-button2:hover, .menu-button2-selected {
-    background: asset-data-url('menu-button2-hover.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-  }
-
-  .menu-button3:hover, .menu-button3-selected {
-    background: asset-data-url('menu-button3-hover.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-  }
-
-  .menu-button4:hover, .menu-button4-selected {
-    background: asset-data-url('menu-button4-hover.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-  }
-
-  .menu-button5:hover, .menu-button5-selected {
-    background: asset-data-url('menu-button5-hover.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-  }
-
-  .menu-button6:hover, .menu-button6-selected {
-    background: asset-data-url('menu-button6-hover.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-  }
-
-  .menu-button7:hover, .menu-button7-selected {
-    background: asset-data-url('menu-button7-hover.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-  }
-
-  .menu-button8:hover, .menu-button8-selected {
-    background: asset-data-url('menu-button8-hover.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-  }
-}
-
 
 @media only screen and (min-width: 1216px) and (max-width: 1375px) {
   
