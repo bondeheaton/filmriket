@@ -449,44 +449,12 @@ p.created {
     margin-right: 3px;
   }
 
-  .sidebar {
-    position: fixed!important;
-    display: none;
-    z-index: 1;
-    width: 75%!important;
-    margin-left: -25px;
-    overflow: scroll!important;
-    height: 100%;
-    top:51px;
-    background: #b3cfc0;
-    border-right: 1px solid #8db6a0;
-    box-shadow-right: 0px 2px 2px -2px #65957b;
-    -webkit-box-shadow-right: 0px 2px 2px -2px #65957b;
-    -moz-box-shadow-right: 0px 2px 2px -2px #65957b;
-    -o-box-shadow-right: 0px 2px 2px -2px #65957b;
-  }
-
   .sidebar a:link, a:visited, a:hover, a:active {
     color: #909090;
   }
 
   .topbar {
     margin-top: 50px;
-  }
-  .menu-btn {
-    position: fixed!important;
-    z-index:1;
-    display: inline-block;
-    width: 100%;
-    background: #b3cfc0;
-    color: #fff;
-    height: 50px;
-    margin-top: 0px;
-    border-bottom: 1px solid #8db6a0;
-    box-shadow-bottom: 0px 2px 2px -2px #65957b;
-    -webkit-box-shadow-bottom: 0px 2px 2px -2px #65957b;
-    -moz-box-shadow-bottom: 0px 2px 2px -2px #65957b;
-    -o-box-shadow-bottom: 0px 2px 2px -2px #65957b;
   }
 
   .content-video {
@@ -578,44 +546,12 @@ p.created {
     margin-right: 3px;
   }
 
-  .sidebar {
-    position: fixed!important;
-    display: none;
-    z-index: 1;
-    width: 75%!important;
-    margin-left: -25px;
-    overflow: scroll!important;
-    height: 100%;
-    top: 51px;
-    background: #b3cfc0;
-    border-right: 1px solid #8db6a0;
-    box-shadow-right: 0px 2px 2px -2px #65957b;
-    -webkit-box-shadow-right: 0px 2px 2px -2px #65957b;
-    -moz-box-shadow-right: 0px 2px 2px -2px #65957b;
-    -o-box-shadow-right: 0px 2px 2px -2px #65957b;
-  }
-
   .sidebar a:link, a:visited, a:hover, a:active {
     color: #909090;
   }
 
   .topbar {
     margin-top: 50px;
-  }
-  .menu-btn {
-    position: fixed!important;
-    z-index:1;
-    display: inline-block;
-    width: 100%;
-    background: #b3cfc0;
-    color: #fff;
-    height: 50px;
-    margin-top: 0px;
-    border-bottom: 1px solid #8db6a0;
-    box-shadow-bottom: 0px 2px 2px -2px #65957b;
-    -webkit-box-shadow-bottom: 0px 2px 2px -2px #65957b;
-    -moz-box-shadow-bottom: 0px 2px 2px -2px #65957b;
-    -o-box-shadow-bottom: 0px 2px 2px -2px #65957b;
   }
 
   .content-video {
@@ -690,7 +626,8 @@ p.created {
     width: 220px!important;
     margin-left: -25px;
     padding-right:0px!important;
-    overflow: scroll!important;
+    overflow-x: hidden!important;
+    overflow-y: scroll!important;
     height: 100%;
     top: 51px;
     background: #b3cfc0;
