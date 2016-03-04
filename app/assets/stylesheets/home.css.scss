@@ -590,7 +590,7 @@ p.created {
 
   .content, .content-map {
     width: 100%!important;
-    height: 166px;
+    height: 206px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 24px;
@@ -681,6 +681,7 @@ p.created {
 @media only screen and (min-width: 775px) and (max-width: 946px) {
   .movie-box-wrapper {
     width: 300px!important;
+    padding-top: 22px;
   }
 
   iframe#video-popup {
@@ -719,12 +720,6 @@ p.created {
 
 }
 
-@media only screen and (min-width: 770px) and (max-width: 930px) {
-  .movie-box-wrapper {
-    padding-top: 22px;
-  }
-}
-
 @media only screen and (min-width: 640px) and (max-width: 770px) {
   .movie-box-wrapper {
     padding-top: 20px;
@@ -751,7 +746,7 @@ p.created {
 
   .content, .content-img, .content-map {
     width: 75%!important;
-    height: 158px!important;
+    height: 188px!important;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
@@ -827,7 +822,7 @@ p.created {
 
   .content, .content-img, .content-map {
     width: 75%!important;
-    height: 158px!important;
+    height: 178px!important;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
@@ -931,7 +926,7 @@ p.created {
 
   .content, .content-img, .content-map {
     width: 80%!important;
-    height: 168px!important;
+    height: 208px!important;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
@@ -963,7 +958,7 @@ p.created {
 
   .content, .content-img, .content-map {
     width: 80%!important;
-    height: 168px!important;
+    height: 215px!important;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
@@ -995,7 +990,7 @@ p.created {
 
   .content, .content-img, .content-map {
     width: 80%!important;
-    height: 168px!important;
+    height: 215px!important;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
