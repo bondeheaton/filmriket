@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
                          :width   => 32,
                          :height  => 32
                      })
-      marker.infowindow "#{view_context.link_to club.name, club_path(club), 'data-no-turbolink' => true}"
+      marker.infowindow "#{view_context.link_to club.name, club_path(club), class: 'menu-text-no-background movie-title', 'data-no-turbolink' => true}"
     end
   end
 
