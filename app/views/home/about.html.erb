@@ -90,7 +90,7 @@
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text"></h2>
 							<p class="filmriket-images">
-                <%= link_to image_tag("instagram-logo.png"), "https://instagram.com/filmriket/", target: "_blank" %>
+                <%= link_to image_tag("instagram-logo.png"), "https://instagram.com/filmriket/", class: 'menu-text-no-background', target: "_blank" %>
 								<% @media_photos.each do |media| %>
 									<%= link_to image_tag(media.images.thumbnail.url), media.link, target: "_blank" %>
 								<% end %>
