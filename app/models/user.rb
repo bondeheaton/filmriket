@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   validates :parentmail, presence: true
   validates :status, presence: true
   validates :agreement, presence: true
+  validates :avatar, presence: true
 
   belongs_to :club
   has_many :movie_comments, dependent: :destroy
