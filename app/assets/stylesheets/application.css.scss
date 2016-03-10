@@ -20,6 +20,13 @@
  */
 @import "foundation_and_overrides";
 
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+  }
+}
+
 
 textarea:focus, input:focus{
     outline: none!important;
