@@ -13,6 +13,7 @@ class Devise::RegistrationsController < DeviseController
   # POST /resource
   def create
     build_resource(sign_up_params)
+    resource.update_attributes(:personalnumber => params[:date][:birth_year])
     resource.update_attributes(:ownemail => resource.parentmail)
     resource.skip_reconfirmation!
     resource.save

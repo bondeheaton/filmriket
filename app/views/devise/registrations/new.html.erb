@@ -18,9 +18,11 @@
 				<%= f.text_field :lastname %>
 			</div>
 			<div class="large-12 columns">
-				<%= f.label "Personnummer:", class: 'white-text' %>
-				<em class="white-text">(6 siffror, ex. 990101)</em>
-				<%= f.number_field :personalnumber %>
+				<%= f.label "Födelseår:", class: 'white-text' %>
+				<%= select_year(Date.today,
+													start_year: Date.today.year - 19, 
+													end_year: Date.today.year - 12, 
+													field_name: 'birth_year') %>
 			</div>
 			<div class="large-12 columns">
 				<%= f.label "Telefonnummer:", class: 'white-text' %>
@@ -39,19 +41,19 @@
 				<%= f.number_field :zipcode %>
 			</div>
 			<div class="large-12 columns">
-				<%= f.label "Målsmans förnamn:", class: 'white-text' %>
+				<%= f.label "Målsmans/god mans förnamn:", class: 'white-text' %>
 				<%= f.text_field :parentfirstname %>
 			</div>
 			<div class="large-12 columns">
-				<%= f.label "Målsmans efternamn:", class: 'white-text' %>
+				<%= f.label "Målsmans/god mans efternamn:", class: 'white-text' %>
 				<%= f.text_field :parentlastname %>
 			</div>
 			<div class="large-12 columns">
-				<%= f.label "Målsmans telefonnummer:", class: 'white-text' %>
+				<%= f.label "Målsmans/god mans telefonnummer:", class: 'white-text' %>
 				<%= f.text_field :parentphonenumber %>
 			</div>
 			<div class="large-12 columns">
-				<%= f.label "Målsmans email:", class: 'white-text' %>
+				<%= f.label "Målsmans/god mans email:", class: 'white-text' %>
 				<%= f.text_field :email %>
 			</div>
 			<div class="large-12 columns">
