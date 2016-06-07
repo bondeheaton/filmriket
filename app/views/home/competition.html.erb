@@ -1,12 +1,15 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script>
-  questions = <%= @competition.questions.count %>
-  user_id = <%= current_user.id %>
-  competition_id = <%= @competition.id %>
-</script>
+<% if @competition %>
+  <script>
+    questions = <%= @competition.questions.count %>
+    user_id = <%= current_user.id %>
+    competition_id = <%= @competition.id %>
+  </script>
+<% end %>
 <div class="row">
 	<div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
 		<div class="row">
+      <% if @competition %>
 			<div class="large-6 columns medium-6 movie-box-wrapper">
 				<h4 class="index-heading"><%= @competition.title %></h4>
 				<div class="content-wrapper">
@@ -36,6 +39,7 @@
 					</div>
 				</div>
 			</div>
+      <% end %>
 		</div>
   </div>
 </div>
