@@ -1,5 +1,4 @@
 class AdminImagesController < ApplicationController
-
   before_filter :check_admin!
 
   def index

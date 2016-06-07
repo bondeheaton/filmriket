@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  resources :competition_results
+
+  resources :competitions do 
+    member do
+      post 'add_question'
+      post 'add_answer'
+      delete 'destroy_question'
+      delete 'destroy_answer'
+      put 'mark_correct_answer'
+    end
+  end
+
   resources :presses
 
   resources :admin_images
@@ -20,10 +32,10 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/admin_log', :controller => 'home', :action => 'admin_log'
-  get '/filmriket', :controller => 'home', :action => 'filmriket'
-  get '/about', :controller => 'home', :action => 'about'
-  get '/contact', :controller => 'home', :action => 'contact'
+  get 'admin_log', :controller => 'home', :action => 'admin_log'
+  get 'filmriket', :controller => 'home', :action => 'filmriket'
+  get 'about', :controller => 'home', :action => 'about'
+  get 'contact', :controller => 'home', :action => 'contact'
 
   resources :events
   
@@ -31,8 +43,8 @@ Rails.application.routes.draw do
 
   resources :ratings
 
-  get '/reviews/show/:id', to: 'club_movies#show_review', as: 'review_show'
-  get '/club_movies/show/:id', to: 'club_movies#show_club_movie', as: 'club_movies_show'
+  get 'reviews/show/:id', to: 'club_movies#show_review', as: 'review_show'
+  get 'club_movies/show/:id', to: 'club_movies#show_club_movie', as: 'club_movies_show'
 
   resources :reviews do
     get 'upload'
@@ -48,7 +60,7 @@ Rails.application.routes.draw do
 
   resources :movies
   
-  get '/discuss', to: 'movies#discuss_movies', as: 'discuss_movies'
+  get 'discuss', to: 'movies#discuss_movies', as: 'discuss_movies'
 
   resources :clubs
 
@@ -67,9 +79,10 @@ Rails.application.routes.draw do
     end
   end
 
-  post '/wishes', to: 'wishes#create'
-  delete '/wishes/:id', to: 'wishes#destroy', as: 'wish'
-  get '/wishes', to: 'wishes#index'
+  post 'wishes', to: 'wishes#create'
+  delete 'wishes/:id', to: 'wishes#destroy', as: 'wish'
+  get 'wishes', to: 'wishes#index'
+  get 'competition', to: 'home#competition', as: 'compete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

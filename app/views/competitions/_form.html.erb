@@ -1,0 +1,21 @@
+<div class="large-6 large-centered medium-10 medium-centered columns" id="js-fix">
+  <%= form_for(@competition) do |f| %>
+    <% if @competition.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@competition.errors.count, "error") %> prohibited this competition from being saved:</h2>
+        <ul>
+        <% @competition.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  	<div class="field">
+  		<h3>Titel:</h3>
+  		<%= f.text_field :title %>
+  	</div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,22 @@
+<h1>Tävlingar</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Titel</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @competitions.each do |competition| %>
+      <tr>
+        <td><%= competition.title %>
+        <td><%= link_to 'Visa', competition %></td>
+        <td><%= link_to 'Redigera', edit_competition_path(competition) %></td>
+        <td><%= link_to 'Ta bort', competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Competition', new_competition_path %>

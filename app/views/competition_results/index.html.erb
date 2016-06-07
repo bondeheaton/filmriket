@@ -1,0 +1,20 @@
+<h1>Tävlingsresultat</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Användare</th>
+      <th>Tävling</th>
+      <th>Poäng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @competition_results.each do |competition_result| %>
+      <tr>
+        <td><%= "#{competition_result.user.firstname} #{competition_result.user.lastname}" %></td>
+        <td><%= competition_result.competition.title %></td>
+        <td><%= competition_result.score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
