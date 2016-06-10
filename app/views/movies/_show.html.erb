@@ -32,7 +32,7 @@
     </div>
     <div class="large-4 columns height-fix center-text">
       <% if @movie.discusslink? %>
-        <%= link_to image_tag('prata-film.png'), movie_path(@movie), remote: true, data: {:"reveal-id" => "discuss-modal" + @movie.id.to_s}, class: 'img-fix menu-text-no-background' %>
+        <%= link_to image_tag('prata-film.png', size: '200x118'), movie_path(@movie), remote: true, data: {:"reveal-id" => "discuss-modal" + @movie.id.to_s}, class: 'img-fix menu-text-no-background' %>
       <% end %>
     </div>
   </div>

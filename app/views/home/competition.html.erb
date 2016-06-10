@@ -25,12 +25,14 @@
               
               <form id="competition-form">
               <% @competition.questions.each_with_index do |question, index| %>
+              <img src="/<%= index %>.png" id="thumb" alt="avatar" width="100" height="100"><br><br>
                 <%= question.question %><br>
                 <% question.answers.each do |answer| %>
                   <div class="answer">
                     <input type="radio" name="<%= index %>" value="<%= answer.correct %>"> <%= answer.answer %><br>
                   </div>
                 <% end %>
+                <br>
               <% end %>
             </form>
             <%= render partial: 'competition_results/form' %>
