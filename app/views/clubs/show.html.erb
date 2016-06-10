@@ -18,8 +18,8 @@
 							<% @club.users.each do |user| %>
 								<img src="../<%= user.avatar %>.png" alt="User avatar" width="50px" height="50px"/>
 								<%= user.firstname %>
-                <% if current_user == user %>
                 <br>
+                <% if current_user == user %>
                 <%= link_to 'Byt min profilbild', edit_user_registration_path if current_user == user %>
                 <br>
                 <% end %>
