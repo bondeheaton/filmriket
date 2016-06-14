@@ -59,9 +59,9 @@
 		<% end %>
     
 		<% if current_page? compete_path %>
-			<%= link_to "<div class='menu-button5-selected'>Tävlingar</div>".html_safe, compete_path, class: 'menu-text' %>
+			<%= link_to "<div class='menu-button5-selected'>Tävlingar</div>".html_safe, compete_path, class: 'menu-text', 'data-no-turbolink' => true %>
 		<% else %>
-			<%= link_to "<div class='menu-button5'>Tävlingar</div>".html_safe, compete_path, class: 'menu-text' %>
+			<%= link_to "<div class='menu-button5'>Tävlingar</div>".html_safe, compete_path, class: 'menu-text', 'data-no-turbolink' => true %>
 		<% end %>
     
 		<% if current_page? about_path %>
