@@ -1,5 +1,7 @@
 Titel:
-<%= @competition.title %><br><br>
+<%= @competition.title %><br>
+Beskrivning:
+<%= @competition.description %><br><br>
 <% @competition.questions.each do |question| %>
   Fråga:<br>
   <%= question.question %>

@@ -1,6 +1,6 @@
 class CompetitionResultsController < ApplicationController
   before_action :set_competition_result, only: [:show, :edit, :update, :destroy]
-  before_filter :check_admin!
+  before_filter :check_admin!, except: [:create]
 
   respond_to :html
 
@@ -43,6 +43,6 @@ class CompetitionResultsController < ApplicationController
     end
 
     def competition_result_params
-      params.require(:competition_result).permit(:user_id, :competition_id, :score, :answers)
+      params.require(:competition_result).permit(:user_id, :competition_id, :score, :answers, :email)
     end
 end

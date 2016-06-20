@@ -78,6 +78,7 @@ $(document).on 'click', '#competition', ->
   $("#competition_result_user_id").val(user_id)
   $("#competition_result_competition_id").val(competition_id)
   $("#competition_result_score").val(score)
+  $("#competition_result_email").val($('input[name=email]').val())
   $('#competition').hide()
   alert('Du fick ' + score + ' av ' + result.length + ' rätt!')
   i = 0

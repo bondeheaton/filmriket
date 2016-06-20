@@ -2,7 +2,11 @@
 <% if @competition %>
   <script>
     questions = <%= @competition.questions.count %>
-    user_id = <%= current_user.id %>
+    <% if current_user %>
+      user_id = <%= current_user.id %>
+    <% else %>
+      user_id = 0
+    <% end %>
     competition_id = <%= @competition.id %>
   </script>
 <% end %>
@@ -18,6 +22,7 @@
 						<div id="club-info" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text"><%= @competition.title %></h2>
+              <h2 class="popup-text"><%= @competition.description %></h2>
               <% if @user_competition_result %>
               <h2 class="popup-text">Du har redan deltagit i denna tävlingen.</h2>
               <h2 class="popup-text">Du hade <%= @user_competition_result.score %> av <%= @competition.questions.count %> rätt!</h2>
@@ -33,6 +38,10 @@
                   </div>
                 <% end %>
                 <br>
+              <% end %>
+              <% unless current_user %>
+                Skriv din email-adress:
+                <%= email_field_tag 'email' %>
               <% end %>
             </form>
             <%= render partial: 'competition_results/form' %>

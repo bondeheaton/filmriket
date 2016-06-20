@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606090717) do
+ActiveRecord::Schema.define(version: 20160620085217) do
 
   create_table "admin_images", force: true do |t|
     t.string   "img"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160606090717) do
     t.text     "answers"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   add_index "competition_results", ["competition_id"], name: "index_competition_results_on_competition_id"
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 20160606090717) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.string   "description"
   end
 
   create_table "events", force: true do |t|
