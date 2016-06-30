@@ -3,6 +3,9 @@ class HomeController < ApplicationController
 
   def index
     @hash = build_gmaps_markers
+    @competition = Competition.last
+    @competition_result = CompetitionResult.new
+    @user_competition_result = @competition.competition_results.find_by_user_id(current_user) if @competition
   end
 
   def admin_log

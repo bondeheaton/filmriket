@@ -1,4 +1,16 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<% if @competition %>
+  <script>
+    questions = <%= @competition.questions.count %>
+    <% if current_user %>
+      user_id = <%= current_user.id %>
+    <% else %>
+      user_id = 0
+    <% end %>
+    competition_id = <%= @competition.id %>
+  </script>
+<% end %>
+
 <div class="row">
 	<div class="large-10 large-centered medium-10 medium-centered columns centering-fix" id="js-fix">
 		<div class="row">
@@ -24,7 +36,81 @@
 				</div>
 			</div>
 		</div>
-		
+    
+    <div class="row">
+      <% if @competition %>
+    		<div class="large-6 columns medium-6 movie-box-wrapper">
+    			<h4 class="index-heading"><%= @competition.title %></h4>
+    			<div class="content-wrapper">
+    				<div class="large-8 large-centered medium-8 medium-centered columns content">
+    					<a href="#" data-reveal-id="club-info"><%= image_tag("quiz.png") %></a>
+    					<div id="club-info" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    						<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+    						<h2 class="popup-text"><%= @competition.title %></h2>
+                <h2 class="popup-text"><%= @competition.description.html_safe %></h2>
+                <% if @user_competition_result %>
+                  <h2 class="popup-text">Du har redan deltagit i denna tävlingen.</h2>
+                  <h2 class="popup-text">Du hade <%= @user_competition_result.score %> av <%= @competition.questions.count %> rätt!</h2>
+                <% else %>
+                  <form id="competition-form">
+                  <% @competition.questions.each_with_index do |question, index| %>
+                  <img src="/<%= index %>.png" id="thumb" alt="avatar" width="100" height="100"><br><br>
+                    <%= question.question %><br>
+                    <% question.answers.each do |answer| %>
+                      <div class="answer">
+                        <input type="radio" name="<%= index %>" value="<%= answer.correct %>"> <%= answer.answer %><br>
+                      </div>
+                    <% end %>
+                    <br>
+                  <% end %>
+                  <% unless current_user %>
+                    Skriv din email-adress:
+                    <%= email_field_tag 'email' %>
+                  <% end %>
+                </form>
+                <%= render partial: 'competition_results/form' %>
+              <% end %>
+              </div>
+    				</div>
+    			</div>
+    		</div>
+      <% end %>
+  
+        <div class="large-6 columns medium-6 movie-box-wrapper">
+          <h4 class="index-heading">Sommarutmaning</h4>
+          <div class="content-wrapper">
+            <div class="large-8 large-centered medium-8 medium-centered columns content">
+
+              <a href="#" data-reveal-id="partners"><%= image_tag("sommarutmaning2.png") %></a>
+
+              <div id="partners" class="reveal-modal popup-grey padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+                <h2 class="popup-text">Daniel och Emil utmanar dig att göra sommarens läskigaste skräckis!</h2>
+                <p class="popup-text">
+                  I sommar utmanar Youtube-bröderna Daniel och Emil Norberg Filmrikets klubbar att göra en riktigt läskig skräckfilm.<br>
+                  Kolla in utmaningen här:
+                </p>
+        				<div class="club-movie">
+        					<%= raw(youtube_embed_popup("https://youtu.be/1hIatdd3Qag")) %>
+        				</div>
+                <p class="popup-text"Regler Filmrikets Sommarskräckis<br><br>
+Tema för sommarutmaningen är skräckfilm. Uppdraget är att göra en riktigt spännande och läskig film.<br> Filmen får vara max 3 min lång.<br>
+Deadline: 15 Augusti.<br> Skicka filmen till Filmriket med www.wetransfer.com och mejla till filmriket@reaktorsydost.se. Skriv i meddelande titel på filmen och vilka som har gjort den.<br>
+Pris: De som vinner sommarutmaningen får åka på en träff med bröderna Norberg senare i höst.<br><br>
+
+Se Daniel och Emils bästa tips på hur man gör en bra skräckfilm. Och hur man kan jobba med bildspråk och klippning för att göra en riktigt läskig film!<br>
+Kolla in bästa skräckfilmstipsen här:
+              </p>
+      				<div class="club-movie">
+      					<%= raw(youtube_embed_popup("https://youtu.be/FfGE2AgsW2s")) %>
+      				</div>
+              </div>
+            </div>
+          </div>
+        </div>
+  	  </div>
+    
   <div class="row">
   	<div class="large-6 columns medium-6 movie-box-wrapper">
   		<h4 class="index-heading">Filmklubbar</h4>
@@ -114,4 +200,6 @@
   		</div>
   	</div>
   </div>
+  </div>
 </div>
+
