@@ -22,7 +22,7 @@
 						<div id="club-info" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
 							<h2 class="popup-text"><%= @competition.title %></h2>
-              <h2 class="popup-text"><%= @competition.description %></h2>
+              <h2 class="popup-text"><%= @competition.description.html_safe %></h2>
               <% if @user_competition_result %>
               <h2 class="popup-text">Du har redan deltagit i denna tävlingen.</h2>
               <h2 class="popup-text">Du hade <%= @user_competition_result.score %> av <%= @competition.questions.count %> rätt!</h2>
