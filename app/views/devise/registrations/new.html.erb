@@ -75,25 +75,52 @@
 				<%= f.label "Bekräfta Lösenord:", class: 'white-text' %>
 				<%= f.password_field :password_confirmation, autocomplete: "off" %>
 			</div>
-			<div class="large-12 columns">
+			<div class="large-12 medium-12 small-12 columns">
 				<%= f.label "Välj avatar:", class: 'white-text' %>
-				<img src="/avatar1.png" id="thumb" alt="avatar" width="100" height="100">
-				<%= f.radio_button(:avatar, 'avatar1') %>
-
-				<img src="/avatar2.png" id="thumb" alt="avatar" width="100" height="100">
-				<%= f.radio_button :avatar, 'avatar2' %>
-
-				<img src="/avatar3.png" id="thumb" alt="avatar" width="100" height="100">
-				<%= f.radio_button :avatar, 'avatar3' %>
-
-				<img src="/avatar4.png" id="thumb" alt="avatar" width="100" height="100">
-				<%= f.radio_button :avatar, 'avatar4' %>
-
-				<img src="/avatar5.png" id="thumb" alt="avatar" width="100" height="100">
-				<%= f.radio_button :avatar, 'avatar5' %>
-				<br><br>
+          <div class="avatar-image large-3 medium-3 small-6 columns">
+  				<img src="/avatar-zlatan.png" id="thumb" alt="avatar" width="100" height="100">
+  				<%= f.radio_button(:avatar, 'avatar-zlatan') %>
+          </div>
+          <div class="avatar-image large-3 medium-3 small-6 columns">
+  				<img src="/avatar-robocop.png" id="thumb" alt="avatar" width="100" height="100">
+  				<%= f.radio_button(:avatar, 'avatar-robocop') %>
+          </div>
+          <div class="avatar-image large-3 medium-3 small-6 columns">
+  				<img src="/avatar-nicky.png" id="thumb" alt="avatar" width="100" height="100">
+  				<%= f.radio_button(:avatar, 'avatar-nicky') %>
+          </div>
+          <div class="avatar-image large-3 medium-3 small-6 columns">
+  				<img src="/avatar-moon.png" id="thumb" alt="avatar" width="100" height="100">
+  				<%= f.radio_button(:avatar, 'avatar-moon') %>'
+          </div>
+          <div class="avatar-image large-3 medium-3 small-6 columns">
+  				<img src="/avatar-metropolis.png" id="thumb" alt="avatar" width="100" height="100">
+  				<%= f.radio_button(:avatar, 'avatar-metropolis') %>
+          </div>
+          <div class="avatar-image large-3 medium-3 small-6 columns">
+  				<img src="/avatar-little-miss.png" id="thumb" alt="avatar" width="100" height="100">
+  				<%= f.radio_button(:avatar, 'avatar-little-miss') %>
+          </div>
+          <div class="avatar-image large-3 medium-3 small-6 columns">
+  				<img src="/avatar-harry.png" id="thumb" alt="avatar" width="100" height="100">
+  				<%= f.radio_button(:avatar, 'avatar-harry') %>
+          </div>
+          <div class="avatar-image large-3 medium-3 small-6 columns">
+  				<img src="/avatar-charlie.png" id="thumb" alt="avatar" width="100" height="100">
+  				<%= f.radio_button(:avatar, 'avatar-charlie') %>
+          </div>
+          <div class="avatar-image large-3 medium-3 small-6 columns">
+  				<img src="/avatar-best.png" id="thumb" alt="avatar" width="100" height="100">
+  				<%= f.radio_button(:avatar, 'avatar-best') %>
+          </div>
+          <div class="avatar-image large-3 medium-3 small-6 columns">
+  				<img src="/avatar-avatar.png" id="thumb" alt="avatar" width="100" height="100">
+          <%= f.radio_button(:avatar, 'avatar-avatar') %>
+          </div>
+        <br><br>
 			</div>
 			<div class="large-12 columns">
+        <br>
 				<p class="white-text"><%= f.check_box :agreement %>Acceptera<%= link_to "användaravtal", '/filmclub.pdf', class:'white-text menu-text-no-background', target: "_blank"%></p>
 			</div>
 			<div class="large-12 columns">

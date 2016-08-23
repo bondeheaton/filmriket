@@ -1,0 +1,57 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<% if @competition %>
+  <script>
+    questions = <%= @competition.questions.count %>
+    <% if current_user %>
+      user_id = <%= current_user.id %>
+    <% else %>
+      user_id = 0
+    <% end %>
+    competition_id = <%= @competition.id %>
+  </script>
+<% end %>
+<div class="row">
+	<div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
+		<div class="row">
+      <% if @competition %>
+			<div class="large-6 columns medium-6 movie-box-wrapper">
+				<h4 class="index-heading"><%= @competition.title %></h4>
+				<div class="content-wrapper">
+					<div class="large-8 large-centered medium-8 medium-centered columns content">
+						<a href="#" data-reveal-id="club-info"><%= image_tag("quiz.png") %></a>
+						<div id="club-info" class="reveal-modal popup-red padding-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+							<a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+							<h2 class="popup-text"><%= @competition.title %></h2>
+              <h2 class="popup-text"><%= @competition.description.html_safe %></h2>
+              <% if @user_competition_result %>
+              <h2 class="popup-text">Du har redan deltagit i denna tävlingen.</h2>
+              <h2 class="popup-text">Du hade <%= @user_competition_result.score %> av <%= @competition.questions.count %> rätt!</h2>
+              <% else %>
+              
+              <form id="competition-form">
+              <% @competition.questions.each_with_index do |question, index| %>
+              <img src="/<%= index %>.png" id="thumb" alt="avatar" width="100" height="100"><br><br>
+                <%= question.question %><br>
+                <% question.answers.each do |answer| %>
+                  <div class="answer">
+                    <input type="radio" name="<%= index %>" value="<%= answer.correct %>"> <%= answer.answer %><br>
+                  </div>
+                <% end %>
+                <br>
+              <% end %>
+              <% unless current_user %>
+                Skriv din email-adress:
+                <%= email_field_tag 'email' %>
+              <% end %>
+            </form>
+            <%= render partial: 'competition_results/form' %>
+            <% end %>
+            </div>
+					</div>
+				</div>
+			</div>
+      <% end %>
+		</div>
+  </div>
+</div>
+

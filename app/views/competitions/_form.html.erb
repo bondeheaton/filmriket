@@ -1,0 +1,25 @@
+<div class="large-12 large-centered medium-10 medium-centered columns" id="js-fix">
+  <%= form_for(@competition) do |f| %>
+    <% if @competition.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@competition.errors.count, "error") %> prohibited this competition from being saved:</h2>
+        <ul>
+        <% @competition.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+		<div class="large-12 columns">
+			<%= f.label "Titel", class: 'white-text' %>
+			<%= f.text_area :title, :cols => '500' %><br>
+  	</div>
+  	<div class="large-12 columns">
+			<%= f.label "Beskrivning", class: 'white-text' %>
+			<%= f.cktext_area :description, :cols => '500' %><br>
+  	</div>
+    <div class="large-12 columns">
+      <%= f.submit "Skapa", class: 'button expand grey-background' %>
+    </div>
+  <% end %>
+</div>

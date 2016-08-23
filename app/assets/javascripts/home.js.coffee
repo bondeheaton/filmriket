@@ -64,3 +64,27 @@ $(document).on 'click', '.link-fix', ->
     handler.map.centerOn(center)
     return
   ), 200
+  
+$(document).on 'click', '#competition', ->
+  result = []
+  score = 0
+  i=0
+  while i<questions
+    value = $('input[name=' + i + ']:checked', '#competition-form').val()
+    if value == 'true'
+      score++
+    result.push value
+    i++
+  $("#competition_result_user_id").val(user_id)
+  $("#competition_result_competition_id").val(competition_id)
+  $("#competition_result_score").val(score)
+  $("#competition_result_email").val($('input[name=email]').val())
+  $('#competition').hide()
+  alert('Du fick ' + score + ' av ' + result.length + ' rätt!')
+  i = 0
+  while i<questions
+    $('input[name=' + i + '][value="true"]', '#competition-form').parent().css("color", "lightgreen")
+    $('input[name=' + i + '][value="true"]', '#competition-form').parent().css("text-decoration", "underline")
+    i++
+  
+  

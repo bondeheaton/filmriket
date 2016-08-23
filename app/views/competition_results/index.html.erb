@@ -1,0 +1,24 @@
+<h1>Tävlingsresultat</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Namn (Email)</th>
+      <th>Tävling</th>
+      <th>Poäng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @competition_results.each do |competition_result| %>
+      <tr>
+        <% if competition_result.user %>
+          <td><%= "#{competition_result.user.firstname} #{competition_result.user.lastname} (#{competition_result.user.email})" %></td>
+        <% else %>
+          <td><%= "Gäst (#{competition_result.email})"%></td>
+        <% end %>
+        <td><%= competition_result.competition.title %></td>
+        <td><%= competition_result.score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

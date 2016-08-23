@@ -1,0 +1,29 @@
+Titel:
+<%= @competition.title %><br>
+Beskrivning:
+<%= @competition.description %><br><br>
+<% @competition.questions.each do |question| %>
+  Fråga:<br>
+  <%= question.question %>
+  <%= link_to 'Ta bort', destroy_question_competition_path(question), method: :delete, data: { confirm: 'Är du säker på att du vill ta bort denna?' }, class: 'white-text' %><br>
+  Svarsalternativ:
+  <% question.answers.each do |answer| %>
+    <% if answer.correct %>
+      <div class="correct-answer">
+    <% else %>
+      <div class="incorrect-answer">
+    <% end %>
+      <%= answer.answer %>
+      <%= link_to 'Ta bort', destroy_answer_competition_path(answer), method: :delete, data: { confirm: 'Är du säker på att du vill ta bort denna?' }, class: 'white-text' %>
+      <%= link_to 'Markera som rätt svar', mark_correct_answer_competition_path(answer), method: :put, class: 'white-text' %>
+    </div>
+  <% end %>
+  <%= form_for @answer, url: add_answer_competition_path(question) do |a| %>
+    <%= a.label 'Lägg till ett svarsalternativ' %>
+    <%= a.text_field :answer %>
+  <% end %>
+<% end %>
+<%= form_for @question, url: add_question_competition_path(@competition) do |f| %>
+  <%= f.label 'Lägg till en fråga' %>
+  <%= f.text_field :question %>
+<% end %>

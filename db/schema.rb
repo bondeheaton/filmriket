@@ -11,13 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227160242) do
+ActiveRecord::Schema.define(version: 20160620085217) do
 
   create_table "admin_images", force: true do |t|
     t.string   "img"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "answers", force: true do |t|
+    t.integer  "question_id"
+    t.string   "answer"
+    t.boolean  "correct"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+
+  create_table "answers_competition_results", id: false, force: true do |t|
+    t.integer "answer_id"
+    t.integer "competition_result_id"
+  end
+
+  add_index "answers_competition_results", ["answer_id", "competition_result_id"], name: "answer_result_index"
 
   create_table "bookings", force: true do |t|
     t.integer  "user_id"
@@ -56,6 +73,26 @@ ActiveRecord::Schema.define(version: 20160227160242) do
     t.string   "banner"
     t.integer  "points"
     t.datetime "start_date"
+  end
+
+  create_table "competition_results", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "competition_id"
+    t.integer  "score"
+    t.text     "answers"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
+  end
+
+  add_index "competition_results", ["competition_id"], name: "index_competition_results_on_competition_id"
+  add_index "competition_results", ["user_id"], name: "index_competition_results_on_user_id"
+
+  create_table "competitions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "description"
   end
 
   create_table "events", force: true do |t|
@@ -140,6 +177,15 @@ ActiveRecord::Schema.define(version: 20160227160242) do
     t.string   "text_file"
     t.datetime "press_date"
   end
+
+  create_table "questions", force: true do |t|
+    t.integer  "competition_id"
+    t.string   "question"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["competition_id"], name: "index_questions_on_competition_id"
 
   create_table "ratings", force: true do |t|
     t.integer  "value"
