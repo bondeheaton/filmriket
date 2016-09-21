@@ -3,7 +3,8 @@ class HomeController < ApplicationController
 
   def index
     @hash = build_gmaps_markers
-    @competition = Competition.last
+    @competition = Competition.first
+    @challenge = Competition.last
     @competition_result = CompetitionResult.new
     @user_competition_result = @competition.competition_results.find_by_user_id(current_user) if @competition
   end
@@ -32,10 +33,11 @@ class HomeController < ApplicationController
 
   def contact
   end
-  
+
   def competition
-    @competition = Competition.last
+    @competition = Competition.first
     @competition_result = CompetitionResult.new
+    @challenge = Competition.last
     @user_competition_result = @competition.competition_results.find_by_user_id(current_user) if @competition
   end
 
