@@ -59,9 +59,9 @@
 		<% end %>
     
 		<% if current_page? compete_path %>
-			<%= link_to "<div class='menu-button5-selected'>Tävlingar</div>".html_safe, compete_path, class: 'menu-text', 'data-no-turbolink' => true %>
+			<%= link_to "<div class='menu-button5-selected'>Aktiviteter</div>".html_safe, compete_path, class: 'menu-text', 'data-no-turbolink' => true %>
 		<% else %>
-			<%= link_to "<div class='menu-button5'>Tävlingar</div>".html_safe, compete_path, class: 'menu-text', 'data-no-turbolink' => true %>
+			<%= link_to "<div class='menu-button5'>Aktiviteter</div>".html_safe, compete_path, class: 'menu-text', 'data-no-turbolink' => true %>
 		<% end %>
     
 		<% if current_page? about_path %>
@@ -98,7 +98,7 @@
 			<%= link_to "<div class='menu-button'>Evenemang</div>".html_safe, events_path, class: 'menu-text' %>
 			<%= link_to "<div class='menu-button'>Bilder</div>".html_safe, admin_images_path, class: 'menu-text' %>
 			<%= link_to "<div class='menu-button'>Press</div>".html_safe, presses_path, class: 'menu-text' %>
-      <%= link_to "<div class='menu-button'>Tävlingar</div>".html_safe, competitions_path, class: 'menu-text' %>
+      <%= link_to "<div class='menu-button'>Aktiviteter</div>".html_safe, competitions_path, class: 'menu-text' %>
       <%= link_to "<div class='menu-button'>Tävlingsresultat</div>".html_safe, competition_results_path, class: 'menu-text' %>
 			<%= link_to "<div class='menu-button'>Skapa Nyhet</div>".html_safe, new_news_path, class: 'menu-text' %>
 			<%= link_to "<div class='menu-button'>Skapa Klubb</div>".html_safe, new_club_path, class: 'menu-text' %>
