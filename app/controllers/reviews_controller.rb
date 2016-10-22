@@ -23,14 +23,14 @@ class ReviewsController < ApplicationController
 
   def upload
     review = Review.find(params[:review_id])
-    club_name = review.club.name
+    club_name = review.clubs.first.name
     movie = Movie.find(review.movie_id).title
     title = ("Filmriket - " + club_name + " recenserar " + movie).to_s
     review.title = title
     review.save
     # If video got link it should not upload anything to youtube instead redirect to after-upload-path
     if review.videolink
-      redirect_to club_path(review.club)
+      redirect_to club_path(review.clubs.first)
     else
       # Youtube-connection
       client = YouTubeIt::Client.new(:username => "filmriket@gmail.com", :password => "", :dev_key => "")
@@ -45,7 +45,7 @@ class ReviewsController < ApplicationController
     # Setting videolink after upload is complete and video-url is available
     review.videolink = params[:id]
     review.save
-    redirect_to club_path(@review.club)
+    redirect_to club_path(@review.clubs.first)
   end
 
   def create
@@ -72,6 +72,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:title, :description, :videolink, :active, :user_id, :movie_id, :club_id)
+      params.require(:review).permit(:title, :description, :videolink, :active, :user_id, :movie_id, club_ids: [])
     end
 end

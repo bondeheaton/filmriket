@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620085217) do
+ActiveRecord::Schema.define(version: 20161022084302) do
 
   create_table "admin_images", force: true do |t|
     t.string   "img"
@@ -73,6 +73,11 @@ ActiveRecord::Schema.define(version: 20160620085217) do
     t.string   "banner"
     t.integer  "points"
     t.datetime "start_date"
+  end
+
+  create_table "clubs_reviews", id: false, force: true do |t|
+    t.integer "review_id", null: false
+    t.integer "club_id",   null: false
   end
 
   create_table "competition_results", force: true do |t|
