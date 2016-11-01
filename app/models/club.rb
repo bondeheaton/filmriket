@@ -5,8 +5,8 @@ class Club < ActiveRecord::Base
   has_many :participants, dependent: :destroy
   has_many :events, through: :participants, dependent: :destroy
   has_many :uploads, dependent: :destroy
-  has_many :club_movies
-  has_many :reviews
+  has_and_belongs_to_many :club_movies
+  has_and_belongs_to_many :reviews
   
   validates :points, presence: true
   validates :name, presence: true

@@ -35,13 +35,13 @@ class ClubMoviesController < ApplicationController
   
   def upload
     club_movie = ClubMovie.find(params[:club_movie_id])
-    club_name = club_movie.club.name
+    club_name = club_movie.clubs.first.name
     title = club_movie.title.to_s
     club_movie.title = title
     club_movie.save
     # If video got link it should not upload anything to youtube instead redirect to after-upload-path
     if club_movie.videolink
-      redirect_to club_path(club_movie.club)
+      redirect_to club_path(club_movie.clubs.first)
     else
       # Youtube-connection
       client = YouTubeIt::Client.new(:username => "filmriket@gmail.com", :password => "", :dev_key => "")
@@ -55,7 +55,7 @@ class ClubMoviesController < ApplicationController
     club_movie = ClubMovie.find(params[:club_movie_id])
     club_movie.videolink = params[:id]
     club_movie.save
-    redirect_to club_path(@club_movie.club)
+    redirect_to club_path(@club_movie.clubs.first)
   end
   
 
@@ -82,6 +82,6 @@ class ClubMoviesController < ApplicationController
     end
 
     def club_movie_params
-      params.require(:club_movie).permit(:title, :description, :videolink, :active, :user_id, :club_id)
+      params.require(:club_movie).permit(:title, :description, :videolink, :active, :user_id, club_ids: [])
     end
 end

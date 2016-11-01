@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022084302) do
+ActiveRecord::Schema.define(version: 20161101062327) do
 
   create_table "admin_images", force: true do |t|
     t.string   "img"
@@ -60,6 +60,11 @@ ActiveRecord::Schema.define(version: 20161022084302) do
 
   add_index "club_movies", ["club_id"], name: "index_club_movies_on_club_id"
   add_index "club_movies", ["user_id"], name: "index_club_movies_on_user_id"
+
+  create_table "club_movies_clubs", id: false, force: true do |t|
+    t.integer "club_movie_id", null: false
+    t.integer "club_id",       null: false
+  end
 
   create_table "clubs", force: true do |t|
     t.string   "name"

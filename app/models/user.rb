@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   belongs_to :club
   has_many :movie_comments, dependent: :destroy
-  has_and_belongs_to_many :reviews
+  has_many :reviews
   has_many :ratings, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :club_movies

@@ -1,6 +1,6 @@
 class ClubMovie < ActiveRecord::Base
   belongs_to :user
-  belongs_to :club
+  has_and_belongs_to_many :clubs
   
   default_scope { order('created_at DESC') } 
   
