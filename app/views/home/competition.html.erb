@@ -14,6 +14,63 @@
   
 	<div class="large-10 large-centered medium-10 medium-centered columns" id="js-fix">
 		<div class="row">
+        <div class="large-6 columns medium-6 movie-box-wrapper">
+          <h4 class="index-heading">Bio Fokus Jönköping</h4>
+          <div class="content-wrapper">
+            <div class="large-8 large-centered medium-8 medium-centered columns content">
+
+              <a href="#" data-reveal-id="partners"><%= image_tag("bio.png") %></a>
+
+              <div id="partners" class="reveal-modal popup-grey padding-fix text-fix" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                <a class="close-reveal-modal close-fix" aria-label="Close">&#215;</a>
+
+                <h2 class="popup-text">I höst bjuder Filmriket sina medlemmar på bio!</h2>
+                <p class="popup-text">
+                  Vi visar tre filmer. Idol, det borde finnas regler och Mitt liv som zucchini, en animerad film som vi är glada att få förhandsvisa innan premiären.<br>
+		  Alla filmer visas på Biograf Fokus på stadsbiblioteket i Jönköping.<br>
+		  Alla visningar inleds med mingel och avslutas med filmsnack.
+		</p>
+
+                <h2 class="popup-text">Idol</h2>
+		<p class="popup-text">
+		  28 september kl 18.30: Idol<br>
+		  18.00 -18.30 mingel med snacks.<br>
+		  Mohammed bor i Gaza och drömmer om att bli sångare. En dag tar han sig med falskt visum till uttagningen av Idol i Kairo för att sedan vinna finalen av Arab Idol 2013.<br>
+Filmen bygger på Idolvinnaren Mohammed Assafs liv.
+</p>
+        				<div class="club-movie">
+        					<%= raw(youtube_embed_popup("https://www.youtube.com/watch?v=mP3IwALna08")) %>
+        				</div>
+					<h2 class="popup-text">Mitt liv som Zucchini</h2>
+                <p class="popup-text">
+		  19 oktober kl 18.30: Mitt liv som Zucchini<br>
+		  18.00 -18.30: mingel med snacks.<br>
+		  När Zucchinis mamma dör hamnar han på barnhem och lär känna andra barn som övergivits av sina föräldrar på olika sätt. Här lär han sig saker om ensamhet och sorg, vänska och kärlek.<br>
+		  (Frankrike 2016, 66 minuter, svenskt tal)<br>
+FÖRHANDSVISNING!
+</p>
+        				<div class="club-movie">
+        					<%= raw(youtube_embed_popup("https://www.youtube.com/watch?v=4d9N5Y_sN8Q")) %>
+        				</div>
+                <h2 class="popup-text">Det borde finnas regler</h2>
+                <p class="popup-text">
+		  23 november kl 18.30: Det borde finnas regler<br><br>
+
+		  REGISSÖRBESÖK!<br>
+		  Linda-Maria Birbeck filmens regissör är med under visningen och har ett samtal efter filmen.<br><br>
+18.00 - 18.30: mingel med snacks.<br>
+Mia, Miriam och Karl är 14 år och bor i en tråkig liten stad. De övar sig på att bli vuxna. <br>
+Men hur gör man? Det borde finnas regler! <br>
+(Sverige 2015, 90 minuter, svenskt tal, svensk text)
+</p>
+        				<div class="club-movie">
+        					<%= raw(youtube_embed_popup("https://www.youtube.com/watch?v=R6usZhmFqJQ")) %>
+        				</div>
+<br>                             <h2 class="popup-text">    <%= link_to "Anmäl dig här!", "https://docs.google.com/forms/d/1-HUmBKBFNoznjLPPIevdUC2Cmex8kLP5d76LItumEJ8/viewform?edit_requested=true", class: 'white-text menu-text-no-background', target: "_blank"  %>
+              </div>
+            </div>
+          </div>
+        </div>
 <div class="large-6 columns medium-6 movie-box-wrapper">
 				<h4 class="index-heading">Animationskurs 22/10</h4>
 				<div class="content-wrapper">
@@ -43,6 +100,8 @@ Vi ses!<br> <br>
 					</div>
 				</div>
 			</div>
+		      </div>
+		      <div class="row">
   
 
 			<div class="large-6 columns medium-6 movie-box-wrapper">
@@ -59,8 +118,6 @@ Vi ses!<br> <br>
 					</div>
 				</div>
 			</div>
-                      </div>
-		<div class="row">
       <% if @competition %>
 			<div class="large-6 columns medium-6 movie-box-wrapper">
 				<h4 class="index-heading"><%= @competition.title %></h4>
